@@ -1,0 +1,26 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Marín - 14/Jun/2018)
+----
+Clase nueva (Reporte de clientes por vendedores)...
+
+
+v0.02: (José Marín - 12/Dic/2018)
+----
+No habia puesto el mes de Octubre en el combo.
+
+
+v0.03: (José Marín - 2/Oct/2019)
+----
+Modificacion en la consulta para meses hacia atras, no me esta funcionando correctamente se hace un cambio temporal para que lo puedan usar.
+
+
+v0.04: (José Marín - 8/Oct/2019)
+----
+Modificaciones en la consulta.
+

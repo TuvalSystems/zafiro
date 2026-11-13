@@ -1,0 +1,39 @@
+# Conexion y configuracion local (incluye copias de los servicios).
+/config/
+/Servicios/**/config/
+/Conexión PostgreSQL.txt
+
+# Archivos de las capturas y copias con parametros de conexion/cifrado.
+**/ZafParSis/
+**/ZafJCE/
+ZafParSis*.java
+ZafJCEAlgAES*.java
+/Zafiro/src/ZafReglas/ZafImpGuiRem.java
+/Zafiro/src/CxC/ZafCxC12/ZafCxC12.java
+
+# Firmas digitales y material privado.
+/FacturacionElectronica/
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.key
+.env
+.env.*
+!.env.example
+
+# Compilados: pueden contener las mismas claves que los fuentes excluidos.
+build/
+dist/
+*.class
+/Zafiro*.jar
+/Servicios/**/ZafSer*.jar
+
+# Configuracion privada de NetBeans y archivos de ejecucion.
+nbproject/private/
+/logs/
+/Temp/
+*.log
+hs_err_pid*
+Thumbs.db
+Desktop.ini

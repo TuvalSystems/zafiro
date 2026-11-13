@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafRptCxP11" language="groovy" pageWidth="595" pageHeight="842" columnWidth="561" leftMargin="14" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="282"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Zafiro_escritorio\\Reportes\\Compras\\ZafCom53\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="strCamAudRpt" class="java.lang.String"/>
+	<parameter name="txnomcli" class="java.lang.String"/>
+	<parameter name="co_cli" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="strSql" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P!{strSql}]]>
+	</queryString>
+	<field name="co_emp" class="java.lang.Integer"/>
+	<field name="co_loc" class="java.lang.Integer"/>
+	<field name="co_tipdoc" class="java.lang.Integer"/>
+	<field name="co_doc" class="java.lang.Integer"/>
+	<field name="co_reg" class="java.lang.Integer"/>
+	<field name="tx_descor" class="java.lang.String"/>
+	<field name="ne_numdoc" class="java.lang.Integer"/>
+	<field name="fe_doc" class="java.sql.Date"/>
+	<field name="ne_diacre" class="java.lang.Integer"/>
+	<field name="fe_ven" class="java.sql.Date"/>
+	<field name="porret" class="java.math.BigDecimal"/>
+	<field name="mo_pag" class="java.math.BigDecimal"/>
+	<field name="nd_abo" class="java.math.BigDecimal"/>
+	<field name="valpen" class="java.math.BigDecimal"/>
+	<group name="grupo">
+		<groupExpression><![CDATA[]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<staticText>
+					<reportElement x="2" y="6" width="32" height="14"/>
+					<textElement/>
+					<text><![CDATA[co_loc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="33" y="6" width="55" height="14"/>
+					<textElement/>
+					<text><![CDATA[tx_descor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="89" y="6" width="65" height="14"/>
+					<textElement/>
+					<text><![CDATA[ne_numdoc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="155" y="6" width="57" height="14"/>
+					<textElement/>
+					<text><![CDATA[fe_doc]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="214" y="6" width="47" height="14"/>
+					<textElement/>
+					<text><![CDATA[ne_diacre]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="266" y="6" width="48" height="14"/>
+					<textElement/>
+					<text><![CDATA[fe_ven]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="327" y="6" width="39" height="14"/>
+					<textElement/>
+					<text><![CDATA[porret]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="368" y="6" width="44" height="14"/>
+					<textElement/>
+					<text><![CDATA[mo_pag]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="419" y="6" width="46" height="14"/>
+					<textElement/>
+					<text><![CDATA[nd_abo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="474" y="6" width="38" height="14"/>
+					<textElement/>
+					<text><![CDATA[valpen]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="5" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-5" mode="Transparent" x="116" y="12" width="271" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[CARTERA CLIENTE/PROVEEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-5" mode="Transparent" x="489" y="1" width="25" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Pag:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="522" y="0" width="12" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="540" y="0" width="12" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line direction="BottomUp">
+				<reportElement x="535" y="4" width="3" height="8"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-5" mode="Transparent" x="5" y="5" width="43" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="91" y="6" width="259" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{txnomcli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="48" y="6" width="43" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{co_cli}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Prevent">
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="1" width="17" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{co_loc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="22" y="1" width="66" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_descor}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="88" y="1" width="63" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ne_numdoc}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="154" y="1" width="61" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{fe_doc}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="216" y="1" width="45" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ne_diacre}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="263" y="1" width="60" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{fe_ven}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(-###0.00)" isBlankWhenNull="true">
+				<reportElement x="323" y="1" width="43" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{porret}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)" isBlankWhenNull="true">
+				<reportElement x="366" y="1" width="46" height="14"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{mo_pag}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)" isBlankWhenNull="true">
+				<reportElement x="423" y="1" width="39" height="14"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{nd_abo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)" isBlankWhenNull="true">
+				<reportElement x="467" y="1" width="45" height="14"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{valpen}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="29" y="16" width="200" height="13"/>
+				<subreportParameter name="co_doc">
+					<subreportParameterExpression><![CDATA[$F{co_doc}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="co_emp">
+					<subreportParameterExpression><![CDATA[$F{co_emp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="co_loc">
+					<subreportParameterExpression><![CDATA[$F{co_loc}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="co_tipdoc">
+					<subreportParameterExpression><![CDATA[$F{co_tipdoc}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="co_reg">
+					<subreportParameterExpression><![CDATA[$F{co_reg}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "ZafSubRptCxP11.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement key="line-1" x="0" y="1" width="550" height="1" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[!$P{strCamAudRpt}.equals("")]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="27" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement key="textField" x="0" y="4" width="512" height="12"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{strCamAudRpt}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="2" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

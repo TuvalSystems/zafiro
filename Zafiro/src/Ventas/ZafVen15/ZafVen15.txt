@@ -1,0 +1,104 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Eddye Lino - 20/May/2009)
+----
+Clase nueva.
+
+
+v0.2: (Eddye Lino - 21/May/2009)
+-----
+Se modificaron los métodos: 
+   1) configurarTblDat()
+Por peticién de gerencia se desactivé el PopupMenu del JTable. Temporalmente lo dejé sélo activo
+para el usuario Administrador hasta que se vea la forma de configurar accesos por usuario.
+
+
+v0.3: (Eddye Lino - 27/May/2009)
+-----
+Se modificaron los métodos: 
+   1) configurarTblDat()
+   2) cargarDetReg()
+En dichos métodos se hizo cambios para que el mismo programa fuera llamado desde otro lado.
+Ahora también es llamado desde "co_mnu=910(Listado de stock fésico de inventario por bodegas...)" donde se oculta la columna de precio.
+
+
+v0.4: (Eddye Lino - 23/Oct/2009)
+-----
+Se modificaron los métodos: 
+   1) configurarTblBod()
+   2) agregarColTblDat()
+   3) cargarDetReg()
+   4) tblBodMouseClicked(java.awt.event.MouseEvent evt)
+   5) ZafMouMotAda.mouseMoved(java.awt.event.MouseEvent evt)
+En dichos métodos se agregó código para que se presenten los campos "nd_canIngBod" y "nd_canEgrBod".
+
+
+v0.5: (Eddye Lino - 04/Nov/2009)
+-----
+Se modificaron los métodos: 
+   1) configurarTblBod()
+   2) agregarColTblDat()
+   3) cargarDetReg()
+   4) tblBodMouseClicked(java.awt.event.MouseEvent evt)
+En dichos métodos se agregó código para ocultar las columnas "nd_canIngBod" y "nd_canEgrBod" cuando el reporte
+es llamado desde "co_mnu=846(Lista de precios (Stock físico por bodegas)...)".
+
+
+v0.5.1: (Ingrid Lino - 09/Dic/2011)
+-------
+Se adicionó el filtro de precio de venta al publico >0 (solicitado por Lenin-UIO).
+
+
+v0.5.2: (Ingrid Lino - 04/May/2012)
+-------
+Se adicionan columnas de Notas de Pedido y Pedido Embarcado(Módulo de Importaciones).
+
+
+v0.5.3: (Ingrid Lino - 26/Dic/2012)
+-------
+Se filtra notas de pedido cerradas.
+
+
+v0.6.1: (Tony Sanginez - 03/Ago/2016)
+-------
+Se cambia en las columnas la columna de Stock por la de cantidad disponible. Igualmente se cambia los datos recibidos 
+de la base en donde antes se obtenia el nd_stkAct y ahora se obtiene el nd_canDis. 
+
+
+v0.6.2: (Rosa Zambrano - 26/Jun/2019)
+-------
+Se valida el st_doc='A' para las notas de pedidos, pedidos embarcados.
+Se muestra el número de pedido actual.
+
+
+v0.7: (Eddye Lino - 24/Oct/2019)
+-----
+Se borró los filtros "Item", "Desde-Hasta", "Termina con" porque se creó la clase "ZafFilItm" que tiene dichos filtros y otros más.
+
+
+v0.8: (Jean Paúl Morán - 08/Ene/2020)
+-----
+Se agrega metodo "cargarCabeceraPedidosConfiguradosConFiltroItem" para que se muestren solo los pedidos donde se encuentra el item o items filtrados,	
+ántes se mostraban todos los pedidos aunque el item no se encuentre en dicho pedido.	
+
+
+v0.8.1: (Jean Paúl Morán - 08/Ene/2020)
+-----
+Se modificó lo anteriormente hecho y se creó el metodo "escondeColumnasPedidoSinValor" para que solo salgan los pedidos que contengan el o los items filtrados.
+
+
+v0.8.2: (Ingrid Lino - 21/May/2020)
+-----
+Se cambia el campo que muestra el mes de arribo (nombre) por el de fe_arr (fecha específica) en el método "cargarCabeceraPedidosConfigurados" y en "cargarDetallePedidosConfigurados". 
+Solicitado por AP mediante llamada teléfonica 21/May/2020.
+
+
+v0.8.3: (Angélica Zambrano - 30/Sep/2020)
+-----
+Se cambia en la función cargarDetReg para que muestre la cantidad disponible por grupo. Ejemplo: Tuval-Cuenca, Castek-Cuenca, Dimulti-Cuenca.
+

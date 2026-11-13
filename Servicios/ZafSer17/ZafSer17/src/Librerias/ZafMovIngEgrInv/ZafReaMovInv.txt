@@ -1,0 +1,35 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Mario Marín  - 20/May/2016)
+----
+Se crea clase nueva "Genera prestamos y transferencias segun la NECESIDAD sea recibida".
+
+v0.01.01: (José Mario Marín  - 11/Ago/2016)
+----
+Se modifica para que las bodegas virtuales no se confirmen.
+
+v0.01.03: (José Mario Marín  - 23/Ago/2016)
+----
+Se resta el disponible.
+
+v0.01.04: (José Mario Marín  - 6/Sep/2016)
+----
+Si se debe o no generar la OD.
+
+v0.01.05: (José Mario Marín  - 4/Oct/2016)
+----
+Si se debe o no generar la OD, usando la nueva clase ZafCfgBod y la nueva tabla tbm_cfgbod.
+
+v0.01.06: (José Mario Marín  - 28/Oct/2016)
+----
+Se agrega la tabla tbm_cfgTerInvCon para saber si un terminal se confirma esta pendiente, activar la bodega .
+
+v0.01.07: (José Mario Marín  - 7/Nov/2016)
+----
+Se modifica en obtenerDatosTransferencia lea la configuracion para que un item se deba confirmar.
+
+v0.01.08: (José Mario Marín  - 8/Nov/2016)
+----
+Se modifica en obtenerDatosTransferencia, el query de obtenerDatosTransferencia().

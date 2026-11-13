@@ -1,0 +1,21 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Marín - 16/Oct/2013)
+----
+Clase nueva
+
+
+v0.1.1: (José Marín - 16/Oct/2013)
+----
+Se agrego una validación en la modificación
+  
+
+v0.02: (José Marín - 17/May/2019)
+----
+Se modifica por cambios del servidor, de California a Inmaconsa.
+  

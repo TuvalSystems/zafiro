@@ -1,0 +1,13 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+
+v1.0: (Christian Mateo- 05/02/2020)
+----
+Ingreso semanal de horas extras
+
+
+v1.1: (Christian Mateo- 20/02/2020)
+----
+Correcion de errores y mejoras solicitadas por el usuario final.

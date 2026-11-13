@@ -1,0 +1,28 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Rosa Zambrano - 12/Abr/2018)
+----
+Clase nueva "Facturas de proveedores (Importaciones)".
+
+
+v0.1.1: (Rosa Zambrano - 30/Oct/2018)
+-----
+Se agrega nueva relación de FACIMP con Seguimiento.
+Solicitado por Ingrid Lino para que la factura de importación este enlazada al pedido embarcado y todos sus movimientos.
+
+
+v0.1.2: (Rosa Zambrano - 08/Abr/2019)
+-----
+Se genera asiento de diario, incluyendo el valor de intereses.
+Temporalmente se oculta el check de incluir valor de intereses, debido a que se harán otras modificaciones con asientos de reversión.
+
+
+v0.1.3: (Rosa Zambrano - 01/Jul/2019)
+-----
+Se quita la opción de inserción para que la FACIMP se maneje solo de forma automática en el PEDEMB.
+Nota: Las FACIMP son reemplazadas por la contabilización de los PEDEMB.

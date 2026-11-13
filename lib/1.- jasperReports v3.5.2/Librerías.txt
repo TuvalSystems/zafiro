@@ -1,0 +1,41 @@
+PostgreSQL:
+-----------
+    postgresql-8.4-701.jdbc4
+
+
+JasperReports:
+--------------
+    Para compilar los archivos ".jrxml":
+        commons-digester-1.7
+        commons-beanutils-1.8.0
+        jdt-compiler-3.1.1
+
+    Para llamar los archivos ".jasper":
+        jasperreports-3.5.2
+        commons-collections-3.2.1
+        commons-javaflow-20060411
+        commons-logging-1.1
+
+    Para exportar a PDF:
+        iText-2.1.0
+
+    Para trabajar con Excel, Word, etc:
+        poi-3.2-FINAL-20081019
+        jxl
+
+
+
+
+iReport v3.7.5:
+===============
+
+Para que funcione iReports:
+---------------------------
+    spring ->Copiarlo desde C:\Archivos de programa\iReport-3.7.5\ireport\modules\ext
+    jfreechart-1.0.12 ->Copiarlo desde C:\Archivos de programa\iReport-3.7.5\ireport\modules\ext
+Nota.-Hay que borrar la versión anterior del JasperReports. Es decir, borrar "jasperreports-3.5.2".
+
+Para que corran los reportes en NetBeans:
+-----------------------------------------
+jasperreports-3.7.5
+groovy-all-1.5.5

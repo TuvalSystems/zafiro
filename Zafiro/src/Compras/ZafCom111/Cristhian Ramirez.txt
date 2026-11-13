@@ -1,0 +1,24 @@
+
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez  - 25/Ago/2023)
+----
+Clase nueva.
+
+v0.2: (Cristhian Ramirez  - 26/Sept/2023)
+----
+Se genera lo que es el aumento del 25% al precio sugerido  ademas se muestra las columnas que requeria lcs
+
+v0.3: (Cristhian Ramirez  - 27/Sept/2023)
+----
+Se añade que cuando se modifica el margen utilitario , se calcula de forma automatica lo que es el factor costo y el precio sugerido
+
+v0.4: (Cristhian Ramirez  - 27/Sept/2023)
+----
+Se modifica que al momento de consultar los items se genere de forma automatica el factor costo y el precio sugerido
+
+v0.5: (Cristhian Ramirez  - 28/Sept/2023)
+----
+Se modifica que al momento de consultar se oculte las columnas de Peso(KG),Cant. Max,P.C.Factor, Mar.Uti.Pro,Rot Inv.,esto lo requirio LSC

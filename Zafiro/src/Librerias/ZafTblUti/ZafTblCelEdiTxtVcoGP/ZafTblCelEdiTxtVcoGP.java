@@ -1,0 +1,484 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Librerias.ZafTblUti.ZafTblCelEdiTxtVcoGP;
+import Librerias.ZafTblUti.ZafTblEvt.ZafTableListener;
+import Librerias.ZafTblUti.ZafTblEvt.ZafTableEvent;
+import javax.swing.event.EventListenerList;
+import Librerias.ZafVenConGP.ZafVenConGP;
+
+/**
+ *
+ * @author sistemas5
+ */
+public class ZafTblCelEdiTxtVcoGP extends javax.swing.JTextField implements javax.swing.table.TableCellEditor{
+    //Constantes:
+    private static final int INT_BEF_EDI=0;     /**Antes de editar: Indica "Before edit".*/
+    private static final int INT_AFT_EDI=1;     /**Después de editar: Indica "After edit".*/
+    private static final int INT_BEF_CON=2;     /**Antes de consultar: Indica "Before consultar".*/
+    private static final int INT_AFT_CON=3;     /**Después de consultar: Indica "After consultar".*/
+    //Variables:
+    private java.util.LinkedList objLinLis=new java.util.LinkedList();  //Almacena la lista de suscriptores.
+    private javax.swing.JTable tblDat;
+    private ZafVenConGP vcoGen;                   //Ventana de consulta "General".
+    private String strConCel;                   //Contenido de la celda antes de ser editada.
+    private int intColVen[], intColTbl[];
+    private boolean blnBusExe;                  //Determina si la búsqueda ya fue ejecutada.
+    private boolean blnConAce;                  //Determina si se aceptó/canceló la consulta.
+    private boolean blnCanEdi;                  //Determina si se debe cancelar la edición de la celda.
+    protected EventListenerList objEveLisLis=new EventListenerList();
+    
+    private boolean blnMosVenCon=true;         //Determina si la ventana de consulta debe mostrarse
+    private int intValCon=0;
+    
+    
+    public ZafTblCelEdiTxtVcoGP(javax.swing.JTable tabla, ZafVenConGP ventana, int[] columnasVentana, int[] columnasTabla)
+    {
+        tblDat=tabla;
+        vcoGen=ventana;
+        intColVen=columnasVentana;
+        intColTbl=columnasTabla;
+        blnConAce=false;
+        blnCanEdi=false;
+        blnBusExe=true;
+        this.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
+        //Agregar el "ActionListener" que avisará al JTable que el contenido de la celda ha cambiado.
+        this.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                thisActionPerformed(evt);
+            } 
+        });
+        //Seleccionar el texto cuando se obtenga el foco.
+        this.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {  
+                thisFocusGained(evt);
+            }
+        });
+        //Agregar el "FocusListener" que avisará al JTable que se ha cancelado la edición de la celda.
+        this.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (!blnBusExe)
+                    thisActionPerformed(null);
+            }
+        });
+    }
+    
+    public ZafTblCelEdiTxtVcoGP(javax.swing.JTable tabla, ZafVenConGP ventana, int[] columnasVentana, int[] columnasTabla,int indvalSP)
+    {
+        tblDat=tabla;
+        vcoGen=ventana;
+        intColVen=columnasVentana;
+        intColTbl=columnasTabla;
+        blnConAce=false;
+        blnCanEdi=false;
+        blnBusExe=true;
+        intValCon=indvalSP;
+        this.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0)));
+        //Agregar el "ActionListener" que avisará al JTable que el contenido de la celda ha cambiado.
+        this.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                thisActionPerformed(evt);
+            }
+        });
+        //Seleccionar el texto cuando se obtenga el foco.
+        this.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                thisFocusGained(evt);
+            }
+        });
+        //Agregar el "FocusListener" que avisará al JTable que se ha cancelado la edición de la celda.
+        this.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (!blnBusExe)
+                    thisActionPerformed(null);
+            }
+        });
+    }
+    
+    
+    /**
+     * Esta función adiciona el listener que notificará cuando el editor se detenga
+     * o cancele la edición de la celda.
+     */
+    public void addCellEditorListener(javax.swing.event.CellEditorListener l)
+    {
+        this.selectAll();
+        objLinLis.add(l);
+    }
+    
+    public void cancelCellEditing()
+    {
+        
+    }
+    
+    /**
+     * Esta función devuelve el nuevo valor que debe aparecer en la celda que se estaba editando.
+     * Por ejemplo, si el editor era un "JComboBox" devolverá la opción que se seleccionó en
+     * dicho combo.
+     */
+    public Object getCellEditorValue()
+    {
+        return this.getText();
+    }
+    
+    /**
+     * Esta función devuelve el "Component" utilizado para editar la celda. Por ejemplo, si el 
+     * editor es un "JComboBox" devolverá el combo que se utilizará como editor de la celda.
+     */
+    public java.awt.Component getTableCellEditorComponent(javax.swing.JTable table, Object value, boolean isSelected, int row, int column)
+    {
+        this.setText((value==null)?"":value.toString());
+        return this;
+    }
+    
+    /**
+     * Esta función devuelve "true" si se desea que la celda sea editable y "false" en caso contrario.
+     * Si se desea que apenas se de click en la celda aparezca el editor se debe quitar la validación
+     * y sólo dejar la línea "return true;".
+     */
+    public boolean isCellEditable(java.util.EventObject anEvent)
+    {
+        //Validar que sólo se muestre el editor cuando se da doble click.
+        if (anEvent instanceof java.awt.event.MouseEvent)
+        {
+            if (((java.awt.event.MouseEvent)anEvent).getClickCount()!=2)
+                return false;
+        }
+        //Permitir de manera predeterminada la edición de la celda.
+        blnCanEdi=false;
+        //Generar evento "beforeEdit()".
+        fireTableEditorListener(new ZafTableEvent(this), INT_BEF_EDI);
+        //Permitir/Cancelar la edición de acuerdo a "setCancelarEdicion".
+        if (blnCanEdi)
+            return false;
+        else
+            return true;
+    }
+    
+    /**
+     * Esta función remueve el listener que notifica cuando el editor se detiene
+     * o cancele la edición de la celda.
+     */
+    public void removeCellEditorListener(javax.swing.event.CellEditorListener l)
+    {
+        objLinLis.remove(l);
+    }
+    
+    /**
+     * Esta función devuelve "true" si se desea que la fila de la celda que se está editando sea
+     * seleccionada y "false" en caso contrario.
+     */
+    public boolean shouldSelectCell(java.util.EventObject anEvent)
+    {
+        return true;
+    }
+    
+    /**
+     * Esta función debe devolver "true" cuando los datos que está introduciendo el usuario son correctos y false
+     * en el caso contrario. Por ejemplo, puede ser que se esté utilizando un editor para ingreso de fechas y el
+     * usuario ha ingresado 31/Feb/2005 en cuyo caso deveríamos devolver "false" para obligar al usuario a que
+     * ingrese una fecha válida.
+     */
+    public boolean stopCellEditing()
+    {
+        super.fireActionPerformed();
+        return true;
+    }
+    
+    /**
+     * Nombre de la función: Mostrar ventana de consulta.
+     * Muestra la ventana de consulta para que el usuario seleccione la opción que desee.
+     */
+    private void mostrarVenCon()
+    {
+        //Generar evento "beforeConsultar()".
+        fireTableEditorListener(new ZafTableEvent(this), INT_BEF_CON);
+        //Inicializar la variable que almacena si se aceptó/canceló la consulta.
+        blnConAce=true;
+        //Búsqueda directa por "Campo seleccionado".
+        if (vcoGen.buscar(vcoGen.getTextoCampoBusqueda(), this.getText()))
+        {
+            int i, intFilSel;
+            intFilSel=tblDat.getSelectedRow();
+            for (i=0; i<intColVen.length; i++)
+                tblDat.setValueAt(vcoGen.getValueAt(intColVen[i]), intFilSel, intColTbl[i]);
+        }
+        else
+        {
+            vcoGen.cargarDatos();
+//            vcoGen.setVisible(true);
+            
+            if(blnMosVenCon)
+                vcoGen.setVisible(true);        
+            else
+                vcoGen.setVisible(false);
+            
+            if (vcoGen.getSelectedButton()==vcoGen.INT_BUT_ACE)
+            {
+                int i, intFilSel;
+                intFilSel=tblDat.getSelectedRow();
+                for (i=0; i<intColVen.length; i++)
+                    tblDat.setValueAt(vcoGen.getValueAt(intColVen[i]), intFilSel, intColTbl[i]);
+            }
+            else
+            {
+                setValCelEdi(false);
+                blnConAce=false;
+            }
+        }
+        //Generar evento "afterConsultar()".
+        fireTableEditorListener(new ZafTableEvent(this), INT_AFT_CON);
+    }
+    
+    private void mostrarVenConSP()
+    {
+        //Generar evento "beforeConsultar()".
+        fireTableEditorListener(new ZafTableEvent(this), INT_BEF_CON);
+        //Inicializar la variable que almacena si se aceptó/canceló la consulta.
+        blnConAce=true;
+        //Búsqueda directa por "Campo seleccionado".
+        if (vcoGen.buscarSP(vcoGen.getTextoCampoBusqueda(), this.getText()))
+        {
+            int i, intFilSel;
+            intFilSel=tblDat.getSelectedRow();
+            for (i=0; i<intColVen.length; i++)
+                tblDat.setValueAt(vcoGen.getValueAt(intColVen[i]), intFilSel, intColTbl[i]);
+        }
+        else
+        {
+            vcoGen.cargarDatos();
+//            vcoGen.setVisible(true);
+            
+            if(blnMosVenCon)
+                vcoGen.setVisible(true);        
+            else
+                vcoGen.setVisible(false);
+            
+            if (vcoGen.getSelectedButton()==vcoGen.INT_BUT_ACE)
+            {
+                int i, intFilSel;
+                intFilSel=tblDat.getSelectedRow();
+                for (i=0; i<intColVen.length; i++)
+                    tblDat.setValueAt(vcoGen.getValueAt(intColVen[i]), intFilSel, intColTbl[i]);
+            }
+            else
+            {
+                setValCelEdi(false);
+                blnConAce=false;
+            }
+        }
+        //Generar evento "afterConsultar()".
+        fireTableEditorListener(new ZafTableEvent(this), INT_AFT_CON);
+    }    
+    
+    /**
+     * Nombre de la función: Establecer valor de la celda editada.
+     * Establece el valor de la celda luego de utilizar el editor siempre y cuando el argumento que
+     * reciba sea verdadero en caso contrario deja el valor que tenía la celda antes de ser editada.
+     * @param hayCambios El estado de la celda que se está editando.
+     * <BR>True: Si el contenido de la celda ha cambiado se avisa a los suscriptores de que se ha 
+     * terminado la edición y que hay que establecer el nuevo valor de la celda.
+     * <BR>False: Se avisa a los suscriptores que se ha cancelado la edición y que se debe dejar
+     * el valor que tenía la celda tal y como estaba antes de la edición de la misma.
+     */
+    private void setValCelEdi(boolean hayCambios)
+    {
+        javax.swing.event.ChangeEvent evt=new javax.swing.event.ChangeEvent(this);
+        javax.swing.event.CellEditorListener objCelEdiLis;
+        int i;
+        for (i=0;i<objLinLis.size();i++)
+        {
+            objCelEdiLis=(javax.swing.event.CellEditorListener)objLinLis.get(i);
+            if (hayCambios)
+                objCelEdiLis.editingStopped(evt);
+            else
+                objCelEdiLis.editingCanceled(evt);
+        }
+    }
+
+    /**
+     * Esta función valida los datos que se ingresan en la celda. Si los datos son válidos
+     * se cargan los datos adicionales. Caso contrario, se muestra la ventana de consulta.
+     */
+    private void thisActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        //Validar el contenido de la celda sólo si ha cambiado.
+        if (!this.getText().equals(strConCel))
+        {
+            //Si se borra el contenido de la celda hay que borrar el contenido de las celdas asociadas.
+            if (this.getText()==null || this.getText().equals(""))
+            {
+                int i, intFilSel;
+                intFilSel=tblDat.getSelectedRow();
+                for (i=0; i<intColVen.length; i++)
+                    tblDat.setValueAt(null, intFilSel, intColTbl[i]);
+            }
+            else
+            {
+                if (intValCon==0)
+                    mostrarVenCon();
+                if (intValCon==1)
+                    mostrarVenConSP();
+                
+            }
+        }
+        setValCelEdi(false);
+        //Generar evento "afterEdit()".
+        fireTableEditorListener(new ZafTableEvent(this), INT_AFT_EDI);
+        blnBusExe=true;
+    }
+
+    /**
+     * Esta función hace que se seleccione el texto del JTextField cuando el JTextField
+     * obtiene el foco.
+     */
+    private void thisFocusGained(java.awt.event.FocusEvent evt)
+    {
+        strConCel=this.getText();
+        this.selectAll();
+    }
+    
+    /**
+     * Esta función obtiene el arreglo que contiene las columnas de la ventana
+     * de consulta que se utilizarán en la tabla.
+     * @return Las columnas de la ventana de consulta que se utilizarán en la tabla.
+     * <BR>Nota.- Las columnas de la ventana empiezan desde la posición 1.
+     */
+    public int[] getColumnasVentana()
+    {
+        return intColVen;
+    }
+    
+    /**
+     * Esta función establece el arreglo que contiene las columnas de la ventana
+     * de consulta que se utilizarán en la tabla.
+     * @param columnas Las columnas de la ventana de consulta que se utilizarán en la tabla.
+     * <BR>Nota.- Las columnas de la ventana empiezan desde la posición 1.
+     */
+    public void setColumnasVentana(int columnas[])
+    {
+        intColVen=columnas;
+    }
+    
+    /**
+     * Esta función obtiene el arreglo que contiene las columnas de la tabla
+     * donde se presentarán los campos devueltos por la ventana de consulta.
+     * @return Las columnas de la tabla donde se presentarán los campos devueltos
+     * por la ventana de consulta.
+     * <BR>Nota.- Las columnas de la tabla empiezan desde la posición 0.
+     */
+    public int[] getColumnasTabla()
+    {
+        return intColTbl;
+    }
+    
+    /**
+     * Esta función establece el arreglo que contiene las columnas de la tabla
+     * donde se presentarán los campos devueltos por la ventana de consulta.
+     * @param columnas Las columnas de la tabla donde se presentarán los campos
+     * devueltos por la ventana de consulta.
+     * <BR>Nota.- Las columnas de la tabla empiezan desde la posición 0.
+     */
+    public void setColumnasTabla(int columnas[])
+    {
+        intColTbl=columnas;
+    }
+    
+    /**
+     * Esta función adiciona el listener que controlará los eventos de edición.
+     * @param listener El objeto que implementa los métodos de la interface "ZafTableListener".
+     */
+    public void addTableEditorListener(ZafTableListener listener)
+    {
+        objEveLisLis.add(ZafTableListener.class, listener);
+    }
+
+    /**
+     * Esta función adiciona el listener que controlará los eventos de edición.
+     * @param listener El objeto que implementa los métodos de la interface "ZafTableListener".
+     */
+    public void removeTableEditorListener(ZafTableListener listener)
+    {
+        objEveLisLis.remove(ZafTableListener.class, listener);
+    }
+    
+    /**
+     * Esta función dispara el listener adecuado de acuerdo a los argumentos recibidos.
+     * @param evt El objeto "ZafTableEvent".
+     * @param metodo El método que será invocado.
+     * Puede tomar uno de los siguientes valores:
+     * <CENTER>
+     * <TABLE BORDER=1>
+     *     <TR><TD><I>Tipo de campo</I></TD><TD><I>Método</I></TD></TR>
+     *     <TR><TD>INT_BEF_EDI</TD><TD>Invoca al métod "beforeEdit" de la interface.</TD></TR>
+     *     <TR><TD>INT_AFT_EDI</TD><TD>Invoca al métod "afterEdit" de la interface.</TD></TR>
+     *     <TR><TD>INT_BEF_CON</TD><TD>Invoca al métod "beforeConsultar" de la interface.</TD></TR>
+     *     <TR><TD>INT_AFT_CON</TD><TD>Invoca al métod "afterConsultar" de la interface.</TD></TR>
+     * </TABLE>
+     * </CENTER>
+     */
+    private void fireTableEditorListener(ZafTableEvent evt, int metodo)
+    {
+        int i;
+        Object[] obj=objEveLisLis.getListenerList();
+        //Cada listener ocupa 2 elementos:
+        //1)Es el listener class.
+        //2)Es la instancia del listener.
+        for (i=0;i<obj.length;i+=2)
+        {
+            if (obj[i]==ZafTableListener.class)
+            {
+                switch (metodo)
+                {
+                    case INT_BEF_EDI:
+                        ((ZafTableListener)obj[i+1]).beforeEdit(evt);
+                        break;
+                    case INT_AFT_EDI:
+                        ((ZafTableListener)obj[i+1]).afterEdit(evt);
+                        break;
+                    case INT_BEF_CON:
+                        ((ZafTableListener)obj[i+1]).beforeConsultar(evt);
+                        break;
+                    case INT_AFT_CON:
+                        ((ZafTableListener)obj[i+1]).afterConsultar(evt);
+                        break;
+                }
+            }
+        }
+    }
+ 
+    /**
+     * Esta función determina si la consulta ha sido aceptada o cancelada.
+     * @return true: Si se aceptó la consulta.
+     * <BR>false: En el caso contrario.
+     */
+    public boolean isConsultaAceptada()
+    {
+        return blnConAce;
+    }
+    
+    /**
+     * Esta función establece si se debe cancelar la edición de la celda.
+     * @param edicion Puede tomar los siguientes valores:
+     * <UL>
+     * <LI>true: Cancela la edición de la celda.
+     * <LI>false: Permite la edición de la celda.
+     * </UL>
+     */
+    public void setCancelarEdicion(boolean edicion)
+    {
+        blnCanEdi=edicion; 
+    }
+    
+    public boolean isMosVenCon() {
+        return blnMosVenCon;
+    }
+
+    public void setMosVenCon(boolean blnMosVenCon) {
+        this.blnMosVenCon = blnMosVenCon;
+    }
+    
+    
+}

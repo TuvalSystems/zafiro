@@ -1,0 +1,26 @@
+﻿Pendientes:
+1) Habilitar edición de chk en los JTable.
+   Ej: Cuando se seleccione un local para el usuario, si es el primer local seleccionado se lo ponga como predeterminado.
+       Cuando se desmarque un local para el usuario, se desmarque el predeterminado. 
+2) Agregar campos en el diseño, tales como: tx_pwd1, tw_pwd2, etc.
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Rosa Zambrano - 23/Mar/2018)
+----
+Programa nuevo "Maestro de usuarios".
+
+
+v0.1.1: (Rosa Zambrano - 27/Abr/2018)
+-----
+Se realizan otras mejoras.
+
+v0.1.2: Denis Toledo(24/Abr/2023)
+-----
+Cambio de Postgres a SQL server (Conexión)
+
+v0.1.3: Denis Toledo (03/05/2023)
+-----
+Se corrigió un error para la consulta de los usuarios---Order BY

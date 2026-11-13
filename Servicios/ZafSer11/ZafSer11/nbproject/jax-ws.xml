@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services/>
+  <clients>
+    <client name="WSRecCpbOffLine">
+      <wsdl-url>file:/C:/Dennis/Tuval_fuentes/ZafSer11_OffLine/ZafSer11/src/wsdl/WSRecCpbOffLine.wsdl</wsdl-url>
+      <local-wsdl-file>WSRecCpbOffLine.wsdl</local-wsdl-file>
+      <package-name forceReplace="true">ec.gob.sri.comprobantes.ws</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>file:/C:/Dennis/Tuval_fuentes/ZafSer11_OffLine/ZafSer11/src/wsdl/WSRecCpbOffLine.wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>package</wsimport-option-name>
+          <wsimport-option-value>ec.gob.sri.comprobantes.ws</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="WSAutCpbOffLine">
+      <wsdl-url>file:/C:/Dennis/Tuval_fuentes/ZafSer11_OffLine/ZafSer11/src/wsdl/WSAutCpbOffLine.wsdl</wsdl-url>
+      <local-wsdl-file>WSAutCpbOffLine.wsdl</local-wsdl-file>
+      <package-name forceReplace="true">ec.gob.sri.comprobantes.ws.aut</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>file:/C:/Dennis/Tuval_fuentes/ZafSer11_OffLine/ZafSer11/src/wsdl/WSAutCpbOffLine.wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>package</wsimport-option-name>
+          <wsimport-option-value>ec.gob.sri.comprobantes.ws.aut</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+  </clients>
+</jax-ws>

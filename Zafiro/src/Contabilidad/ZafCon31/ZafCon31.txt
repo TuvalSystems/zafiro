@@ -1,0 +1,7 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Dennis Betancourt - 13/May/2019)
+----
+Nuevo programa "Historico de cuentas contables (Formato 1: Numero y nombre de cuenta por año)".

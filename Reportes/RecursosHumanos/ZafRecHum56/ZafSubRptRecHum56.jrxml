@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafSubRptRecHum56" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="co_emp" class="java.lang.Integer"/>
+	<parameter name="co_tra" class="java.lang.Integer"/>
+	<parameter name="p_ne_ani" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select co_emp as co_empbon, co_tra as co_trabon,
+case (co_rub=6) when true then 'Bono' else 'Movilización' end as co_rubon,
+ne_ani as ne_anibon, ne_mes as ne_mesbon, nd_valrub as nd_valrubbon,
+nd_porvar as nd_porvarbon, nd_valrubprg as nd_valrubprgbon,
+
+
+
+((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date  as dteCbr,
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=12)
+when true then 'Diciembre' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=1)
+when true then 'Enero' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=2)
+when true then 'Febrero' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=3)
+when true then 'Marzo' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=4)
+when true then 'Abril' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=5)
+when true then 'Mayo' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=6)
+when true then 'Junio' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=7)
+when true then 'Julio' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=8)
+when true then 'Agosto' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=9)
+when true then 'Septiembre' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=10)
+when true then 'Octubre' else
+
+CASE ((EXTRACT (MONTH FROM (((ne_ani || '-' || (case (ne_mes=13) when true then 12 else ne_mes end) || '-' || '01')::varchar)::date)))=11)
+when true then 'Noviembre' else null
+
+end end end end end end end end end end end end as tx_mes
+
+from tbm_ingegrmenprgtra
+where co_emp=$P{co_emp} and ne_ani = $P{p_ne_ani}
+and co_tra=$P{co_tra}
+and co_rub in (select distinct co_rub from tbm_ingegrmenprgtra)
+order by co_empbon, co_trabon, co_rubon, dteCbr,tx_mes --, ne_anibon, ne_mesbon]]>
+	</queryString>
+	<field name="co_empbon" class="java.lang.Integer"/>
+	<field name="co_trabon" class="java.lang.Integer"/>
+	<field name="co_rubon" class="java.lang.String"/>
+	<field name="ne_anibon" class="java.lang.Integer"/>
+	<field name="ne_mesbon" class="java.lang.Integer"/>
+	<field name="nd_valrubbon" class="java.math.BigDecimal"/>
+	<field name="nd_porvarbon" class="java.math.BigDecimal"/>
+	<field name="nd_valrubprgbon" class="java.math.BigDecimal"/>
+	<field name="dtecbr" class="java.sql.Date"/>
+	<field name="tx_mes" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnFooter>
+		<band height="405" splitType="Stretch">
+			<lineChart>
+				<chart isShowLegend="true">
+					<reportElement mode="Transparent" x="266" y="149" width="289" height="244"/>
+					<chartTitle position="Top"/>
+					<chartSubtitle/>
+					<chartLegend position="Bottom"/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{co_rubon}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{ne_mesbon}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{nd_valrubprgbon}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot isShowLines="true" isShowShapes="false">
+					<plot/>
+					<categoryAxisFormat>
+						<axisFormat verticalTickLabels="true">
+							<labelFont>
+								<font isUnderline="false"/>
+							</labelFont>
+							<tickLabelFont/>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat verticalTickLabels="false">
+							<labelFont/>
+							<tickLabelFont/>
+						</axisFormat>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
+			<crosstab>
+				<reportElement x="0" y="14" width="266" height="379"/>
+				<rowGroup name="dtecbr" width="70" totalPosition="End">
+					<bucket>
+						<bucketExpression class="java.sql.Date"><![CDATA[$F{dtecbr}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField pattern="MMM/yyyy">
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25"/>
+								<textElement/>
+								<textFieldExpression class="java.util.Date"><![CDATA[$V{dtecbr}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="25"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="co_rubon" height="30" totalPosition="End">
+					<bucket>
+						<bucketExpression class="java.lang.String"><![CDATA[$F{co_rubon}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="30"/>
+								<textElement>
+									<font size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$V{co_rubon}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="nd_valrubprgbonMeasure" class="java.math.BigDecimal" calculation="Sum">
+					<measureExpression><![CDATA[$F{nd_valrubprgbon}]]></measureExpression>
+				</measure>
+				<crosstabCell width="50" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement/>
+							<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{nd_valrubprgbonMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="dtecbr">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement>
+								<font size="8" isBold="true"/>
+							</textElement>
+							<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{nd_valrubprgbonMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="co_rubon">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement>
+								<font size="8" isBold="true"/>
+							</textElement>
+							<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{nd_valrubprgbonMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="dtecbr" columnTotalGroup="co_rubon">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField pattern="#,##0.00" isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25"/>
+							<textElement>
+								<font size="8" isBold="true"/>
+							</textElement>
+							<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{nd_valrubprgbonMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="53"/>
+	</pageFooter>
+</jasperReport>

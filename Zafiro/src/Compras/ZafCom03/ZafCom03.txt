@@ -1,0 +1,298 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.0: (José Salazar - 05/Ene/2006)
+----
+Nuevo Programa "Ingresos/Egresos por varios motivos..."
+
+
+v0.1: (José Salazar - 05/Ene/2006)
+-----
+Se modifico metodo de insertar y modificar para insertar, actualizar, eliminar, anular doc agregando metodos
+de actualizacion de inv. consolidado
+
+
+v0.2: (José Salazar - 06/Ene/2006)
+-----
+Se modifico metodos para insertar,actualizar para calculos de costos
+pendiente costeo para eliminacion y/o anulacion
+
+
+v0.3: (José Salazar - 19/Ene/2006)
+-----
+Se agrego metodos para cargar registro luego de insertar, envia a metodo consultar
+
+
+v0.3.1: (José Salazar - 24/Ene/2006)
+-----
+Se arreglo problemas al mostrar valor de costeo 
+
+
+v0.3.2: (José Salazar - 24/Ene/2006)
+-----
+Se modifico llamada a metodo AsiDia para que no modifique el codigo del tipo de documento
+Se cambio sentencia sql para mostrar cantidades de las bodegas de la empresa con stock
+
+
+v0.3.3: (José Salazar - 25/Ene/2006)
+-----
+Se corrigio generacion secuencia automatica de numero de orden; metodo cargaNum_Doc_OrdCom()
+
+
+v0.3.4 beta: (José Salazar - 25/Ene/2006)
+-----
+Se modifico metodos para calculo de costeo enviando valor del descuento, provisionalmente
+Pendiente  :  codigo para boton de bodega incluir metodo beforeConsulta()
+
+
+v0.3.4.2 beta: (José Salazar - 27/Ene/2006)
+-----
+Se modifico tipo de consulta para que no discrime por el tipo de documento predeterminado.
+Permita consultar por cualquier documento una misma caracteristica del doc.
+Se modifico metodos sqlFil(), txtNumDoc.LostFocus(),txtNumDoc.Action(),listadocprg(),_consultar()
+
+
+v0.3.4.3 beta: (Javier Ayapata - 14/Mar/2006)
+-----
+Se corrigio al insertar al diario con la fecha del documento
+tambien al momento de cerrar la ventana preguntar
+
+
+v0.3.5: (Javier Ayapata - 02/May/2006)
+-----
+Se corrigio al consultar el stock que hay al hacer un ingreso y egreso 
+
+
+v0.3.6: (Javier Ayapata - 02/May/2006)
+-----
+Se cambia las ventanas de consulta de item y tipo de documento.
+
+
+v0.3.7: (Javier Ayapata - 05/May/2006)
+-----
+Se corrige la validacion de stock 
+
+
+v0.3.8: (Javier Ayapata - 08/May/2006)
+-----
+Se corrige al momento de actualizar aunmentar o disminuir el stock
+
+
+v0.3.9: (Javier Ayapata - 29/May/2006)
+-----
+Se agrega al insertar en tbm_cabmovinv el secuencial de empresa y grupo 
+
+
+v0.4: (Javier Ayapata - 07/Jun/2006)
+-----
+Se corrige que coloque el stock en la bodega grupo que corresponde y valida al anular o eliminar sie esta copfirmado
+
+
+v0.5: (Javier Ayapata - 08/Jun/2006)
+-----
+Se corrige que no pueda modificar el tipo de documento y el codigo del documento.
+
+
+v0.6: (Javier Ayapata - 14/Jun/2006)
+-----
+Se corrige que cuando anule el documento almacene el usuario y fecha.
+
+
+v0.8: (Javier Ayapata - 20/Jul/2006)
+-----
+Se agrega para que recostee los items.
+
+
+v0.9: (Javier Ayapata - 30/Ago/2006)
+-----
+Se agrega que insertar y modifique el campo nd_costot.
+
+ 
+v1.0: (Javier Ayapata - 04/Sep/2006)
+-----
+Se agrega que insertar y modifique el campo nd_costot, y se corrige funcion de stock 
+
+
+v1.1: (Javier Ayapata - 08/Sep/2006)
+-----
+Se corrige al momento actualizar.
+
+
+v1.2: (Javier Ayapata - 08/Sep/2006)
+-----
+Se corrige al momento actualizar query de validar stock.
+
+
+v1.4: (Javier Ayapata - 08/Sep/2006)
+-----
+Se corrige al momendo actualizar el inventario.
+
+
+v1.7: (Javier Ayapata - 19/Sep/2006)
+-----
+Se corrige la funcion genera_asiento, optimizando el tiempo de respuesta.
+
+
+v1.8: (Javier Ayapata - 04/Oct/2006)
+-----
+Se agrega el proveedor como opcional.
+ 
+
+v2.2: (Javier Ayapata - 18/Oct/2006)
+-----
+Se agrega al momento de insertar el campo nd_cosunigrp y  nd_costotgrp
+ 
+
+v2.3: (Javier Ayapata - 10/Nov/2006)
+-----
+Se agrega la eliminacion logica.
+
+
+v2.4: (Javier Ayapata - 10/Nov/2006)
+-----
+Se corrige ciertas falencias.
+
+
+v2.5: (Javier Ayapata - 17/Nov/2006)
+-----
+Se corrige al momento insertar o modificar el simbolo del campo nd_costot a ser negativo o positivo.
+
+
+v2.6: (Javier Ayapata - 28/Nov/2006)
+-----
+Se filtran solo items que no sean de servicio.
+
+
+v2.7: (Javier Ayapata - 28/Dic/2006)
+-----
+Se corrige problemas que no actualizaba la tabla tbm_inv a nivel de empresa
+
+
+v2.8: (Javier Ayapata - 15/Ene/2007)
+-----
+Se corrige al escoger las bodegas de la empresa. 
+
+
+v3.0: (Javier Ayapata - 08/Feb/2007)
+-----
+Se agrega el estado de replicacion.
+
+
+v3.1: (Javier Ayapata - 26/Mar/2007)
+-----
+Se que solo se pueda escojer los item que tenga la terminal asignado el usuario.
+
+
+v3.3: (Javier Ayapata - 20/Abr/2007)
+-----
+Se agrega el uso de las terminales  en este caso solo terminal I
+
+
+v3.4: (Javier Ayapata - 09/May/2007)
+-----
+Se agrega valisacion en el listado de item que no aparescan los estado Inactivos.
+
+
+v3.5: (Javier Ayapata - 30/May/2007)
+-----
+Se agrega para que no coloque estado C en el campo st_reg.
+
+
+v3.6: (Javier Ayapata - 07/Jul/2007)
+-----
+Se agrega para que aparesca los item que tiene el usuario permitido caso contrario aparencen todos
+tambien se agrego el tipo de documento por usuario.
+ 
+
+v3.7: (Javier Ayapata - 20/Jul/2007)
+-----
+Se agrega para que no escoja los items que tienen estado E eliminado.
+
+
+v3.8: (Javier Ayapata - 24/Ago/2007)
+-----
+Se agrega la mayorizacion en linea.
+ 
+
+v3.8.1: (Javier Ayapata - 28/Ene/2008)
+-----
+Se agrega que almecene el campo co_itmact en tbm_detmovinv 
+
+
+v3.8.2: (Javier Ayapata - 21/Feb/2008)
+-----
+Se agrega para que no tome en cuenta los estado U de item.
+
+
+v3.8.3: (Javier Ayapata - 11/Mar/2008)
+-----
+Se corrige query para obtener listado de proveedor, y no se permite hacer cambios cuando item esta unificado.
+
+
+v3.8.4: (Javier Ayapata - 28/Oct/2008)
+-----
+Se agrega para actualize los campos de la tabla tbm_invbod nd_caning o  nd_canegre 
+
+
+v3.8.5: (Javier Ayapata - 26/Nov/2008)
+-----
+Se agrega clase nueva de movimiento de inventario.
+
+
+v3.8.6: (Javier Ayapata - 11/Ago/2009)
+-----
+Se agrega para que actualize secuencia de empresa y grupo tomando la secuencia de la tabla tbm_emp
+
+
+v3.8.7: (Javier Ayapata - 28/Ago/2009)
+-----
+Se corrige al elegir bodega solo salga las bodega de la empresa.
+
+
+v3.9: (Javier Ayapata - 18/Ene/2010)
+-----
+Se agrega columna nueva en asiento de diario
+
+
+v4.0: (Javier Ayapata - 17/Mar/2010)
+-----
+Se agrega constructor para mostrar docuemnto.
+
+
+v4.1: (Javier Ayapata - 27/Ago/2010)
+-----
+Se agrega para que solo aparesca las bodegas asignadas al usuario.
+
+
+v4.2: (Javier Ayapata - 17/Sep/2010)
+-----
+Se agrega que los items de servicio no aparescan.
+
+
+v4.3: (Javier Ayapata - 22/Oct/2010)
+-----
+Se cambia configuracion de reporteria que esta en el servidor.
+
+
+v4.4: (Javier Ayapata - 22/Jun/2011)
+-----
+Se cambia la funcion de recosteo.
+
+
+v4.5: (Javier Ayapata - 07/Jul/2011)
+-----
+Se cambia la forma de recosteo se toma la fecha menor al recostear.
+
+
+v4.6: (Rosa Zambrano - 29/Mar/2019)
+-----
+Se realizan cambios para JaspersoftStudio.
+
+
+
+
+

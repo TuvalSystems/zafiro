@@ -1,0 +1,12 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (José Marín - 30/Dic/2019)
+----
+Clase nueva.
+ 
+

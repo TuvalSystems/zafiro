@@ -1,0 +1,82 @@
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Ingrid Lino - 16/Jun/2010)
+----
+Nuevo programa que presenta la información de la retenciones emitidas por la empresa.
+
+v0.1.1: (Ingrid Lino - 21/Jun/2010)
+----
+Se adicionó código para exportar a Excel y se formateo los campos(algunos) con ceros a la izquierda.
+
+v0.2: (Ingrid Lino - 09/Jul/2010)
+----
+Se adicionó la opción de exportar a excel y se cambió formato de exportación a excel de campos que representan valores.
+
+v0.3: (Ingrid Lino - 16/Jul/2010)
+----
+Se cambió el query porque la información se estaba presentando de acuerdo a la orden de compra, y debia ser de acuerdo a la factura que nos envia el proveedor,
+asi se presenta por cada porcentaje de retencion del 1, 2, 8,10% un solo registro(la suma de todas las ordenes de compra segun el tipo de retencion) y no varias.
+
+    antes:     Orden de compra  #555      1%     $ 5.20
+               Orden de compra  #560      1%     $ 3.14  ect
+
+    ahora:
+               Retencion   # 20   1%  $8.34
+
+v0.4: (Ingrid Lino - 16/Jul/2010)
+----
+Se adicionaron campos en el query.
+
+v0.4.1: (Ingrid Lino - 20/Sep/2010)
+----
+Se cambiaron algunos formatos de celdas de los datos que se presentan en excel.
+
+v0.4.2: (Ingrid Lino - 14/Oct/2010)
+----
+El campo "tx_codSRI" antes se tomaba de tbm_pagMovInv y debia tomarselo de tbm_detPag
+
+v0.4.3: (Ingrid Lino - 30/Nov/2010)
+----
+Antes se tomaba campos de tbm_cabmovinv ahora es de tbm_pagmovinv(campos de la factura del proveedor)
+
+v0.4.5: (Ingrid Lino - 07/Feb/2011)
+----
+Se colocó la suma en tabla de totales para la columna IVA.
+
+v0.4.8: (Ingrid Lino - 14/Mar/2011)
+----
+Se colocó validación para el campo Iva1 porque estaba presentando dato incorrecto.
+
+v0.4.9: (Ingrid Lino - 20/Jun/2011)
+----
+Se cambia formato de datos en formulario y en archivo .xml. Se adicionó código para reporte en xls para linux.
+
+v0.5: (Ingrid Lino - 06/Jul/2011)
+----
+Se adiciono query para informacion de PAGOS DE BIENES O SERVICIOS NO SUJETOS A RETENCION.
+
+v0.6: (Ingrid Lino - 21/Jul/2011)
+----
+Cambios varios solicitados por hector(iva 0 el valor en base imp. tarifa cero, sino en base imp. grabada)
+	si existen dos retenciones principales, aplicar al registro correcto. el valor del 312 estaba saliendo en el 310(ambos eran de la misma retencion, pero ponia el valor al primer registro encontrado)
+
+v1.0: (Ingrid Lino - 31/Jul/2013)
+----
+Se cambia el formato de acuerdo a nuevo esquema de Gamaret. Se cambia completamente el query de obtención de información según la explicación de Héctor.
+
+v1.1: (Ingrid Lino - 01/Ago/2013)
+----
+Se realizan cambios varios según verificación presencial con Héctor, para poder subir el archivo al Sistema Gamaret.
+
+v1.2: (Ingrid Lino - 01/Ago/2013)
+----
+ Se agregan documentos sin retencion pero S/N Iva
+
+v1.3: (Ingrid Lino - 05/Ago/2013)
+----
+Se coloca la base imponible o base cero si el código es diferente al 312.
+
+v1.4: (Ingrid Lino - 07/Ago/2013)
+----
+Habian unos valores con valores nulos y al realizar unos calculos generaba una excepcion.

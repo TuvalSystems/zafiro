@@ -1,0 +1,53 @@
+﻿Pendientes:
+1)
+2)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Ingrid Lino - 28/Dic/2017)
+----
+Programa que permite realizar la configuración de conversión de inventario
+
+v0.1.1: (Ingrid Lino - 28/Dic/2017)
+----
+Se elimina doble for en método isFilCompleta porque daba problema al guardar.
+
+v0.1.2: (Ingrid Lino - 28/Dic/2017)
+----
+Se agrega la opción para poder modificar en el programa.
+
+v0.1.3: (Ingrid Lino - 11/Ene/2018)
+----
+Se agrega columna de "Porcentaje de Costo unitario" para cada item de ingreso
+
+v0.1.4: (Ingrid Lino - 27/Dic/2018)
+----
+Se adiciona el método isCamVal en el método beforeModificar();
+
+v0.1.5: (Ingrid Lino - 08/Nov/2019)
+----    
+Se agrega codificación para poder configurar items para conversiones de ingresos/egresos
+
+v0.1.6: (Ingrid Lino - 11/Dic/2019)
+----
+Se valida correctamente eventos de opt de Ingreso y Egreso. Opción de consulta, modificar e ingresar.
+
+v0.1.7: (Cristhian Ramirez - 03/Marzo/2023)
+----
+Se realiza el cambio de los procesos desde Zafiro hacia GP
+
+v0.1.8: (Cristhian Ramirez - 15/Marzo/2023)
+----
+Se quito la condicion de que se pueda consultar items que se encuentran inactivos.
+
+v0.1.9: (Cristhian Ramirez - 17/Marzo/2023)
+----
+Se modifico la visualizacion del campo a nivel de codigo de 3 letras , en altiora el campo codigo de letras es ITMSHNAM y en masterweb es ITMGEDSC
+
+v0.1.10: (Cristhian Ramirez - 28/Abril/2023)
+----
+Insercion de versionamiento
+
+v0.2.1: (Cristhian Ramirez - 05/Julio/2023)
+----Se modifico a la version anterior version v0.2

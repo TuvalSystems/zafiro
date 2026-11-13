@@ -1,0 +1,49 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Javier Ayapata - 10/Sep/2007)  
+---- 
+Clase nueva 
+  - "Listado de documentos por pagar (Formato 1: Clasificado por Proveedor)..."
+  - "Listado de documentos por cobrar (Clasificado por Cliente)..."
+Permite mostrar listado de documentos por cobrar y pagar.
+
+
+v1.1: (Javier Ayapata - 20/Sep/2007)  
+-----
+Se agrega busqueda por fecha de documento.
+
+
+v1.2: (Javier Ayapata - 21/Sep/2007)  
+-----
+Se corrige la vista preliminar y al momento de imprimir.
+
+
+v1.3: (Javier Ayapata - 24/Sep/2007)  
+-----
+Se corrige query para obtener datos y tambien en los reportes de vista preliminar.
+
+
+v1.4: (Javier Ayapata - 26/Sep/2007)  
+-----
+Se corrige el query de tipo de documento.
+
+
+v1.5: (Darío Cárdenas - 13/May/2008)  
+-----
+Se agrega Filtro tipo chek para mostrar retenciones desde el modulo de CxC...
+
+
+v1.6: (Rosa Zambrano - 10/Abr/2019)  
+-----
+Se realizan cambios para JaspersoftStudio.
+
+
+v1.07: (Jose Mario Marin - 12/Feb/2020)  
+-----
+Se realizan cambios por que el reporte no estaba funcionando, solicitado por el Ing. Eddye el 12/Feb/2020.
+

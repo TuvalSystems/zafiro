@@ -1,0 +1,259 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Javier Ayapata - 01/Jul/2010)
+----
+Clase Nueva "Ventana de Consulta de CxC".
+
+
+v0.2: (Javier Ayapata - 12/Jul/2010)
+-----
+Se agrega para que solo se pueda anular o modificar si correspode documnetos ingresado el mismo programa.
+ 
+
+v0.3: (Javier Ayapata - 09/Ago/2010)
+-----
+Se agrega usuario y fecha de persona que anula.
+
+
+v0.4: (Javier Ayapata - 29/Sep/2010)
+-----
+Se agrega para que ponga de los datos sri  y guarde en cliente.
+
+
+v0.5: (Javier Ayapata - 22/Oct/2010)
+-----
+Se cambia configuracion de reporteria que esta en el servidor.
+
+
+v0.6: (Javier Ayapata - 25/Oct/2010)
+-----
+Se agrega para que marque todos los registro o desmarque.
+
+
+v0.8: (Javier Ayapata - 12/Jul/2011)
+-----
+Se corrige al cargar documento en cobro masivo.
+
+
+v0.9: (Javier Ayapata - 15/Jul/2011)
+-----
+Se agrega validación en retenciones recividas que la fecha de los registro ingresados correspondas al mismo anio y mes del documento
+
+
+v1.0: (Javier Ayapata - 20/Jul/2011)
+-----
+Se agrega al momento de insertar que aparesca una pantalla donde se ingresara la identificación para ser comparada con lo ingresado en la factura.
+
+
+v1.1: (Javier Ayapata - 28/Jul/2011)
+-----
+Se agrega que en la pantalla donde pide que ingrese el identificacion presente despues que cliente son los que tienen problemas.
+
+
+v1.2: (Erik Flores - 23/Mar/2012)
+-----
+Retenciones Recibidas: se modificaron las funciones insertarDet; cargarDetIns; modificarDet; refrescaDatos
+	 Se quita que actualize los campos TX_SECDOC, TX_NUMAUTSRI, TX_FECCAD de la tabla TBM_cABMOVINV
+	 Se quita que actualize el campo TX_CODSRI de la tabla TBM_DETPAG
+	 Se agrega para que se actualizen los campos TX_NUMSER, TX_NUMAUTSRI, TX_FECCAD, TXCODSRI de la tabla TBM_PAGMOVINV 
+
+
+v1.3: (Erik Flores - 12/Jun/2012)
+-----
+Retenciones recibidas: Se modifica para que no permita utilizar el mismo numero de retencion 2 veces
+al ingresarla
+
+
+v1.4: (Ingrid Lino - 26/Jul/2012)
+-----
+Se cambia en funcion "configurarVenConDocAbi()" cuando el codigo del menu es 256 objVenConCxC01.setTipoConsulta(2)  a objVenConCxC01.setTipoConsulta(1). Esto es para que salga habilitada la opcion de ver retenciones.
+
+
+v1.5: (Erik Flores - 06/Ago/2012)
+-----
+ZafCxC01_01: Se presentan los clientes ordenados por nombre.
+ZafCxC01   : Se aumenta el numero de la version.
+
+
+v1.6: (Erik Flores - 22/Ago/2012)
+-----
+ZafCxC01: Mejora a recepcion de retenciones ECUATOSA. AP HQUIÑONEZ
+
+
+v1.7: (Erik Flores - 22/Ago/2012)
+-----
+ZafCxC01: Mejora a consulta de retenciones.
+
+
+v1.8: (Alex Morán - 03/Jun/2013)
+-----
+Se agrega validación para que el valor del documento corresponda al asiento de diario.
+
+
+v1.9: (José Marín - 27/Dic/2013)
+-----
+Se actualiza el numero del documento que toca, al cambiar el tipo de documento.
+
+
+v2.0: (José Marín - 22/Ago/2014)
+-----
+Se agrega validacion para facturación electronica.
+
+
+v2.1: (Dennis Betancourt - 16/Sep/2014)
+-----
+Se agrega validacion para la columna "Fecha de caducidad", la cual debe estar en formato dd/mm/aaaa.
+
+
+v2.2: (Dennis Betancourt - 16/Jun/2015)
+-----
+Se agregaron varias validaciones cuando la opcion de menu es "Retenciones recibidas".
+1) Que el TipDoc y el TipDoc de control sea el mismo.
+2) Que en el detalle el porcentaje de retencion corresponda al TipDoc seleccionado.
+3) En el detalle el cod. del SRI es leido de la tabla tbm_polret de acuerdo al porcentaje de retencion.
+4) En el detalle la col. "Cod. SRI" se la cambio a modo "no editable".
+
+
+v2.2.1: (Dennis Betancourt - 18/Jun/2015)
+-----
+Se realizo un ajuste para que en el detalle, al digitar el numero de documento y dar <enter>, aparezca de manera correcta el codigo del SRI.
+
+
+v2.2.2: (Dennis Betancourt - 30/Jun/2015)
+-----
+Se realizo un nuevo ajuste para que en el detalle, al digitar el numero de documento y dar <enter>, aparezca de manera correcta el codigo del SRI.
+
+
+v2.2.3: (Dennis Betancourt - 09/Jul/2015)
+-----
+En la funcion "getCodSri" se agrego una condicion (and fe_vighas is null) para que aparezca de manera correcta el codigo del SRI.
+
+
+v2.2.4: (Dennis Betancourt - 11/Jul/2015)
+-----
+En la funcion "getCodTipRet" se agrego una nueva condicion del Cod.Tip.Ret. para Retencion en la fuente 8%.
+
+
+v2.3.0: (Dennis Betancourt - 04/Dic/2015)
+-----
+Se modifico la condicion para que el Numero_Autorizacion_SRI ademas de tener 10 o 37 digitos, ahora pueda tener 49 digitos de longitud debido al esquema OffLine del SRI.
+
+
+v2.4.0: (Dennis Betancourt - 21/Mar/2016)
+-----
+Se puso una validacion para verificar que el valor del documento (cabecera del programa) sea igual al total abonado (col. Abono).
+
+
+v2.4.1: (Dennis Betancourt - 24/Mar/2016)
+-----
+De la validacion colocada en la version 2.4, se agrego que esto solo se verifique cuando Cod_menu = 1648 (Retenciones recibidas).
+
+
+v2.5.0: (Dennis Betancourt - 20/Oct/2016)
+-----
+1) Se agrega boton 'Cargar arch. Retenciones' para cargar archivo texto el cual es descargado de la pag. del SRI.
+2) Se agrega boton en el detalle de la pantalla para mostrar en una ventana las Retenciones que fueron cargadas a traves del boton 'Cargar arch. Retenciones'.
+
+
+v2.6.0: (Dennis Betancourt - 25/Oct/2016)
+-----
+Se agrega validacion para que el numero de serie sea ingresado con una longitud de 6 digitos y que sea numerico.
+
+
+v2.7.0: (Dennis Betancourt - 21/Dic/2016)
+-----
+Se agrega validacion para impedir grabar retenciones por sobrepasar la fecha límite para el ingreso de retenciones.
+
+
+v2.7.1: (Dennis Betancourt - 09/Ene/2017)
+-----
+Para Tuval, Castek y Dimulti se cambia la fecha límite para el ingreso de retenciones poniendo como 10 el dia tope. Solicitado por Hector Quiñonez.
+
+
+v2.8.0: (Dennis Betancourt - 18/Ene/2017)
+-----
+Para Cosenco, Ecuatosa y Detopacio, se ignora la validacion que se puso para impedir grabar retenciones por sobrepasar la fecha límite para el ingreso de retenciones. Esto solo se validara en Tuval, Dimulti y Castek.
+
+
+v2.8.1: (Dennis Betancourt - 13/Feb/2017)
+-----
+Para Tuval, Castek y Dimulti se cambia la fecha límite para el ingreso de retenciones. Antes estaba 10 como dia tope para las 3 empresas. Ahora para Tuval esta como tope el 14. Ahora para Dimulti y Castek esta como tope el 10.
+
+
+v2.9: (Dennis Betancourt - 29/Jun/2017)
+-----
+En la funcion "getCodTipRet" se agrego una nueva condicion del Cod.Tip.Ret. para Retencion IVA 50%.
+
+
+v2.10: (Dennis Betancourt - 13/Jul/2017)
+-----
+Se puso una validacion para que el valor de la col. 'Abono' solo pueda tener como maximo 2 decimales.
+
+
+v2.11: (Dennis Betancourt - 16/Ago/2017)
+-----
+Se agrego la funcion isItemFacturaServicioTransporte() la cual se encarga de verificar si el item de la factura es de transporte.
+
+
+v2.12: (Dennis Betancourt - 05/Mar/2018)
+-----
+Se puso una validacion para que no se permita registrar duplicados de un val_retencion, cuando el cliente y el num_documento es el mismo.
+
+
+v2.13: (Dennis Betancourt - 17/Abr/2018)
+-----
+Se puso una validacion para verificar que el valor de la col. 'Fec.Cad.' debe estar en blanco si la retencion tiene 49 digitos (Esquema Offline).
+
+
+v2.14: (Rosa Zambrano - 10/Abr/2019)
+-----
+Se realizan cambios para JaspersoftStudio.
+
+
+v2.15: (Christian Mateo - 22/Abr/2019)
+-----
+Se modifica el codigo del tipo de consulta que se va a realizar en cobros masivos de 1 a 28
+
+
+
+v2.16: (Christian Mateo - 30/May/2019)
+-----
+Se agrega cambio para que pueda cobrar masivamente valores positivos (a favor del cliente) y el valor de abono sea de signo contrario.
+Tambien se reversa cambio de la ventana de consulta de documentos abiertos
+
+
+v2.17: (Dennis Betancourt - 14/Oct/2019)
+-----
+1) Se puso la funcion isDiferenteCodCtaCliente() para validar que, en el detalle, solo deben haber documentos que tengan la misma cuenta contable de CLIENTE. Por ejemplo, en Dimulti, no se permitira guardar documentos que tengan mezclados las cuentas "CLIENTES GUAYAQUIL" y "CLIENTES DURAN".
+2) Se valida que, en el detalle, se tome la cuenta contable "CLIENTE" que corresponda de acuerdo a los locales de los documentos del detalle.
+
+
+v2.18: (Dennis Betancourt - 20/Dic/2019)
+-----
+En Ecuatosa, al cargarse la informacion de la retencion en el JTable de detalle, en el asiento de diario no se carga de forma predeterminada ninguna cuenta en el Haber. El usuario debe ponerla manualmente. Al intentar grabar el documento, se disparaba el trigger fun_bloquearCuentasContablesInactivas_tbm_detdia() en el que se mostraba el mensaje "La cuenta (co_cta=0) esta inactiva". En el 2do intento ya se guardaba correctamente el documento. Se hizo la correccion para que se guarde el documento en el 1er intento y ya no aparezca el mensaje del trigger.
+
+
+v2.19: (Dennis Betancourt - 30/Abr/2020)
+-----
+En la funcion getCodTipRet() se agrego 2 condiciones al If anidado por la aparicion de los nuevos Por.Ret.Fuente 1.75% y 2.75%.
+
+
+v2.20: (Dennis Betancourt - 27/May/2020)
+-----
+En la funcion validaCampos() se agrego 2 condiciones al If que verifica el Tip.Doc. y el Por.Ret. que esta en el JTable. Esto es debido a la aparicion de los nuevos Por.Ret.Fuente 1.75% y 2.75%.
+
+
+v2.21: (José Mario Marín  - 28/Ago/2020)
+-----
+Se modifica que no calcule el signo a guardar sino que tome directamente el valor ingresado por el usuario.
+
+
+v2.22: (José Mario Marín  - 1/Sep/2020)
+-----
+Revision del codigo completo para los valores negativos a ingresar.
+

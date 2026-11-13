@@ -1,0 +1,21 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (José Mario Marín - 4/Sep/2020)
+----
+Clase nueva (Actualización masiva de clientes/proveedores)...
+ 
+
+v0.02: (José Mario Marín - 7/Sep/2020)
+----
+Se estaba revisando solo los clientes que tenian st_reg=A, pero en la actualidad se enviaron a revisar muchos clientes y por eso no aparecian en el listado.
+
+
+v0.03: (José Mario Marín - 8/Sep/2020)
+----
+Se modifica la consulta para cargar los clientes, con Alta de clientes...
+

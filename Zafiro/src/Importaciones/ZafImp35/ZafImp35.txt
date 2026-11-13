@@ -1,0 +1,76 @@
+Pendientes:
+1)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Rosa Zambrano - 04/Jun/2019)
+----
+Nuevo programa "Presupuesto de Importaciones".
+
+v0.1.1: (Rosa Zambrano - 06/Jun/2019)
+-----
+Se limpia el valor total del presupuesto mensual.
+
+v0.1.2: (Rosa Zambrano - 13/Jun/2019)
+-----
+AP solicito en el "Reporte" que se muestre el valor total del pedido, en vez del valor aplicado al pedido.
+
+v0.1.3: (Rosa Zambrano - 17/Jun/2019)
+-----
+Se cambia en consulta de "Reporte", para que no muestre los pedidos eliminados, ni inactivos.
+Se corrige error de mensaje de cierre de presupuesto.
+
+v0.1.4: (Rosa Zambrano - 17/Jun/2019)  
+-----
+Solicitado por AP: Se agrega modificación del número de pedido, siempre que no exista una NOTPED.
+
+v0.1.5: (Rosa Zambrano - 20/Jun/2019)
+-----
+Solicitado por AP: Presentar en el "Reporte" que se muestre el valor total "APLICADO" del pedido, en vez del valor total del pedido,
+se reversa el cambio de la versión v0.1.2
+
+v0.1.6: (Rosa Zambrano - 25/Jun/2019)
+-----
+Se agregan las columnas de mes y año de embarque y puerto, solicitado por LSC.
+
+v0.1.7: (Rosa Zambrano - 08/Jul/2019)
+-----
+Se corrige st_Reg en A, se estaba almacenando con N.
+
+v0.1.8: (Rosa Zambrano - 22/Jul/2019)
+-----
+Se cambia consulta para que muestre presupuesto aunque no tenga detalle.
+Se agregan validaciones varias.
+
+v0.2.0: (Rosa Zambrano - 24/Jul/2019)
+-----
+Se ha cambiado la forma de validar los pedidos y rubros, para que lea todas las filas a excepción de la última.
+
+v0.2.1: (Rosa Zambrano - 16/Ago/2019)
+-----
+Se agrega funcion codificar para algunos campos del presupuesto.
+
+v0.2.2: (Rosa Zambrano - 19/Ago/2019)
+-----
+Se agrega color de campo obligatorio a la fecha de colocación del pedido.
+
+v0.2.3: (Rosa Zambrano - 21/Ago/2019)
+-----
+Se agrega la columna de observación 2, solicitada por AP para detallar material del pedido, este se utilizará para pedidos sin enlazar presupuesto.
+
+v0.2.4: (Ingrid Lino - 13/Sep/2019)
+-----
+En método inserta_tbmDetPreImp se valida el co_reg a través de query y no con asignación de 1;
+
+v0.2.5: (Ingrid Lino - 18/Nov/2019)
+-----
+Se cambia en el tab de reporte, panel: Pedidos SIN Presupuesto, en la columna de Presupuesto se muestra el campo de observación del tab de "Configuración"
+
+v0.2.6: (Ingrid Lino - 06/Dic/2019)
+-----
+En método "cargarCfgRub" se valida que existan datos en el detalle, porque como se trae datos de cabecera, es como si retornara un registro y al ingresar datos, el usuario los ingresa en en la primera fila que esta en modo insertable pero tiene "M" y no "I", por eso no inserta el registro ingresado por el usuario.
+
+v0.2.7: (Ingrid Lino - 18/Feb/2020)
+-----
+Se agrega columna de RFQ(Número de requerimiento) para Pedidos presupuestados y Pedidos no presupuestados.

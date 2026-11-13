@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafRptCon59" pageWidth="595" pageHeight="842" columnWidth="545" leftMargin="25" rightMargin="25" topMargin="25" bottomMargin="25">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="strSQLRep" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="strCamAudRpt" class="java.lang.String"/>
+	<parameter name="strConIvaVenBru" class="java.math.BigDecimal"/>
+	<parameter name="strSinIvaVenBru" class="java.math.BigDecimal"/>
+	<parameter name="strConIvaVenNet" class="java.math.BigDecimal"/>
+	<parameter name="strSinIvaVenNet" class="java.math.BigDecimal"/>
+	<parameter name="strIvaVenNet" class="java.math.BigDecimal"/>
+	<parameter name="strImpLiqMesAnt" class="java.math.BigDecimal"/>
+	<parameter name="strValBruPorPag" class="java.math.BigDecimal"/>
+	<parameter name="strCreFisAnt" class="java.math.BigDecimal"/>
+	<parameter name="strRetFte10P" class="java.math.BigDecimal"/>
+	<parameter name="strRetFte20P" class="java.math.BigDecimal"/>
+	<parameter name="strRetFte30P" class="java.math.BigDecimal"/>
+	<parameter name="strRetFte70P" class="java.math.BigDecimal"/>
+	<parameter name="strRetFte100P" class="java.math.BigDecimal"/>
+	<parameter name="strNomEmp" class="java.lang.String"/>
+	<parameter name="strMesCor" class="java.lang.String"/>
+	<parameter name="strVenCon" class="java.math.BigDecimal"/>
+	<parameter name="strVenCre" class="java.math.BigDecimal"/>
+	<parameter name="strVenConIva" class="java.math.BigDecimal"/>
+	<parameter name="strComValNet" class="java.math.BigDecimal"/>
+	<parameter name="strComIva" class="java.math.BigDecimal"/>
+	<parameter name="strImpIva" class="java.math.BigDecimal"/>
+	<parameter name="strImpValNet" class="java.math.BigDecimal"/>
+	<parameter name="strComSinValNet" class="java.math.BigDecimal"/>
+	<parameter name="strCreFisAct" class="java.math.BigDecimal"/>
+	<parameter name="strVenCreIva" class="java.math.BigDecimal"/>
+	<parameter name="strValPagNet" class="java.math.BigDecimal"/>
+	<parameter name="strBasImpDevCom_cru" class="java.math.BigDecimal"/>
+	<parameter name="strValIvaDevCom_cru" class="java.math.BigDecimal"/>
+	<parameter name="strBasImpIvaVta12P" class="java.math.BigDecimal"/>
+	<parameter name="strBasImpIvaVta14P" class="java.math.BigDecimal"/>
+	<parameter name="strValIvaVta12P" class="java.math.BigDecimal"/>
+	<parameter name="strValIvaVta14P" class="java.math.BigDecimal"/>
+	<parameter name="strBasImpIvaCom12P" class="java.math.BigDecimal"/>
+	<parameter name="strBasImpIvaCom14P" class="java.math.BigDecimal"/>
+	<parameter name="strValIvaCom12P" class="java.math.BigDecimal"/>
+	<parameter name="strValIvaCom14P" class="java.math.BigDecimal"/>
+	<parameter name="strCreTri10P" class="java.math.BigDecimal"/>
+	<parameter name="strCreTri20P" class="java.math.BigDecimal"/>
+	<parameter name="strCreTri30P" class="java.math.BigDecimal"/>
+	<parameter name="strCreTri70P" class="java.math.BigDecimal"/>
+	<parameter name="strCreTri100P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCon12P" class="java.math.BigDecimal"/>
+	<parameter name="strVenConIva12P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCon14P" class="java.math.BigDecimal"/>
+	<parameter name="strVenConIva14P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCre12P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCreIva12P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCre14P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCreIva14P" class="java.math.BigDecimal"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\postgres\\Desktop\\ZafCon59\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="strValComSol" class="java.math.BigDecimal"/>
+	<parameter name="strAni" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select *from tbm_emp limit 1]]>
+	</queryString>
+	<field name="co_emp" class="java.lang.Integer"/>
+	<field name="tx_ruc" class="java.lang.String"/>
+	<field name="tx_nom" class="java.lang.String"/>
+	<field name="tx_dir" class="java.lang.String"/>
+	<field name="tx_tel" class="java.lang.String"/>
+	<field name="tx_fax" class="java.lang.String"/>
+	<field name="tx_dirweb" class="java.lang.String"/>
+	<field name="tx_corele" class="java.lang.String"/>
+	<field name="tx_tipper" class="java.lang.String"/>
+	<field name="nd_ivacom" class="java.math.BigDecimal"/>
+	<field name="nd_ivaven" class="java.math.BigDecimal"/>
+	<field name="co_ctaivacom" class="java.lang.Integer"/>
+	<field name="co_ctaivaven" class="java.lang.Integer"/>
+	<field name="co_ctaban" class="java.lang.Integer"/>
+	<field name="co_ctacaj" class="java.lang.Integer"/>
+	<field name="co_ctares" class="java.lang.Integer"/>
+	<field name="co_ctagas" class="java.lang.Integer"/>
+	<field name="co_ctaretftecom" class="java.lang.Integer"/>
+	<field name="co_ctaretfteven" class="java.lang.Integer"/>
+	<field name="co_ctaretivacom" class="java.lang.Integer"/>
+	<field name="co_ctaretivaven" class="java.lang.Integer"/>
+	<field name="tx_obs1" class="java.lang.String"/>
+	<field name="tx_obs2" class="java.lang.String"/>
+	<field name="st_reg" class="java.lang.String"/>
+	<field name="fe_ing" class="java.sql.Timestamp"/>
+	<field name="fe_ultmod" class="java.sql.Timestamp"/>
+	<field name="co_usring" class="java.lang.Integer"/>
+	<field name="co_usrmod" class="java.lang.Integer"/>
+	<field name="co_tipper" class="java.lang.Integer"/>
+	<field name="co_ctacomser" class="java.lang.Integer"/>
+	<field name="co_ctavenser" class="java.lang.Integer"/>
+	<field name="st_regrep" class="java.lang.String"/>
+	<field name="tx_desconesp" class="java.lang.String"/>
+	<field name="nd_tasint" class="java.math.BigDecimal"/>
+	<field name="ne_secultdoctbmcabmovinv" class="java.lang.Integer"/>
+	<field name="ne_tampaqcoreleenvautestcta" class="java.lang.Integer"/>
+	<field name="tx_usrcoreleenvautestcta" class="java.lang.String"/>
+	<field name="tx_clacoreleenvautestcta" class="java.lang.String"/>
+	<field name="nd_valminajucenaut" class="java.math.BigDecimal"/>
+	<field name="nd_valmaxajucenaut" class="java.math.BigDecimal"/>
+	<field name="nd_valminajucenman" class="java.math.BigDecimal"/>
+	<field name="nd_valmaxajucenman" class="java.math.BigDecimal"/>
+	<field name="st_trainvgencomvenautemprel" class="java.lang.String"/>
+	<field name="tx_iderepleg" class="java.lang.String"/>
+	<field name="tx_nomrepleg" class="java.lang.String"/>
+	<field name="tx_idecongen" class="java.lang.String"/>
+	<field name="tx_nomcongen" class="java.lang.String"/>
+	<field name="co_ctacabactimp" class="java.lang.Integer"/>
+	<field name="co_ctacabpasimp" class="java.lang.Integer"/>
+	<field name="nd_porvaringegrmenprgtra" class="java.math.BigDecimal"/>
+	<field name="co_ctadetactimp" class="java.lang.Integer"/>
+	<field name="co_ctadetpasimp" class="java.lang.Integer"/>
+	<field name="ne_numresconesp" class="java.lang.Integer"/>
+	<field name="tx_codentdin" class="java.lang.String"/>
+	<field name="tx_tipproreaemprel" class="java.lang.String"/>
+	<variable name="VentasBrutas" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[($P{strConIvaVenBru}.add($P{strSinIvaVenBru}))]]></initialValueExpression>
+	</variable>
+	<variable name="VentasNetas" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[$P{strConIvaVenNet}.add($P{strSinIvaVenNet})]]></initialValueExpression>
+	</variable>
+	<variable name="VentasContadoCredito" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenCon}.add($P{strVenCre})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaRetenciones" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strRetFte10P}.add($P{strRetFte20P}).add($P{strRetFte30P}).add($P{strRetFte70P}).add($P{strRetFte100P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaComprasImportacion" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$P{strComIva}.add($P{strImpIva})]]></variableExpression>
+		<initialValueExpression><![CDATA[$P{strComIva}.add($P{strImpIva})]]></initialValueExpression>
+	</variable>
+	<variable name="valorNetoPagar" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$P{strCreFisAct}.add($V{SumaRetenciones})]]></variableExpression>
+	</variable>
+	<variable name="IvaContadoCredito" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenConIva}.add($P{strVenCreIva})]]></initialValueExpression>
+	</variable>
+	<variable name="valorVentas" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenConIva}.add($P{strImpLiqMesAnt})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaBasImpIvaVta" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strBasImpIvaVta12P}.add($P{strBasImpIvaVta14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaValIvaVta" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strValIvaVta12P}.add($P{strValIvaVta14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaBasImpIvaCom" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strBasImpIvaCom12P}.add($P{strBasImpIvaCom14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaValIvaCom" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strValIvaCom12P}.add($P{strValIvaCom14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaCreditoTributario" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strCreTri10P}.add($P{strCreTri20P}).add($P{strCreTri30P}).add($P{strCreTri70P}).add($P{strCreTri100P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumVtasContado" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenCon12P}.add($P{strVenCon14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumIvaContado" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenConIva12P}.add($P{strVenConIva14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumVtasCredito" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenCre12P}.add($P{strVenCre14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumIvaCredito" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenCreIva12P}.add($P{strVenCreIva14P})]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="49" splitType="Immediate">
+			<subreport>
+				<reportElement x="-24" y="1" width="594" height="45"/>
+				<subreportParameter name="strVenCon14P">
+					<subreportParameterExpression><![CDATA[$P{strVenCon14P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strValBruPorPag">
+					<subreportParameterExpression><![CDATA[$P{strValBruPorPag}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strImpLiqMesAnt">
+					<subreportParameterExpression><![CDATA[$P{strImpLiqMesAnt}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strRetFte70P">
+					<subreportParameterExpression><![CDATA[$P{strRetFte70P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strImpValNet">
+					<subreportParameterExpression><![CDATA[$P{strImpValNet}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strSinIvaVenNet">
+					<subreportParameterExpression><![CDATA[$P{strSinIvaVenNet}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenCre">
+					<subreportParameterExpression><![CDATA[$P{strVenCre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strNomEmp">
+					<subreportParameterExpression><![CDATA[$P{strNomEmp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strSinIvaVenBru">
+					<subreportParameterExpression><![CDATA[$P{strSinIvaVenBru}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strBasImpIvaVta14P">
+					<subreportParameterExpression><![CDATA[$P{strBasImpIvaVta14P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strBasImpIvaCom14P">
+					<subreportParameterExpression><![CDATA[$P{strBasImpIvaCom14P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenCre12P">
+					<subreportParameterExpression><![CDATA[$P{strVenCre12P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strBasImpDevCom_cru">
+					<subreportParameterExpression><![CDATA[$P{strBasImpDevCom_cru}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenCreIva14P">
+					<subreportParameterExpression><![CDATA[$P{strVenCreIva14P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strCreTri100P">
+					<subreportParameterExpression><![CDATA[$P{strCreTri100P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strCamAudRpt">
+					<subreportParameterExpression><![CDATA[$P{strCamAudRpt}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strComIva">
+					<subreportParameterExpression><![CDATA[$P{strComIva}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strValIvaCom14P">
+					<subreportParameterExpression><![CDATA[$P{strValIvaCom14P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strCreTri20P">
+					<subreportParameterExpression><![CDATA[$P{strCreTri20P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strRetFte100P">
+					<subreportParameterExpression><![CDATA[$P{strRetFte100P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strCreTri30P">
+					<subreportParameterExpression><![CDATA[$P{strCreTri30P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strMesCor">
+					<subreportParameterExpression><![CDATA[$P{strMesCor}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strValComSol">
+					<subreportParameterExpression><![CDATA[$P{strValComSol}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strValIvaVta12P">
+					<subreportParameterExpression><![CDATA[$P{strValIvaVta12P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strCreTri10P">
+					<subreportParameterExpression><![CDATA[$P{strCreTri10P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strCreFisAct">
+					<subreportParameterExpression><![CDATA[$P{strCreFisAct}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strValPagNet">
+					<subreportParameterExpression><![CDATA[$P{strValPagNet}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenCon">
+					<subreportParameterExpression><![CDATA[$P{strVenCon}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenConIva14P">
+					<subreportParameterExpression><![CDATA[$P{strVenConIva14P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strConIvaVenBru">
+					<subreportParameterExpression><![CDATA[$P{strConIvaVenBru}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strConIvaVenNet">
+					<subreportParameterExpression><![CDATA[$P{strConIvaVenNet}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strValIvaDevCom_cru">
+					<subreportParameterExpression><![CDATA[$P{strValIvaDevCom_cru}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strValIvaCom12P">
+					<subreportParameterExpression><![CDATA[$P{strValIvaCom12P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strBasImpIvaVta12P">
+					<subreportParameterExpression><![CDATA[$P{strBasImpIvaVta12P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strAni">
+					<subreportParameterExpression><![CDATA[$P{strAni}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenCon12P">
+					<subreportParameterExpression><![CDATA[$P{strVenCon12P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strBasImpIvaCom12P">
+					<subreportParameterExpression><![CDATA[$P{strBasImpIvaCom12P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strRetFte30P">
+					<subreportParameterExpression><![CDATA[$P{strRetFte30P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenCre14P">
+					<subreportParameterExpression><![CDATA[$P{strVenCre14P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strImpIva">
+					<subreportParameterExpression><![CDATA[$P{strImpIva}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strComValNet">
+					<subreportParameterExpression><![CDATA[$P{strComValNet}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strCreTri70P">
+					<subreportParameterExpression><![CDATA[$P{strCreTri70P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strIvaVenNet">
+					<subreportParameterExpression><![CDATA[$P{strIvaVenNet}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strRetFte10P">
+					<subreportParameterExpression><![CDATA[$P{strRetFte10P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenCreIva12P">
+					<subreportParameterExpression><![CDATA[$P{strVenCreIva12P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strRetFte20P">
+					<subreportParameterExpression><![CDATA[$P{strRetFte20P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenCreIva">
+					<subreportParameterExpression><![CDATA[$P{strVenCreIva}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strValIvaVta14P">
+					<subreportParameterExpression><![CDATA[$P{strValIvaVta14P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenConIva">
+					<subreportParameterExpression><![CDATA[$P{strVenConIva}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strComSinValNet">
+					<subreportParameterExpression><![CDATA[$P{strComSinValNet}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strSQLRep">
+					<subreportParameterExpression><![CDATA[$P{strSQLRep}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strCreFisAnt">
+					<subreportParameterExpression><![CDATA[$P{strCreFisAnt}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="strVenConIva12P">
+					<subreportParameterExpression><![CDATA[$P{strVenConIva12P}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "ZafSubRptCon59_01.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

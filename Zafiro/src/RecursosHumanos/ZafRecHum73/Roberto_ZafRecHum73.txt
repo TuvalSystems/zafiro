@@ -1,0 +1,12 @@
+
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Roberto Flores - 08/08/2013)
+----
+Clase nueva
+
+v1.01: (Sayda Villalta - 01/04/2025)
+-----
+sae modifica formato del txt

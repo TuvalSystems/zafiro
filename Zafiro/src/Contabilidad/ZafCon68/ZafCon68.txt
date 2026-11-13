@@ -1,0 +1,12 @@
+ 
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Sayda Villalta - 09/Enero/2024)
+----
+Clase nueva "Genera reporte de relacion dependencia..."
+ 
+v1.1: (Sayda Villalta - 21/Enero/2024)
+----
+Se corrige novedad de espacio en nombres.

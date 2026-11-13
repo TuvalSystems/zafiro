@@ -1,0 +1,81 @@
+ 
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Sayda Villalta - 18/Sep/2024)
+----
+Clase nueva "Genera Diario con sus analiticas para cuentas del Rol de pago..."
+ 
+
+v1.1: (Sayda Villalta - 10/Octubre/2024)
+----
+se add campo de semana integral 
+
+v1.2: (Sayda Villalta - 10/Octubre/2024)
+----
+Se add permisos de botones
+
+v1.3: (Sayda Villalta - 14/Octubre/2024)
+----
+Se add paso para ingresar cuentas de otros descuentos
+
+v1.4: (Sayda Villalta - 29/Octubre/2024)
+----
+Se corrige novedad donde el valor sale duplicado cuenta sueldo 
+
+v1.5: (Sayda Villalta - 30/Octubre/2024)
+----
+Se modifica flujo para el asiento en borrador 
+
+v1.6: (Sayda Villalta - 07/Noviembre/2024)
+----
+Se add barra de proceso y se corrige novedades al generar los asientos 
+
+v1.7: (Sayda Villalta - 20/Noviembre/2024)
+----
+Se add validacion al generar el asiento y las analiticas en caso de que no se encuentren creadas no se genera.
+
+v1.8: (Sayda Villalta - 02/Dic/2024)
+----
+Se corrige novedad de descuadre por decimales en el asiento borrador
+
+v1.9: (Sayda Villalta - 02/Dic/2024)
+----
+Se cambia fecha del para generar diario con el ultimo dia del periodo seleccionado
+
+v1.10: (Sayda Villalta - 02/Dic/2024)
+----
+Se corrige novedad de analiticas
+
+v1.11: (Sayda Villalta - 07/Enero/2025)
+----
+Se muestra el error de gp al generar el asiento.
+
+v1.12: (Sayda Villalta - 10/Enero/2025)
+----
+se add dimencion 23 para la creacion de analiticas
+
+v1.13: (Sayda Villalta - 11/Febrero/2025)
+----
+se add otro valor para el diario nd_devfonres
+
+v1.14: (Sayda Villalta - 06/Marzo/2025)
+----
+se cambia contains x equals
+
+v1.15: (Sayda Villalta - 11/Marzo/2025)
+----
+se modifica valor de analitica
+
+v1.16: (Jean Moran - 05/Febrero/2026)
+----
+se agrega nuevas columnas Sta. Priscila e Indemnizacion IESS.
+Sta Priscila - Cta Adelanto Sueldos
+Indemnizacion IESS - Cta Sueldos
+
+v1.17: (Jean Moran - 25/Agosto/2026)
+----
+se agrega nuevas columnas Sta. Priscila e Indemnizacion IESS.
+Sta Priscila - Cta Adelanto Sueldos
+Indemnizacion IESS - Cta Sueldos

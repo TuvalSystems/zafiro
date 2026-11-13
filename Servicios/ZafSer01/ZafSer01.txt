@@ -1,0 +1,123 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.9: (Ingrid Lino - 18/Ene/2013)
+-----
+Se agregan clases para proceso de Importaciones-Inmaconsa
+
+
+v2.0: (Alex Morán - 05/Feb/2013)
+-----
+Se realizan cambios por modificacion de usuario y clave de bd
+
+
+v2.8: (Alex Morán - 16/Abr/2013)
+-----
+Se modificó para manejar formato continuo en guías de remisión para Tuval Inmaconsa
+
+
+v2.9: (Alex Morán - 10/Jul/2013)
+-----
+Se modificó para manejar formato continuo en guías de remisión para Dimulti Inmaconsa
+
+
+v3.0: (Alex Morán - 10/Oct/2013)
+-----
+Se modificó para manejar formato continuo en guías de remisión para Castek Inmaconsa
+
+
+v3.1: (Juan Carlos Constantine - 07/Feb/2014)
+-----
+Se modifico clase zafClassimpGuia metodo  _getVerficaGenGuiTrans  variable  strSql se agrego el 4 a bodGrp
+Se modifico clase ZafClassImpGuiaInmaconsa metodo  _getVerficaGenGuiTrans  variable  strSql se agrego el 4 a bodGrp
+Se modifico clase ZafClassImpGuiaInmaconsa metodo  _getVerficaGenGuiTrans  variable  strSql se agrego el 4 a bodGrp
+
+
+v3.2: (Juan Carlos Constantine - 11/Feb/2014)
+-----
+se habilito la bodega navisur agregando en la empresa 1 bod 9 empresa 2 bode 10 empresa 4 bod 8 del metodo  consultarTansAut
+
+
+v3.3: (Eddye Lino - 24/Feb/2013)
+-----
+Se modificó el método: 
+   1) ServicioImpGuiaInmaconsa.iniciarProceso
+Se agregó código para que cuando se pìda mercadería de Inmaconsa se generen las ordenes de despacho.
+Antes sólo se podía pedir mercadería de Inmaconsa vía "Transferencias de inventario". Pero ahora se
+puede pedir mercadería desde "Cotizaciones de ventas" con autorización.
+
+
+
+v3.4: Ingrid Lino - 06/Jun/2014)
+-----
+Se adiciona código para cliente retira en inmaconsa, generación e impresión de OD y GR
+
+
+v3.5: Ingrid Lino - 12/Jun/2014)
+-----
+Se modifica y arregla problema de impresiones de Ordenes de Depacho y Guias de Remisión para Inmaconsa
+
+
+v3.31: (Rosa Zambrano - 08/Jul/2015)
+-----
+Se agrega volver a facturar en Locales Inmaconsa.
+
+
+v3.32: (Jose Mario Marin - 16/Jul/2015)
+-----
+Se agrega al reporte de OD, un usuario al imprimir, en caso de ser el servicio no se mostrara nada.
+
+
+v3.36: (Rosa Zambrano - 21/Sep/2015)
+-----
+En la librería ZafClasImpGuiImp, función impresionOrdDesImp() se agrega en el query el tx_CodAlt2 para que se imprima el código de 3 letras en las Ordenes de Despacho de Importaciones y Compras Locales.
+
+
+v3.38: (Christian Mateo - 30/Dic/2015)
+-----
+Se modifica el metodo que imprime las od locales y las od de inmaconsa para evitar que se repitan od que ya tengan estado 'S', ya que existen impresiones de od que ya han sido impresas en dias anteriores.
+
+
+v3.40: (Tony Sanginez - 17/Mar/2016)
+-----
+En la librería ZafImpZafReg, se agregaron las modificaciones para la impresión en formato A5 de las hojas. En los métodos de imprimirGuiRemTerL(); y imprimirGuiRemCliNotRet_autSRI();
+
+
+v3.41: (Tony Sanginez - 29/Mar/2016)
+-----
+En la librería ZafImpZafReg, se corrigio para que se impriman varios items en diferentes documentos.
+
+
+v3.46: (Tony Sanginez - 12/Dic/2016)
+-----
+Se agregó nuevo metodo para imprimir una notificacion de Devoluciones de Ventas en las impresoras de las ordenes de despacho
+
+
+v3.48: (Tony Sanginez - 20/Ene/2017)
+-----
+Correcion de query que validaba impresión de devoluciones
+
+
+v3.49: (Tony Sanginez - 20/Ene/2017)
+-----
+Aumento de metodo para obtener bodegaGrupo e imprimir.
+
+
+v3.50: (Tony Sanginez - 09/Mar/2017)
+-----
+Se mejoran los reportes en formato A5 para Manta y Santo Domingo
+
+
+v3.51: (Christian Mateo - 26/May/2019)
+-----
+Cambios realizados en ZafImpZafReg.
+
+
+v3.52: (Rosa Zambrano - 30/Ago/2019)
+-----
+Se realizan cambios para Jaspersoft Studio en la clase ZafClassImpGuia, función impresionOrdDesImp.
+Se elimina el uso de libreria JasperManager.

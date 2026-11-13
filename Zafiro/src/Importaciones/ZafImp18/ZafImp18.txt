@@ -1,0 +1,107 @@
+﻿Pendientes:
+1)
+2)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (Jose Mario Marin - 14/Nov/2023)
+----
+Modificacion del programa ZafCom68. 
+
+
+ v0.02: (Jose Mario Marin - 14/Nov/2023)
+----
+Columnas que estaban ocultas, por error ahora son visibles, se agrega la columna de sugerencia de pedido segun nueva formula entregada por LSC. 
+
+
+ v0.03: (Jose Mario Marin - 19/Dic/2023)
+----
+Se crean nuevas columnas para frecuencias (Frecuencia por item, por linea, frecuencia la mejor de las dos), se configura la columna de exceso modificable, se crea
+una columna promedio de ventes teoricas, con un nuevo campo en tbm_inv, se bloqueo la columna de promedio de venta, se cambio de nombre a dicha columna y ahora es 
+promedio de ventas presupuesto, se crearon funciones para calcular el total de las columnas que se adicionaron, la funcion de subir datos se modifico, para que valide los datos 
+de no haber ningun dato no sera considerado. 
+
+ v0.09: (Cristhian Ramirez - 22/Octubre/2024)
+----
+Se realiza las validaciones de las consultas de los pedidos/notas de pedidos, valores de la tbm_inv,disponible, inventario total, exitencia , etc.
+
+v0.12: Cristhian Ramirez - 21/Nov/2024)
+----
+Se añadio lo referente a agrupacion , ventana de modificacion de grupos
+
+v0.14: Cristhian Ramirez - 26/Nov/2024)
+----
+Se añade la configuracion de grupos-atributos
+
+v0.15: Cristhian Ramirez - 26/Nov/2024)
+----
+Se pone como visible elboton de subir datos
+
+v0.16: Cristhian Ramirez - 06/Dic/2024)
+----
+Se añade los reportes y nuevas validaciones de cabecera
+
+v0.17: Cristhian Ramirez - 10/Dic/2024)
+----
+Se añade la configuracion anual y el nuevo reporte de imp17
+
+v0.18: Cristhian Ramirez - 19/Dic/2024)
+----
+Se añade la generacion de lo que es en peso para el moq y el exc
+
+v0.19: Cristhian Ramirez - 23/Dic/2024)
+----
+Se modifica el calculo de la suma total con respecto al moq
+
+v0.20: Cristhian Ramirez - 23/Dic/2024)
+----
+Se modifica lo que es el precio x 0.75
+
+v0.21: Cristhian Ramirez - 23/Dic/2024)
+----
+Se actualiza
+
+v0.22: Cristhian Ramirez - 14/Ene/2025)
+----
+Se modifica la consulta de los pesos ,ademas del total
+
+v0.23: Cristhian Ramirez - 15/Ene/2025)
+----
+Se actualiza
+
+v0.24: Cristhian Ramirez - 22/Ene/2025)
+----
+Se actualiza
+
+v0.25: Cristhian Ramirez - 02/Febre/2025)
+----
+Se añade la consulta de items
+
+v0.26: Cristhian Ramirez - 05/Febre/2025)
+----
+Se añade las validaciones
+
+v0.27: Cristhian Ramirez - 06/Febre/2025)
+----
+Se añade el poder subir de forma en excel el campo de nd_provtateorico
+
+v0.28: Cristhian Ramirez - 10/Febre/2025)
+----
+Se añade el poder subir por columnas el excel
+
+v0.29: Cristhian Ramirez - 17/Febre/2025)
+----
+Se añade la nueva columna con sus totales y se añade el valor de la columna de pro. ant
+
+v0.30: Cristhian Ramirez - 19/Febre/2025)
+----
+Se modifica las formulas y se añade las columnas nuevas
+
+v0.31: Cristhian Ramirez - 20/Febre/2025)
+----
+Se añade el proceso para los tres reportes :Promedio Actual-Anterior-Teorico
+
+v0.32: Cristhian Ramirez - 12/Marzo/2025)
+----
+Se modifica lo que es la formula de pedido sugerido , estaba antes SI inventario total <= ppmin y ahora es inventario total <= ppmax

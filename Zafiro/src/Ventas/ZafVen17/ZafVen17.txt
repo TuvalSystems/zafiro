@@ -1,0 +1,15 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Marín - 7/Nov/2018)
+----
+Clase nueva (Facturacion parcial).
+
+
+v 0.02: (José Marín - 4/Ene/2019)
+----
+Modificacion para las versiones.

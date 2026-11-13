@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafRptCom23_04" pageWidth="595" pageHeight="608" columnWidth="581" leftMargin="0" rightMargin="14" topMargin="60" bottomMargin="19">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="co_emp" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[2]]></defaultValueExpression>
+	</parameter>
+	<parameter name="co_loc" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="co_tipdoc" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[102]]></defaultValueExpression>
+	</parameter>
+	<parameter name="co_doc" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[11270]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nomUsrImp" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select doccab.ne_numorddes --DocCab.ne_numdoc
+FROM
+tbm_cabguirem as DocCab
+WHERE
+DocCab.co_emp=$P{co_emp}
+and DocCab.co_loc=$P{co_loc}
+and DocCab.co_tipdoc=$P{co_tipdoc}
+and DocCab.co_doc=$P{co_doc}]]>
+	</queryString>
+	<field name="ne_numorddes" class="java.lang.Integer"/>
+	<variable name="co_emp" class="java.lang.Integer"/>
+	<variable name="co_loc" class="java.lang.Integer"/>
+	<variable name="co_tipdoc" class="java.lang.Integer"/>
+	<variable name="co_doc" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="121" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="11" y="61" width="68" height="20"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ne_numorddes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="28" width="154" height="32" forecolor="#000000"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[NO DESPACHAR ORDEN DE DESPACHO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="80" width="154" height="27" forecolor="#000000"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[ESTA ANULADO..]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="7" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="6" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

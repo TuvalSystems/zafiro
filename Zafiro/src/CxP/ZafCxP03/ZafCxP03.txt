@@ -1,0 +1,330 @@
+﻿Pendientes:
+1) Hacer que se puedan presentar todos los documentos
+    (esto quedó pendiente porque no todos los documentos van a tener el mismo # de vb...
+     en cuyo caso las columnas q se deben adicionar no van a ser las mismas para todos los documentos)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1 b1: (Ingrid Lino - 29/Jul/2008)
+---
+Nuevo programa que permite realizar autorizaciones de pagos a proveedores y asignación de bancos
+
+
+v0.1: (Ingrid Lino - 30/Jul/2008)
+----
+Pase a producción.
+
+
+v0.1.1 b1: (Ingrid Lino - 22/Ago/2008)
+----
+Se adicionaron filtros de:
+* El programa relacionado solo a bancos no debe presentar las columnas de vistos buenos.
+* Un checkbox que permita solo presentar los documentos que cumplen con todos los vistos buenos relacionados a ese tipo de documento.
+
+
+v0.1.1: (Ingrid Lino - 03/Sep/2008)
+----
+Pase a producción.
+
+
+v0.2: (Ingrid Lino - 09/Sep/2008)
+----
+- El método cargarDetReg() cuando no encontraba registros, presentaba "Cargando datos",
+  así q se modificó la parte de presentar número de registros encontrados, en el caso q el resultSet no 
+  devuelva registros, presenta "0 registros encontrados" y ya no se queda con el msj "Cargando datos"
+
+- Se adicionaron cambios solicitados por el gerente:
+    * Adicionar la columna de Fecha de documento.
+    * Sumatoria del valor pendiente q se está autorizando.
+    * Se ocultó columna Tipo de Documento
+    * Presentación de columnas de bancos, se presenta el nombre del banco "partido", cuando se encuentra
+        el primer espacio en blanco, se da un brinco en la cabecera de la tabla, presentando el resto
+        del contenido en la parte de abajo
+        Ejm: siendo cada una de estas una columna.
+            ANTES                               AHORA
+        |----------------------|               |----------------------|
+        |BANCO DEL PICHINCHA...|               |BANCO                 |
+        |----------------------|               | DEL PICHINCHA....    |
+        |                      |               |----------------------|
+        |                      |               |                      |
+
+                                                
+v0.2.1: (Ingrid Lino - 11/Sep/2008)
+----
+La validación de si el saldo del banco es menor al valor del documento o tiene saldo negativo, fue quitada porq si se permiten sobregiros que
+serán cubiertos en el transcurso de los días antes de la fecha de vencimiento del documento.
+
+
+v0.2.2: (Ingrid Lino - 11/Sep/2008)
+----
+* Se adicionó código para el usuario "51"(Mayra Bajaña) para q tenga acceso al programa de bancos para solo consulta.
+* Se descomentó en el query de tipo de documela línea de código de menu, por lo q se estaban presentando todos los documentos al hacer la consulta de tipos de documentos.
+
+
+v0.3.1: (Ingrid Lino - 18/Sep/2008)
+----
+* Se adicionó columna de observación de porque se genera la Orden de Pago.
+* Columnas de totales autorizados con Bancos y sin bancos
+* Que los registros presentados sean por un sólo documento, es decir si una FACCOM tiene 3 pagos, sólo se debe presentar uno sólo con valores totales.
+
+
+v0.3.2: (Ingrid Lino - 23/Sep/2008)
+----
+* Se adicionó al presentar los saldos de bancos autorizadeos el estado de tbm_cabmovinv de documentos anulados y eliminados,
+  que no estaban siendo tomados en cuenta y por tanto presentaban la información incorrecta.
+
+
+v0.3.3: (Ingrid Lino - 25/Sep/2008)
+----
+* Se quitó la columna donde se presentaba el toal de lo autorizado con y sin bancos.
+* Se adicionó columna donde se muestra el motivo de porque no se ha emitido un cheque que ya cuenta con la autorización.
+
+
+v0.3.5: (Ingrid Lino - 26/Sep/2008)
+----
+* Se adicionó que cuando mandé a actualizar la tabla tbm_pagmovinv sea de acuerdo a si está o no autorizado o reprobado, antes solo 
+  se preguntaba si el registro había sido modificado y si por error un registro se seleccionaba y luego era deseleccionado, igual se actualizaba la tabla tbm_pagmovinv, pero no se guardaba registro en tbm_autPagMovInv.
+
+
+v0.3.8: (Ingrid Lino - 26/Sep/2008)
+----
+Se quitó el filtro por local.
+
+
+v0.3.9: (Ingrid Lino - 30/Sep/2008)
+----
+Se adicionó código para ocultar el botón guardar cuando el usuario es Rene Villon, Mayra Bajaña y Gabriel G.
+    
+
+v0.4 b1: (Ingrid Lino - 12/Nov/2008)
+----
+-Se adicionó columna para motivo de porque se genera el pago del cheque
+-Se adicionó columna para motivo de porque Contabilidad no ha generado todavía el cheque, pese a q tiene Autoriz.
+-Se adicionó columna para colocar fecha de vencimiento del cheque.
+-Se quitó el fitro de fecha de vencimiento de obligatoria a opcional.
+-Muestra las notas de crédito
+-Se regresó al esquema de presentar número de pagos:
+  Si una O/C tiene 2 pagos 
+    $100 al 12/11/2008   y $ 152 al 30/12/2008, se presentarán los dos registros, no solo uno.
+-Se aplica también para Autorización de pago a clientes(solo muestra datos de cliente)
+    para FACVEN presenta valores en exceso y para DEVVEN y N/C los valores de dichos documentos aún no cancelados.
+
+
+v0.4: (Ingrid Lino - 17/Nov/2008)
+----
+Pase a producción.
+
+
+v0.4.1: (Ingrid Lino - 29/Dic/2008)
+----
+Se adicionaron tipos de documentos 118,119,120,121,122 que son los documentos usados para generar
+documentos por pagar departamentales.
+
+
+v0.5: (Ingrid Lino - 26/Ene/2009)
+----
+Se cambio el query para obtener los datos, el motivo es porq las NCPR deben de aparecer tal y como aparecen
+ las FACCOM, no deben ser tomadas en cuenta según filtro de "Mostrar Notas de Crédito".
+
+
+v0.7: (Ingrid Lino - 19/Mar/2009)
+----
+En el query q muestra los saldos de bancos auorizados y q no han sido emitidos cheques, se adicionó 
+filtro de estado de la tabla tbm_pagmovinv. ('A','C')
+
+
+v0.8: (Ingrid Lino - 25/Mar/2009)
+----
+Se cambió en columnas de checkbox cuando no tienen datos el String por null, porq el ZafTblOrd daba excepción con String.
+
+
+v0.9: (Ingrid Lino - 09/Jun/2009)
+----
+Se adicionó filtro de excluir venta entre compañías.
+
+
+v0.10: (Ingrid Lino - 18/Ago/2009)
+----
+Se modificó código para que muestre también notas de crédito y débito(C->clientes y D->proveedores).
+Las notas de crédito para clientes se necesitan autorizar, las notas de d´ébito para proveedores no necesitan ser autorizadas.
+Tambieén se añadió el botón de guardar motivo al usuario lbarchi.
+
+
+v0.11: (Ingrid Lino - 30/Sep/2009)
+----
+Se adicionó código para corregir registros que no se insertaban en tbm_autPagMovInv.
+
+
+v1.0: (Ingrid Lino - 18/Feb/2010)
+----
+Se hizo un nuevo programa porq el anterior estaba fallando al momento de realizar un búsqueda en JTable. Ademas se adicionó columna de botón donde se presenta una ventana de Observacion de porque no se ha emitido el cheque.
+Se adicionó tb opciones de "autorizar/desautorizar pago", "autorizar/desautorizar banco", "autorizar/desautorizar pago y banco", "editar campo de porq no se ha emitido cheque", "editar fecha de vencimiento del cheque".
+
+
+v1.1: (Ingrid Lino - 24/Feb/2010)
+----
+Se adicionó código para permitir ingresar en la fecha de emisión del cheque el mes con un solo digito.
+
+
+v1.2: (Ingrid Lino - 05/Nov/2010)
+----
+Se quitaron campos de los queries debido a que esos campos van a desaparecer de la db
+
+
+v1.3: (Ingrid Lino - 14/Mar/2011)
+----
+Se cambió el campo donde se almacenaba la fecha de vencimiento del cheque a un campo nuevo.
+
+
+v1.3.1: (Ingrid Lino - 12/May/2011)
+----
+Se corrigió validación cuando los registros estaban con color, estaba activo el chk de autorizacion.
+
+
+v1.3.2: (Ingrid Lino - 23/May/2011)
+----
+Se hizo un cambio en el pase anterior a producción y no estaba del todo bien. Se corrigió, si en el programa Autorización de pagos y bancos se asignaba bancos, y luego se cambiaba
+la cuenta bancaria en el programa de Autorización de bancos, la cuenta cambiaba solo en tbm_pagmovinv y no en tbm_autPagMovInv.
+
+
+v1.3.3: (Ingrid Lino - 16/Jun/2011)
+----
+Se adiciono en el query el filtro para presentar solo documentos con factura de proveedor asociada o con el estado en tbm_cabmovinv.st_emichqantrecfacprv='S'. Tambien se coloco un filtro en el formulario para permmitir ver toda la informacion pendiente de pago.
+
+
+v1.4: (Ingrid Lino - 10/Oct/2011)
+----
+Se adiciona restricción para poder visualizar documentos por pagar por motivo de Tarjetas de crédito solo cuando ya tengan el visto de "listo".
+
+
+v1.5: (Ingrid Lino - 17/Nov/2011)
+----
+Se adiciona codificación para T/C.
+
+
+v1.6: (Ingrid Lino - 01/Dic/2011)
+----
+Se valida que los registros del documento no hayan sido modificados mientras estaban cargados en memoria de este programa.
+
+
+v1.7: (Ingrid Lino - 14/Ago/2012)
+----
+Se adiciona código para generar log de procesos: autorizacion de pagos, autorizacion de bcos, fecha de cheque. Al momento de dar click en botón Guardar y al dar click en checkbox de autorización de pagos, bancos, fecha.
+
+
+v1.8: (Ingrid Lino - 15/Ago/2012)
+----
+Se adiciona código para permitir en el popup menu seleccionar opcion Marcar casilla de verificación y Desmarcar casilla de verificación y adicionar estos eventos al log de procesos(ZafCxP03_01.txt).
+
+
+v1.9: (Ingrid Lino - 01/Ago/2014)
+----
+Se adiciona columna donde se presenta el número de la factura de proveedor. Solicitado por wcampoverde.
+
+
+v1.10: (Dennis Betancourt - 10/Abr/2017)
+----
+Al iniciar el programa antes de mostrar el formulario, se va a verificar en la tabla tbm_cabmovinv si los campos co_ben, tx_benchq y fe_ultmod son nulos. Si es asi, se procede a asignar valores.
+
+
+v1.11: (Rosa Zambrano - 03/Ago/2018)
+----
+Se realizan mejoras en el código.
+
+
+v1.12: (Rosa Zambrano - 17/Ago/2018)
+-----
+Se agrega ordenamiento.
+
+
+v1.13: (Rosa Zambrano - 27/Ago/2018)
+-----
+Se habilita la opción de autorizar pagos de documentos de importaciones.
+
+
+v1.14: (Rosa Zambrano - 29/Ago/2018)
+-----
+Se reversa a la versión v1.12.
+
+
+v1.15: (Rosa Zambrano - 31/Ago/2018)
+-----
+Se realiza validación para documentos de pagos de impuestos.
+
+
+v1.16: (Rosa Zambrano - 25/Oct/2018)
+-----
+Se cambia nombre de objeto de Pago de impuestos.
+Se agrega validación en "Autorización de pagos y bancos" cuando banco no ha sido seleccionado no procese ninguna transferencia bancaria.
+Se asigna como Nombre de proveedor: LIQ.ADUANA, solicitado por Alfredo Paulson
+Se agrega filtro de búsqueda de nombre de proveedor.
+
+
+v1.17: (Rosa Zambrano - 26/Oct/2018)
+-----
+Se asigna como Beneficiario de proveedor: LIQ.ADUANA, para que sea igual que el nombre de proveedor.
+
+
+v1.18: (Rosa Zambrano - 26/Nov/2018)
+-----
+Se realizan cambios para pagos a proveedores del exterior.
+
+
+v1.19: (Rosa Zambrano - 17/Dic/2018)
+-----
+Se agrega constructor de pagos a proveedores del exterior.
+Se agrega consulta de proveedores al exterior.
+
+
+v1.20: (Rosa Zambrano - 02/Ene/2019)
+-----
+Se cambia constructor de pago de impuestos de importaciones con el estandar (ZafParSis, componente).
+
+
+v1.21: (Rosa Zambrano - 10/Ene/2019)
+-----
+Se agrega validación para que en los DxP no elijan transferencias bancarias, sino que seleccionen directamente el banco.
+
+
+v1.22: (Rosa Zambrano - 18/Feb/2019)
+-----
+Se agrega mensajes de error para Pagos al exterior.
+
+
+v1.23: (Ingrid - 04/Sep/2019)
+-----
+Se agrega codificación para ISD Crédito Tributario, Gastos que genere movimiento contable.
+
+
+v1.24: (Jose Mario Marin - 11/Ago/2020)
+-----
+Se agrega ordenamiento de las columnas de bancos, solicitado por LSC y AP el 7/Agosto/2020.
+
+
+v1.25: (Jose Mario Marin - 11/Ago/2020)
+-----
+Se muestra la columna del beneficiario.
+
+
+v1.26: (Eddye Lino - 13/Nov/2020)
+-----
+Se modificaron los métodos: 
+   1) configurarTblDat()
+   2) mouseMoved(java.awt.event.MouseEvent evt)
+Luego de completar la Fusión de CASTEK y DIMULTI con TUVAL Werner reportó que aparecían
+ordenes de compra con la misma numeración. Eso era porque eran de diferentes locales.
+Como no se mostraba la columna del local no se sabía de qué local era la orden de compra.
+Werner solicitó que buscaramos una forma rápida de ayudarlo.
+La solución más sencilla fue hacer visible la columna "Cód.Loc." y agregar un ToolTipText
+en dicha columna con el "Listado de locales".
+
+
+v1.27: (Eddye Lino - 24/Nov/2020)
+-----
+Se modificó el método: 
+   1) getConsulta()
+Se agregó y corrigió el código para que aparezcan los documentos "7=CXCINI" y "320=CXCINID".
+Dichos documentos no aparecían porque estaba quemado en el query "a1.tx_obs1 IN('FACC') y a1.tx_obs1 IN('NCCO')"
+que son los tipos de documentos que se utilizaron en la migración del año 2006.
+El cambio realizado sólo es un parche para hacer que aparezcan los documentos que utilizaron en la migración de octubre del 2020.

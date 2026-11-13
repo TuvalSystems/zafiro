@@ -1,0 +1,23 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez - 03/Diciembre/2024)
+----
+Clase nueva
+
+v0.2: (Cristhian Ramirez -26/Diciembre/2024)
+----
+Se completa la separacion entre peso y dolar
+
+v0.3: (Cristhian Ramirez -16/Enero/2025)
+----
+Se modifica la forma de consultar ,se añade un sp para la generacion de la conuslta
+
+v0.4: (Cristhian Ramirez -10/Junio/2025)
+----
+Se mmodifica para que cargar con menor tiempo 
+

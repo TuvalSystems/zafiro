@@ -1,0 +1,31 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez - 23/Oct./2025)
+----
+Se realiza la creacion del formulario
+
+v0.2: (Jean Paúl Morán - 27/Mayo/2026)
+----
+Se retoma programa y se deja listo pestaña ATRIBUTOS_ITEM y ABC, las demas quedan ocultas hasta más adelante
+
+v0.3 : (Jean Paúl Morán - 30/Junio/2026)
+----
+Se agrega para que guarde en la columna tx_proMod el programa que modifica osea tx_proMod = ZafHer41
+
+v0.4 : (Jean Paúl Morán - 15/Julio/2026)
+----
+Se agrega para que guarde tambien en tbl_ItemsClasiAtrib(sql) y gp_articulos(MySQL)
+
+v0.5 : (Jean Paúl Morán - 17/Agosto/2026)
+----
+Se agrega boton con usuarios para que cuando el programa lo use admin, elija que usuario mandó a hacer la modifacion y ya no guardar admin sino ejemplo dcullispuma, ademas se agregó que tambien actualice en tbm_inv de postgres empresa 0, antes solo lo hacia con empresa 1, ahora (0,1)
+
+
+
+
+

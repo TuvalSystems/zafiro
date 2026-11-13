@@ -1,0 +1,11 @@
+
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Sayda Villalta  - 21/Feb/2025)
+----
+Clase nueva.
+//NOTA: Dar permisos en la tabla --->>Ejemplo: insert into tbr_locprgUsr values(1,4,3915,156,1,4,'A')
+
+ 

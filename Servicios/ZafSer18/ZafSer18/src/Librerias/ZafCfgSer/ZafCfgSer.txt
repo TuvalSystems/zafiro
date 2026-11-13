@@ -1,0 +1,11 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Rosa Zambrano - 06/Jul/2015)
+----
+Clase nueva.
+

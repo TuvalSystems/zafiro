@@ -1,0 +1,46 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez - 06/Marzo/2023)
+----
+Clase nueva
+
+v0.2: (Cristhian Ramirez - 15/Marzo/2023)
+----
+
+Se modifico a nivel de diseño
+
+v0.3: (Cristhian Ramirez - 17/Marzo/2023)
+----
+
+Se modifico la visualizacion del campo a nivel de codigo de 3 letras , en altiora el campo codigo de letras es ITMSHNAM y en masterweb es ITMGEDSC
+
+v0.4: (Cristhian Ramirez - 31/Marzo/2023)
+----
+Validacion de botones
+
+v0.5: (Cristhian Ramirez - 28/Abril/2023)
+----
+Insercion de versionamiento
+
+v0.6: (Cristhian Ramirez - 19/Julio/2023)
+----
+Se añadio la validacion por mensaje cuando se haya modificado valores de la conversion que no sean por defecto, al momento de dar clic en el check de autorizar se emite el mensaje.
+
+v1.0: (Cristhian Ramirez - 22/Mayo/2026)
+----
+Se modifico todo el formulario por que se tenia problemas con el diseño del formulario, ademas se añade lo que es la eliminacion de la reposicion , la modificacion de cantidades y el reproceso.
+
+v1.1: (Cristhian Ramirez - 28/Mayo/2026)
+----
+SE ACTUALIZO
+
+v1.2: (Cristhian Ramirez - 12/Oct/2026)
+----
+SE ACTUALIZO
+
+

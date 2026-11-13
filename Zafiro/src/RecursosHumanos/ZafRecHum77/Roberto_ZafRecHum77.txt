@@ -1,0 +1,28 @@
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Roberto Flores - 24/01/2014)
+----
+Clase nueva
+
+v1.1: (David Albuja- 24/06/2014)
+----
+Al grabar invoca al Servicio9.
+
+v1.2: (Sayda Villalta- 10/06/2024)
+----
+Se Agrega nueva ip del servicio 9 
+Egresos programados masivos... error en la consulta
+
+v1.3: (Sayda Villalta- 14/06/2024)
+----
+Se Agrega nueva ip del servicio 9 
+Se modifica la transaccion para que cargue un archivo excel con un formato simple de 2 columnas identificacion/valor, 
+el mismo cargaro los datos del empleado con su valor total que se descontara del rol de pagos.
+al guardar valid asi el archivo para el periodo seleccionado ya ha sido subido y si lo desea reemplazar o 
+registrar un nuevo egreso. 
+
+v1.5: (Sayda Villalta- 25/02/2025)
+----
+Se corrige novedad de miles no carga el txt con esos valores

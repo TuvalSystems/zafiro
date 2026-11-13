@@ -1,0 +1,20 @@
+ 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Sayda Villalta - 04/Julio/2024)
+----
+Clase nueva.  conexion a sql server (GP)
+
+v0.02: (Sayda Villalta - 29/Julio/2024)
+----
+se habilito para que permita quitar los vistos a los locales y se pueda consultar por un solo local.
+
+v0.03: (Sayda Villalta - 30/Agosto/2024)
+----
+No estaba filtrando correctamente los vendedores por local
+
+v0.04: (Sayda Villalta - 02/abril/2025)
+----
+se crea un nuevo calculo base 4 ( Cobros del local mas los vendedores externos)

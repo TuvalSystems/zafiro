@@ -1,0 +1,126 @@
+﻿Pendientes:
+1) Ing.Eddye Lino: Analizar si debe almacenarse nd_preUni para documentos de conversión y ordenes de trabajo.
+2)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Ingrid Lino - 17/Ene/2018)
+----
+Programa que permite realizar Conversiones de inventario según configuración.
+
+v0.1.1: (Ingrid Lino - 19/Ene/2018)
+----
+Se agrega funcionalidad de eliminar grupo en modo insertar (por mala digitación), se valida que máximo sean 3 veces el mismo item de egreso. Se valida columna de costo unitario cero no se permita.
+
+v0.1.2: (Rosa Zambrano - 24/Ene/2018)
+----
+Se realiza cambio en consulta de datos del item, porque se estaba leyendo como código del item por empreasa, el código del item por grupo 
+y generaba problemas de inventario a Eddy Carvajal al momento de insertar porque consultaba el stock de otro item distinto.
+Se asigna abs al nd_cosUni.
+
+v0.1.3: (Ingrid Lino - 26/Dic/2018)
+----
+Se agrega la validación de "isDifCosIngEgrCero" para conocer si existe diferencia entre la suma de Egresos y suma de Ingresos.
+
+
+v0.1.4: (José Mario Marín - 30/Ene/2019)
+----
+isDifCosIngEgrCero() se modifica metodo para cambiar la manera que se redondea.
+
+v0.1.5: (Ingrid Lino - 08/Nov/2019)
+----
+Se cambia codificación para poder realizar Conversiones de ingresos. Solicitado por LSC y Alfredo Paulson Octubre/2019
+
+v0.1.6: (Ingrid Lino - 01/Jun/2020)
+----
+Se agrega redondeo en método "isDifCosIngEgrCero" para que permita guardar documentos si el número de decimales redondeado a dos, sea el mismo entre egreso y suma de ingresos.
+
+v0.1.7: (Ingrid Lino - 03/Jun/2020)
+----
+Se cambia el esquema de costo unitario del item, que siempre tome el del egreso, sin importar si el documento es de ingreso o egreso.
+
+
+v0.18: (José Mario Marín - 17/Jun/2020)
+----
+Se cambia el esquema de costo unitario en el caso del ingreso no se multiplica por el porcentaje de costo, sino que los costos de egreso van directos, calculo revisado por AP y LSC.
+
+v0.19: (Cristhian Ramirez - 06/Marzo/2023)
+----
+Se modifica los procesos de guardado de ZAFIRO a GP
+Sa añade la funcion validarStockDisponible ---para validar lo que es el stock correspecto a los items que tienen diferentes ubicaciones
+Se añade la funcion anadirItemsArreglo--para añadir a un arreglo con todos los stock disponibles que tienen diferentes ubicacion
+Se añade la funcion insertarGP -- para enviar los parametros al sp SP_CREACION_OT_IMPORT y que proceda a ingresar las conversiones a nivel de GP 
+
+v0.20: (Cristhian Ramirez - 08/Marzo/2023)
+----
+Se aagrega en el titulo el numero de conversion que se genero en el GP, si la conversion se genero a nivel de GP por lo tanto saldra el numero de la conversion que se encuentra relazionada en el GP.
+
+v0.21: (Cristhian Ramirez - 15/Marzo/2023)
+----
+Se agrega la funcion validarItemInactivo -- para validar que el item que se encuentra dentro de la receta , se encuentre en un estado activo.
+
+v0.22: (Cristhian Ramirez - 17/Marzo/2023)
+----
+Se modifico la visualizacion del campo a nivel de codigo de 3 letras , en altiora el campo codigo de letras es ITMSHNAM y en masterweb es ITMGEDSC
+
+v0.23: (Cristhian Ramirez - 20/Marzo/2023)
+----
+Se modifico la visualizacion por parte del usuario
+
+v0.24: (Cristhian Ramirez - 03/Abril/2023)
+----
+Se modifico la funcionalidad de generar lo que es el formato de lote para la ejecucion en GP
+
+v0.25: (Cristhian Ramirez - 06/Abril/2023)
+----
+Se modifico la presentacion de la generacion del lote
+
+v0.26: (Cristhian Ramirez - 28/Abril/2023)
+----
+Insercion de versionamiento
+
+v0.27: (Cristhian Ramirez - 31/Julio/2023)
+----
+Visualizacion del item no se encuentre creado en una ubicacion
+
+v0.28: (Cristhian Ramirez - 05/Septiembre/2023)
+----
+Se modifica la busqueda de bodegas: se realiza la consulta mediante los permisos que se le a dado al usaurio para acceder las bodegas
+
+v0.29: (Cristhian Ramirez - 26/Septiembre/2023)
+----
+Se añade lo que es la funcion que permite realizar la comparacion del costo de ingreso vs el costo de egreso , de esta forma se confirma que este correcto los valores
+
+v0.30: (Cristhian Ramirez - 28/Noviembre/2023)
+----
+Se añade lo que es el boton insertar gp, esto es para confirmr los valores que se ingresan en la conversion.
+
+v0.32: (Cristhian Ramirez - 28/Octubre/2024)
+----
+Se realiza la comparacion a 2 decimales, para la comparacion entre los egresos e ingresos.
+
+v0.33: (Cristhian Ramirez - 07/Marzo/2025)
+----
+Se añade la busqueda  de codigo de GP
+
+v0.34: (Cristhian Ramirez - 10/Marzo/2025)
+----
+Se actualiza
+
+v0.35: (Cristhian Ramirez - 13/Mayo/2025)
+----
+Se actualiza
+
+v0.36: (Cristhian Ramirez - 14/Oct/2025)
+----
+Se pone la validacion de is numerico
+
+v0.37: (Cristhian Ramirez - 14/Oct/2025)
+----
+Se pone la validacion de lo ingresa vs lo que sale a  0.02 centavso
+
+v0.38 (Cristhian Ramirez - 17/Jun./2026)
+----
+Se pone la validacion del null
+

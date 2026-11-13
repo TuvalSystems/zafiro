@@ -1,0 +1,11 @@
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.1: (Cristhian Ramirez - 26/Febreor/2025)
+----
+Clase nueva.
+v1.2: (Cristhian Ramirez - 15/Ene/2026)
+----
+Clase nueva.
+1

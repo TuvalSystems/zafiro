@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafRptCon64_01" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="42" bottomMargin="56">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Fri Jun 17 10:22:44 COT 2011"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="imgEmp" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="fe_car" class="java.lang.String"/>
+	<parameter name="strSQLRep" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P!{strSQLRep}]]>
+	</queryString>
+	<field name="co_emp" class="java.lang.Integer"/>
+	<field name="co_loc" class="java.lang.Integer"/>
+	<field name="co_tipdoc" class="java.lang.Integer"/>
+	<field name="co_doc" class="java.lang.Integer"/>
+	<field name="co_reg" class="java.lang.Integer"/>
+	<field name="tx_tiptra" class="java.lang.String"/>
+	<field name="co_emptra" class="java.lang.Integer"/>
+	<field name="tx_nomemp" class="java.lang.String"/>
+	<field name="co_ctatra" class="java.lang.Integer"/>
+	<field name="nd_valtra" class="java.math.BigDecimal"/>
+	<field name="st_regrep" class="java.lang.String"/>
+	<field name="co_cta" class="java.lang.Integer"/>
+	<field name="tx_codcta" class="java.lang.String"/>
+	<field name="tx_nomcta" class="java.lang.String"/>
+	<field name="fe_car" class="java.sql.Date"/>
+	<field name="co_ctabanegr" class="java.lang.Integer"/>
+	<field name="co_ctabaning" class="java.lang.Integer"/>
+	<field name="tx_valtrapal" class="java.lang.String"/>
+	<field name="st_mosparresp" class="java.lang.String"/>
+	<field name="tx_mottra" class="java.lang.String"/>
+	<field name="tx_ejeasi" class="java.lang.String"/>
+	<field name="st_fircon" class="java.lang.String"/>
+	<field name="tx_firaut1" class="java.lang.String"/>
+	<field name="tx_carfiraut1" class="java.lang.String"/>
+	<field name="tx_firaut2" class="java.lang.String"/>
+	<field name="tx_carfiraut2" class="java.lang.String"/>
+	<field name="co_banegr" class="java.lang.Integer"/>
+	<field name="tx_numctabanegr" class="java.lang.String"/>
+	<field name="tx_descorbcoegr" class="java.lang.String"/>
+	<field name="tx_deslarbcoegr" class="java.lang.String"/>
+	<field name="co_baning" class="java.lang.Integer"/>
+	<field name="tx_numctabaning" class="java.lang.String"/>
+	<field name="tx_descorbcoing" class="java.lang.String"/>
+	<field name="tx_deslarbcoing" class="java.lang.String"/>
+	<field name="co_ctaprvloc" class="java.lang.Integer"/>
+	<field name="tx_nomprvloc" class="java.lang.String"/>
+	<field name="tx_tipctabanegr" class="java.lang.String"/>
+	<field name="tx_tipctabaning" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String">
+		<variableExpression><![CDATA[$F{st_mosparresp}.equals("S") ?String.valueOf("si es"):String.valueOf("no es")]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="97" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="465" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-7" x="2" y="45" width="76" height="14"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Señores :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-9" x="2" y="71" width="58" height="14"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATN.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-10" x="2" y="85" width="57" height="16"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ciudad.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-10" x="1" y="127" width="181" height="16"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[De mis consideraciones :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="60" y="0" width="260" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{fe_car}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="0" width="59" height="20"/>
+				<textElement/>
+				<text><![CDATA[Guayaquil,]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="278" width="534" height="187"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{st_mosparresp}.equals("S")? String.valueOf("Conocedor(a) de las penas de perjurio, declaro bajo juramento que el origen de los fondos de las transacciones bancarias que realice por este servicio a través del " + $F{tx_deslarbcoegr} + " no serán destinados a la realización o financiamiento de ninguna actividad ilícita. De igual manera, conociendo las disposiciones de Para Reprimir el Lavado de Activos, autorizo expresamente al " + $F{tx_deslarbcoegr} + " a realizar los análisis y verificaciones que considere necesarios; así como a las autoridades competentes en caso de llegar a determinar la existencia de operaciones y/o transacciones inusuales e injustificadas. En virtud de lo autorizado, renuncio a instaura por este motivo cualquier tipo de Acción Civil, Penal o Administrativa en contra del " + $F{tx_deslarbcoegr} + ". Eximo al " + $F{tx_deslarbcoegr} + " de toda responsabilidad, inclusive respecto a terceros si esta declaración fuese falsa o errónea, y me someto a las normas legales contempladas en Para Reprimir el Lavado de Activos."):(String.valueOf("\n\nSin otro particular, quedo de ustedes.\n\n\n\n Atentamente,\n\n\n\n\n      " + $F{tx_firaut1} + "                                " + ($F{st_fircon}.equals("S")?String.valueOf($F{tx_firaut2}):String.valueOf("") ) + "\n      " + $F{tx_carfiraut1} + "                             " + ($F{st_fircon}.equals("S")?String.valueOf($F{tx_carfiraut2}):String.valueOf("")) + " "))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="242" width="533" height="28"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["El costo de la transferencia debitar de la " + $F{tx_tipctabanegr} + " de " + $F{tx_nomemp} + "."]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="2" y="167" width="533" height="60"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Por medio de la presente, solicito se debite de nuestra " + $F{tx_tipctabanegr} + " No. " + $F{tx_numctabanegr} + " a nombre de " + $F{tx_nomemp} + " la cantidad de : "  + $F{tx_valtrapal} + " AMERICANOS(USD $" + $F{nd_valtra} + ") y a su vez nos transfieran a la " + $F{tx_tipctabaning} + " No. " + $F{tx_numctabaning} + " a nombre de " + $F{tx_nomprvloc} + " del " + $F{tx_deslarbcoing} + "."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="58" width="218" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_deslarbcoegr}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="66" y="71" width="359" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_ejeasi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="160">
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="1" width="534" height="20"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{st_mosparresp}.equals("S")? String.valueOf("Sin otro particular, quedo de ustedes."):String.valueOf("")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="staticText-28" x="0" y="49" width="146" height="16"/>
+				<textElement markup="none"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{st_mosparresp}.equals("S")? String.valueOf("Atentamente,"):String.valueOf("")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="116" width="144" height="15"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{st_mosparresp}.equals("S")? String.valueOf("" + $F{tx_firaut1}):String.valueOf("")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="130" width="144" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{st_mosparresp}.equals("S")? String.valueOf("" + $F{tx_carfiraut1}):String.valueOf("")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="182" y="116" width="155" height="15"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{st_mosparresp}.equals("S")? String.valueOf("" + ($F{st_fircon}.equals("S")?String.valueOf($F{tx_firaut2}):String.valueOf(""))):String.valueOf("")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="182" y="130" width="155" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{st_mosparresp}.equals("S")? String.valueOf("" + ($F{st_fircon}.equals("S")?String.valueOf($F{tx_carfiraut2}):String.valueOf(""))):String.valueOf("")]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

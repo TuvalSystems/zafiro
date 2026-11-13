@@ -1,0 +1,25 @@
+
+CONTROL DE VERSIONES:
+=====================
+
+ZafSer06 v1.0: (Carlos Lainez- 14/06/2011)
+----
+Se creo clase ZafSer06 de tipo servidor el cual vigila las peticiones del cliente
+las cuales pueden ser subir un archivo del servidor o bajar un archivo al cliente
+por medio de sockets.
+Escribe logs de eventos en un archivo y envia mail a sistemas en caso de errores
+
+Servicio escucha el puerto 6666 por defecto el cual puede ser cambiado al momento
+de levantar el servicio:
+    java -jar /Zafiro/Servicios/ZafSer06/ZafSer06.jar
+    or
+    java -jar /Zafiro/Servicios/ZafSer06/ZafSer06.jar -p 7777
+
+En caso de cambiar el puerto en el servidor, se debe modificar tambien la constante
+DEFAULT_PORT en el cliente Librerias.ZafUtil.ZafSer06Cli
+
+ZafSer06 v1.1: (Roberto Flores- 25/10/2011)
+----
+Se modifica al inicio los mensajes a mostrar en el caso que ocurran excepciones por
+no poder escribir en el archivo o por no poder levantar una conexion en el puerto
+indicado para escuchar peticiones.

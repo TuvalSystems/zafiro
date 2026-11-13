@@ -1,0 +1,8 @@
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Mario Marín - 18/Sep/2019)
+----
+Nuevo programa. Ventas de contado y cierres de caja.
+ 

@@ -1,0 +1,102 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1.0: (Dennis Betancourt - 26/feb/2015)
+------
+Clase nueva.
+
+v0.1.1: (Dennis Betancourt - 11/abr/2015)
+------
+Se agrego funcion para que se autoricen en diferido los XML de facturas generadas en contingencia.
+
+v0.1.2: (Dennis Betancourt - 01/jun/2015)
+------
+Se crea la funcion 'enviarCorreoServidorExterno' para enviar el correo al cliente/proveedor usando una cuenta de un servidor externo (Gmail).
+
+v0.1.3: (Dennis Betancourt - 26/jun/2015)
+------
+Al reescribir los XML para poner los datos de la autorizacion, en la clase "ec.gob.sri.comprobantes.util.AutorizacionComprobantesWs" funcion "stringToArchivo", despues de poner "![CDATA[" se tuvo que poner "<?xml version="1.0" encoding="UTF-8"?>" debido a que el proveedor Promesa reporto que los XML que le llegaban no se estaban cargando en su sistema porque faltaba poner esa leyenda en el XML.
+
+v0.1.4: (Dennis Betancourt - 10/sep/2015)
+------
+Se realizo cambio para que el servicio, ademas de ejecutarse en la noche, tambien lo haga en la mañana y en la tarde.
+
+v0.1.5: (Dennis Betancourt - 28/dic/2015)
+-------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se agrego mas Direcciones MAC (44-A8-42-4B-8A-B4, 00-0A-F7-8E-F3-82).
+
+v0.1.6: (Dennis Betancourt - 07/Mar/2016)
+-------
+Al revisar una factura, si es de Holcim Ecuador (RUC 0990293244001) y el campo tbm_cabmovinv.tx_NumGuiRem = "", entonces no se debe enviar al SRI hasta que no se haya realizado la confirmacion total de egreso de mercaderia.
+
+v0.1.7: (Dennis Betancourt - 15/Mar/2016)
+------
+En la funcion que envia los correos con los XML y PDF, para Castek se agregaron los locales de Inmaconsa.
+
+v0.1.8: (Dennis Betancourt - 17/Mar/2016)
+------
+Al revisar una factura, si es de Holcim Ecuador (RUC 0990293244001) y el campo tbm_cabmovinv.tx_NumPed = "", entonces no se debe enviar al SRI hasta que no se haya ingresado un valor en dicho campo.
+
+v0.1.9: (Dennis Betancourt - 04/Abr/2016)
+------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se agrego mas Direcciones MAC (00-0C-29-61-BA-77).
+
+v0.1.10: (Dennis Betancourt - 09/Ene/2017)
+-------
+En la funcion generarPDF(), al generar el PDF de la factura se agrego un nuevo parametro del reporte: DesForPagSri (Descripcion de Forma de Pago del SRI).
+
+v0.1.11: (Dennis Betancourt - 20/Ene/2017)
+-------
+En la funcion 'enviarCorreoServidorInterno' para Castek se consideró el Cod.Loc. 5 [Castek California (Ventas relacionadas)] para envio de correo automatico.
+
+v0.1.12: (Dennis Betancourt - 08/Dic/2017)
+-------
+Se agrega validacion para que solo tome en cuenta archivos XML de Dimulti, debido al Esquema OffLine.
+
+v0.2: (Dennis Betancourt - 22/Dic/2017)
+----
+Este servicio es modificado para acoplarse al Esquema Off Line del SRI.
+
+v0.2.1: (Dennis Betancourt - 31/May/2018)
+------
+Una retencion emitida por Castek y autorizada el 29/May/2018 fue enviada por correo usando la cuenta "edocs.dimulti.comp@gmail.com" lo cual esta mal. Se reviso la funcion enviarCorreoServidorExterno() para colocar break que faltaba agregar en el switch. Caso de la retencion 13999; local CASTEK - California (002-002); PK co_emp = 2, co_loc = 8, co_tipdoc = 230, co_doc = 4349; proveedor Werner Campoverde; correo del proveedor "wernercampoverde1@outlook.com".
+
+v0.3: (Dennis Betancourt - 01/Oct/2018)
+----
+Este servicio es modificado para anexar a Cosenco, Ecuatosa y Detopacio al esquema de facturacion electronica.
+
+v0.3.1: (Dennis Betancourt - 03/Jul/2019)
+------
+En la funcion "metodo()" se ejecuta un query muy liviano antes de llamar a la funcion "invocaServ11()". El proposito es evitar que se invoquen los Servicios Web del SRI si no hay conexion con la base de datos. Esto suele pasar al realizarse un restart de la base de datos, pues cuando sucede esto y si el servicio esta corriendo, se ejecutan los Servicios Web del SRI, se autorizan los documentos electronicos, pero los datos de la autorizacion no se actualizan en las tablas respectivas.
+
+v0.3.2: (Dennis Betancourt - 30/Jul/2019)
+------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se depuro direcciones MAC debido al cambio a Suse Server en el Servidor de Produccion realizado el Sab. 27/07/2019.
+
+v0.3.3: (Dennis Betancourt - 21/Ago/2019)
+------
+Se agregaron nuevos parametros en el archivo de configuracion: "DireccionMACServidorProduccion", "EjecutarProcesoTipoAmbienteSRIPruebas", "EnviarCorreoTipoAmbienteSRIPruebas", "HoraDesdeEnviarCorreoTipoAmbienteSRIPruebas", "HoraHastaEnviarCorreoTipoAmbienteSRIPruebas".
+
+v0.3.4: (Rosa Zambrano - 30/Ago/2019)
+----
+Se realizan cambios para Jaspersoft Studio.
+
+v0.3.5: (Dennis Betancourt - 17/Oct/2019)
+----
+Habia ocasiones en que el campo tx_desErrFacEle tenia 'Procesado' y el campo st_autFacEle no tenia 'A', causando confusion si el documento estaba o no autorizado. Se modifico la funcion invocarServiciosWeb() para que, en caso que no este autorizado, en el campo tx_desErrFacEle se guarde la leyenda 'El documento no fue procesado'.
+
+v0.3.6: (Dennis Betancourt - 03/Ene/2020)
+----
+Se realizaron cambios debido a que Cosenco fue anexada a la base de datos Zafiro2006.
+
+v0.3.7: (Dennis Betancourt - 06/Feb/2020)
+----
+Se creo la funcion getSQLSubRepCpbRet_XML(), la cual ya no va a traer la informacion de la base de datos. Ahora se leera los datos de los valores de Base Imponible y de Retencion basado en el XML autorizado.
+
+v0.3.8: (Dennis Betancourt - 22/Abr/2020)
+----
+En la funcion getSQLSubRepCpbRet_XML() se realizo una modificacion del SQL que se envia al subreporte, pues los nuevos Por.Ret.Fuente 1.75 y 2.75 los estaba redondeando a 2 y 3, respectivamente.

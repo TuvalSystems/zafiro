@@ -1,0 +1,20 @@
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Christian Mateo - 07/Ene/2020)
+----
+
+Se crea pantalla de justificacion por indemnizacion del iess, motivos iess y maternidad
+
+
+v1.01: (Christian Mateo - 10/Ene/2020)
+----
+
+Se agrega boton de cerrar en la pantalla
+
+
+v1.1: (Sayda Villalta - 10/Junio/2024)
+----
+
+NO carga datos para la consulta ni del empleado ni del periodo en meses para consultar 

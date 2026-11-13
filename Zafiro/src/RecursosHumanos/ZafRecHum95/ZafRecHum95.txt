@@ -1,0 +1,8 @@
+
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Jean Paúl Morán - 04/May/2026)
+----
+Clase nueva.

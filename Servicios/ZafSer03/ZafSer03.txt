@@ -1,0 +1,30 @@
+﻿/****************** SERVICIO: ZafSer03 ***********************/
+
+﻿Pendientes:
+1) 
+2) 
+3) 
+
+﻿CONTROL DE VERSIONES:
+=====================
+ 
+v0.5: (Rosa Zambrano - 19/Oct/2017) 
+----
+Se modifica la función actualizaDatosInventario.update_tbmInvBod_movKar() 
+para que no considere los documentos con tbm_cabMovInv.st_reg = 'O' (Ajustes de inventario).
+
+
+v0.6: (Rosa Zambrano - 20/Oct/2017) 
+----
+Se modifica la función actualizaDatosInventario.update_tbmInvBod_movKar() 
+para que no considere los Items con tbm_detMovInv.st_reg = 'I' (Ajustes de inventario).
+
+v0.7: (Rosa Zambrano - 30/Ago/2019) 
+----
+Se realizan cambios para correo.
+ 
+
+ 
+ 
+
+ 

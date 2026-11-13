@@ -1,0 +1,38 @@
+Creador por: Javier Ayapata
+
+v0.2  - 19 junioi 2009
+ Se crea  clase nueva para control de inventario. y se agrega funcion para poder extraer el quuery
+ de actualizacion de inventario.
+
+v0.3  - 06 Novi 2009
+ Se agrega funcion donde solo actualiza la cantidad que egresa fis. de bodega esto es para el caso de volver a facturar.
+
+v0.4  - 09 Diciembre 2009
+ Se corrigue cambio en query de inventario.
+
+v0.5  - 12 Marzo 2010
+ Se agrega en Query de cotizacion campo de peso.
+
+v0.6  - 22 Junio 2010
+ Se corrigue query de de item de inventario.
+
+v0.7  - 12 Julio 2010
+ Se corrigue query de de item de inventario.
+
+v0.8  - 10 Agosto 2010
+ Se agrega para que tome el codigo alterno 1 de inventario.
+
+v0.9  - 22 Octubre 2010
+ Se agrega campo en  cotizacion de venta que indica si se modifica precio y descuento.
+
+v1.0  - 08 Diciembre 2010
+ Se agrega campo en query de ventas caningbod para el listado de item.
+
+v1.1  - 24 Mayo 2011
+ En la funcion de enviar mail se quita la frase documento anulado en el sujeto.
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez - 29/Abril/2024)
+----
+Se realiza la creacion del formulario
+
+v0.2: (Cristhian Ramirez - 02/Mayo/2024)
+----
+Se realiza el cambio de campo para la carga de excel , se lo hace de codigo de gp a condigo tres letras
+
+v0.3: (Cristhian Ramirez - 06/Mayo/2024)
+----
+Se realiza el cambio con respecto al guardado de los datos.
+
+v0.4: (Cristhian Ramirez - 06/Mayo/2024)
+----
+Se realiza el proceso de Activar items.
+
+v0.5: (Cristhian Ramirez - 09/Mayo/2024)
+----
+Se realiza mensaje de confimacion de activar/inactivar
+
+v0.6: (Cristhian Ramirez - 09/Mayo/2024)
+----
+Se actualiza
+
+v0.7: (Cristhian Ramirez - 10/Febrero/2025)
+----
+Se añade el proceso de anulacion por agrupacion
+
+v0.8: (Cristhian Ramirez - 06/ENERO/2026)
+----
+Se quita la opicon del historial de Postgress
+
+
+
+
+
+
+

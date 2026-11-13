@@ -1,0 +1,22 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Mario Marin - 1/Oct/2024)
+----
+Clase nueva.
+
+v0.2: (José Mario Marin - 7/Nov/2024)
+----
+se add para que guarde en la tabla AAG10002 las que no tienen analiticas
+
+v0.3: (Sayda Villalta - 06/Marzo/2025)
+----
+Se add para que el porcentaje sea 1000
+
+v0.4: (Sayda Villalta - 18/Marzo/2025)
+----
+Se corrige  para que el porcentaje sea 1000

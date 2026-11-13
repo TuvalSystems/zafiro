@@ -1,0 +1,15 @@
+Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Tony Sanginez - 19/Dic/2017)
+----
+Nuevo servicio.
+
+v0.2: (Rosa Zambrano - 30/Ago/2019)
+----
+Se agregan cambios de correo para que lea de la BD.
+

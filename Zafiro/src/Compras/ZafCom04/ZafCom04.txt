@@ -1,0 +1,270 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.0: (José Salazar - 05/Ene/2006)
+----
+Nuevo Programa "Devoluciones de compra..."
+
+
+v0.1: (José Salazar - 05/Ene/2006)
+-----
+Se modifico metodos para insertar, actualizar, eliminar, anular doc agregando metodos
+de actualizacion de inv. consolidado
+
+
+v0.2: (José Salazar - 06/Ene/2006)
+-----
+Se modifico metodos insertar, actualizar para calculo de costeo 
+Pendiente eliminar y anular : calculo de costeo
+ 
+
+v0.3: (José Salazar - 19/Ene/2006)
+-----
+Se agrego metodos para cargar registro luego de insertar, envia a metodo consultar
+
+
+v0.3.1: (José Salazar - 17/Feb/2006)
+-----
+Se modifico metodos para movInventario actualizado segun SisCon
+
+
+v0.3.2: (José Salazar - 27/Mar/2006)
+-----
+Se modifico en la forma de pago y tambien se agrego que confirme al cerrar la ventana
+
+
+v0.3.3: (José Salazar - 10/May/2006)
+-----
+Se corrige para que funcione con la clase ZafPopupmenu
+
+
+v0.3.4: (Javier Ayapata - 29/May/2006)
+-----
+Se agrema al insertar en tbm_cabmovinv el secuencial de empresa y grupo 
+
+
+v0.3.5: (Javier Ayapata - 31/May/2006)
+-----
+Se corrige para que ponga la cuenta que es en IVA
+
+
+v0.3.6: (Javier Ayapata - 07/Jun/2006)
+-----
+Se agrega al insertar en tbm_detmovinv que inserte tamb en nd_preuni y tamb que valide cofirmacion de bodega al anular o eliminar  
+
+
+v0.3.7: (Javier Ayapata - 14/Jun/2006)
+-----
+Se corrige que no pueda modificar el tipo de documento y codigo de documento y se agrega tamb 
+el usuario y fecha quien anula el documento
+
+
+v0.3.8: (Javier Ayapata - 26/Jun/2006)
+-----
+Se corrige que no mueva inventario en grupo si algun cliente es empresa de la misma
+
+
+v0.5: (Javier Ayapata - 26/Jun/2006)
+-----
+Se optimiza las conexiones  a la base para el asiento diario y forma de pago 
+  
+
+v0.6: (Javier Ayapata - 12/Jul/2006)
+-----
+Se agregar el reporte para vista preliminar e imprimir
+
+
+v0.7: (Javier Ayapata - 19/Jul/2006)
+-----
+Se agrega codigo alterno2 del item
+
+
+v0.8: (Javier Ayapata - 30/Ago/2006)
+-----
+Se agrega que insertar y modifique el campo nd_costot 
+
+
+v1.0: (Javier Ayapata - 20/Sep/2006)
+-----
+Se corrige al insertar y modificar el diario.
+
+
+v1.2: (Javier Ayapata - 13/Oct/2006)
+-----
+Se agrega la nueva funcion de recosteo.
+
+
+v1.4: (Javier Ayapata - 17/Oct/2006)
+-----
+Se agrega al momento de insertar el campo nd_cosunigrp y  nd_costotgrp
+
+
+v1.5: (Javier Ayapata - 25/Oct/2006)
+-----
+Se corrige el calculo de del iva..
+
+
+v1.6: (Javier Ayapata - 09/Nov/2006)
+-----
+Se agrega la eliminacion logica.
+
+
+v1.7: (Javier Ayapata - 10/Nov/2006)
+-----
+Se corrige al momento de validar el cliente.
+
+
+v1.8: (Javier Ayapata - 28/Nov/2006)
+-----
+Se agrega cuenta para los items de servicio.
+
+
+v1.9: (Javier Ayapata - 28/Dic/2006)
+-----
+Se corrige  que el campo nd_costot vaya en signo negativo.
+
+
+v2.0: (Javier Ayapata - 02/Ene/2007)
+-----
+Se agrega un campo nd_CanDev al momento de insertar y actualizar permitiendo saber cuanto hay total devuelto.
+
+
+v2.1: (Javier Ayapata - 03/Ene/2007)
+-----
+Se agrega que el campo nd_candev se guarde en - o + dependiendo del documento.
+
+
+v2.2: (Javier Ayapata - 08/Feb/2007)
+-----
+Se agrega el estado de replicacion.
+
+
+v2.3: (Javier Ayapata - 24/May/2007)
+-----
+Se agrega para que se pueda hacer la devolucion de compra de cualquier local de la empresa.
+
+
+v2.4: (Javier Ayapata - 28/May/2007)
+-----
+Se agrega el mensaje cuando no esta confirmado  la orden de compra.
+ 
+
+v2.5: (Javier Ayapata - 30/May/2007)
+-----
+Se agrega validacion cuando la orden de compra tiene pagos.
+
+
+v2.6: (Javier Ayapata - 30/May/2007)
+-----
+Se corrige al momento de insertar la devolucion .
+
+
+v2.7: (Javier Ayapata - 24/Ago/2007)
+-----
+Se agrega la Mayorizacion en linea.
+
+
+v2.7.1: (Javier Ayapata - 28/Ene/2008)
+-----
+Se agrega que almecene el campo co_itmact en tbm_detmovinv 
+
+
+v2.7.2: (Javier Ayapata - 11/Mar/2008)
+-----
+Se agrega para que no se pueba hacer devolucion ni hacer cambios si elgun item esta unificado.
+
+
+v2.7.3: (Javier Ayapata - 02/Abr/2008)
+----- 
+Se agrega que realice cruce entre la devolucion y la orden de compra.
+
+
+v2.7.4: (Javier Ayapata - 07/May/2008)
+----- 
+Se agrega para que el iva calcule si el cliente/proveedor tiene asignado o no.
+
+
+v2.7.5: (Javier Ayapata - 28/Oct/2008)
+----- 
+Se agrega para que actualiza los campos de la tabla tbm_invbod nd_caning o nd_canegr
+
+
+v2.7.6: (Javier Ayapata - 28/Nov/2008)
+----- 
+Se agrega nueva clase de inventario.
+
+
+v2.7.7: (Javier Ayapata - 29/Ene/2009)
+----- 
+Se agrega que se filtre tipo de documentos por usuarios.
+
+
+v2.7.8: (Javier Ayapata - 11/Ago/2009)
+----- 
+Se agrega para que actualize secuencia de empresa y grupo tomando la secuencia de la tabla tbm_emp
+
+
+v2.7.9: (Javier Ayapata - 18/Ago/2009)
+----- 
+Se agrega que realize cruce de manera automatica sin importar el valor a cruzar y realiza tamb. reestructuracion del pago.
+
+
+v2.8: (Javier Ayapata - 20/Ago/2009)
+----- 
+Se corrige los parametros de vista preliminar y imprimir.
+
+
+v2.9: (Javier Ayapata - 02/Sep/2009)
+----- 
+Se modifica cambios al realizar la dev de compra al hacer cruce automatico.
+
+
+v3.0: (Javier Ayapata - 18/Ene/2010)
+----- 
+Se agrega columna nueva en asiento de diario.
+
+
+v3.1: (Javier Ayapata - 10/May/2010)
+----- 
+Se agrega constructor.
+
+
+v3.2: (Javier Ayapata - 22/Oct/2010)
+----- 
+Se cambia configuracion de reporteria que esta en el servidor.
+
+
+v3.3: (Javier Ayapata - 14/Mar/2011)
+----- 
+Se agrega al realizar el cruce automatico cambien las cuentas de transito.
+
+
+v3.4: (Javier Ayapata - 02/Ago/2011)
+----- 
+Se agrega para ponga las cunetas contable las misma que tiene la orden de compra
+
+
+v3.5: (Christian Mateo - 02/Jul/2016)
+----- 
+Se modifica para que tome el iva de la factura de compra y no el iva del 14% por ley de solidaridad del terremoto.
+
+
+v3.6: (Christian Mateo - 21/Sep/2016)
+----- 
+Se agregan dos metodos para obtener el nombre y el numero de la cta contable de iva
+
+
+v3.7: (Christian Mateo - 22/Feb/2019)
+----- 
+Se modifica la parte de la consulta para que tomen el porcentaje del iva de la tabla de detalle y no de la cabecera, 
+para mostrar correctamente el iva y el total. 
+
+
+v3.8: (Rosa Zambrano - 29/Mar/2019)
+----- 
+Se realizan cambios para JaspersoftStudio.
+

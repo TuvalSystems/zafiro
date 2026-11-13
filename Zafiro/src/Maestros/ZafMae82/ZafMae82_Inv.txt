@@ -1,0 +1,262 @@
+Creado por: Jose Salazar
+
+v0.1 - 16/ene/2006 -10h00
+Se modifico funciones para que almacenara codigos alternos en mayusculas
+
+
+v0.2 (Javier Ayapata 31/Mar/2006) 
+    Se corrige en el codigo alternativo quitando los espacion en blanco al principio y al final
+
+v0.3 (Javier Ayapata 20/Abr/2006) 
+    se Corrige al momento de buscar por codigo alternativo
+
+v0.4 (Javier Ayapata 20/Jul/2006) 
+    se agrega el codigo alternativo 2
+
+v0.6 (Javier Ayapata 12/Sep/2006) 
+    se agrega que al momento de actualizar el registro actes de tener un cambio de almacene el tbh_inv
+v0.8 (Javier Ayapata 05/Oct/2006) 
+  se corrigue ciertas fallas y se agraga para cuando este en el grupo al momento de actualizar actualize en todas las empresas.
+v0.8.1 (Javier Ayapata 05/Oct/2006) 
+ agraga cuando al momento de actualizar actualize en todas las empresas.
+v0.8.2 (Javier Ayapata 18/Oct/2006) 
+  se validad al momento de insertar el codigo alternativo 2 para que no sea null
+v0.8.3 (Javier Ayapata 18/Oct/2006) 
+  se agrega que almacene la fecha de ultima modificacion.
+
+v0.8.5 (Javier Ayapata 16/Nov/2006) 
+  se agrega campo de auditoria, y Se agrega las nuevas ventanas de Consulta.
+
+v0.8.6 (Javier Ayapata 17/Nov/2006) 
+  se agraga un campo mas de auditoria para que puedan ver el usuario que modifico.
+v0.8.7 (Javier Ayapata 21/Nov/2006) 
+  se corrigue sentencia sql al momento de insertar
+v 1.0 (Javier Ayapata 16/Ene/2007) 
+  se corrigue al escoger unidad, marca , linea y grupo.
+v 1.2 (Javier Ayapata 27/Febrero/2007) 
+  se corrigue para que no tome en cuenta el estado del resgisto al obtener el maximo.
+
+
+v 1.3 (Javier Ayapata 12/Julio/2007) 
+  se corrigue al momneto de obtener el maximo co_itm al momento de insertar.
+
+V 1.4 (Javier Ayapata 18/Julio/2007) 
+  se corrigue al momneto de eliminar el registro eliminacion logica.
+
+V 1.5 (Javier Ayapata 20/Julio/2007) 
+  se agrega la casilla para el item de transporte.
+
+V 1.6 (Javier Ayapata 28/Febre/2008) 
+  se agrega antes de modificar un mensaje de confirmacion cuando no este marcado iva en ventas.
+
+V 1.7 (Javier Ayapata 19/Jun/2008) 
+  se quieta que no tome en cuenta el estado de las bodegas cuando se crea un item.
+
+V 1.8 (Javier Ayapata 10/Jul/2008) 
+  se agrega el peso del item.
+
+V 1.9 (Javier Ayapata 23/Ene/2009) 
+  se bloque que no se pueda cambiar si es de servivio o no.
+
+V 2.0 (Javier Ayapata 28/Agosto/2009)
+  se agrega cuando se crea items si esta en el lado remoto se crea el itme en la base central para luego ser replicado.
+
+V 2.1 (Javier Ayapata 8/Septiembre/2009)
+  se agrega tab de proveedores y clasificaciones.
+
+V 2.2 (Javier Ayapata 18/Septiembre/2009)
+  se agrega en el tab de clasificaciones que se agrega en todas las compañias.
+
+V 2.3 (Javier Ayapata 09/Diciembre/2009)
+  se corrigue cuando se carga desde el progrema de unificacion.
+
+V 2.4 (Javier Ayapata 22/Octubre/2010)
+  se agrega un campo nuevo para saber si se modifica precio de lista en al cotizacion.
+
+V 2.5 (Javier Ayapata 26/Octubre/2010)
+  se corrigue descripcion de bloque de precio.
+
+V 2.6 (Javier Ayapata 09/Diciembre/2010)
+  se corrigue al momento de actualizar en clasificaciones .
+
+
+V 2.7 (Javier Ayapata 25/Febrero/2011)
+  se corrigue al momento crear el item se cambia los campos de saldos entre compañias.
+
+V 2.8 (Javier Ayapata 04/octubre/2011)
+  se agrega un nuevo estado del item otros para caso de interese. etec.
+
+v 2.9:  Alex Morán (2013-07-23)
+ Se modifica para que al momento de crear items con terminales 'I', 'S' se genere un aleatorio de 3 letras para el código alterno 2.
+
+
+v 3.0:  Jose Marin (2017-07-06)
+----
+Se modifica el anular y el activar, se agrega validacion de no anular Items que posean stock.
+
+
+v 3.1:  Tony Sanginez (2017-08-30)
+----
+Se implementa el ingreso de la tabla historica de inventario para todos los metodos que afectan la tabla tbm_inv.
+
+
+v 3.2: Jose Mario Marin (16/02/2018)
+----
+Modificacion para trabajar con el nuevo estado de tbm_inv.st_oblCamNomItm, Estado de obligatorio cambiar nombre del item.
+
+
+v 3.3: (José Mario Marín  - 13/Mar/2018)
+----
+Modificacion en el constructor para que cuando sea llamado de Listado de Inventario no muestre el TooBar.
+
+
+v 3.4: (José Mario Marín  - 15/Feb/2019)
+----
+Se modifica el modificar, se agrega validacion para que si modifica y quiere cambiar el estado al modificar revise si el Item que posee stock.
+
+
+v 3.5: (José Mario Marín  - 10/Ene/2020)
+----
+Se modifica el modificar, se quitan los campos de nd_cosUni, nd_ultCos, nd_stkAct. Esos campos no se modifican se lo converso con el Ing. Eddye.
+
+
+v 3.06: (José Mario Marín  - 11/Feb/2020)
+----
+Se modifica el modificar, se agrega validacion de cambio de terminal.
+
+
+v1.0: (Cristhian Ramirez  - 10/Noviembre/2023)
+----
+Se modifica para la generacion de GP
+
+v1.1: (Cristhian Ramirez  - 12/Noviembre/2023)
+----
+Se modifica la insercion y creacion de los extenders
+
+v1.2: (Cristhian Ramirez  - 17/Noviembre/2023)
+----
+Se modifica la insercion con respecto a las unidades de medida
+
+v1.3: (Cristhian Ramirez  - 21/Noviembre/2023)
+----
+Se añadio historico al proceso de insercion con respecto a la tbh_inv
+
+v1.4: (Cristhian Ramirez  - 22/Noviembre/2023)
+----
+Se modifico el proceso de guardado con respecto a lo que es el nombre del item , se puso la funcion codificar
+
+v1.5: (Cristhian Ramirez  - 22/Noviembre/2023)
+----
+Se añade la creacion de las bodegas sin ubicaciones
+
+v1.6: (Cristhian Ramirez  - 24/Noviembre/2023)
+----
+Se reviso y se valido que se esta guardando la unidad de medida de forma correcta
+
+v1.7: (Cristhian Ramirez  - 03/Enero/2024)
+----
+Se modifica lo que es la validacion de mas carcateres en el texto de nombre
+
+v1.8: (Cristhian Ramirez  - 19/Enero/2024)
+----
+Se añade lo que es los campos de linea y clase
+
+v1.9: (Cristhian Ramirez  - 24/Enero/2024)
+----
+Se añade lo que es la consulta por el boton
+
+v1.10: (Cristhian Ramirez  - 06/Marzo/2024)
+----
+Se actualiza lo que es la visualizacion y consulta de los atributos
+
+v1.11: (Cristhian Ramirez  - 03/Abril/2024)
+----
+Se realiza la modificacion para que el item se ingrese con el 15%
+
+v1.12: (Cristhian Ramirez  - 07/Mayo/2025)
+----
+Se valida cuando no existe lo que es la linea.
+
+v1.13: (Cristhian Ramirez  - 21/Mayo/20244)
+----
+Se añade lo que es los campos nuevos de insercion
+
+v1.14: (Cristhian Ramirez  - 27/Mayo/2024)
+----
+Se añade la funcionalidad para que pueda escoger las bodegas faltantes :
+ACTIVOS
+DANADOS
+EXPO
+FALTANTES
+IMPORT
+IRRECUPERABLE
+MATRIZ
+PROYECTOS
+REPOSICION
+TRANSITO
+
+v1.15: (Cristhian Ramirez  - 22/Agosto/2024)
+----
+Se añade la validacion de nuevas unidades de medida
+
+v1.16: (Cristhian Ramirez  - 10/Febreo/2025)
+----
+Se añade el proces de anulacion de items con respecto a la agrupacion
+
+v1.17: (Cristhian Ramirez  - 11/Febreo/2025)
+----
+Se añade el proceso para actualizar los atributos
+
+v1.18: (Cristhian Ramirez  - 24/Febrero/2025)
+----
+Se añade el atributo CATEGORIA
+
+
+v1.19: (Cristhian Ramirez  - 4/Junio/2025)
+----
+Se añade el peso a nivel de GP al momento de modificar
+
+v1.20: (Cristhian Ramirez  - 26/Agosto/2025)
+----
+Se añade la validacion que se guarden los campos de nd_vtaProvenant,nd_pes,tx_unimed en la tabla de tbm_inv y tbh_inv
+
+v1.21: (Cristhian Ramirez  - 09/Sept/2025)
+----
+Se añade lo que es el guardado del histroial en la tbm_inv y tbh_inv
+
+v1.22: (Cristhian Ramirez  - 01/Octubre/2025)
+----
+actualizar
+
+v1.23: (Cristhian Ramirez  - 06/Octubre/2025)
+----
+Se añade lo que es el peso a nivel de póstgress
+
+v2.0: (Cristhian Ramirez  - 27/Oct./2025)
+----
+Se añade lo que es la operacion de KOnfiable
+
+v2.1: (Cristhian Ramirez  - 21/Enero/2026)
+----
+Se añade los campos de ABC ademas se hace la vlaidacion obligatoria a esos campos para el ingreso/modificacion
+
+v2.2: (Cristhian Ramirez  - 28/Marzo/2026)
+----
+Se añade el campo de CategoriaCompra
+
+v2.3: (Cristhian Ramirez  - 2/Mayo/2026)
+----
+Se actualiza
+
+v2.4: (Cristhian Ramirez  - 20/Mayo/2026)
+----
+Se modifica para visualizar-modificar-insertar  los campos nuevos de los extener TUV_CAT_COM,TUV_CLA_COM,TUV_LIN_COM
+
+v2.5: (Cristhian Ramirez  - 05/Nov./2026)
+----
+Se actualiza la llamada ejecucionActualizacionAtributo ya no se usa
+
+
+
+
+

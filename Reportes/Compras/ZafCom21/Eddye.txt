@@ -1,0 +1,11 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Eddye Lino - 12/Oct/2010)
+----
+Se agregó código en el parámetro "strCamAudRpt" saber la versión del reporte.
+

@@ -1,0 +1,28 @@
+﻿Pendientes:
+1) Pasar de FACVEN a FACVENE para cocenco
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Javier Ayapata - 19/Oct/2011)
+----
+Programa nuevo.
+
+v0.2: (José Marín M. - 17/Nov/2014)
+-----
+Se agrega que busque las FACVENE, facturas de venta electronicas
+
+v0.3: (José Marín M. - 9/Mar/2015)
+-----
+Se modifico la funcion enviarCorreo(), se cambio el servidor de correo a mail.tuvalsa.com
+
+v0.4: (José Marín M. - 31/Ago/2015)
+-----
+Se modifica el servicio para trabajar con Cuenca 
+
+v0.5: (Rosa Zambrano - 30/Ago/2019) 
+----
+A pesar de que este servicio está inactivo, se realizan cambios del correo.
+Se modifica el servicio para que lea la clave de correo de la BD.
+ 

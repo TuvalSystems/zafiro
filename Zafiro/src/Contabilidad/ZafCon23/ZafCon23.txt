@@ -1,0 +1,36 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Darío Cárdenas - 03/Ene/2007)
+----
+Clase nueva "Datos de autorización asignados por el SRI..."
+Permite ingresar los datos necesarios para el SRI.
+
+
+v0.2: (Javier Ayapata - 26/May/2010)
+-----
+Se corrige al consultar el tipo de documento.
+
+
+v0.3: (Javier Ayapata - 01/Jun/2010)
+-----
+Se corrige al anular el registro.
+
+
+v0.4: (Javier Ayapata - 22/Sep/2011)
+-----
+Se reestructura todo el programa.
+
+
+v0.5: (Javier Ayapata - 14/Oct/2011)
+-----
+Se agrega selector de fecha para fecha de caducidad.
+
+
+v0.6: (Rosa Zambrano - 02/Abr/2019)
+-----
+Se realizan cambios para JaspersoftStudio.
+
+
+

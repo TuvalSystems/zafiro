@@ -1,0 +1,29 @@
+﻿Pendientes:
+1) 
+2) 
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Cristhian Ramirez - 30/Mayo/2024)
+----
+Clase nueva
+
+v1.1: (Cristhian Ramirez - 07/Mayo/2025)
+----
+Se actualiza
+
+v1.2: (Cristhian Ramirez - 19/Mayo/2025)
+----
+Se actualiza
+
+v1.3: (Cristhian Ramirez - 30/Sept./2025)
+----
+Se añade lo que es la variable global de la direccion que hace referncia a PRODUCCION / DESARROLLO
+
+v1.4: (Cristhian Ramirez - 09/Abril/2026)
+----
+Se añadela conexion a la api de reservas
+
+

@@ -1,0 +1,47 @@
+﻿Pendientes:
+1) Unificación NP, PE, II.
+2)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Ingrid Lino - 30/Jul/2019)
+----
+Programa que permite consolidar Pedidos Embarcados/Facturados
+
+v0.1.1: (Ingrid Lino - 31/Jul/2019)
+----
+Se ocultan columnas que no debe ver el usuario. Se cambia el codigo de notificación de correo de 18 a 26 porque en la DB ya se habían registrado mas codigos hasta que se paso este programa a producción.
+
+v0.1.2: (Ingrid Lino - 01/Ago/2019)
+----
+Se cambia el número de caracteres para armar el número de Pedido Consolidado a 5 caracteres que incluye 000 + tbm_cabTipDoc.ne_ultDoc2 y a esto se le agrega la "C" al inicio (fuera de los 5 caracteres).
+
+v0.1.4: (Ingrid Lino - 12/Ago/2019)
+----
+Se cambia el esquema de cálculo del último registro de prorrateo por pedido según valores de cargos a pagar, por el redondeo a dos decimales.
+
+v0.1.5: (Ingrid Lino - 16/Oct/2019)
+----
+Se arregla el calculo para el último registro que se estaba calculando mal y reflejaba valores erroneos en el último pedido.
+
+v0.1.6: (Ingrid Lino - 09/Ene/2020)
+----
+Se realizan cambios para mejorar proceso de consolidados, se quita la opción de ordenamiento en la tabla de cargos.
+
+v0.1.7: (Ingrid Lino - 17/Ene/2020)
+----
+Se agrega "enviarCorElePedEmbConDup" para envio de correo por Pedidos Embarcados duplicados. Generación de Pedidos Embarcados con valores inferiores a 0.01 en Derechos Arancelarios.
+
+v0.1.8: (Ingrid Lino - 03/Feb/2020)
+----
+Se cambia la forma de calculo de arancel para cuando es el ultimo registro porque estaba dando problemas.
+
+v0.1.9: (Ingrid Lino - 12/Feb/2020)
+----
+Se quita validación de si el pedido está cerrado, hay que reubicarla mostrarMsgInf("<HTML>Los pedidos asociados al consolidado se encuentran cerrados.<BR>Verifique los datos y vuelva a intentarlo.</HTML>");
+
+
+v1.0: (Cristhian Ramirez - 26/Enero/2024)
+-----
+Se inhabilita al momento de insertar/modificar cuadno se guarda en GP , ademas se aña proceso de envio de correo cuando es un usurio no administrador

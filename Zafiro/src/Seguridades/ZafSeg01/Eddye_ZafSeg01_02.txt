@@ -1,0 +1,136 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Eddye Lino - 17/Ene/2006)
+----
+Se restringió que en el menú sólo aparecieran las opciones permitidas al usuario.
+
+
+v0.2: (Eddye Lino - 02/Jul/2006)
+-----
+Se mejoró lo siguiente:
+1) La barra de estado presenta marcos que permiten diferenciar donde empieza y donde termina un JLabel.
+2) Se agregó un JProgressBar en la barra de estado para mostrar el consumo de memoria.
+3) Se agregó código para llamar al "Garbage Collector" cada vez que se cierra un JInternalFrame que es llamado desde el menú.
+4) Se agregó código para que apareciera el nombre de la empresa en la barra de título.
+
+
+v0.3: (Javier Ayapata - 05/Jul/2007)
+-----
+Se agrega para que presente listado de items que termninan en S y no tengas precio.
+
+
+v0.4: (Eddye Lino - 28/Ago/2007)
+-----
+Se agregó código en el constructor de la clase para que cargara los años creados en el sistema.
+
+
+v0.5: (Eddye Lino - 19/Mar/2008)
+----
+Se modificó el método: 
+   1) ZafSeg01_02(ZafParSis obj)
+Se agregó la siguiente línea:
+        objParSis.cargarParametrosSistema();
+
+
+v0.6: (Javier Ayapata - 30/May/2008)
+-----
+Se agrega para que envie el JDesktopPane a la clase ZafConItm.
+
+
+v0.7: (Eddye Lino - 13/Dic/2010)
+-----
+Se agregaron los métodos: 
+   1) minimizarTodVen()
+   2) restaurarTodVen()
+Dichos métodos permiten minimizar y restaurar todas las ventanas.
+
+
+v0.8: (Eddye Lino - 15/May/2012)
+-----
+Se agregaron los métodos: 
+   1) mosaicoHor()
+   2) mosaicoVer()
+   3) cascada()
+   4) organizar()
+Dichos métodos permiten organizar las ventanas.
+
+
+v0.9: (Roberto Flores - 12/Mar/2013)
+-----
+Se añaden validaciones para la presentación de las notificaciones de atrasos y vencimientos de contratos
+
+
+v0.10: (Roberto Flores - 15/Abr/2013)
+-----
+Se añade método permisoSegNov() para mostrar y validar el Seguimiento de novedades de recursos humanos que
+se encuentran pendientes según el usuario que ingresa al sistema.
+
+
+v0.11: (Roberto Flores - 23/May/2013)
+-----
+Mostrar a Juan Rodas todas las novedades de recursos humanos pendientes. Antes sólo se presentaban las suyas.
+
+
+v0.12: (Rosa Zambrano - 11/Nov/2016)
+-----
+Se agrega libreria ZafNotAle para presentar Notificaciones de Alertas Varias.
+
+
+v0.13: (Jose Mario Marin - 16/Jun/2017)
+-----
+Se agrega libreria ZafImpAut, para imprimir automaticamente las OD generadas por el sistema de reserva.
+
+
+v0.14: (Jose Mario Marin - 26/Ago/2019)
+-----
+Se agrega un sistema de guardar escritorios del usuario, para poder usar despues.
+
+
+v0.15: (Eddye Lino - 12/Nov/2019)
+-----
+Se modificó el método: 
+   1) ZafSeg01_02(ZafParSis objParSis)
+Se agregó código para que se pueda abrir varios Zafiros automáticamente.
+
+
+v0.16: (Eddye Lino - 13/Nov/2019)
+-----
+Se modificó el método: 
+   1) ZafSeg01_02(ZafParSis objParSis)
+Se corrigió la siguiente línea que causó un error al validar si el año estaba creado en el Sistema.
+Antes:
+   if (!objParSis.cargarAniosCreadosSistema())
+Después:
+   if (!this.objParSis.cargarAniosCreadosSistema())
+
+
+v0.17: (Eddye Lino - 26/Jun/2020)
+-----
+Se modificó el método: 
+   1) ZafSeg01_02(ZafParSis objParSis)
+Se agregó código para programar que se cierre Zafiro automáticamente todos los días a las 03:00:00.
+Para ello se agregó la clase "ZafThreadExe".
+
+
+v0.18: (Eddye Lino - 11/Sep/2020)
+-----
+El lunes 14/Sep/2020 "CASTEK Cuenca" se convertía en "TUVAL Cuenca".
+Para verificar que los usuarios tuvieran Zafiro actualizado se aumentó el número de versión.
+Se envió un correo a los usuarios para que verifiquen que tenían la versión "v0.18".
+
+
+v0.19: (Jose Mario Marin - 23/Ene/2024)
+-----
+Se agrego un nuevo Codigo para abrir la pantalla de documentos imprimibles 
+
+if(isUsuariosVerVentanaImprimir()){
+    Ventas.ZafVen67.ZafVen67 objVen67 = new ZafVen67(objParSis, 3534);
+    dskGen.add(objVen67,javax.swing.JLayeredPane.DEFAULT_LAYER);
+    objVen67.show();
+}
+

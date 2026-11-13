@@ -1,0 +1,24 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+
+v1.0: (Roberto Flores- 09/11/2012)
+----
+Clase nueva para el mantenimiento de Almuerzos...
+
+
+v1.01: (Roberto Flores- 30/04/2013)
+----
+Nuevo esquema para la configuración de la alimentación. Se aumenta campos para determinar si se le reconoce al empleado la alimentación
+por Rol o Comida.
+
+v1.02: (David Albuja - 24/06/2014)
+----
+Al grabar invoca al Servicio9.
+
+v1.03: (Sayda Villalta - 31/05/2024)
+----
+se agrega validaciones para que obligatoriamente se ingrese el valor del almuerzo cuando es por rol
+del mismo modo que el vlaor ingresado no supere el valor configurado; y que valide que si tiene selecionado 
+el si tiene almuerzo debe escoger la forma sea por Rol o por comida.

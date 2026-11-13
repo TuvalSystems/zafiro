@@ -1,0 +1,67 @@
+Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v 0.01: (Jose Marin - 8/May/2017)
+----
+Nuevo servicio.
+
+
+v 0.02: (Jose Marin - 26/Sep/2017)
+----
+Modificaciones despues de salir con reservas.
+
+
+v 0.03: (Jose Marin - 29/Sep/2017)
+----
+Modificaciones en las notificaciones del sistema de reservas.
+
+
+v 0.04: (Jose Marin - 2/Oct/2017)
+----
+Se modifica el query para obtener todos los datos de la factura a ser relacionados con el ingreso.
+
+
+v 0.04.1: (Jose Marin - 18/Oct/2017)
+----
+Se modifica la validacion del disponible en el generar la factura, para que no tome en cuenta los codigos L.
+
+
+v 0.05: (Jose Marin - 15/Nov/2017)
+----
+Se modifica el servicio para que funcione para Dimulti-Duran.
+
+
+v 0.06: (Jose Marin - 20/Sep/2018)
+----
+Se modifica para que cancele automáticamente las solicitudes pasado el tiempo de solicitud sin estar autorización.
+
+
+v 0.06: (Jose Marin - 20/Sep/2018)
+----
+Se modifica para que cancele automáticamente las solicitudes pasado el tiempo de solicitud sin estar autorización.
+
+
+v0.10: (Jose Marin - 1/Ago/2019)
+----
+Se agrego costeo de inventario, se agrego preliberacion de terminales L.
+
+
+v0.11: (Rosa Zambrano - 30/Ago/2019)
+----
+Cambios para Jaspersoft Studio: Se elimina el uso de la libreria de reportes del sistema, porque este servicio no realiza impresiones.
+
+
+v0.12: (Jose Marin  - 5/Feb/2020)
+----
+Modificaciones para poder llamar al servicio desde un puerto.
+
+
+v0.14: (Jose Marin  - 3/Mar/2020)
+----
+Modificaciones para cuando se llame al pulso, envie correo electronico de recepcion de pulso, se modifico habia 
+un metodo donde detenia el hilo, por eso el servicio se quedaba.
+

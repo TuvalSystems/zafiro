@@ -1,0 +1,11 @@
+﻿Pendientes:
+1) 
+2) 
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Cristhian Ramirez - 27/Oct./2025)
+----
+Clase nueva

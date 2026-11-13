@@ -1,0 +1,11 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v 0.1: (José Mario Marín - 6/Nov/2019)
+----
+Clase nueva (Clasificación de Clientes)...
+ 

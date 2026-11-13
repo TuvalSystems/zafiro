@@ -1,0 +1,25 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+
+v1.0: (Roberto Flores - 22/Ene/2013)
+----
+Clase nueva "Programación de BM..."
+Permite la Programación de Revisión de Sueldos.
+
+v1.01: (Roberto Flores - 13/Sep/2013)
+-----
+Corrección al momento de realizar cálculo de Bono y Movilización programado.
+
+v1.02: (David Albuja - 06/Jun/2014)
+-----
+Corrección al momento de realizar cálculo de Bono y Movilización programado y el reporte.
+
+v1.03: (David Albuja - 24/Jun/2014)
+-----
+Al grabar invoca al Servicio9.
+
+v1.04: (Rosa Zambrano - 11/Abr/2019)
+-----
+Se realizan cambios para JaspersoftStudio. 

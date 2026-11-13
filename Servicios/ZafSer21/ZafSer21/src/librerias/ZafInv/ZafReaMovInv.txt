@@ -1,0 +1,8 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Mario Marín  - 11/Ene/2016)
+----
+Se crea clase nueva "Control de Inventario".
+

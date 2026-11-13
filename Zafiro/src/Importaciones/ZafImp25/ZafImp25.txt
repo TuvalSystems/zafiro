@@ -1,0 +1,25 @@
+Pendientes:
+1)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Rosa Zambrano - 12/Sep/2017)
+----
+Nuevo programa "Arribo a Bodega".
+
+
+v0.1.1: (Rosa Zambrano - 25/Jun/2018)
+-----
+Se pone configurable tipos de documentos para proyecto de segmentación de compras locales.
+
+
+v0.1.2: (Rosa Zambrano - 26/Jun/2018)
+-----
+Se agrega validación de permisos de usuarios.
+
+
+v0.1.3: (Rosa Zambrano - 18/Abr/2019)
+-----
+Se agrega validación de compras locales e importaciones, para que lean el programa correcto.
+Este cambio se realiza debido a la segmentación de compras locales.

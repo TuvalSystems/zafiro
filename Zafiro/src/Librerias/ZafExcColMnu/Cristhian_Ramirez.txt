@@ -1,0 +1,22 @@
+﻿Pendientes:
+1) 
+2) 
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Cristhian Ramirez - 14/Abril/2025)
+----
+ZafCol---clase nueva 
+ZafCon---clase nueva
+ZafExcColMnu--clase nueva
+
+v1.1: (Cristhian Ramirez - 15/Abril/2025)
+----
+ZafCol : se añade lo que es la diferentes forma e exportar a excel ,ademas lo referente a que si modifica y exporta le consulta si desea modifica la configuracion inicial
+
+v1.2: (Cristhian Ramirez - 15/Abril/2025)
+----
+ZafCol : se añade lo que es la anulacion de configuracion
+ZafCon : se añade lo que es la anulacion de configuracion

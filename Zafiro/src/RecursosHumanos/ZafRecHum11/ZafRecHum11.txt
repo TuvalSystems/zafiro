@@ -1,0 +1,47 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+
+v0.1: (Angie Bajaña- 01/09/2015)
+-----
+Clase nueva
+
+
+v0.2: (Tony Sanginez- 07/10/2015)
+-----
+Se modificó el método: 
+   1) tblDatKeyPressed(java.awt.event.KeyEvent evt)
+Se reemplazó "evt.setKeyCode(0);" por "evt.consume();" porque a partir de "Java 7" ya no consumía el ENTER.
+
+
+v0.3: (Tony Sanginez- 27/11/2015)
+-----
+Se agregó el día domingo como hora extraordinaria, anteriormente solo estaban los días sabados.
+Se agregó un union al query para poder visualizar las horas extras de los domingos.
+
+
+v0.4: (Tony Sanginez- 27/10/2016)
+-----
+se corrige error que cuando una hora no es autorizada botaba un null y evitaba poder observar los otros registros.
+
+
+v0.5: (Jean Moran- 25/09/2025)
+-----
+1. Se corrige Query cargarDetReg:
+- Filtraba por el mes - 2 dias para inicio y -3 para fin:
+    calRanIni.set(Integer.valueOf(cboPerAAAA.getSelectedItem().toString()), cboPerMes.getSelectedIndex(), -2);
+    calRanFin.set(Integer.valueOf(cboPerAAAA.getSelectedItem().toString()), cboPerMes.getSelectedIndex() + 1, -3);
+- Traia las solicitudes en base a la fe_doc, pero si la fe_doc era antes o  despues del periodo no lo consideraba
+- Ponia marcacion ho_ent y ho_sal en base a la fe_doc y no de fe_sol que era el dia que realmente se hacia el sobretiempo.
+- Como estaba mal la marcacion respecto a la fecha, hacia mal el calculo.
+- Si la solicitud era de fin de semana no la validaba bien.
+
+2. Se corrige cargarSueEmp
+- Si el empleado estaba en mas de una empresa, cogia el ultimo registro.
+
+3. Se cambia calculoHorasExtra()
+- Se cambia el codigo que hacia el calculo por uno mas corto.
+- Se cambia los datos que se le enviaba:
+  * Antes sueldo, hora ext y hora sup
+  * Ahora sueldo, minutos y porcentaje a pagar(100% o 50%) desde el nuevo query

@@ -1,0 +1,5 @@
+﻿/****************** SERVICIO: ZafSer04 ***********************/
+
+﻿Pendientes:
+1) Habilitar notificación de aranceles, validando en la nota de pedido que tenga el rubro de arancel > 0.
+2) Crear nueva notificación: Fecha de provisión para programa Cierre de Pagos Locales (DxP).

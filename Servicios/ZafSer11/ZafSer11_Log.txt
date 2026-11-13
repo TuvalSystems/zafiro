@@ -1,0 +1,417 @@
+﻿Nombre: Servicio que se encarga de "Facturación electrónica".
+Descripción: Realiza Facturas, Notas de crédito, Guías de remisión y Retenciones.
+
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Dennis Betancourt - 29/Oct/2014)
+----
+Servicio nuevo.
+
+v0.2: (Dennis Betancourt - 06/nov/2014)
+----
+Se agrego las funciones 'generarPDF' y 'enviarCorreo' para que el servicio se encargue de generar el reporte en PDF y enviar el correo al cliente de forma automatica.
+
+v0.2.1: (Dennis Betancourt - 10/nov/2014)
+------
+En la funcion 'buscarCorEleCliFacEle' se cambio el criterio de busqueda del correo electronico: por Cod. de empresa y Cod. de cliente.
+
+v0.2.2: (Dennis Betancourt - 11/nov/2014)
+------
+Se agrego para que, al momento de facturar, si el cliente no tiene un correo registrado, se agregue la leyenda "Procesado. No se envió el correo debido a que no se encontró una dirección de correo en la base de datos".
+
+v0.2.3: (Dennis Betancourt - 13/nov/2014)
+------
+Se agrego una validacion (funcion reemplazarCaracter) para que se reemplace algun caracter especial que se encuentre en la razon social del cliente al armar el XML. Ej: En vez del '&' se colocara '&amp;'.
+
+v0.2.4: (Dennis Betancourt - 18/nov/2014)
+------
+En la funcion 'enviarCorreo' se agrego para enviar el correo al cliente a una 2da cuenta de correo si es que dicha cuenta esta registrada en la base de datos.
+
+v0.2.5: (Dennis Betancourt - 19/nov/2014)
+------
+En el metodo getNumAutorizacionFac() se cambio el operador || por el && en la condicion para enviar el correo: if (strCorEleCliFacEle.equals("") && strCorEleCliFacEle2.equals(""))
+
+v0.2.6: (Dennis Betancourt - 08/dic/2014)
+------
+1) Se pusieron las rutas definitivas donde se van a guardar los XML y PDF para Guias de Remision, Notas de credito y Retenciones.
+2) Se especifico que se usen los archivos fruiz_tuval.p12, fruiz_dimulti.p12 y fruiz_castek.p12. Antes solo estaba el archivo fruiz.p12 (el cual se referia a la firma digital de Tuval).
+
+v0.2.7: (Dennis Betancourt - 09/dic/2014)
+------
+En las funciones donde se arma el XML, se agrego un nuevo Tipo de identificacion del comprador: 08 = Identificacion del exterior
+
+v0.2.8: (Dennis Betancourt - 16/dic/2014)
+------
+1) Se puso una validacion para que en el campo st_autfacele se ponga el valor de 'A' (Autorizado) si el Servicio Web devuelve el mensaje "CLAVE ACCESO REGISTRADA".
+2) Se puso a funcionar el metodo ejecutarProcesoGuiRem() para procesar Guias de remision.
+
+v0.2.9: (Dennis Betancourt - 23/dic/2014)
+------
+Se puso a funcionar el metodo ejecutarProcesoNotCre() para procesar Notas de credito.
+
+v0.2.10: (Dennis Betancourt - 24/dic/2014)
+-------
+1) En el metodo getNumAutorizacionGuiRem() se agrego para procesar Guias de remision para el resto de puntos que faltaban.
+2) En la funcion enviarCorreo(), se puso que se envie una copia del correo al remitente.
+
+v0.2.11: (Dennis Betancourt - 24/dic/2014)
+-------
+En la funcion getSQLRepFac(), se agrego al query un nuevo campo usado en el reporte: tx_desconesp.
+
+v0.2.12: (Dennis Betancourt - 29/dic/2014)
+-------
+Al armar los XML, en la etiqueta <descripcion> se puso la funcion reemplazarCaracter() para que se reemplace algun caracter especial que se encuentre en la descripcion del producto. Ej: En vez del '&' se colocara '&amp;'.
+
+v0.2.13: (Dennis Betancourt - 29/dic/2014)
+-------
+Al armar los XML de Facturas y Notas de credito, en el query que trae el detalle se quito la condicion "tbm_detmovinv.st_reg = 'A'" porque al grabar una factura, en este campo se pone el valor NULL y el detalle no venia, ocasionando que el SRI rechaze la factura.
+
+v0.2.14: (Dennis Betancourt - 30/dic/2014)
+-------
+Se puso a funcionar el metodo ejecutarProcesoCpbRet() para procesar Comprobantes de retencion.
+
+v0.2.15: (Dennis Betancourt - 05/ene/2015)
+-------
+Al generar los XML, se agregaron nuevas etiquetas: estado, ambiente, numero de autorizacion, fecha de autorizacion.
+
+v0.2.16: (Dennis Betancourt - 06/ene/2015)
+-------
+Al generar los XML, en la etiqueta <ambiente> se le quito la O tildada a la palabra PRODUCCION, por motivo de que, al generarse el XML, en vez de la O tildada salia el caracter '?'.
+
+v0.2.17: (Dennis Betancourt - 06/ene/2015)
+-------
+Al generar el XML de Guia de remision, se agrego un nuevo Tipo de identificacion del transportista: 08 = Identificacion del exterior.
+
+v0.2.18: (Dennis Betancourt - 16/ene/2015)
+-------
+Se modifico la condicion al momento de traer los comprobantes pendientes de autorizacion. Antes se traia los registros cuando el campo st_autFacEle <> 'S' o NULL. Ahora solo va a traer cuando sea NULL para evitar la invocacion del Servicio Web de 'n' veces de un mismo comprobante si es que dicho comprobante no puede ser autorizado por el SRI.
+
+v0.2.19: (Dennis Betancourt - 21/ene/2015)
+-------
+Se cambio el remitente de las cuentas de correo. Antes era 'comprobantes_electronicos@xxx.com'. Ahora es 'edocs@xxx.com'.
+
+v0.2.20: (Dennis Betancourt - 28/ene/2015)
+-------
+1) Los XML de las Guias de remision se generan usando las claves de contingencia que otorga el SRI y no se estan enviando en linea para obtener la autorizacion.
+2) Se cambio el remitente de las cuentas de correo de retenciones enviadas a proveedores. Antes era 'edocs@xxx.com'. Ahora es 'edocs-comp@xxx.com'.
+
+v0.2.21: (Dennis Betancourt - 30/ene/2015)
+-------
+Al armar el XML de Nota de credito, se toma en cuenta el campo tbm_cabmovinv.st_tipdev para los calculos, debido a que varian de acuerdo al tipo de devolucion: C = Cantidades; P = Porcentaje de descuento; V = Precio. Para E = Descuentos especiales no fue tomado en cuenta porque hasta ahora no se ha presentado ningun caso de Nota de credito electronica.
+
+v0.2.22: (Dennis Betancourt - 30/ene/2015)
+-------
+Se corrigio el query que arma el detalle del XML de Retencion, debido a un mensaje que devolvia el Servicio Web que impedia la autorizacion: Ej: "El impuesto[1,341] está repetido".
+
+v0.2.23: (Dennis Betancourt - 02/feb/2015)
+-------
+Al armar el XML de Retencion, en la variable strAplRet se considero el valor "O" como Cod.Impuesto 1 (RENTA).
+
+v0.2.24: (Dennis Betancourt - 04/feb/2015)
+-------
+1) Caso de factura de Tuval 125016, con un item de detalle que no tiene IVA. Se realizo un ajuste para que, al armar el XML, el SRI no rechaze el comprobante. Mensaje devuelto: La base imponible total FacturaTotalConImpuesto [codigo=2, codigoPorcentaje=2] esperado 140.0 no coincide con el calculado 0.0
+2) Caso de retencion de Tuval 31996, con 4 lineas de detalle: 2 lineas de 1% de Ret.Fuente y 2 lineas de 30% de Ret.IVA. Se realizo un ajuste para que, al armar el XML, el SRI no rechaze el comprobante. Mensaje devuelto: El impuesto[2,1] esta repetido. El impuesto[1,312] esta repetido.
+
+v0.2.25: (Dennis Betancourt - 09/feb/2015)
+-------
+Se cambia el nombre de la carpeta donde se guardan los XML de Guias de remision generadas en contingencia. Antes se ubicaban en las carpetas usando el esquema "NomEmp_Con_aaaa-mm-dd". Ahora se ubican en la carpeta "Con_PenAut".
+
+v0.2.26: (Dennis Betancourt - 10/feb/2015)
+-------
+Al armar el XML de Nota de credito, se modifica el query de detalle para que realice los mismos calculos cuando el campo tbm_cabmovinv.st_tipdev sea 'P' (Porcentaje de descuento) y 'E' (Descuentos especiales).
+
+v0.2.27: (Dennis Betancourt - 20/feb/2015)
+-------
+Se modifican los parametros que son enviados al generar el PDF de Factura electronica. Ya no se envia como parametro el SQL. Ahora se envia: codEmp, codLoc, codTipDoc, codDoc, ambiente, RUTA_LOGO.
+
+v0.2.28: (Dennis Betancourt - 25/feb/2015)
+-------
+Al armar el XML de Factura y Nota de credito, se realizo un ajuste para tomar el valor correcto de la base imponible de IVA, debido a que aparecieron facturas y notas de credito con ciertos items que tienen IVA, y otros items que no tienen IVA.
+
+v0.2.29: (Dennis Betancourt - 09/mar/2015)
+-------
+En la funcion 'enviarCorreo' se cambio la IP del servidor de correo (172.16.1.3) por las leyendas 'mail.tuvalsa.com', 'mail.dimulti.com' y 'mail.castek.ec'.
+
+v0.2.30: (Dennis Betancourt - 09/abr/2015)
+-------
+En la funcion 'invocarServiciosWeb' se agregaron unas verificaciones adicionales debido a que el SRI realizo cambios en sus Servicios Web cuando devuelve el mensaje "CLAVE ACCESO REGISTRADA".
+
+v0.2.31: (Dennis Betancourt - 11/abr/2015)
+-------
+Los XML de las facturas se generan usando las claves de contingencia que otorga el SRI.
+
+v0.2.32: (Dennis Betancourt - 11/abr/2015)
+-------
+1) Se corrigio para que, al momento de leer las facturas pendientes de generar el XML, se tome en cuenta el estado 'S' en tbm_cabmovinv.st_autfacele.
+2) Al armar el XML de guia de remision, se esta verificando que, si una placa viene NULL o espacio en blanco, se ponga la leyenda 'na'.
+
+v0.2.33: (Dennis Betancourt - 25/may/2015)
+-------
+Al armar el XML de Guia de remision, se obtiene el numero de dias transcurridos entre la fecha actual y la fecha de emision de la orden de despacho. Si es mayor que 30 se actualiza el campo tbm_cabguirem.st_imp = 'S' para que el Servicio 1 no imprima la guia.
+
+v0.2.34: (Dennis Betancourt - 01/jun/2015)
+-------
+Se crea la funcion 'enviarCorreoServidorExterno' para enviar el correo al cliente/proveedor usando una cuenta de un servidor externo (Gmail).
+
+v0.2.35: (Dennis Betancourt - 17/jun/2015)
+-------
+En la funcion que trae el detalle del reporte de Comprobante de retencion, se agregaron los nuevos porcentajes de Retencion de IVA: 10% y 20%.
+
+v0.2.36: (Dennis Betancourt - 19/jun/2015)
+-------
+En la funcion que trae el detalle del reporte de Comprobante de retencion, al mostrar la leyenda 'IMPUESTO A LA RENTA' se consideraba el valor de 10 en la condicion del campo tbm_pagMovInv.nd_porret, correspondiente a "Retencion en la fuente 10%". Se tuvo que quitar este valor de 10 en la condicion debido a que ahora ha aparecido el valor de 10 para "Retencion al IVA 10%" y esto se debe mostrar en la leyenda del reporte 'IVA'.
+
+v0.2.37: (Dennis Betancourt - 26/jun/2015)
+-------
+Al reescribir los XML para poner los datos de la autorizacion, en la clase "ec.gob.sri.comprobantes.util.AutorizacionComprobantesWs" funcion "stringToArchivo", despues de poner "![CDATA[" se tuvo que poner "<?xml version="1.0" encoding="UTF-8"?>" debido a que el proveedor Promesa reporto que los XML que le llegaban no se estaban cargando en su sistema porque faltaba poner esa leyenda en el XML.
+
+v0.2.38: (Dennis Betancourt - 09/jul/2015)
+-------
+Al armar el XML de Comprobante de retencion, se agregaron los nuevos porcentajes de Retencion de IVA: 10% y 20%.
+
+v0.2.39: (Dennis Betancourt - 04/ago/2015)
+-------
+Al armar el XML de Guia de remision, se verifica que, si el campo tbm_cabingegrmerbod.co_usring = 246 (wcampoverde), se actualiza el campo tbm_cabguirem.st_imp = 'S' para que el Servicio 1 no imprima la guia.
+
+v0.2.40: (Dennis Betancourt - 13/ago/2015)
+-------
+Caso de factura de Tuval-Inmaconsa 1877, con todos los items de detalle que no tienen IVA. Se realizo un ajuste para que, al armar el XML, el SRI no rechaze el comprobante.
+
+v0.2.41: (Dennis Betancourt - 24/ago/2015)
+-------
+Caso de nota de credito de Tuval-Inmaconsa 168, con todos los items de detalle que no tienen IVA. Se realizo un ajuste para que, al armar el XML, el SRI no rechaze el comprobante.
+
+v0.2.42: (Dennis Betancourt - 02/sep/2015)
+-------
+Al armar el XML de Guia de remision, al traer el secuencial, fecha de emision y numero de autorizacion de la factura, se puso "limit 1" para que el subquery devuelva un solo registro. Esto es porque puede presentarse el caso de una venta relacionada y si es asi, puede haber el caso de que una misma guia de remision este asociada con 2 o mas facturas de ventas.
+
+v0.2.43: (Dennis Betancourt - 05/nov/2015)
+-------
+1) Al armar el XML de Guia de remision, se modifico la funcion 'getTipIdeTransportista' para que ponga el valor correcto de Tip.Ide.Transportista si la identificacion corresponde a un extranjero.
+2) Al armar el XML de Factura, se puso una validacion para los valores de los campos tbm_cabmovinv.tx_obs1 y tx_obs2. Si hay un caracter de salto de linea, se lo reemplaza con un caracter en blanco en el XML.
+
+v0.2.44: (Dennis Betancourt - 08/dic/2015)
+-------
+Al armar el XML de Factura, en las etiquetas <observacion1> y <observacion2> se puso la funcion reemplazarCaracter() para que se reemplace el caracter especial '&' si es que se encuentra en el texto. Ej: En vez del '&' se colocara '&amp;'.
+
+v0.2.45: (Dennis Betancourt - 28/dic/2015)
+-------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se agrego mas Direcciones MAC (44-A8-42-4B-8A-B4, 00-0A-F7-8E-F3-82).
+
+v0.2.46: (Dennis Betancourt - 07/Ene/2016)
+-------
+Se comento el proceso que se encarga de poner la clave de contingencia a las guias de remision. Ahora esto sera realizado por el Servicio 14.
+
+v0.2.47: (Dennis Betancourt - 07/Mar/2016)
+-------
+1) Al armar el XML de Factura y Nota de credito, se quito el redondeo a 2 decimales de los campos con precio, para que los calculos se efectuen con todos los decimales que esten guardados en las tablas respectivas.
+2) Al revisar una factura, si es de Holcim Ecuador (RUC 0990293244001) y el campo tbm_cabmovinv.tx_NumGuiRem = "", entonces no se debe armar el XML hasta que no se haya realizado la confirmacion total de egreso de mercaderia.
+
+v0.2.48: (Dennis Betancourt - 15/Mar/2016)
+-------
+En la funcion que envia los correos con los XML y PDF, para Castek se agregaron los locales de Inmaconsa.
+
+v0.2.49: (Dennis Betancourt - 17/Mar/2016)
+-------
+Al revisar una factura, si es de Holcim Ecuador (RUC 0990293244001) y el campo tbm_cabmovinv.tx_NumPed = "", entonces no se debe armar el XML hasta que no se haya ingresado un valor en dicho campo.
+
+v0.2.50: (Dennis Betancourt - 04/Abr/2016)
+-------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se agrego mas Direcciones MAC (00-0C-29-61-BA-77).
+
+v0.2.51: (Dennis Betancourt - 06/Abr/2016)
+-------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se agrego mas Direcciones MAC (00-0C-29-E7-AF-E8, 00-0C-29-61-BA-6D, 00-0C-29-E7-AF-F2).
+
+v0.2.52: (Dennis Betancourt - 23/May/2016)
+-------
+Al armar el XML de Factura y Nota de credito, se agrego un nuevo porcentaje de IVA: 14%.
+
+v0.2.53: (Dennis Betancourt - 07/Jun/2016)
+-------
+Al armar el XML de Factura, si la factura es emitida en Castek Manta se agrega una etiqueta de Campo Adicional llamada "CompensacionSolidariaIVA2%".
+
+v0.2.54: (Dennis Betancourt - 13/Jun/2016)
+-------
+Al armar el XML de Factura, si la factura es emitida en Castek Manta se cambia leyenda de Campo Adicional. Antes: "CompensacionSolidariaIVA2%". Ahora: "CompensadoIVA2%".
+
+v0.2.55: (Dennis Betancourt - 29/Jun/2016)
+-------
+En las funciones 'enviarCorreoServidorInterno' y 'enviarCorreoServidorExterno', se agrego un 'break' en el else de la condicion "if (strTipCpb.equals("RET"))" cuando esta en la parte donde "case 2".
+
+v0.2.56: (Dennis Betancourt - 04/Ago/2016)
+-------
+En la clase ZafFirma_p12 se modifica el nombre del archivo de certificado digital (de fruiz a jrodas) junto con la nueva clave asignada por el Banco Central.
+
+v0.2.57: (Dennis Betancourt - 13/Sep/2016)
+-------
+1) Al armar el XML de Guia de remision, para los valores de las etiquetas <observacion1> y <observacion2> se puso la funcion reemplazarCaracter() para que se reemplace el caracter especial '&' (por '&amp;') y el caracter <enter> (por espacio en blanco) si es que se encuentra en el texto.
+2) Al armar el XML de Factura, se puso unas etiquetas relacionadas con la forma de pago.
+
+v0.2.58: (Dennis Betancourt - 20/Ene/2017)
+-------
+En la funcion 'enviarCorreoServidorInterno' para Castek se consideró el Cod.Loc. 5 [Castek California (Ventas relacionadas)] para envio de correo automatico.
+
+v0.2.59: (Dennis Betancourt - 01/Feb/2017)
+-------
+1) Al armar el XML de Factura y Nota de credito, se agregaron las etiquetas correspondientes a Compensacion Solidaria.
+2) Se quito la leyenda de Campo Adicional "CompensadoIVA2%".
+
+v0.2.60: (Dennis Betancourt - 01/Feb/2017)
+-------
+Al armar el XML de Factura y Nota de credito, al momento de recuperar la informacion del query se puso una validacion si el valor leido es NULL o no para los nuevos campos tbm_cabmovinv.nd_porComSol y tbm_cabmovinv.nd_valComSol.
+
+v0.2.61: (Dennis Betancourt - 21/Feb/2017)
+-------
+Al armar el XML de Nota de credito, para Castek - Manta (CodEmp 2 CodLoc 4) si tbm_cabmovinv.nd_porIva <> 12, entonces se debe poner en el XML las etiquetas de Compensacion Solidaria.
+
+v0.2.62: (Dennis Betancourt - 27/Abr/2017)
+-------
+En el proceso para leer las facturas pendientes de autorizar, se valida que si tbm_emp.tx_tipProReaEmpRel <> 'P' para CodEmp = 0, entonces se debera ignorar las facturas relacionadas y no generar el XML.
+
+v0.2.63: (Dennis Betancourt - 28/Abr/2017)
+-------
+Al armar el XML de Factura, si es de PRONACA (RUC 1790319857001) se pone un campo adicional llamado "PedidoCompra" donde va el Numero de pedido de compra.  Esto fue solicitado por el cliente en Castek Quito.
+
+v0.2.64: (Dennis Betancourt - 29/May/2017)
+-------
+Al revisar una factura, se valida si existen diferencias en el Val_IVA y Subtotal.  Si es asi, entonces no se genera el XML hasta que se haya realizado la correccion con los valores correctos.
+
+v0.2.65: (Dennis Betancourt - 31/May/2017)
+-------
+Al revisar una Factura y una Nota de credito, se valida si existen diferencias debido al cambio de porcentaje de IVA a 12% a partir del 1/Jun/2017.  Si es asi, entonces no se genera el XML hasta que se haya realizado la correccion con los valores correctos.
+
+v0.2.66: (Dennis Betancourt - 22/Ago/2017)
+-------
+Al revisar una Nota de credito, se valida si existen diferencias en el Val_IVA y Subtotal de tbm_cabmovinv, donde se realiza calculos con tbm_detmovinv para efectuar la comparacion.  Si hay diferencias, entonces no se genera el XML hasta que se haya realizado la correccion con los valores correctos.
+
+v0.2.67: (Dennis Betancourt - 25/Sep/2017)
+-------
+Al revisar una Retencion, se valida si existen diferencias en el campo tbm_cabpag.nd_mondoc comparado con calculos con tbm_detpag. Y se revisa el campo tbm_pagmovinv.nd_abo comparado con calculos basado en tbm_pagmovinv.nd_basimp. Si hay diferencias, entonces no se genera el XML hasta que se haya realizado la correccion.
+
+v0.2.68: (Dennis Betancourt - 02/Oct/2017)
+-------
+En la clase ZafProCpbEle funcion existeDiferencias_PagMovInv_Ret(), se agrego informacion mas detallada del mensaje devuelto en caso que haya alguna diferencia mayor al Valor de tolerancia de diferencia para calculo (indicado por el objeto ZafParSis parametro "NumeroDecimalesToleranciaDiferenciaCalculoValorRetencionPagMovInv").
+
+v0.3: (Dennis Betancourt - 22/Dic/2017)
+----
+Este servicio es modificado para acoplarse al Esquema Off Line del SRI.
+
+v0.3.1: (Dennis Betancourt - 29/Ene/2018)
+------
+Al armar el XML de factura, en la etiqueta <descripcion> se puso la funcion reemplazarCaracter() para que se reemplace algun caracter especial que se encuentre en la descripcion del producto. Casos presentados: Si se encuentra '<' se colocara '&lt;'. Si se encuentra '>' se colocara '&gt;'.
+
+v0.3.2: (Dennis Betancourt - 08/May/2018)
+------
+Al armar el XML de Factura, Guia, Nota de credito y Retencion, en las etiquetas <Observacion1> y <Observacion2> se puso la funcion reemplazarCaracter() para que se reemplace algun caracter especial que se encuentre en el texto. Casos presentados: Si se encuentra '<' se colocara '&lt;'. Si se encuentra '>' se colocara '&gt;'.
+
+v0.3.3: (Dennis Betancourt - 31/Jul/2018)
+------
+En la clase ZafFirma_p12 se modifica la nueva clave asignada por el Banco Central de los archivos de certificado digital de Tuval, Castek y Dimulti.
+
+v0.4: (Dennis Betancourt - 01/Oct/2018)
+----
+Este servicio es modificado para anexar a Cosenco, Ecuatosa y Detopacio al esquema de facturacion electronica.
+
+v0.4.1: (Dennis Betancourt - 11/Oct/2018)
+------
+Al revisar una Factura, se agregaron 2 funciones de validacion. La funcion existeIncoherencia_IvaFac_y_Cliente() valida si hay una incoherencia con el IVA de la factura de acuerdo a lo indicado en el campo tbm_cli.st_ivaVen. La funcion existeIncoherencia_ItmDetFac_y_MaeItm() valida si los items que estan en tbm_detmovinv (campo tbm_detmovinv.st_ivaCom) graban o no IVA, de acuerdo a lo indicado por el campo tbm_inv.st_ivaVen. Si hay alguna incoherencia, entonces no se genera el XML hasta que se haya realizado la revision y correccion del caso.
+
+v0.4.2: (Dennis Betancourt - 15/Oct/2018)
+------
+1) Se modifico funcion existeIncoherencia_IvaFac_y_Cliente(). En el case se quito la condicion "tbm_cabmovinv.nd_porIva > 0" y "tbm_cabmovinv.nd_porIva = 0" ya que tbm_cabmovinv.nd_porIva siempre tendra un valor, asi sea que la factura no tenga IVA.
+2) Al armar el XML de Factura y Nota de credito, ya no se esta enviando la etiqueta <observacion2>.
+
+v0.4.3: (Dennis Betancourt - 03/Jul/2019)
+------
+En las funciones de "ejecutarProceso" se ejecuta un query muy liviano antes de llamar al metodo "getNumAutorizacion". El proposito es evitar que se invoquen los Servicios Web del SRI si no hay conexion con la base de datos. Esto suele pasar al realizarse un restart de la base de datos, pues cuando sucede esto y si el servicio esta corriendo, se ejecutan los Servicios Web del SRI, se autorizan los documentos electronicos, pero los datos de la autorizacion no se actualizan en las tablas respectivas.
+
+v0.4.4: (Dennis Betancourt - 19/Jul/2019)
+------
+Al armar el XML de Factura, si el cliente tiene algun dato en el campo tbm_cabmovinv.tx_NumPed, entonces se pone la etiqueta <PedidoCompra>.
+
+v0.4.5: (Dennis Betancourt - 30/Jul/2019)
+------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se depuro direcciones MAC debido al cambio a Suse Server en el Servidor de Produccion realizado el Sab. 27/07/2019.
+
+v0.4.6: (Dennis Betancourt - 21/Ago/2019)
+------
+Se agregaron nuevos parametros en el archivo de configuracion: "DireccionMACServidorProduccion", "EjecutarProcesoTipoAmbienteSRIPruebas", "EnviarCorreoTipoAmbienteSRIPruebas".
+
+v0.4.7: (Rosa Zambrano - 30/Ago/2019)
+----
+Se realizan cambios para Jaspersoft Studio.
+
+v0.4.8: (Dennis Betancourt - 07/Oct/2019)
+------
+Al armar el XML de Factura, Guia de remision y Nota de credito, en la etiqueta <codigoAuxiliar> se puso la funcion reemplazarCaracter() para que se reemplace algun caracter especial que se encuentre en dicho campo. Casos: Si se encuentra '&' se colocara '&amp;'. Si se encuentra '<' se colocara '&lt;'. Si se encuentra '>' se colocara '&gt;'.
+
+v0.4.9: (Dennis Betancourt - 17/Oct/2019)
+------
+Al armar el XML de Factura, Nota de credito y Retencion, en la etiqueta <campoAdicional> se puso una validacion para que, en caso que el valor del campo sea mayor a 300 caracteres, se trunque y solo se tomara en cuenta 300 caracteres.
+
+v0.4.10: (Dennis Betancourt - 12/Dic/2019)
+-------
+Al armar el XML de Retencion, se cambio el nombre de campo y tabla donde se obtiene la fecha_emision_factura_proveedor. Antes se lo obtenia de tbm_pagMovInv.fe_recChq. Ahora se lo obtiene de tbm_detRecDoc.fe_venChq.
+
+v0.4.11: (Dennis Betancourt - 03/Ene/2020)
+-------
+Se realizaron cambios debido a que Cosenco fue anexada a la base de datos Zafiro2006.
+
+v0.4.12: (Dennis Betancourt - 17/Ene/2020)
+-------
+En la clase ZafFirma_p12, en el metodo getFirstCertificate() se cambio la manera de firmar los XML, debido a un cambio en el SRI que ellos lanzaron el 15/01/2020.
+Antes: X509Certificate certificate = certs.get(0); //Firma usando "cifrado de clave"
+Ahora: X509Certificate certificate = certs.get(1); //Firma usando "firma digital"
+
+v0.4.13: (Dennis Betancourt - 22/Ene/2020)
+-------
+Al armar el XML de Retencion, en el query que trae el detalle se agrego la condicion "and a7.st_reg = 'A'" donde a7 = tbm_detRecDoc. Se puso esta condicion debido a que en el XML se duplicaban los valores de las bases imponibles y retenciones si existe una Recepcion de factura de proveedor anulada. Caso presentado en Tuval California, Retencion 42266 Proveedor "SANCHEZ RIVAS CESAR AUGUSTO".
+
+v0.4.14: (Dennis Betancourt - 06/Feb/2020)
+-------
+1) Al armar el XML de Retencion, en el query que trae el detalle se agrego la condicion "and a2.tx_numChq = a7.tx_numChq", donde el campo tx_numChq tiene el num.Fac.Prv. en las tablas tbm_pagMovInv (alias a2) y tbm_detRecDoc (alias a7). Se puso esta condicion debido a que en el XML se estaba generando 2 filas para un mismo porcentaje_Retencion. Ej: habian 2 filas para 1%, y 2 filas para 10%. Caso presentado en Castek Quito Inmaconsa, Retencion 5 y 6, Proveedor "DIPAC MANTA".
+2) Se creo la funcion getSQLSubRepCpbRet_XML(), el cual ya no va a traer la informacion de la base de datos. Ahora se leera los datos de los valores de Base Imponible y de Retencion basado en el XML autorizado.
+
+v0.4.15: (Dennis Betancourt - 11/Feb/2020)
+-------
+Se agrego la funcion verificar_DetXML_DetPag_Ret() la cual se encarga de verificar que los datos del XML de Retencion que se va a armar sean iguales a los que estan en tbm_detPag.
+
+v0.4.16: (Dennis Betancourt - 11/Mar/2020)
+-------
+En la funcion verificar_DetXML_DetPag_Ret(), se verifica si hay FACCOM que estan relacionadas con la Retencion. Si hay mas de una FACCOM, no se debe continuar con el proceso de validacion. Sin embargo, se devuelve true para indicar que el proceso de validacion estuvo OK. Caso presentado en Tuval Inmaconsa, Num_ret 2585, Proveedor 1004 = DEMACO, fe_emision 09/03/2020.
+
+v0.4.17: (Dennis Betancourt - 22/Abr/2020)
+-------
+En la funcion getSQLSubRepCpbRet_XML() se realizo una modificacion del SQL que se envia al subreporte, pues los nuevos Por.Ret.Fuente 1.75 y 2.75 los estaba redondeando a 2 y 3, respectivamente.
+
+
+v0.4.18: (José Mario Marín - 23/Jun/2020)
+-------
+Se agrega clientes que con el mismo manejo de Documentos electronicos que Holcim, en el metodo ejecutarProcesoFac(), se agregan los RUC para no generar el 
+XML hasta que posea una Guia de remision.
+ 
+
+v0.4.19: (José Mario Marín - 27/Jul/2020)
+-------
+Dentro de la clase ZafFirma_p12 en el metodo
+private X509Certificate getFirstCertificate(IPKStoreManager storeManager)
+//            certificate = certs.get(1); //Firma usando "firma digital" // JM AKI SALE EL ERROR 2020-Jul-27
+            certificate = certs.get(0);  // JM 
+
+
+
+v0.4.20: (José Mario Marín - 19/Ago/2020)
+-------
+Se agregan correos para que llegue copia de los enviados: 
+edocs@tuvalsa.com
+edocs@castek.ec
+edocs@dimulti.com
+Los correos que nos paso Danny.
+
+

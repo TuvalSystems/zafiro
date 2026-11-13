@@ -1,0 +1,109 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Alex Morán - 12/Jul/2013)
+-----
+Clase nueva ubicación de inventario en bodega
+
+
+v0.2: (Alex Morán - 23/Jul/2013)
+-----
+Se agregan columnas de stock y código alteno 2 a la consulta.
+
+
+v0.3: (Alex Morán - 24/Jul/2013)
+-----
+Se corrije query de bodegas permitidas por usuario.
+
+
+v0.4: (Alex Morán - 26/Jul/2013)
+-----
+Se corrije acceso a usuarios para actualizar ubicación de items en bodega.
+
+
+v0.5: (Alex Morán - 23/Ago/2013)
+-----
+Se modifica para que funcione con la clase ZafTblPopMnu.
+
+
+v0.6: (Eddye Lino - 11/Jul/2014)
+-----
+Se modificó el método: 
+   1) ZafTblCelEdiTxtFor()
+Se cambió la máscara. Antes "U-##-U-#U". Ahora "U-##-U-##U".
+
+
+v0.7: (Eddye Lino - 21/Jul/2014)
+-----
+Se modificó el método: 
+   1) configurarTblDat()
+En algún momento alguien solicitó hacer no editable la columna "Imp.Ord." para los usuarios.
+Se reactiva dicha opción a los usuarios para que puedan marcar los items y dejar lista "Vía Daule".
+
+
+v0.8: (Rosa Zambrano - 21/Dic/2015)
+-----
+Se agrega búsqueda por el código de 3 letras del ítem solicitado por Danny Obando para agilizar el proceso de ubicación de inventario desde las tablets.
+
+
+v0.9: (José Mario Marín - 20/Dic/2021)
+-----
+Se agrega que al guardar, tambien se guarde en una base intermedia para ser usada en Dynamics GP. 
+
+
+v 1.0: (José Mario Marín - 4/Oct/2022)
+-----
+getCodRegInsGP modifique ese metodo, para obtener el codigo de registro de cuantas veces esta un codigo guardado. 
+
+v 1.1: (Cristhian Ramirez - 03/Abril/2023)
+-----
+Se procede a realizar el proceso de busqueda-modificacion mediante sql 
+
+v 1.2: (Cristhian Ramirez - 05/Abril/2023)
+-----
+Se procede a realizar las siguientes modificaciones(carlos chiriguaya)
+    -Presentar los campos disponible gp, existencia gp , reserva gp y disponible web
+    -Validacion del stock disponible gp vs disponible web 
+    -Visualizacion de errores al momento de querer generar el traslado de ubicacion
+
+v 1.3: (Cristhian Ramirez - 10/Abril/2023)
+-----
+Se procede a modificar los siguiente:
+    -Validacion de la consulta con respecto a items con disponibilidad en 0
+    -Se añadio la funcion isVersionActualizada para poder validar que se este ejecutando la version actual del programa
+    -Se añadio la validacion de usuarios
+
+v 1.4: (Cristhian Ramirez - 16/Mayo/2023)
+-----
+Se procede a realizar la eliminacion de la ubicacion antigua y que tenga como stock 0
+Se procede a poner el filtro de General
+
+v 1.5: (Cristhian Ramirez - 07/Julio/2023)
+-----
+Se procede a cambiar la consulta con respecto al codigo 3LETRAS
+
+v 1.6: (Cristhian Ramirez - 31/Julio/2023)
+-----
+Se procede a realizar lo siguientes puntos:
+    * creacion de ubicacion por item
+    * eliminacion de un item
+
+v1.7: (Cristhian Ramirez - 05/Septiembre/2023)
+-----
+Se modifica la busqueda de bodegas: se realiza la consulta mediante los permisos que se le a dado al usaurio para acceder las bodegas
+
+v1.8: (Cristhian Ramirez - 07/Septiembre/2023)
+-----
+Revision, confirmacion de versionamiento
+
+v1.9: (Cristhian Ramirez - 28/Septiembre/2023)
+-----
+Se añade los siguientes procesos:
+    * Se añade la opcion de seleccionar todos los checks de la tabla con respecto a la columna de "S"
+    * Se añade la validación de consultar los items con stock o sin stock
+
+

@@ -1,0 +1,27 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Mario Marín - 21/Oct/2024)
+----
+Clase nueva.
+
+
+v0.2: (José Mario Marín - 24/Oct/2024)
+----
+Solicitaron agregar una columna con la diferencia de tiempos en ser aprobado un depo, tambien se 
+incluiran permisos para quien puede ver que cosa. 
+
+
+v0.3: (José Mario Marín - 20/Oct/2026)
+----
+Se agrega columna de usuario aprobador.  
+
+
+v0.4: (José Mario Marín - 22/Oct/2026)
+----
+Se modifica la consulta se agrega un CAST a la fecha.  
+

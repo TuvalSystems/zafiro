@@ -1,0 +1,25 @@
+﻿Pendientes:
+1)  
+2) 
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+v0.01: (Jose Mario Marin - 11/Abr/2023)
+----
+Nueva clase.
+
+
+v0.02: (Jose Mario Marin - 27/Abr/2023)
+----
+Se agrega boton de limpiar.
+
+
+v0.03: (Jose Mario Marin - 5/Jun/2023)
+----
+Se modifica una validacion al consultar las cotizaciones, se modifica la consulta de cotizaciones por usuario.
+
+
+v0.04: (Jose Mario Marin - 5/Jun/2023)
+----
+Se modifica la consulta, no habia considerado los usuarios que se crearon en el WST, con - Inmaconsa.

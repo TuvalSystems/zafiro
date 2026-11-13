@@ -1,0 +1,57 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Roberto Flores - 29/Feb/2012)
+----
+Clase nueva "Listado de marcaciones de empleados..."
+
+
+v1.33: (Roberto Flores - 04/Nov/2013)
+-----
+Se aumenta las justificaciones de las salidas adelantadas y marcaciones incompletas.
+
+
+v1.34: (Roberto Flores - 21/Nov/2013)
+-----
+Se valida para poder visualizar las marcaciones de empleados que ya han sido anulados en el sistema.
+
+
+v1.35: (Sandra Pinargote - 19/Ago/2015)
+-----
+Se corrige query en la función generarRpt() para presentar las marcaciones de empleados sin horario fijo, por empresa y por Grupo.
+
+
+v1.40: (Tony Sanginez - 16/Ene/2016)
+-----
+Se hizo un cambio en para que se puedan visualizar los reportes mediante el horario que haya tenido asignado para ese dia laborado.
+
+
+v1.5: (Tony Sanginez - 23/May/2017)
+-----
+Se agregó una columna para que se pueda visualizar cuando se ha dado un permiso.
+
+
+v1.6: (Rosa Zambrano - 11/Abr/2019)
+-----
+Se realizan cambios para JaspersoftStudio. 
+
+
+v1.8: (José Mario Marín - 21/Feb/2020)
+----
+Modificacion en el CargarDat()
+
+
+v1.10: (Sayda Villalta 06/09/2024)
+----
+Se cambio de postgret a sql server
+
+v1.11: (Jean Moran 05/02/2026)
+----
+Se agregó columnas Valor Atrasos y Valor Adelantos.
+Se agregó a los 4 query el calculo de minutos de atrasos, antes se lo hacia por codigo.
+Se agregó query para obtener sueldo del trabajador y eso convertirlo en minutos para el calculo.
+Se agrega metodo convertirMinutos
+Se agregó metodo RendererValorRojo para que esos valores salgan en rojo y se mantengan de ese color incluso cuando selecciona la fila.
+Se agregó a calcularTotales que sume tambien las nuevas columnas.
+

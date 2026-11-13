@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafRptCxC20_01_4" pageWidth="414" pageHeight="1124" columnWidth="414" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="CodEmp" class="java.lang.Integer" isForPrompting="false">
+		<parameterDescription><![CDATA[Codigo de la Empresa]]></parameterDescription>
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CodCli" class="java.lang.Integer" isForPrompting="false">
+		<parameterDescription><![CDATA[Codigo del Cliente]]></parameterDescription>
+		<defaultValueExpression><![CDATA[2127]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Ban" class="java.lang.String">
+		<defaultValueExpression><![CDATA[($P{Ban}==null?" ":$P{Ban})]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT round(SUM(Z.ValxVen),2) AS SUMVALXVEN, round(SUM(Z.D1_D30),2) AS SUMD1_D30, round(SUM(Z.D31_D60),2) AS SUMD31_D60,
+round(SUM(Z.D61_D90),2) AS SUMD61_D90, round(SUM(Z.Dmas91),2) AS SUMDmas91, round(SUM(Z.VAL_PEN),2) AS SUMVALPEN
+FROM
+(
+SELECT a1.co_emp, a1.co_loc, a1.co_cli, a4.tx_nom AS NOM_CLI, a4.tx_ide AS RUC_CLI, a4.tx_dir AS DIR_CLI,
+a4.tx_tel AS TEL_CLI, a4.tx_corele AS COR_ELE, a1.co_tipdoc, a3.tx_descor as TIPDOC_COR, a3.tx_deslar as NOM_LAR,
+a1.co_doc as COD_DOC, a1.ne_numDoc as NUM_DOC,  a2.ne_diacre, a1.fe_doc as FEC_DOC, a2.fe_ven as FEC_VEN,
+(current_date - a2.fe_ven) as diaven,
+case when (a2.nd_porret <> 0) then round(a2.nd_porret,0) end AS POR_RET,
+(a2.mo_pag) as VAL_DOC,  round(a2.nd_abo,4) AS VAL_ABO,
+round(a2.mo_pag+a2.nd_abo,4) AS VAL_PEN,
+round(a2.mo_pag+a2.nd_abo,4) AS VAL_COB,
+case when a2.nd_porret = 0.00 then round(a2.mo_pag+a2.nd_abo,4) end as VAL_PAG,
+case when a2.nd_porret>0 then (a2.mo_pag+a2.nd_abo) end as VAL_RET,
+a5.tx_descor AS DESCOR_BAN, a2.tx_numCtaChq AS NUM_CTA,
+a2.tx_numChq AS NUM_CHQ, a2.nd_monChq AS VAL_CHQ,
+case when (current_date - a2.fe_ven) <= 0 then (a2.mo_pag+a2.nd_abo) end as ValxVen,
+case when ((current_date - a2.fe_ven)>=1  and (current_date - a2.fe_ven) <=30) then (a2.mo_pag+a2.nd_abo) end as D1_D30,
+case when ((current_date - a2.fe_ven)>=31 and (current_date - a2.fe_ven) <=60) then (a2.mo_pag+a2.nd_abo) end as D31_D60,
+case when ((current_date - a2.fe_ven)>=61 and (current_date - a2.fe_ven) <=90) then (a2.mo_pag+a2.nd_abo) end as D61_D90,
+case when ((current_date - a2.fe_ven)>=91) then (a2.mo_pag+a2.nd_abo) end as Dmas91
+FROM tbm_cabMovInv AS a1
+INNER JOIN tbm_pagMovInv AS a2 ON (a1.co_emp=a2.co_emp AND a1.co_loc=a2.co_loc AND a1.co_tipDoc=a2.co_tipDoc AND a1.co_doc=a2.co_doc)
+INNER JOIN tbm_cabTipDoc AS a3 ON (a1.co_emp=a3.co_emp AND a1.co_loc=a3.co_loc AND a1.co_tipDoc=a3.co_tipDoc)
+INNER JOIN tbm_cli AS a4 ON (a1.co_emp=a4.co_emp AND a1.co_cli=a4.co_cli)
+LEFT OUTER JOIN tbm_var AS a5 ON (a2.co_banChq=a5.co_reg)
+WHERE a1.st_reg IN ('A','R','C','F') AND a2.st_reg IN ('A','C')  AND a4.st_cli='S'
+AND a3.ne_mod IN (1,3)
+AND (a2.mo_pag+a2.nd_abo)<>0
+AND a1.co_emp = $P{CodEmp}
+AND a1.co_cli = $P{CodCli}
+$P!{Ban}
+ORDER BY a3.tx_natdoc, a1.co_tipdoc, a1.ne_numdoc, a1.fe_doc, a2.co_reg
+) AS Z]]>
+	</queryString>
+	<field name="sumvalxven" class="java.lang.Double"/>
+	<field name="sumd1_d30" class="java.lang.Double"/>
+	<field name="sumd31_d60" class="java.lang.Double"/>
+	<field name="sumd61_d90" class="java.lang.Double"/>
+	<field name="sumdmas91" class="java.lang.Double"/>
+	<field name="sumvalpen" class="java.lang.Double"/>
+	<variable name="Tot_DatxVen" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sumvalxven}]]></variableExpression>
+	</variable>
+	<variable name="Tot_1a30D" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sumd1_d30}]]></variableExpression>
+	</variable>
+	<variable name="Tot_31a60D" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sumd31_d60}]]></variableExpression>
+	</variable>
+	<variable name="Tot_61a90D" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sumd61_d90}]]></variableExpression>
+	</variable>
+	<variable name="Tot_Mas91D" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sumdmas91}]]></variableExpression>
+	</variable>
+	<variable name="Tot_Pen" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sumvalpen}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="11" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText-1" x="6" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DatxVenc.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-2" x="70" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[1-30 Dias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-3" x="134" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[31-60 Dias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-4" x="198" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[61-90 Dias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-5" x="262" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[+91 Dias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText-6" x="326" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Tot.Pend.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" x="6" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{Tot_DatxVen}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" x="70" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{Tot_1a30D}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" x="134" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{Tot_31a60D}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" x="198" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{Tot_61a90D}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" x="262" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{Tot_Mas91D}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField" x="326" y="1" width="65" height="10"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{Tot_Pen}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

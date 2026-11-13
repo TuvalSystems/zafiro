@@ -1,0 +1,113 @@
+Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Marín - 10/Jun/2016)
+----
+Clase nueva.
+
+
+v 0.01.04: (José Marín - 18/Ago/2016)
+-----
+Modificaciones para Transferencias de Inventario.
+
+
+v 0.01.05: (José Marín - 18/Ago/2016)
+-----
+Modificaciones para Transferencias de Inventario.
+
+
+v 0.01.06: (José Marín - 20/Ago/2016)
+-----
+Modificaciones para Transferencias de Inventario Codigos L.
+
+
+v 0.01.07: (José Marín - 22/Ago/2016)
+-----
+Modificaciones para Transferencias de Inventario Codigos L.
+
+v 0.01.10: (José Marín - 6/Sep/2016)
+-----
+Modificaciones para Transferencias.
+
+
+v 0.01.11: (José Marín - 8/Sep/2016)
+-----
+Modificaciones para Transferencias. Se cambia el query de los ingresos.
+
+
+v 0.01.12: (José Marín - 9/Sep/2016)
+-----
+Modificaciones para Transferencias.  
+
+
+v 0.01.13: (José Marín - 12/Sep/2016)
+-----
+Se modifica función preparaEgreso().
+
+v 0.01.14: (José Marín - 12/Sep/2016)
+-----
+Se modifica función preparaEgreso().
+
+v 0.01.16: (José Marín - 23/Sep/2016)
+-----
+Se modifica función preparaEgreso().
+
+v 0.01.17: (José Marín - 20/Oct/2016)
+-----
+Se modifica que en inmaconsa los Items de terminal L se deban confirmar.
+
+v 0.01.18: (José Marín - 31/Oct/2016)
+-----
+Se modifica que en inmaconsa los Items de terminal L se deban confirmar.
+
+v 0.01.19: (José Marín - 1/Nov/2016)
+-----
+Se modifica que en inmaconsa los Items de terminal L se deban confirmar, se utiliza Codificar al guaradar la Factura.
+
+v 0.01.20: (José Marín - 7/Nov/2016)
+-----
+Modificacion al gravar el detalle.
+
+v 0.01.21: (José Marín - 22/Dic/2016)
+-----
+Modificacion de la madera de relacionar los documetns.
+
+v 0.01.22: (José Marín - 12/Ene/2017)
+-----
+Se quitan los correos, y se quita la version de prueba.
+
+v 0.01.23: (José Marín - 14/Ene/2017)
+-----
+Se agregan detalles al correo de Errores.
+
+v 0.01.24: (José Marín - 31/Ene/2017)
+-----
+Modificaciones para Compensacion Manta.
+
+v 0.01.25: (José Marín - 31/Ene/2017)
+-----
+Correcciones en Compensacion Manta.
+
+v 0.01.26: (José Marín - 1/Feb/2017)
+-----
+Modificaciones en el calculo del total del detalle, se cambia al grabar la compensacion no se pone el porcentaje de retencion.
+
+v 0.01.28: (José Marín - 2/Feb/2017)
+-----
+Modificaciones para tarjetas de credito.
+
+v 0.01.29: (José Marín - 8/Feb/2017)
+-----
+Modificaciones para pagos en manta lo de el formato fecha.
+
+v 0.01.30: (José Marín - 14/Feb/2017)
+-----
+Correciones para las fechas de vencimiento.
+
+v 0.01.31: (José Marín - 17/Feb/2017)
+-----
+Modificaciones para UIO 2 areas.

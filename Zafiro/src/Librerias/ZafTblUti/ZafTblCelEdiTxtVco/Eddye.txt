@@ -1,0 +1,28 @@
+Pendientes:
+1) 
+2) 
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Eddye Lino - 08/May/2006)
+----
+Clase nueva.
+
+
+v0.2: (Eddye Lino - 28/Jul/2010)
+-----
+Se modific� el m�todo: 
+   1) mostrarVenCon()
+Se reemplaz� el m�todo "show()" por el m�todo "setVisible(true)" porque ya estaba deprecated.
+
+v0.3: (Ingrid Lino - 12/Sep/2017)
+-----
+Se añade validación a través de variable "blnMosVenCon" para saber si la ventana de consulta debe visualizarse o no.
+
+v0.4: (Cristhian Ramirez 06/03/2023)
+-----
+Se añade la funcion ZafTblCelEdiTxtVco para poder realiar la conuslta mediante GP
+Se añade la funcion mostrarVenConGP para poder mostrar los datos de GP
+Se la funcion thisActionPerformed la validacion de consulta normal o por GP

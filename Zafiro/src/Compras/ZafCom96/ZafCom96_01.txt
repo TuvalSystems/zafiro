@@ -1,0 +1,33 @@
+﻿Pendientes:
+1) No maneja bien los parciales.
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v 0.1: (Tony Sanginez - 10/Oct/2016)
+----
+Clase nueva.
+
+ 
+v 0.2: (Jose Mario Marin - 18/Jul/2018)
+-----
+Se modifica el trabajar con una conexion global con varias transacciones y varios commit(), a trabjar con una sola transacción, se modifica la toma de codigo de los items 
+el query estaba teniendo problemas.
+
+
+v 0.03: (Jose Mario Marin - 14/Feb/2019)
+-----
+Se modifica la manera de costear los documentos, paso de costear todos los documentos del seguimiento a costear solo los documentos que genera la cancelación.
+
+
+v 0.04: (Jose Mario Marin - 30/Sep/2019)
+-----
+Se modifica queys que obtienen datos.
+
+
+v 0.05: (Jose Mario Marin - 4/Jul/2020)
+-----
+Se modifica la seleccion de las bodegas en los documentos de reversion de prestamos y facturas relacionales, no modifique 
+nada de la transferencia por que veia que todo estaba ok.
+

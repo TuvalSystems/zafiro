@@ -1,0 +1,12 @@
+﻿Pendientes:
+1) 
+2) 
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez- 14/Abr/2025)
+----
+Se agregaron los métodos: getCantidadPalabras(String cantidad, String moneda) y getCantidadPalabras(double cantidad, String moneda)
+

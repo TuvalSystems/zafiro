@@ -1,0 +1,23 @@
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Jean Moran - /Agosto/2026)
+----
+Clase nueva para el manejo de Liquidacionde Haberes.
+
+v1.01: (Jean Moran - 21/Septiembre/2026)
+----
+Se agrega combo para las diferentes causas de salida
+
+v1.02: (Jean Moran - 26/Septiembre/2026)
+----
+Se modifica tabla donde se presenta los valores de los periodos para una mejor visualizacion 
+
+v1.03: (Jean Moran - 10/Octubre/2026)
+----
+Se corrige que no calculaba bien los dias para un año de servicio ejemplo , entra 25/09/2025 y sale 24/09/2026, si cumplio un año
+
+v1.04: (Jean Moran - 30/Octubre/2026)
+----
+Se agrega mejora visual a la tabla de informacion de los periodos
+

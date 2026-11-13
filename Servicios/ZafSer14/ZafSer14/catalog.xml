@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/SRI/Wsdl/WSRecCom.wsdl" uri="xml-resources/web-service-references/WSRecCom/wsdl/WSRecCom.wsdl"/>
+    <system systemId="file:/C:/SRI/Wsdl/WSAutCom.wsdl" uri="xml-resources/web-service-references/WSAutCom/wsdl/WSAutCom.wsdl"/>
+    <system systemId="file:/C:/SRI2/Wsdl/WSRecCom.wsdl" uri="xml-resources/web-service-references/WSRecCom/wsdl/WSRecCom.wsdl"/>
+    <system systemId="file:/C:/SRI2/Wsdl/WSAutCom.wsdl" uri="xml-resources/web-service-references/WSAutCom/wsdl/WSAutCom.wsdl"/>
+    <system systemId="file:/C:/Zafiro/wsdl/WSRecCpb.wsdl" uri="xml-resources/web-service-references/WSRecCpb/wsdl/WSRecCpb.wsdl"/>
+    <system systemId="file:/C:/Zafiro/wsdl/WSAutCpb.wsdl" uri="xml-resources/web-service-references/WSAutCpb/wsdl/WSAutCpb.wsdl"/>
+    <system systemId="file:/C:/Dennis/Tuval_fuentes/ZafSer11/ZafSer11/src/wsdl/WSRecCpb.wsdl" uri="xml-resources/web-service-references/WSRecCpb/wsdl/WSRecCpb.wsdl"/>
+    <system systemId="file:/C:/Dennis/Tuval_fuentes/ZafSer11/ZafSer11/src/wsdl/WSAutCpb.wsdl" uri="xml-resources/web-service-references/WSAutCpb/wsdl/WSAutCpb.wsdl"/>
+    <system systemId="file:/D:/Dennis/Tuval_fuentes/ZafSer11/ZafSer11/src/wsdl/WSRecCpb.wsdl" uri="xml-resources/web-service-references/WSRecCpb/wsdl/WSRecCpb.wsdl"/>
+</catalog>

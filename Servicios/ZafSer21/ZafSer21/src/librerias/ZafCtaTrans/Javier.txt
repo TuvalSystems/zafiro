@@ -1,0 +1,6 @@
+v0.1  (02-Agosto-2011)
+  clase que se encarga de cambiar y quitar cuentas transitorias caso ordenes de compra y devCom.
+
+
+
+

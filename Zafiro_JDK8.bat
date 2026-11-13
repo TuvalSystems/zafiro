@@ -1,0 +1,1 @@
+javaw -version:1.8 -Xms128m -Xmx512m -jar Zafiro.jar

@@ -1,0 +1,119 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Marín - 30/Mar/2015)
+----
+Clase nueva.
+
+
+v0.1.1: (José Marín - 26/Jul/2016)
+-----
+Modificacion de errores de salida de proyecto.
+
+
+v0.1.2: (José Marín - 5/Ago/2016)
+-----
+Modificacion de errores de salida de proyecto.
+
+
+v0.1.3: (José Marín - 25/Ago/2016)
+-----
+Modificacion de errores de salida de proyecto transferencia, Importaciones.
+
+
+v0.1.04: (José Marín - 2/Sep/2016)
+-----
+Correccion Query de importaciones.
+
+
+v0.1.04.01: (José Marín - 02/Sep/2016)
+-----
+Correccion Query de importaciones.
+
+
+v0.1.04.02: (José Marín - 07/Oct/2016)
+-----
+Uso de nueva configuracion. 
+
+
+v0.1.04.03: (José Marín - 14/Nov/2016)
+-----
+Uso de nueva configuracion.
+
+
+v0.1.04.04: (José Marín - 17/Nov/2016)
+-----
+Uso de nueva configuracion, para las bodegas donde pueden autorizar.
+
+
+v0.1.04.05: (José Marín - 16/Dic/2016)
+-----
+Se actualiza st_ConInv='N' en el caso de denegar las solicitudes.
+
+
+v0.1.04.06: (Rosa Zambrano - 12/Sep/2017)
+-----
+Importaciones: Se realizan modificaciones para autorización de solicitudes de transferencias de importaciones.
+Importaciones: Se agrega en la funcion validaStock que valide la bodega Origen del pedido.
+
+v0.1.04.07: (Cristhian Ramirez - 24/Abril/2023)
+-----
+Se realiza el proceso con GP
+
+v0.1.04.08: (Cristhian Ramirez - 28/Abril/2023)
+-----
+Insercion de versionamiento
+
+v0.20: (José Mario Marín - 3/Jul/2023)
+-----
+Modificacion de datos de conexion guardados de DGP01.
+
+v0.21: (Cristhian Ramirez - 07/Septiembre/2023)
+-----
+Insercion de la funcion de llamarWebTuval
+
+v0.22: (Cristhian Ramirez - 07/Diciembre/2023)
+----
+Se añadio lo que es la validacion de que si se ingreso una transferencia maximo  3 dias antes , en donde se valida lo que es el numero de items , el total de cantidades, fecha, bodega origen , bodega destino
+
+v0.23: (Cristhian Ramirez - 08/Mayo/2024)
+-----
+Se cambia a .com lo que es la direccion de la api.
+
+v0.24: (Cristhian Ramirez - 13/Mayo/2024)
+-----
+Se modifica lo que es la funcion de llamarWebTuval.
+
+v0.25: (Cristhian Ramirez - 10/Julio/2024)
+-----
+se añade lo que es una validacion del item con su cantidad solicitada contra la cantidad disponible del item
+
+v0.26: (Cristhian Ramirez - 17/Julio/2024)
+-----
+Se añade el sp para poder obtener el disponible
+
+v0.27: (Cristhian Ramirez - 30/Sept/2024)
+-----
+Se añade lo que es el proceso para poder obtener un tiempo lmite y la ultima fecha de un repo/trans  y con esto validacion de insercion de una nueva repo/trans.
+Se añade el proceso de generacion maximo de 100 registros por cada una de las reposiciones.
+
+v0.28: (Cristhian Ramirez - 28/Marzo/2025)
+-----
+Se actualiza
+
+v0.29: (Cristhian Ramirez - 28/Marzo/2025)
+-----
+Se añade lo referente a la diferene autorizacion mas de 2
+
+v0.31: (Cristhian Ramirez - 07/Mayo/2025)
+-----
+Se añade a la generacion del detalle para las transferencias.
+
+v0.32: (Cristhian Ramirez - 06/Junio/2025)
+-----
+Se pone lo que es el usuario y fecha que generacion la reposicion
+

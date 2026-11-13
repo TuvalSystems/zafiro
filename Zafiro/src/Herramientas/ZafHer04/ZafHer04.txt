@@ -1,0 +1,24 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Javier Ayapata  20/Jul/2010)
+----
+Clase nueva "Días de validez de las cotizaciones de venta..."
+
+v0.2:  (Javier Ayapata - 23/Dic/2010)
+----
+se agrega cada vez que consulte un empresa en el grupo consulte los datos.
+
+v0.3: (Javier Ayapata - 31/Ago/2011)
+----
+Se agrega cada que se cambie y se envie correo electronico al area de ventas informandole el cambio.
+
+v0.4: (Rosa Zambrano - 05/Ago/2019)
+----
+Se elimina uso de libreria de correo anterior, se centraliza a la nueva libreria.
+
+v0.5: (Rosa Zambrano - 06/Ago/2019)
+-----
+Se agrega el objeto de parametros del sistema para envios de correos.
+

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafSubRptCxC06_02" language="groovy" pageWidth="595" pageHeight="842" columnWidth="581" leftMargin="0" rightMargin="14" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="1095"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="co_emp" class="java.lang.Integer"/>
+	<parameter name="co_loc" class="java.lang.Integer"/>
+	<parameter name="co_tipdoc" class="java.lang.Integer"/>
+	<parameter name="co_doc" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select a2.co_cli, a2.tx_nomcli, a2.co_loc, a3.tx_descor, a2.ne_numdoc,  a2.fe_doc, a1.ne_diacre, a1.fe_ven, a1.nd_porret, a1.mo_pag, (a1.mo_pag+a1.nd_abo) as valpen, abs(a.nd_abo) as nd_abo
+from tbm_detpag as a
+inner join tbm_pagmovinv as a1 on (a1.co_emp=a.co_emp and a1.co_loc=a.co_locpag and a1.co_tipdoc=a.co_tipdocpag and a1.co_doc=a.co_docpag and a1.co_reg=a.co_regpag )
+inner join tbm_cabmovinv as a2 on (a2.co_emp=a1.co_emp and a2.co_loc=a1.co_loc and a2.co_tipdoc=a1.co_tipdoc and a2.co_doc=a1.co_doc )
+inner join tbm_cabtipdoc as a3 on (a3.co_emp=a2.co_emp and a3.co_loc=a2.co_loc and a3.co_tipdoc=a2.co_tipdoc )
+where a.co_emp=$P{co_emp}
+and a.co_loc=$P{co_loc}
+and a.co_tipdoc=$P{co_tipdoc}
+and a.co_doc= $P{co_doc}
+and a.nd_abo > 0]]>
+	</queryString>
+	<field name="co_cli" class="java.lang.Integer"/>
+	<field name="tx_nomcli" class="java.lang.String"/>
+	<field name="co_loc" class="java.lang.Integer"/>
+	<field name="tx_descor" class="java.lang.String"/>
+	<field name="ne_numdoc" class="java.lang.Integer"/>
+	<field name="fe_doc" class="java.sql.Date"/>
+	<field name="ne_diacre" class="java.lang.Integer"/>
+	<field name="fe_ven" class="java.sql.Date"/>
+	<field name="nd_porret" class="java.math.BigDecimal"/>
+	<field name="mo_pag" class="java.math.BigDecimal"/>
+	<field name="valpen" class="java.math.BigDecimal"/>
+	<field name="nd_abo" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="17" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Créditos]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement x="121" y="1" width="39" height="13"/>
+				<textElement/>
+				<text><![CDATA[Cod.Loc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="161" y="1" width="46" height="13"/>
+				<textElement/>
+				<text><![CDATA[Tip.Doc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="1" width="50" height="13"/>
+				<textElement/>
+				<text><![CDATA[Num.Doc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="259" y="1" width="50" height="13"/>
+				<textElement/>
+				<text><![CDATA[Fec.Doc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="1" width="40" height="13"/>
+				<textElement/>
+				<text><![CDATA[Dia.Cre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="1" width="41" height="13"/>
+				<textElement/>
+				<text><![CDATA[Fec.Ven]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="1" width="38" height="13"/>
+				<textElement/>
+				<text><![CDATA[Por.Ret]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="1" width="44" height="13"/>
+				<textElement/>
+				<text><![CDATA[Val.Doc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="1" width="42" height="13"/>
+				<textElement/>
+				<text><![CDATA[Val.Pen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="526" y="1" width="38" height="13"/>
+				<textElement/>
+				<text><![CDATA[Val.Abo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1" width="39" height="13"/>
+				<textElement/>
+				<text><![CDATA[Cod.Cli]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="1" width="59" height="13"/>
+				<textElement/>
+				<text><![CDATA[Nom.Cli]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="122" y="1" width="35" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{co_loc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="1" width="46" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_descor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="1" width="45" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ne_numdoc}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="256" y="1" width="49" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{fe_doc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="307" y="1" width="31" height="13"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ne_diacre}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="347" y="1" width="49" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{fe_ven}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;###0.00-">
+				<reportElement x="397" y="1" width="40" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{nd_porret}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="439" y="1" width="37" height="13"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{mo_pag}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="479" y="1" width="37" height="13"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{valpen}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="518" y="1" width="40" height="13"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{nd_abo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="1" width="35" height="13"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{co_cli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="1" width="85" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_nomcli}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

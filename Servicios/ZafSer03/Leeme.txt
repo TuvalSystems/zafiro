@@ -1,0 +1,16 @@
+﻿/****************** SERVICIO  ZafSer03 ***********************/
+
+Servicio de historial de ventas.
+
+Este servicio realiza el proceso obtener un historial de ventas por mes y año y por item.
+
+El servicio se ejecuta todo el año presente que obtiene el servico al ejecutar.
+
+Actualiza stock de inventario.
+
+ 
+
+ 
+ 
+
+ 

@@ -1,0 +1,15 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (Jose Mario Marin - 21/Nov/2024)
+----
+Clase nueva. Copia del balance original, se modifica para trabajar con GP.
+
+ 
+v0.02: (Jose Mario Marin - 20/Ene/2025)
+----
+Se modifica la consulta del balance

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafSubRptRecHum14" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1"/>
+	<subDataset name="dataset2"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/home/jflores/NetBeansProjects/Zafiro_escritorio/Reportes/RecursosHumanos/ZafRecHum07/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="strsqldet" class="java.lang.String"/>
+	<parameter name="parFeSol" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[$P!{strsqldet}]]>
+	</queryString>
+	<field name="co_emp" class="java.lang.Integer"/>
+	<field name="co_loc" class="java.lang.Integer"/>
+	<field name="co_tipdoc" class="java.lang.Integer"/>
+	<field name="co_doc" class="java.lang.Integer"/>
+	<field name="fe_doc" class="java.sql.Date"/>
+	<field name="ne_numdoc" class="java.lang.Integer"/>
+	<field name="co_dep" class="java.lang.Integer"/>
+	<field name="co_mot" class="java.lang.Integer"/>
+	<field name="fe_sol" class="java.sql.Date"/>
+	<field name="ho_sol" class="java.sql.Time"/>
+	<field name="st_aut" class="java.lang.String"/>
+	<field name="ho_aut" class="java.sql.Time"/>
+	<field name="co_tra" class="java.lang.Integer"/>
+	<field name="ho_ent" class="java.sql.Time"/>
+	<field name="ho_sal" class="java.sql.Time"/>
+	<field name="empleado" class="java.lang.String"/>
+	<variable name="fechaact_1" class="java.lang.Integer" resetType="Page" calculation="DistinctCount">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement x="0" y="0" width="41" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="0" width="191" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="0" width="70" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora de Salida]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="41" height="20"/>
+				<box>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{co_tra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="142" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empleado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm:ss">
+				<reportElement x="232" y="0" width="70" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.sql.Time"><![CDATA[$F{ho_sal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

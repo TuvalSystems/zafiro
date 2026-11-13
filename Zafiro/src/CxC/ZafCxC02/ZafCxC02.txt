@@ -1,0 +1,38 @@
+﻿CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Tony Sanginez - 19/Oct/2015)
+----
+Clase nueva.
+
+v0.2: (Tony Sanginez - 16/Ene/2016)
+-----
+Modificaciones de un error al no cuadrar despues de reestructurar las retenciones. Cambios en la pantalla y validaciones.
+
+v0.3: (Tony Sanginez - 04/May/2016)
+-----
+Redondeo de valores ya que impedia que cuadren.
+
+v0.4: (Dennis Betancourt - 30/May/2018)
+-----
+Se tuvo que reestructurar el programa. Se tomo cierta parte del codigo de la version anterior.
+
+v0.4.1: (Dennis Betancourt - 24/Ago/2018)
+-------
+En la funcion guardarDatos_PonerValRetSaldoFavorCliente(), se cambio para que, cuando se ejecute un Insert de una fila que tenga Por.Ret. y Val.Ret, se ponga NULL en los campos de tbm_pagmovinv que esten relacionados con recepcion de cheque. Ej: co_banchq, tx_numctachq, tx_numchq, etc.
+
+v0.4.2: (Dennis Betancourt - 18/Feb/2019)
+-------
+Solo para el usuario admin, quedo editable la col. "Bot.Ret." en el JTable.
+
+v0.4.3: (Dennis Betancourt - 05/Sep/2019)
+-------
+Quedo editable la col. "Monto" para que el usuario pueda modificar el valor, de acuerdo a la retencion enviada por el cliente. Se pusieron validaciones para el valor modificado de dicha columna.
+
+v0.4.4: (Dennis Betancourt - 13/Sep/2019)
+-------
+En la funcion validarVarios() se cambio el orden de criterios que se validan. Primero, se puso la validacion que entre la fecha actual y la fecha de emision de la factura haya transcurrido como maximo 'n' dias, de acuerdo a la empresa.
+
+v0.4.5: (Dennis Betancourt - 20/Abr/2020)
+-------
+Se agregaron cambios debido a la aparicion de nuevos Por.Ret.Fuente: 1.75% y 2.75%.

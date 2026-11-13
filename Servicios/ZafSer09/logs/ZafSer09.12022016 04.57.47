@@ -1,0 +1,13 @@
+************************************************
+class Proceso.ZafSer09 Version:v3.1
+Hora de ejecución del proceso: 12-feb-2016 04:57:48
+************************************************
+Conexion: jdbc:postgresql://172.16.8.7:5432/Zafiro2006_27_Ene_2016     Correo:0
+I
+I
+I
+I
+I
+I
+ update tbm_ingegrmentra  set nd_porrubpag = 0.0 where ne_ani = 2016 and   ne_mes = 2 and   tx_tiprub = 'I'  and   co_emp = 1 and   co_rub = 6 and   ne_per in(1);  update tbm_ingegrmentra  set nd_porrubpag = 100.0 where ne_ani = 2016 and   ne_mes = 2 and   tx_tiprub = 'I'  and   co_emp = 1 and   co_rub = 6 and   ne_per in(2); 
+Error Actualizacion de rubros.

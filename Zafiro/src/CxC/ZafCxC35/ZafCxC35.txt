@@ -1,0 +1,63 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Javier Ayapata - 14/Jun/2010)  
+---- 
+Clase nueva "Cobro de cheques..."
+
+
+v0.2: (Javier Ayapata - 29/Jun/2010)  
+-----
+Se corrige query de consulta el campo co_tipdocon se tome de tbm_detpag y no  de tbm_decrecdoc.
+
+
+v0.3: (Javier Ayapata - 09/Ago/2010)  
+-----
+Se agrega usuario y fecha de persona que anula y se agrega validacion de documentos anulados.
+
+
+v0.4: (Javier Ayapata - 20/Sep/2010)  
+-----
+Se agrega en consulta que verifique el estado Activo en tabla tbr_detrecdocpagmvoinv.
+
+
+v0.5: (Javier Ayapata - 22/Oct/2010)  
+-----
+Se cambia configuracion de reporteria que esta en el servidor.
+
+
+v0.6: (Javier Ayapata - 29/Nov/2010)  
+-----
+Se agrega para pueda seleccionar el tipo de documento predeterminado.
+
+
+v0.7: (Javier Ayapata - 02/Dic/2010)  
+-----
+Se corrige para que aparesca lo que ya tienen asignado el banco.
+
+
+v0.8: (Javier Ayapata - 30/May/2011)  
+-----
+Se agrega para que muestre el valor pendiente asignar a la factura.
+
+
+v0.9: (Christian Mateo - 22/Mar/2019)  
+-----
+Se modifica la generacion del asiento de diario para que tome bien las cuentas de clientes
+Ej.: En dimulti daule pueden cobrar facturar de guayaquil y también Durán
+por lo tanto debe generarse en el asiento diario dos ctas de clientes para estos casos.
+
+
+v1.0: (Rosa Zambrano - 10/Abr/2019)  
+-----
+Se realizan cambios para JaspersoftStudio.
+
+
+v1.1: (Christian Mateo - 15/May/2019)  
+-----
+Se agrega cambio para corregir el cuadre del asiento de diario en el método calculaMonXCtaClientes
+

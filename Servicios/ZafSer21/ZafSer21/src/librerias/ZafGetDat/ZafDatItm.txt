@@ -1,0 +1,20 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Marín - 07/Jul/2017)
+----
+Clase nueva "Obtiene datos"
+ * Datos de Items
+
+v0.2: (José Marín - 18/Ago/2017)
+----
+Se agrega un nuevo metodo:
+    getDisponibleItemEmpresa() 
+
+v0.03: (José Marín - 21/Ago/2017)
+----
+Se modifican los query para validar los nulo en el disponible.

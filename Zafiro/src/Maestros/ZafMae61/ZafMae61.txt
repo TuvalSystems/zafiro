@@ -1,0 +1,40 @@
+﻿Pendientes:
+1)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Javier Ayapata - 21/Dic/2010)
+----
+Clase nueva "Bodegas por programa, tipo documento y usuario..." 
+
+
+v0.2: (Javier Ayapata - 22/Jul/2011)
+-----
+Se agrega función exitForm().
+
+
+v0.3: (Rosa Zambrano - 13/Sep/2018)
+-----
+Se realizan algunas mejoras.
+Se realiza cambios en la funcion cargarBodegas.
+Se agrega la función eliminarReg.
+Se habilita la opción de Drag & Drop, para manejar el orden de las bodegas.
+Se agrega búsqueda por usuario al momento de consultar los accesos a las bodegas.
+Se cambia order by al consultar, para que cargue las bodegas siempre en base al orden de ubicación y luego por el orden de código de bodega.
+
+
+v0.4: (Rosa Zambrano - 14/Sep/2018)
+-----
+Se reestructura funcion isCamVal.
+
+
+v0.5: (Rosa Zambrano - 28/Nov/2018)
+-----
+Al modificar se quita validación de "Ya existen datos ingresados para este usuario".
+
+v0.6: Denis Toledo(24/Abr/2023)
+-----
+Cambio de Postgres a SQL server (Conexión)
+
+

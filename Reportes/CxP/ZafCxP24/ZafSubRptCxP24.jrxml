@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafSubRptCxP24" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="5.0"/>
+	<property name="ireport.x" value="1844"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codEmp" class="java.lang.Integer"/>
+	<parameter name="codLoc" class="java.lang.Integer"/>
+	<parameter name="codTipDoc" class="java.lang.Integer"/>
+	<parameter name="codDia" class="java.lang.Integer"/>
+	<parameter name="strSQLSubRep" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P!{strSQLSubRep}]]>
+	</queryString>
+	<field name="co_emp" class="java.lang.Integer"/>
+	<field name="co_loc" class="java.lang.Integer"/>
+	<field name="co_tipdoc" class="java.lang.Integer"/>
+	<field name="co_dia" class="java.lang.Integer"/>
+	<field name="co_cta" class="java.lang.Integer"/>
+	<field name="tx_codcta" class="java.lang.String"/>
+	<field name="tx_nomcta" class="java.lang.String"/>
+	<field name="nd_mondeb" class="java.math.BigDecimal"/>
+	<field name="nd_monhab" class="java.math.BigDecimal"/>
+	<variable name="SUB_SUMDEB" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{nd_mondeb}]]></variableExpression>
+	</variable>
+	<variable name="SUB_SUMHAB" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{nd_monhab}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-11" x="108" y="0" width="246" height="14"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_nomcta}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField-13" x="446" y="0" width="90" height="14" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{nd_monhab}.compareTo( new BigDecimal("0"))> new Integer("0") ? Boolean.TRUE: Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{nd_monhab}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
+				<reportElement key="textField-12" x="356" y="0" width="90" height="14">
+					<printWhenExpression><![CDATA[$F{nd_mondeb}.compareTo( new BigDecimal("0"))> new Integer("0") ? Boolean.TRUE: Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{nd_mondeb}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-10" x="2" y="0" width="104" height="14"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_codcta}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="13" width="536" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="13"/>
+			</line>
+			<line>
+				<reportElement x="106" y="0" width="1" height="13"/>
+			</line>
+			<line>
+				<reportElement x="355" y="0" width="1" height="13"/>
+			</line>
+			<line>
+				<reportElement x="446" y="0" width="1" height="13"/>
+			</line>
+			<line>
+				<reportElement x="535" y="0" width="1" height="13"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

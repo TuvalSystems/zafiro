@@ -1,0 +1,25 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: José Flores - 19/Ago/2013)
+----
+Clase nueva para el envío de correos.
+
+
+v1.01: (José Flores - 01/Oct/2013)
+-----
+Se realiza cambio del directorio donde se toman las cuentas para las provisiones.
+
+
+v1.02: (José Flores - 10/Oct/2013)
+-----
+Se agrega el método: directorioArchivo(FileNameExtensionFilter objFilNamExt) para poder presentar objeto JFileChooser desde cualquier pantalla que invoque el método.
+
+
+v1.03: (Eddye Lino - 30/Mar/2015)
+-----
+Se modificaron los métodos: 
+   1) enviarCorreoMasivo(String strCorEleTo, String subject, String strMsj )
+   2) enviarCorreoMasivo(String strCorEleTo, String strCorEleCC, String strCorEleCCO, String subject, String strMsj )
+Se cambió la dirección del Servidor de Correos. Antes estaba "172.17.1.3". Ahora quedó "mail.tuvalsa.com".

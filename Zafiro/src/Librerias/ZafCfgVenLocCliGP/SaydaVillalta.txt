@@ -1,0 +1,10 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Sayda Villalta - 08/Jul/2024)
+--
+Conexion a sql server 

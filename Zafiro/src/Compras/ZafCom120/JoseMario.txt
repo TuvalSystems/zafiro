@@ -1,0 +1,11 @@
+﻿Pendientes:
+1) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Jose Mario Marin - 22/Jul/2024)
+----
+Clase nueva "Impresión masiva de ordenes de compra...".
+
+ 

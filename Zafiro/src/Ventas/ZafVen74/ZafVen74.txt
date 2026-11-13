@@ -1,0 +1,21 @@
+
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (Sayda Villalta - 31/Octubre/2024)
+----
+Clase nueva 
+
+
+v0.02: (Sayda Villalta - 12/11/2024)
+----
+Se add tipo de vendedor Mostrador / tecnico  
+
+v0.03: (Sayda Villalta - 03/01/2025)
+----
+Se add filtro por tipo de vendedor para guardar y asignar la configuracion de asignacion de vendedor /clientes
+
+v0.04: (Sayda Villalta - 10/02/2025)
+----
+cuando se add mas de una config se actualiza el estado a cancelado y deja como pendiente el ultimo cambio

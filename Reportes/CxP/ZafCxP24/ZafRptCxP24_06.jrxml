@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafRptCxP24_06" pageWidth="595" pageHeight="842" columnWidth="531" leftMargin="33" rightMargin="31" topMargin="42" bottomMargin="44">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="528"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="imgEmp" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="fe_car" class="java.lang.String"/>
+	<parameter name="strSQLRep" class="java.lang.String"/>
+	<parameter name="strRutImg" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P!{strSQLRep}]]>
+	</queryString>
+	<field name="tx_ruc" class="java.lang.String"/>
+	<field name="tx_nomemp" class="java.lang.String"/>
+	<field name="ciurem" class="java.lang.String"/>
+	<field name="prvrem" class="java.lang.String"/>
+	<field name="pairem" class="java.lang.String"/>
+	<field name="tx_diremp" class="java.lang.String"/>
+	<field name="nd_valtra" class="java.math.BigDecimal"/>
+	<field name="ruc_bco_egreso" class="java.lang.String"/>
+	<field name="tx_numctabanegr" class="java.lang.String"/>
+	<field name="tx_nombanctabanegr" class="java.lang.String"/>
+	<field name="tx_nombenctabaning" class="java.lang.String"/>
+	<field name="tx_nompaibenctabaning" class="java.lang.String"/>
+	<field name="tx_obs2" class="java.lang.String"/>
+	<field name="tx_valtrapal" class="java.lang.String"/>
+	<field name="tx_numctabaning" class="java.lang.String"/>
+	<field name="tx_dirbening" class="java.lang.String"/>
+	<field name="tx_prvben" class="java.lang.String"/>
+	<field name="tx_ciuben" class="java.lang.String"/>
+	<field name="tx_paiben" class="java.lang.String"/>
+	<field name="tx_nombanben" class="java.lang.String"/>
+	<field name="tx_descorciubanben" class="java.lang.String"/>
+	<field name="tx_deslarciubanben" class="java.lang.String"/>
+	<field name="tx_descorpaibanben" class="java.lang.String"/>
+	<field name="tx_deslarpaibanben" class="java.lang.String"/>
+	<field name="tx_codswiing" class="java.lang.String"/>
+	<field name="tx_codibaing" class="java.lang.String"/>
+	<field name="tx_codabaing" class="java.lang.String"/>
+	<field name="st_fircon" class="java.lang.String"/>
+	<field name="tx_firaut1" class="java.lang.String"/>
+	<field name="tx_carfiraut1" class="java.lang.String"/>
+	<field name="tx_firaut2" class="java.lang.String"/>
+	<field name="tx_carfiraut2" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<image scaleImage="RealSize">
+				<reportElement mode="Transparent" x="3" y="-7" width="160" height="30"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{strRutImg}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="393" y="0" width="74" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VARIABLE CODE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="9" width="61" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[CODIGO VARIABLE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="463" y="8" width="58" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="23" width="525" height="12"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FUNDS TRANSFER PAYMENT ORDER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="36" width="525" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ORDEN DE TRANSFERENCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="47" width="525" height="11"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORMATION ON ORDERING PARTY AND FUNDS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="58" width="525" height="9"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[INFORMACION SOBRE LA PERSONA SOLICITANDO LA ORDEN Y FONDOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="659" splitType="Stretch">
+			<staticText>
+				<reportElement x="71" y="34" width="189" height="8"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUSTOMER’S NAME ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1" width="35" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATE:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="38" y="12" width="96" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="12" width="35" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="33" width="70" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[POR ORDEN DE:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="78" y="32" width="453" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="22" width="78" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BY ORDER OF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="34" width="272" height="8"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[ / NOMBRE DEL CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="58" width="78" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[CUENTA A DEBITAR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="91" y="58" width="107" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="45" width="88" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEBIT ACCOUNT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="44" width="42" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-MAIL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="58" width="118" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[CORREO ELECTORNICO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="247" y="56" width="107" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="360" y="57" width="66" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="426" y="57" width="105" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="360" y="44" width="66" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEPHONE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="70" width="83" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FULL ADDRESS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="83" width="70" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[DIRECCION]]></text>
+			</staticText>
+			<line>
+				<reportElement x="84" y="84" width="447" height="1"/>
+			</line>
+			<line>
+				<reportElement x="362" y="105" width="96" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="155" y="105" width="86" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[ESTADO / PROVINCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="94" width="30" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CITY:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="195" y="105" width="96" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="155" y="94" width="40" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STATE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="94" width="56" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COUNTRY:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="105" width="78" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[CIUDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="105" width="66" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[PAIS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="31" y="105" width="96" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="116" width="126" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT OF TRANSFER:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="116" width="134" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CURRENCY OF TRANSFER:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="127" width="132" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[MONEDA DE LA TRANSFERENCIA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="128" y="126" width="106" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="127" width="139" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[MONTO DE LA TRANSFERENCIA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="381" y="126" width="86" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="138" width="114" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT IN WORDS:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="128" y="148" width="401" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="150" width="83" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[MONTO EN LETRAS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="166" width="529" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="168" width="529" height="12"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FUNDS TRANSFER – IDENTIFYING INFORMATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="181" width="529" height="10"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Times New Roman" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[TRANSFERENCIA DE FONDOS – INFORMACION DE IDENTIFICACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="223" width="156" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BENEFICIARY’S ACCOUNT No. :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="128" y="211" width="399" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="212" width="114" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DEL BENEFICIARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="213" width="222" height="8"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[ / NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="213" width="186" height="8"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAME ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="201" width="127" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BENEFICIARY’S NAME:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="234" width="158" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[No. DE CUENTA DEL BENEFICIARIO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="157" y="235" width="371" height="1"/>
+			</line>
+			<line>
+				<reportElement x="160" y="256" width="368" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="256" width="158" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[DIRECCION COMPLETA DEL BENEFICIARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="245" width="165" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BENEFICIARY’S FULL ADDRESS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="270" width="54" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COUNTRY:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="270" width="30" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CITY:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="433" y="280" width="95" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="256" y="270" width="40" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STATE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="281" width="86" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[ESTADO / PROVINCIA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="173" y="280" width="76" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="143" y="281" width="78" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[CIUDAD]]></text>
+			</staticText>
+			<line>
+				<reportElement x="296" y="280" width="76" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="378" y="281" width="66" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[PAIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="305" width="64" height="8"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[ / NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="293" width="115" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BENEFICIARY’S BANK:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="305" width="75" height="8"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAME ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="304" width="114" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[BANCO DEL BENEFICIARIO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="118" y="303" width="206" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="374" y="304" width="48" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[ / CIUDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="304" width="48" height="9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CITY]]></text>
+			</staticText>
+			<line>
+				<reportElement x="326" y="303" width="98" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="430" y="304" width="48" height="9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COUNTRY ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="304" width="49" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[ / PAIS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="428" y="303" width="102" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="324" width="58" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOMESTIC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="335" width="54" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[DOMESTICO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="58" y="334" width="130" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="192" y="335" width="58" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[INTERNACIONAL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="282" y="334" width="112" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="192" y="324" width="90" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INTERNATIONAL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="335" width="130" height="9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ABA NUMBER – Routing Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="343" width="130" height="9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[NUMERO ABA – Número de Ruta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="335" width="58" height="9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SWIFT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="343" width="128" height="9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[IBAN PARA PAGOS EN EUROPA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="397" y="334" width="132" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="397" y="335" width="128" height="9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IBAN FOR PAYMENTS IN EUROPE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="370" width="170" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[BANCO INTERMEDIARIO (OPCIONAL)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="359" width="179" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INTERMEDIARY BANK (OPTIONAL):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="371" width="175" height="8"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[ / NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="371" width="171" height="8"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAME ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="180" y="370" width="348" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="253" y="393" width="60" height="8"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[ / Numero ABA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="347" y="392" width="181" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="192" y="393" width="60" height="8"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ABA Number ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="173" y="392" width="160" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="347" y="393" width="169" height="9"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Beneficiary’s bank Account with intermediary bank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="401" width="174" height="9"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[Numero de cuenta del banco beneficiario con el banco intermediario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="411" width="172" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SPECIAL INSTRUCTIONS (IF ANY):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="422" width="172" height="9"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[INSTRUCCIONES ESPECIALES (SI ALGUNA)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="171" y="422" width="357" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="441" width="528" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="255" y="443" width="90" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<text><![CDATA[/ FIRMAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="443" width="90" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SIGNATURES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="468" width="169" height="12"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUTHORIZED SIGNATURE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="467" width="218" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="479" width="83" height="9"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[FIRMA AUTORIZADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="488" width="48" height="9"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[TITLE/POSICION]]></text>
+			</staticText>
+			<line>
+				<reportElement x="50" y="495" width="169" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="282" y="487" width="75" height="9"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[TITLE/POSICION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="478" width="110" height="9"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[FIRMA AUTORIZADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="467" width="196" height="12"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUTHORIZED SIGNATURE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="331" y="494" width="200" height="1"/>
+			</line>
+			<line>
+				<reportElement x="281" y="466" width="249" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="527" width="318" height="9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[TERMINOS Y CONDICIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="516" width="318" height="11"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TERMS AND CONDITIONS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="509" width="531" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="541" width="334" height="22"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="6" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[The   funds-transfer  transaction  described   in   this  Funds   Transfer  Payment   Order (the  “Payment  Order”)  shall  be  governed,  at  all times,  by  the  terms and conditions  set  forth  in the  Account  Agreement   between   you   and   Banco   Pichincha,  C.A.,  Miami   Agency   (“BPMA”).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="581" width="334" height="22"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[The  Spanish  translation   of   this   Payment  Order  is  for  your  information  and  convenience.  The  English  version   constitutes   the  dispositive,  legally   binding  version   and,  in the event  of  any  inconsistency  with  the  Spanish  translation,   the   English   version   shall   control.   / ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="595" width="236" height="8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[La  traducción   al  español   de   esta  Orden   de  Transferencia   es   únicamente   para   su]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="602" width="334" height="14"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[información   y  facilitar  su   entendimiento.  La versión   en  inglés   constituye   la  versión  dispositiva  y  jurídicamente   vinculante   y,  en caso  de  cualquier  inconsistencia  con  la traducción al  español,  la  versión en inglés  será  la  versión  determinante.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="516" width="167" height="9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FOR BANK USE ONLY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="524" width="167" height="9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[PARA USO DEL BANCO SOLAMENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="543" width="30" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[PHONE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="533" width="26" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NAME:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="553" width="25" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[TIME:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="555" width="16" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[AM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="555" width="16" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[PM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="563" width="25" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8"/>
+				</textElement>
+				<text><![CDATA[DATE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="576" width="68" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONFIRMED BY:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="586" width="60" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[WIRE AMOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="596" width="85" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[BENEFICIARY NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="586" width="64" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[NAME OF BANK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="596" width="60" height="10"/>
+				<textElement>
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[BEN. ACCT. #]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="606" width="158" height="10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(CALL-BACK PROCEDURE)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="625" width="85" height="10"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="7"/>
+				</textElement>
+				<text><![CDATA[Revised Dec/09]]></text>
+			</staticText>
+			<line>
+				<reportElement x="349" y="513" width="182" height="1"/>
+			</line>
+			<line>
+				<reportElement x="349" y="513" width="1" height="106"/>
+			</line>
+			<line>
+				<reportElement x="530" y="514" width="1" height="106"/>
+			</line>
+			<line>
+				<reportElement x="349" y="619" width="182" height="1"/>
+			</line>
+			<line>
+				<reportElement x="389" y="540" width="135" height="1"/>
+			</line>
+			<line>
+				<reportElement x="389" y="550" width="135" height="1"/>
+			</line>
+			<line>
+				<reportElement x="386" y="561" width="41" height="1"/>
+			</line>
+			<line>
+				<reportElement x="387" y="571" width="41" height="1"/>
+			</line>
+			<line>
+				<reportElement x="431" y="583" width="93" height="1"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="42" y="1" width="199" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{fe_car}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="19" width="446" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_nomemp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="44" width="109" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_numctabanegr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="43" width="108" height="12"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[gerenciatuval@tuvalsa.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="44" width="100" height="12"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[+593 9 6802898]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="140" y="115" width="92" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{nd_valtra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="115" width="68" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_obs2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="137" width="401" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_valtrapal}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="118" y="291" width="204" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_nombanben}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="222" width="367" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_numctabaning}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="71" y="322" width="103" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_codabaing}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="288" y="322" width="101" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_codswiing}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="408" y="322" width="108" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_codibaing}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="122" y="555" width="211" height="10"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[ /   Las   transacciones   de  transferencia   de   fondos  descritas   en  esta   Orden   de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="562" width="332" height="14"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Times New Roman" size="6"/>
+				</textElement>
+				<text><![CDATA[Transferencia  (la  “Orden  de  Transferencia”)  serán  gobernadas,  en  todo  momento,  por  los  términos  y   condiciones   contenidos  en el  Convenio de Cuenta  entre usted y Banco Pichincha, C.A., Miami Agency (“BPMA”).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="93" width="85" height="12"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<text><![CDATA[Guayaquil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="94" width="85" height="12"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<text><![CDATA[Guayas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="94" width="85" height="12"/>
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<text><![CDATA[Ecuador]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="86" y="68" width="445" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_diremp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="199" width="396" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_nombenctabaning}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="166" y="244" width="364" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_dirbening}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="268" width="76" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_ciuben}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="257" width="76" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_prvben}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="268" width="76" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_paiben}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="109" y="483" width="112" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_carfiraut1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="419" y="481" width="109" height="12"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_carfiraut2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="291" width="95" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_deslarciubanben}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="291" width="76" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_descorpaibanben}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

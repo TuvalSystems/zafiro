@@ -1,0 +1,22 @@
+
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Roberto Flores- 19/Mar/2012)
+----
+Clase nueva.
+
+
+v1.1: (Rosa Zambrano - 19/Oct/2015)
+-----
+Se corrige la función modificarCab(), para que siempre elimine todos los registros asignados al departamento e inserte nuevamente desde el registro 1.
+
+
+v1.3: (Sayda Villalta - 20/Nov/2024)
+-----
+Se add permiso para ingresar usuarios que puedan autorizar las horas extras suplementarias / extraordinarias
+
+v1.4: (Sayda Villalta - 11/Dic/2024)
+-----
+se corrige novedad de error al consultar los usuarios que pueden autorizar las horas extras

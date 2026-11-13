@@ -1,0 +1,20 @@
+CONTROL DE VERSIONES:
+=====================
+
+v0.1.3: (Ingrid Lino  - 07/Oct/2016)
+----
+Se cambia código para que trabaje con nueva tabla de configuración de bodegas tbm_cfgBod
+
+
+v0.1.4: (Ingrid Lino  - 12/Oct/2016)
+----
+Se cambia la ruta del reporte de Orden de Almacenamiento y se añade la ubicación en el detalle del item
+
+v0.1.5: (Ingrid Lino  - 20/Oct/2016)
+----
+Códigos L
+
+
+v0.1.9: (Ingrid Lino  - 31/Oct/2016)
+----
+Códigos L

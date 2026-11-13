@@ -1,0 +1,18 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Dennis Betancourt - 24/Ene/2018)
+----
+Servicio nuevo.
+
+v0.1.1: (Dennis Betancourt - 09/Feb/2018)
+------
+Se modifico para que la direccion de correo del usuario no sea leida del archivo de configuracion "ZafParSis.properties". Ahora la direccion de correo sera leida de la tabla tbm_usr.
+
+v0.1.2: (Dennis Betancourt - 03/Ene/2020)
+------
+Se realizaron cambios debido a que Cosenco fue anexada a la base de datos Zafiro2006.

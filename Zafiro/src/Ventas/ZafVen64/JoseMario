@@ -1,0 +1,19 @@
+﻿Pendientes:
+1)  Cambiar la forma del siguiente y atras, dejar de usar el rstCab y pasar a usar un arrylist - Ejemplo ZafImp33
+2)  Agregar el uso del reporte de zafiro para vista previa e impresion...
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (Jose Mario Marin - 27/May/2023)
+----
+Nueva clase.
+
+v0.02: (Jose Mario Marin - 7/Jun/2023)
+----
+Modificaciones para seguir trabajando sin masterware, por la no salida a produccion.
+
+v0.03: (Jose Mario Marin - 7/Jun/2023)
+----
+Problemas de version.

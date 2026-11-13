@@ -1,0 +1,96 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Roberto Flores - 18/Sep/2012)
+----
+Clase nueva para las Justificaciones de las salidas adelantadas.
+
+
+v1.01: (Roberto Flores - 04/Nov/2013)
+-----
+Se realiza validación para considerar justificaciones desde 7 días atrás de la fecha actual  (desactivada).
+
+
+v1.02: (Roberto Flores - 13/Ene/2014)
+-----
+Se realizan validaciones para poder realizar justificaciones por oficinas por programa y usuario definidas en tbr_ofiLocPrgUsr.
+
+
+v1.03: (Roberto Flores - 24/Ene/2014)
+-----
+Se deja activa la validación para considerar justificaciones desde 7 días atrás de la fecha actual y se muestran solo empleados pertenecientes a la
+oficina en el filtro.
+
+
+v1.04: (Roberto Flores - 19/Mar/2014)
+-----
+Se desactiva la validación para considerar justificaciones desde 7 días atrás de la fecha actual.
+
+
+v1.05: (David Albuja - 04/Jun/2014)
+-----
+Se agrega validación para realizar devoluciones de valores descontados en periodos anteriores.
+Se activa la validación para considerar justificaciones desde 7 días atrás de la fecha actual.
+Validacion para no desjustificar un registro.
+Al grabar invoca al Servicio9.
+
+
+v1.06: (Eddye Lino - 26/Sep/2014)
+-----
+Se modificó el método: 
+   1) verificarFecha(String strFec)
+Werner autorizó temporalmente que se pudiera justificar 3o días para que se pongan al día.
+
+
+v1.07: (Eddye Lino - 26/Sep/2014)
+-----
+Se modificó el método: 
+   1) verificarFecha(String strFec)
+Se regresó la validación a 7 días.
+
+
+v1.08: (Eddye Lino - 28/Oct/2014)
+-----
+Se modificó el método: 
+   1) verificarFecha(String strFec)
+Werner autorizó temporalmente que se pudiera justificar 30 días para que se pongan al día.
+
+
+v1.09: (Eddye Lino - 04/Nov/2014)
+-----
+Se modificó el método: 
+   1) verificarFecha(String strFec)
+Se regresó la validación a 7 días.
+
+
+v1.10: (Rosa Zambrano - 09/Jun/2015)
+-----
+Se corrige query en cargarDat() debido al cambio de Postgres 9.4 en Servidor de BD. Ej.: (f.ho_ent-ho_entJus) != '00:00'
+
+
+v1.11: (Sayda Villalta - 05/Jun/2024)
+Se corrige la novedad de no se puede filtrar por empleado 
+
+v1.12: (Sayda Villalta - 28/Jun/2024)
+Se permite marcar todos al dar clic en la cabecera
+
+
+v1.13: (Sayda Villalta 06/09/2024)
+----
+Se cambio de postgret a sql server
+
+v1.14: (Sayda Villalta 08/11/2024)
+----
+Se quita validacion Sólo se puede justificar 7 días hacia atrás. solicitada por RRHH - Jenny
+
+v1.15: (Sayda Villalta 11/11/2024)
+----
+Error al guardar masivo
+
+v1.16: (Cristhian Ramirez 23/04/2025)
+----
+Se quita validacion verificaUsuario en donde se valida si el mismo usuario esta dentro de la consulta, solicitado por JM

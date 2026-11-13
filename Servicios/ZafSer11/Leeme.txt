@@ -1,0 +1,6 @@
+﻿/***********************************************************/
+
+Nombre: 
+	Servicio que se encarga de "Facturación electrónica".
+Descripción:
+	Realiza Facturas, Notas de crédito, Guías de remisión y Retenciones.

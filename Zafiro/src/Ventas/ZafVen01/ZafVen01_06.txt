@@ -1,0 +1,36 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (Jose Mario Marin)
+----
+Ventana de pedidos de cotizaciones de venta.
+
+
+v0.04: (Jose Mario Marin)
+----
+Modificaciones para reservas en la propia empresa.
+
+
+v0.04.02: (Jose Mario Marin)
+----
+Modificacion para el nuevo metodo de ordenamiento de las tablas. objTblOrd.ordenar(INT_TBL_NOMEMP);
+
+
+v0.04.03: (Jose Mario Marin)
+----
+Se agrega redondeo en el metodo, validaCantidadesElegidas();
+
+
+v 0.05: (Jose Mario Marin - 24/Mayo/2018)
+----
+Modificacion para hacer control de versiones.
+
+
+v 0.05: (Jose Mario Marin - 25/Sep/2019)
+----
+Modificacion se encontro que cuando habia demasiados pedidos por las diferentes empresas fallaba a la hora de generar las solicitudes 
+se crea un nuevo metodo para ordenar antes de enviar a generar ordenarPedidosPorBodega().

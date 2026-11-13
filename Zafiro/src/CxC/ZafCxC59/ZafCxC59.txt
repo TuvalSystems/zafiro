@@ -1,0 +1,27 @@
+﻿﻿
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Javier Ayapata - 03/Jun/2010)
+----
+Clase nueva "Listado de recepción de documentos (Cheques y retenciones)..."
+
+
+v0.2: (Javier Ayapata - 23/Ago/2010)
+-----
+Se agrega el usuario de búsqueda.
+
+
+v0.3: (Javier Ayapata - 25/Ago/2010)
+-----
+Se agrega el usuario de busqueda en reporteria.
+
+
+v0.4: (Javier Ayapata - 25/Oct/2010)
+-----
+Se cambia configuracion de reporteria que esta en el servidor.
+
+
+v0.5: (Rosa Zambrano - 10/Abr/2019)  
+-----
+Se realizan cambios para JaspersoftStudio.

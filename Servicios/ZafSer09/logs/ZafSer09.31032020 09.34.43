@@ -1,0 +1,7 @@
+************************************************
+class Proceso.ZafSer09 Version:v4.8
+Hora de ejecución del proceso: 31-mar-2020 09:34:43
+************************************************
+Conexion: jdbc:postgresql://172.16.8.2:5432/Zafiro2006     Correo:1
+2.9-update tbm_ingegrmentra set nd_valrub = NULL where co_tra = 739 and ne_ani = 2020 and ne_mes = 3 and ne_per = 0 and co_rub = 2 and co_emp = 5 and st_rolPagGen is null
+3.0-update tbm_ingegrmentra set nd_valrub = NULL where co_tra = 739 and ne_ani = 2020 and ne_mes = 3 and ne_per = 2 and co_rub = 2 and co_emp = 5 and st_rolPagGen is null

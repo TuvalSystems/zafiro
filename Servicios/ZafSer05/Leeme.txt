@@ -1,0 +1,9 @@
+/****************** SERVICIO  ZafSer05 ***********************/
+Servicio del proceso de cosenco hacerca de items de servicio.
+
+cada fin de semana se procesa compras y ventas de cosenco hacia las empresas
+que son tuval, dimulti y castek
+
+el servicio realiza compras y ventas por cada factura emitida por items de servicio
+
+se ejecura los sabados a las 14 horas

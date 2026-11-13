@@ -1,0 +1,20 @@
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Javier Ayapata - 10/Jun/2006)
+----
+Clase nueva.
+
+
+v 0.01.01: (José Marín - 15/Sep/2016)
+-----
+Modificaciones para Transferencias de Inventario.
+
+v 0.01.02: (Mateo - 23/Sep/2016)
+-----
+Se agregan los metodos obtenerNomCta() obtenerNumCta()
+
+v 0.01.03: (José Mario Marín M - 18/Ene/2017)
+-----
+Se agrega codigo para obtener la compensacion solidaria.

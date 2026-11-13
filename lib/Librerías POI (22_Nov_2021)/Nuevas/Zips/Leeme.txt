@@ -1,0 +1,26 @@
+Apache POI:
+https://poi.apache.org/download.html#POI-4.1.2
+Sus dependencias son:
+commons-codec-1.15.jar
+commons-collections4-4.4.jar
+commons-io-2.11.0.jar
+commons-math3-3.6.1.jar
+log4j-api-2.14.1.jar
+SparseBitSet-1.2.jar
+
+
+
+Apache Log4j: Se necesitó "log4j-core-2.14.1.jar" para poder utilizar "Apache POI".
+https://logging.apache.org/log4j/2.x/download.html
+
+
+
+Para utilizar archivos "XLSX" se necesita "poi-ooxml-5.1.0.jar" y "poi-ooxml-full-5.1.0.jar":
+Sus dependencias son:
+commons-compress-1.21.jar
+commons-logging-1.2.jar
+curvesapi-1.06.jar
+slf4j-api-1.7.32.jar
+xmlbeans-5.0.2.jar
+
+

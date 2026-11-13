@@ -1,0 +1,43 @@
+﻿
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Roberto Flores - 22/Nov/2013)
+----
+Clase nueva Pago del décimo tercer sueldo...
+
+
+v1.01: (Roberto Flores- 13/Dic/2013)
+-----
+Se realizan validaciones para considerar las comisiones aportables al seguro y comisiones de vendedoras como bono.
+
+
+v1.02: (Roberto Flores - 17/Dic/2013)
+-----
+Se realiza corrección al momento de saldar lo pendiente a cancelar con lo que se va a pagar.
+
+
+v1.03: (Roberto Flores - 18/Dic/2013)
+-----
+Se realizan validaciones para regresar al período anterior de la movilización(Diciembre-Noviembre).
+
+
+v1.04: (Rosa Zambrano - 24/May/2016)
+-----
+Se elimina objeto objInvItm, el cual no estaba siendo utilizado.
+
+v1.05: (Sayda Villalta - 10/06/2024)
+-----
+ Error al insertar / no hay datos de consulta
+
+v1.06: (Sayda Villalta - 01/04/2025)
+-----
+sae add boton para que se genere el txt
+
+v1.07: (Jean Moran - 05/11/2025)
+-----
+Se modifica el query que usaba tbm_bensocmentra para llenar las columnas y se usa tbm_ingegrmentra para poder poner mas columnas, Hor.Ext, Otrs.Ingr, Comisiones
+
+v1.08: (Jean Moran - 05/12/2025)
+-----
+Se corrige que no salgan los pasantes y se ocultan columnas a pedido de RRHH

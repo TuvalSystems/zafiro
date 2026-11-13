@@ -1,0 +1,30 @@
+﻿
+﻿CONTROL DE VERSIONES:
+=====================
+ 
+v0.1: (Rosa Zambrano - 12/Sep/2017) 
+----
+Servicio de "Envío de correos electrónicos".
+Inicialmente se creo el servicio para las notificaciones de importaciones.
+
+
+v0.1.1: (Rosa Zambrano - 20/Sep/2017) 
+----
+Se agrega validación para que presente solo los documentos que tienen pendiente mas de 5 dias, solicitado por Werner Campoverde.
+Esta validación solo aplica para las notificaciones que llegan a gerencia.
+
+
+v0.1.2: (Rosa Zambrano - 20/Sep/2017) 
+----
+Se comenta la notificación de strMsjPedNoArrConAra hasta agregar ciertas valiciones, solicitado por Ingrid Lino.
+
+
+v0.1.3: (Rosa Zambrano - 17/Sep/2018) 
+----
+Se agrega notificación de documentos de ajustes pendientes de autorización para el usuario apaulson.
+ 
+
+v0.1.4: (Rosa Zambrano - 30/Ago/2019) 
+----
+Se modifica el servicio para que lea la clave de correo de la BD.
+ 

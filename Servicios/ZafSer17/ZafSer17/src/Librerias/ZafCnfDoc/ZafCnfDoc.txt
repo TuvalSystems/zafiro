@@ -1,0 +1,24 @@
+v0.1.7: (Ingrid Lino - 07/Sep/2016)  
+---- 
+Nuevo esquema de Bodega California y Vía a Daule una sóla instancia para confirmar.
+Local predeterminado de Tuval-California y Dimulti-Vía a Daule pueden tomar mercadería de Bodega Inmaconsa sin necesidad de ingresar por local Inmaconsa.
+
+
+
+v0.1.9: (Ingrid Lino - 08/Sep/2016)  
+---- 
+Actualiza Estados de confirmación  Parcial y Total
+
+v0.1.10: (Ingrid Lino - 23/Sep/2016)  
+---- 
+Se valida que no guarde cantidades en campos  para confirmar si es de la misma bodega
+
+
+v0.1.10.1: (Ingrid Lino - 17/Oct/2016)  
+---- 
+Se realizan cambios para que el sistema de confirmaciones de ingresos permita confirmar items de terminal 'L'
+
+
+v0.1.10.3: (Ingrid Lino - 20/Oct/2016)  
+---- 
+Códigos L

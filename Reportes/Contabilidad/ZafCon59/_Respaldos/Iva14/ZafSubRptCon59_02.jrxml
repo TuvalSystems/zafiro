@@ -1,0 +1,2120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafSubRptCon59_02" pageWidth="595" pageHeight="842" columnWidth="545" leftMargin="25" rightMargin="25" topMargin="25" bottomMargin="25">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="478"/>
+	<parameter name="strSQLRep" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="strCamAudRpt" class="java.lang.String"/>
+	<parameter name="strConIvaVenBru" class="java.math.BigDecimal"/>
+	<parameter name="strSinIvaVenBru" class="java.math.BigDecimal"/>
+	<parameter name="strConIvaVenNet" class="java.math.BigDecimal"/>
+	<parameter name="strSinIvaVenNet" class="java.math.BigDecimal"/>
+	<parameter name="strIvaVenNet" class="java.math.BigDecimal"/>
+	<parameter name="strImpLiqMesAnt" class="java.math.BigDecimal"/>
+	<parameter name="strValBruPorPag" class="java.math.BigDecimal"/>
+	<parameter name="strCreFisAnt" class="java.math.BigDecimal"/>
+	<parameter name="strRetFte10P" class="java.math.BigDecimal"/>
+	<parameter name="strRetFte20P" class="java.math.BigDecimal"/>
+	<parameter name="strRetFte30P" class="java.math.BigDecimal"/>
+	<parameter name="strRetFte70P" class="java.math.BigDecimal"/>
+	<parameter name="strRetFte100P" class="java.math.BigDecimal"/>
+	<parameter name="strNomEmp" class="java.lang.String"/>
+	<parameter name="strMesCor" class="java.lang.String"/>
+	<parameter name="strVenCon" class="java.math.BigDecimal"/>
+	<parameter name="strVenCre" class="java.math.BigDecimal"/>
+	<parameter name="strVenConIva" class="java.math.BigDecimal"/>
+	<parameter name="strComValNet" class="java.math.BigDecimal"/>
+	<parameter name="strComIva" class="java.math.BigDecimal"/>
+	<parameter name="strImpIva" class="java.math.BigDecimal"/>
+	<parameter name="strImpValNet" class="java.math.BigDecimal"/>
+	<parameter name="strComSinValNet" class="java.math.BigDecimal"/>
+	<parameter name="strCreFisAct" class="java.math.BigDecimal"/>
+	<parameter name="strVenCreIva" class="java.math.BigDecimal"/>
+	<parameter name="strValPagNet" class="java.math.BigDecimal"/>
+	<parameter name="strBasImpDevCom_cru" class="java.math.BigDecimal"/>
+	<parameter name="strValIvaDevCom_cru" class="java.math.BigDecimal"/>
+	<parameter name="strBasImpIvaVta12P" class="java.math.BigDecimal"/>
+	<parameter name="strBasImpIvaVta14P" class="java.math.BigDecimal"/>
+	<parameter name="strValIvaVta12P" class="java.math.BigDecimal"/>
+	<parameter name="strValIvaVta14P" class="java.math.BigDecimal"/>
+	<parameter name="strBasImpIvaCom12P" class="java.math.BigDecimal"/>
+	<parameter name="strBasImpIvaCom14P" class="java.math.BigDecimal"/>
+	<parameter name="strValIvaCom12P" class="java.math.BigDecimal"/>
+	<parameter name="strValIvaCom14P" class="java.math.BigDecimal"/>
+	<parameter name="strCreTri10P" class="java.math.BigDecimal"/>
+	<parameter name="strCreTri20P" class="java.math.BigDecimal"/>
+	<parameter name="strCreTri30P" class="java.math.BigDecimal"/>
+	<parameter name="strCreTri70P" class="java.math.BigDecimal"/>
+	<parameter name="strCreTri100P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCon12P" class="java.math.BigDecimal"/>
+	<parameter name="strVenConIva12P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCon14P" class="java.math.BigDecimal"/>
+	<parameter name="strVenConIva14P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCre12P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCreIva12P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCre14P" class="java.math.BigDecimal"/>
+	<parameter name="strVenCreIva14P" class="java.math.BigDecimal"/>
+	<parameter name="strValComSol" class="java.math.BigDecimal"/>
+	<parameter name="strAni" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select *from tbm_emp]]>
+	</queryString>
+	<field name="co_emp" class="java.lang.Integer"/>
+	<field name="tx_ruc" class="java.lang.String"/>
+	<field name="tx_nom" class="java.lang.String"/>
+	<field name="tx_dir" class="java.lang.String"/>
+	<field name="tx_tel" class="java.lang.String"/>
+	<field name="tx_fax" class="java.lang.String"/>
+	<field name="tx_dirweb" class="java.lang.String"/>
+	<field name="tx_corele" class="java.lang.String"/>
+	<field name="tx_tipper" class="java.lang.String"/>
+	<field name="nd_ivacom" class="java.math.BigDecimal"/>
+	<field name="nd_ivaven" class="java.math.BigDecimal"/>
+	<field name="co_ctaivacom" class="java.lang.Integer"/>
+	<field name="co_ctaivaven" class="java.lang.Integer"/>
+	<field name="co_ctaban" class="java.lang.Integer"/>
+	<field name="co_ctacaj" class="java.lang.Integer"/>
+	<field name="co_ctares" class="java.lang.Integer"/>
+	<field name="co_ctagas" class="java.lang.Integer"/>
+	<field name="co_ctaretftecom" class="java.lang.Integer"/>
+	<field name="co_ctaretfteven" class="java.lang.Integer"/>
+	<field name="co_ctaretivacom" class="java.lang.Integer"/>
+	<field name="co_ctaretivaven" class="java.lang.Integer"/>
+	<field name="tx_obs1" class="java.lang.String"/>
+	<field name="tx_obs2" class="java.lang.String"/>
+	<field name="st_reg" class="java.lang.String"/>
+	<field name="fe_ing" class="java.sql.Timestamp"/>
+	<field name="fe_ultmod" class="java.sql.Timestamp"/>
+	<field name="co_usring" class="java.lang.Integer"/>
+	<field name="co_usrmod" class="java.lang.Integer"/>
+	<field name="co_tipper" class="java.lang.Integer"/>
+	<field name="co_ctacomser" class="java.lang.Integer"/>
+	<field name="co_ctavenser" class="java.lang.Integer"/>
+	<field name="st_regrep" class="java.lang.String"/>
+	<field name="tx_desconesp" class="java.lang.String"/>
+	<field name="nd_tasint" class="java.math.BigDecimal"/>
+	<field name="ne_secultdoctbmcabmovinv" class="java.lang.Integer"/>
+	<field name="ne_tampaqcoreleenvautestcta" class="java.lang.Integer"/>
+	<field name="tx_usrcoreleenvautestcta" class="java.lang.String"/>
+	<field name="tx_clacoreleenvautestcta" class="java.lang.String"/>
+	<field name="nd_valminajucenaut" class="java.math.BigDecimal"/>
+	<field name="nd_valmaxajucenaut" class="java.math.BigDecimal"/>
+	<field name="nd_valminajucenman" class="java.math.BigDecimal"/>
+	<field name="nd_valmaxajucenman" class="java.math.BigDecimal"/>
+	<field name="st_trainvgencomvenautemprel" class="java.lang.String"/>
+	<variable name="VentasBrutas" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[($P{strConIvaVenBru}.add($P{strSinIvaVenBru}))]]></initialValueExpression>
+	</variable>
+	<variable name="VentasNetas" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+		<initialValueExpression><![CDATA[$P{strConIvaVenNet}.add($P{strSinIvaVenNet})]]></initialValueExpression>
+	</variable>
+	<variable name="VentasContadoCredito" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenCon}.add($P{strVenCre})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaRetenciones" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strRetFte10P}.add($P{strRetFte20P}).add($P{strRetFte30P}).add($P{strRetFte70P}).add($P{strRetFte100P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaComprasImportacion" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$P{strComIva}.add($P{strImpIva})]]></variableExpression>
+		<initialValueExpression><![CDATA[$P{strComIva}.add($P{strImpIva})]]></initialValueExpression>
+	</variable>
+	<variable name="valorNetoPagar" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$P{strCreFisAct}.add($V{SumaRetenciones})]]></variableExpression>
+	</variable>
+	<variable name="IvaContadoCredito" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenConIva}.add($P{strVenCreIva})]]></initialValueExpression>
+	</variable>
+	<variable name="valorVentas" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenConIva}.add($P{strImpLiqMesAnt})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaBasImpIvaVta" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strBasImpIvaVta12P}.add($P{strBasImpIvaVta14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaValIvaVta" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strValIvaVta12P}.add($P{strValIvaVta14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaBasImpIvaCom" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strBasImpIvaCom12P}.add($P{strBasImpIvaCom14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaValIvaCom" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strValIvaCom12P}.add($P{strValIvaCom14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumaCreditoTributario" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strCreTri10P}.add($P{strCreTri20P}).add($P{strCreTri30P}).add($P{strCreTri70P}).add($P{strCreTri100P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumVtasContado" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenCon12P}.add($P{strVenCon14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumIvaContado" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenConIva12P}.add($P{strVenConIva14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumVtasCredito" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenCre12P}.add($P{strVenCre14P})]]></initialValueExpression>
+	</variable>
+	<variable name="SumIvaCredito" class="java.math.BigDecimal">
+		<initialValueExpression><![CDATA[$P{strVenCreIva12P}.add($P{strVenCreIva14P})]]></initialValueExpression>
+	</variable>
+	<variable name="NomTxt" class="java.lang.String">
+		<variableExpression><![CDATA["Formulario 104"]]></variableExpression>
+	</variable>
+	<title>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="120" height="26" forecolor="#000000" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Formulario 104]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="120" y="0" width="322" height="26" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="442" y="0" width="103" height="26" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="663" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="545" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESUMEN IMPOSITIVO: AGENTE DE PERCEPCIÓN DEL IMPUESTO AL VALOR AGREGADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="20" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[601]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="20" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[IMPUESTO CAUSADO (SI DIFERENCIA CAMPO 499 - 564 ES MAYOR QUE CERO)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="20" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="40" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="40" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[CRÉDITO TRIBUTARIO APLICABLE EN ESTE PERÍODO (SI DIFERENCIA CAMPO 499 - 564 ES MENOR QUE CERO)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="40" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[602]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="260" width="254" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUBTOTAL A PAGAR     ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="260" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="260" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[620]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="280" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[699]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="280" width="415" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL IMPUESTO A PAGAR POR PERCEPCIÓN  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="280" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="300" width="545" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AGENTE DE RETENCIÓN DEL IMPUESTO AL VALOR AGREGADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="320" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[721]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="320" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="320" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RETENCIÓN DEL 10% ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="340" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RETENCIÓN DEL 20% ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="340" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[723]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="340" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="360" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RETENCIÓN DEL 30% ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="360" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[725]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="360" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="380" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RETENCIÓN DEL 70%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="380" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[729]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="380" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="400" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[RETENCIÓN DEL 100%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="400" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[731]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="400" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="420" width="368" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL IMPUESTO RETENIDO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="420" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="420" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[799]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="440" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="440" width="415" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL IMPUESTO A PAGAR POR RETENCIÓN    ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="440" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[801]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="460" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[859]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="460" width="415" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL CONSOLIDADO DE IMPUESTO AL VALOR AGREGADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="460" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="540" width="545" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALORES A PAGAR Y FORMA DE PAGO (LUEGO DE IMPUTACIÓN AL PAGO EN DECLARACIONES SUSTITUTIVAS)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="560" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="560" width="415" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[TOTAL IMPUESTO A PAGAR                  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="560" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[902]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="620" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="620" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL PAGADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="620" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[999]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="415" y="460" width="43" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(699+ 801)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="415" y="440" width="43" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(799-800)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="415" y="560" width="43" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(859-898)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="415" y="280" width="43" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(620 + 621)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="254" y="260" width="204" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Si 601-602-603-604-605-606-607-608-609+610+611+612+613+614 > 0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="60" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(-) COMPENSACIÓN DE IVA POR VENTAS  EFECTUADAS EN  ZONAS AFECTADAS LEY DE SOLIDARIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="60" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[604]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="60" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(-)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="80" width="52" height="80" backcolor="#FF80AC"/>
+				<box leftPadding="3" rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(-) SALDO CRÉDITO TRIBUTARIO DEL MES ANTERIOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="52" y="80" width="406" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[POR ADQUISICIONES E IMPORTACIONES (Traslada el campo 615 de la declaración del período anterior) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="80" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(-)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="80" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[605]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="100" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[606]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="100" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(-)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="120" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(-)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="120" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[607]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="52" y="100" width="406" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3" rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[POR RETENCIONES EN LA FUENTE DE IVA QUE LE HAN SIDO EFECTUADAS (Traslada el campo 617 de la declaración del período anterior)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="52" y="120" width="406" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3" rightPadding="7">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[POR COMPENSACIÓN DE IVA POR VENTAS EFECTUADAS CON MEDIO  ELECTRÓNICO  (Traslada el campo 618 de la declaración del     período anterior)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="160" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(- )RETENCIONES EN LA FUENTE DE IVA QUE LE HAN SIDO EFECTUADAS EN ESTE PERÍODO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="160" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(-)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="160" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[609]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="180" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(+) AJUSTE POR IVA DEVUELTO O DESCONTADO EN ADQUISICIONES EFECTUADAS EN ZONAS AFECTADAS - LEY DE SOLIDARIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="180" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[611]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="180" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(+)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="200" width="52" height="60" backcolor="#FF80AC"/>
+				<box leftPadding="3" rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SALDO CRÉDITO TRIBUTARIO PARA EL PRÓXIMO MES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="200" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[615]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="52" y="240" width="406" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3" rightPadding="7">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[POR COMPENSACIÓN DE IVA POR VENTAS EFECTUADAS EN ZONAS AFECTADAS  LEY DE SOLIDARIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="52" y="200" width="406" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[POR ADQUISICIONES E IMPORTACIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="240" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[619]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="52" y="220" width="406" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3" rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[POR RETENCIONES EN LA FUENTE DE IVA QUE LE HAN SIDO EFECTUADAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="220" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[617]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="200" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="220" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="240" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="368" y="420" width="90" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(721+723+725+727+729+731)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="480" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="480" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAGO PREVIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="480" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[890]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="580" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="580" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[903]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="580" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[INTERÉS POR MORA ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="600" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="600" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[904]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="600" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[MULTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="640" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[905]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="640" width="458" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[MEDIANTE CHEQUE, DÉBITO BANCARIO, EFECTIVO U OTRAS FORMAS DE PAGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="640" width="10" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="0">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<text><![CDATA[USD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="500" width="545" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DETALLE DE IMPUTACIÓN AL PAGO (Para declaraciones sustitutivas)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="520" width="108" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[INTERÉS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="108" y="520" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[897]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="131" y="520" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<text><![CDATA[USD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="520" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[898]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="303" y="520" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<text><![CDATA[USD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="520" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[899]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="520" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<text><![CDATA[USD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="195" y="520" width="85" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[IMPUESTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="368" y="520" width="90" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[MULTA]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="20" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[($P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()))))).compareTo(new BigDecimal(0.00))==1?($P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()))))): new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="40" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[($P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()))))).compareTo(new BigDecimal(0.00))==-1?($P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()))))): new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="60" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strValComSol}.abs()]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="80" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="100" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="120" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="160" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{SumaCreditoTributario}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="180" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="200" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="220" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="240" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="260" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()).compareTo(new BigDecimal(0.00))==1?$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()):new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="280" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()).compareTo(new BigDecimal(0.00))==1?$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()):new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="320" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strRetFte10P}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="340" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strRetFte20P}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="360" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strRetFte30P}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="380" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strRetFte70P}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="400" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strRetFte100P}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="420" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{SumaRetenciones}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="440" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{SumaRetenciones}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="460" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()).compareTo(new BigDecimal(0.00))==1?$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()).add($V{SumaRetenciones}):new BigDecimal(0.00).add($V{SumaRetenciones})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="480" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="520" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="314" y="520" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="141" y="520" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="640" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()).compareTo(new BigDecimal(0.00))==1?$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()).add($V{SumaRetenciones}):new BigDecimal(0.00).add($V{SumaRetenciones})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="560" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()).compareTo(new BigDecimal(0.00))==1?$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()).add($V{SumaRetenciones}):new BigDecimal(0.00).add($V{SumaRetenciones})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="580" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="600" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="620" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()).compareTo(new BigDecimal(0.00))==1?$P{strImpLiqMesAnt}.abs().add($P{strVenCon}.abs().multiply(new BigDecimal(0.14))).subtract($P{strComIva}.add($P{strImpIva}).multiply($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs()).divide($P{strConIvaVenBru}.abs().add($P{strSinIvaVenBru}.abs())))).subtract($V{SumaCreditoTributario}).subtract($P{strValComSol}.abs()).add($V{SumaRetenciones}):new BigDecimal(0.00).add($V{SumaRetenciones})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="52" y="140" width="406" height="20" backcolor="#FF80AC"/>
+				<box leftPadding="3" rightPadding="7">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[POR COMPENSACIÓN DE IVA POR VENTAS EFECTUADAS EN ZONAS AFECTADAS  LEY DE SOLIDARIDAD  (Traslada el campo 619 de la declaración del período anterior)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="140" width="23" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[608]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="481" y="140" width="10" height="20" backcolor="#FF80AC"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(-)]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="491" y="140" width="54" height="20"/>
+				<box rightPadding="3">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

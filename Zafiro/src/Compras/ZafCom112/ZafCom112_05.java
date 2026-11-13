@@ -1,0 +1,489 @@
+package Compras.ZafCom112;
+
+
+
+
+
+
+
+/*
+ * ZafCom112_05.java
+ *
+ * Created on 27 de marzo de 2006, 12:15
+ */
+
+
+import Librerias.ZafParSis.ZafParSis;
+
+import Librerias.ZafUtil.ZafUtil;
+import Librerias.ZafColNumerada.ZafColNumerada;
+import Librerias.ZafPerUsr.ZafPerUsr;
+import Librerias.ZafTblUti.ZafTblBus.ZafTblBus;
+import Librerias.ZafTblUti.ZafTblCelEdiButVco.ZafTblCelEdiButVco;
+import Librerias.ZafTblUti.ZafTblCelEdiTxtVco.ZafTblCelEdiTxtVco;
+import Librerias.ZafTblUti.ZafTblCelRenBut.ZafTblCelRenBut;
+import Librerias.ZafTblUti.ZafTblCelRenLbl.ZafTblCelRenLbl;
+import Librerias.ZafTblUti.ZafTblMod.ZafTblMod;
+import Librerias.ZafTblUti.ZafTblEdi.ZafTblEdi;
+import Librerias.ZafTblUti.ZafTblFilCab.ZafTblFilCab;
+import Librerias.ZafTblUti.ZafTblOrd.ZafTblOrd;
+import Librerias.ZafTblUti.ZafTblPopMnu.ZafTblPopMnu;
+import Librerias.ZafVenConGP.ZafVenConGP;
+import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+/**
+ *
+ * @author  jayapata
+ */
+public class ZafCom112_05 extends javax.swing.JDialog {
+    
+    
+    
+
+    
+    
+      //Variable
+    private ZafParSis objParSis;
+    private ZafUtil objUti;
+    private ZafColNumerada objColNum;
+    private ZafTblEdi objTblEdi;                        //Editor: Editor del JTable.
+    
+    
+   // private ZafTblPopMnu objTblPopMnu;                  //PopupMenu: Establecer PeopuMenú en JTable.
+
+    private String  strAux;
+    private Vector vecDat, vecCab, vecReg;
+    private Vector vecAux;
+    private boolean blnCon;                             //true: Continua la ejecución del hilo.
+    //Variables de la clase.
+
+    private String strVersion="v 0.01";
+    private ZafPerUsr objPerUsr; 
+    private java.util.Date datFecDoc;
+    private ZafTblPopMnu objTblPopMnu;                          //PopupMenu: Establecer PeopuMenú en JTable.    
+    private ZafTblCelRenBut objTblCelRenBut;                    //Render: Presentar JButton en JTable.
+    private ZafTblCelRenBut objTblCelRenButItm;
+    private ZafTblBus objTblBus;                                //Editor de búsqueda.
+    private ZafTblFilCab objTblFilCab;
+    private ZafTblCelEdiTxtVco objTblCelEdiTxtVcoItm, objTblCelEdiTxtVcoLet;
+    private ZafTblCelEdiButVco objTblCelEdiButVcoItm;
+    private ZafTblOrd objTblOrd, objTblOrdLoc;                  //JTable de ordenamiento.
+    private ZafTblCelRenLbl objTblCelRenLbl;                    //Render: Presentar JLabel en JTable.
+    private int intCodCfg=0;
+    private String mensajeError;
+
+    
+    private final int INT_TBL_DAT_LIN=0;    
+    private final int INT_TBL_DAT_TRESL=1;
+    private final int INT_TBL_DAT_PRO=2;    
+    private final int INT_TBL_DAT_PP_MIN=3;
+    private final int INT_TBL_DAT_PP_MAX=4;
+    private final int INT_TBL_DAT_EXC=5;
+    private final int INT_TBL_DAT_STO_BAS=6;
+    private final int INT_TBL_DAT_FRE=7;
+    private final int INT_TBL_DAT_TRA=8;
+    private final int INT_TBL_DAT_MOQ=9;
+    
+    private final int INT_TBL_CON_TRESL=0;
+    private final int INT_TBL_CON_PRO=1;
+    private final int INT_TBL_CON_PP_MIN=2;
+    private final int INT_TBL_CON_PP_MAX=3;
+    private final int INT_TBL_CON_EXC=4;
+    private final int INT_TBL_CON_STO_BAS=5;
+    private final int INT_TBL_CON_FRE=6;
+    private final int INT_TBL_CON_TRA=7;
+    private final int INT_TBL_CON_MOQ=8;    
+    
+
+    
+    private ArrayList arlRegITEMSINT,arlDatITEMSINT;
+    private boolean validaOk =false;
+    
+
+////    private final int INT_TBL_DAT_ESTADO=5;
+////    private final int INT_TBL_DAT_OB=6;
+    private ZafTblMod objTblMod;    
+    private ZafMouMotAda objMouMotAda;    
+    String strMsg;        //Variable de tipo cadena para enviar los mensajes por pantalla
+    JOptionPane oppMsg;   //Objeto de tipo OptionPane para presentar Mensajes    
+    final String strTit = "Sistema Zafiro"; //Constante del titulo del mensaje    
+    
+    
+    /** Creates new form ZafCom112_05 */
+    public ZafCom112_05(java.awt.Frame parent, boolean modal, ZafParSis obj, ArrayList aregloExt) 
+    {
+        super(parent, modal);
+        
+        try {
+            this.objParSis = (ZafParSis) obj.clone();
+            
+            initComponents();
+            arlRegITEMSINT =aregloExt;
+            configurarFrm();
+            obtener_items(arlRegITEMSINT);
+            
+        } catch (CloneNotSupportedException ex) {
+            Logger.getLogger(ZafCom112_05.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+    
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
+     */
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        PanFrm = new javax.swing.JPanel();
+        lblTit = new javax.swing.JLabel();
+        panBar = new javax.swing.JPanel();
+        panBot = new javax.swing.JPanel();
+        butGuardar = new javax.swing.JButton();
+        butCan = new javax.swing.JButton();
+        panPer = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDatos = new javax.swing.JTable();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        PanFrm.setLayout(new java.awt.BorderLayout());
+
+        lblTit.setFont(new java.awt.Font("MS Sans Serif", 1, 14)); // NOI18N
+        lblTit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTit.setText("Título");
+        PanFrm.add(lblTit, java.awt.BorderLayout.NORTH);
+
+        panBar.setLayout(new java.awt.BorderLayout());
+
+        panBot.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+
+        butGuardar.setText("Guardar");
+        butGuardar.setToolTipText("Modifica los valores");
+        butGuardar.setPreferredSize(new java.awt.Dimension(92, 25));
+        butGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butGuardarActionPerformed(evt);
+            }
+        });
+        panBot.add(butGuardar);
+
+        butCan.setText("Cancelar");
+        butCan.setPreferredSize(new java.awt.Dimension(92, 25));
+        butCan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butCanActionPerformed(evt);
+            }
+        });
+        panBot.add(butCan);
+
+        panBar.add(panBot, java.awt.BorderLayout.CENTER);
+
+        PanFrm.add(panBar, java.awt.BorderLayout.SOUTH);
+
+        panPer.setPreferredSize(new java.awt.Dimension(100, 50));
+        panPer.setLayout(null);
+
+        tblDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblDatos);
+
+        panPer.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 30, 720, 250);
+
+        PanFrm.add(panPer, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(PanFrm, java.awt.BorderLayout.CENTER);
+
+        setSize(new java.awt.Dimension(754, 385));
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+ 
+    private boolean obtener_items(ArrayList aregloInterior)
+    {
+        boolean blnRes=true;
+        java.sql.Connection conExt;
+        java.sql.Statement stmLoc1;
+        java.sql.ResultSet rstLoc1;
+        
+        try{
+            
+            
+            for(int i=0;i<aregloInterior.size();i++)
+            {
+                vecReg=new Vector();
+                vecReg.add(INT_TBL_DAT_LIN,"");
+                vecReg.add(INT_TBL_DAT_TRESL,objUti.getStringValueAt(aregloInterior, i, INT_TBL_CON_TRESL) );
+                vecReg.add(INT_TBL_DAT_PRO,objUti.getStringValueAt(aregloInterior, i, INT_TBL_CON_PRO) );
+                vecReg.add(INT_TBL_DAT_PP_MIN,objUti.getStringValueAt(aregloInterior, i, INT_TBL_CON_PP_MIN) );
+                vecReg.add(INT_TBL_DAT_PP_MAX,objUti.getDoubleValueAt(aregloInterior, i, INT_TBL_CON_PP_MAX) );
+                vecReg.add(INT_TBL_DAT_EXC,objUti.getStringValueAt(aregloInterior, i, INT_TBL_CON_EXC) );
+                vecReg.add(INT_TBL_DAT_STO_BAS,objUti.getStringValueAt(aregloInterior, i, INT_TBL_CON_STO_BAS) );
+                vecReg.add(INT_TBL_DAT_FRE,objUti.getDoubleValueAt(aregloInterior, i, INT_TBL_CON_FRE) );  
+                vecReg.add(INT_TBL_DAT_TRA,objUti.getStringValueAt(aregloInterior, i, INT_TBL_CON_TRA) );
+                vecReg.add(INT_TBL_DAT_MOQ,objUti.getDoubleValueAt(aregloInterior, i, INT_TBL_CON_MOQ) );                  
+                vecDat.add(vecReg);
+
+            }
+            //Asignar vectores al modelo.
+            objTblMod.setData(vecDat);
+            tblDatos.setModel(objTblMod);
+            vecDat.clear();             
+        }
+
+        catch (Exception e)
+        {
+            blnRes=false;
+            objUti.mostrarMsgErr_F1(this, e);
+        }
+        return blnRes;
+    }
+    
+    public boolean todoOK() {
+        return validaOk;
+    }
+    
+    private void mostrarMsgInf(String strMsg)
+    {
+        String strTit;
+        strTit="Mensaje del sistema Zafiro";
+        javax.swing.JOptionPane.showMessageDialog(this,strMsg,strTit,javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    
+
+   
+    private void butGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butGuardarActionPerformed
+        validaOk =true;
+        dispose();
+    }//GEN-LAST:event_butGuardarActionPerformed
+
+    
+        /**
+     * Esta función muestra un mensaje "showConfirmDialog". Presenta las opciones
+     * Si y No. El usuario es quien determina lo que debe hacer el sistema
+     * seleccionando una de las opciones que se presentan.
+     */
+    private int mostrarMsgCon(String strMsg)
+    {
+        String strTit;
+        strTit="Mensaje del sistema Zafiro";
+        return javax.swing.JOptionPane.showConfirmDialog(this,strMsg,strTit,javax.swing.JOptionPane.YES_NO_OPTION,javax.swing.JOptionPane.QUESTION_MESSAGE);
+    }
+    
+    private void butCanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butCanActionPerformed
+        // TODO add your handling code here:
+        validaOk =false;
+        dispose();
+    }//GEN-LAST:event_butCanActionPerformed
+    
+    private void exitForm() 
+    {
+        dispose();
+    }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanFrm;
+    private javax.swing.JButton butCan;
+    private javax.swing.JButton butGuardar;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblTit;
+    private javax.swing.JPanel panBar;
+    private javax.swing.JPanel panBot;
+    private javax.swing.JPanel panPer;
+    private javax.swing.JTable tblDatos;
+    // End of variables declaration//GEN-END:variables
+     
+    
+       
+        
+       /** Configurar el formulario. */
+    private boolean configurarFrm()//chiqui
+    {
+        boolean blnRes=true;
+        try{
+            //Inicializar objetos.
+            objUti=new ZafUtil();
+            //Obbtener los permisos del usuario.
+            objPerUsr=new ZafPerUsr(objParSis);
+            strAux=objParSis.getNombreMenu();
+            this.setTitle(strAux + strVersion);
+            lblTit.setText(strAux);
+////            txtObser1.setBackground(objParSis.getColorCamposObligatorios());
+////            txtObser1.selectAll();
+////            txtObser1.requestFocus(); 
+            configurarTblDat();
+////            configurarVenConItm();
+
+////            configuraListaPrecio();
+////            configuraFlutuacion();
+
+            datFecDoc=objUti.getFechaServidor(objParSis.getStringConexion_Dynamics2021(), objParSis.getUsuarioBaseDatos_Dynamics2021(), objParSis.getClaveBaseDatos_Dynamics2021(), objParSis.getQueryFechaHoraBaseDatos());
+
+////            
+        }
+        catch(Exception e)
+        {
+            blnRes=false;
+            objUti.mostrarMsgErr_F1(this, e);
+        }
+        return blnRes;
+    }
+private class ZafMouMotAda extends java.awt.event.MouseMotionAdapter{
+        public void mouseMoved(java.awt.event.MouseEvent evt){
+            int intCol=tblDatos.columnAtPoint(evt.getPoint());
+            String strMsg="";
+            switch (intCol){
+                case INT_TBL_DAT_TRESL: strMsg="Còdigo del Item"; break;
+                case INT_TBL_DAT_PRO: strMsg="Promedio"; break; 
+                case INT_TBL_DAT_PP_MIN: strMsg="PP MIN"; break; 
+                case INT_TBL_DAT_PP_MAX: strMsg="PP MAX"; break;
+                case INT_TBL_DAT_EXC: strMsg="EXC"; break;
+                case INT_TBL_DAT_STO_BAS: strMsg="STOCK BASE"; break; 
+                case INT_TBL_DAT_FRE: strMsg="FRE"; break; 
+                case INT_TBL_DAT_TRA: strMsg="TRA"; break;  
+                case INT_TBL_DAT_MOQ: strMsg="MOQ"; break;                  
+                default: strMsg=""; break;
+                        
+            }
+            tblDatos.getTableHeader().setToolTipText(strMsg);
+        }
+    }    
+    
+private boolean configurarTblDat()
+    {
+        boolean blnRes=true;
+        try
+        {
+            //Configurar JTable: Establecer el modelo.
+            vecDat=new Vector();    //Almacena los datos
+            vecCab=new Vector(23);  //Almacena las cabeceras
+            vecCab.clear();
+            vecCab.add(INT_TBL_DAT_LIN,"");
+            vecCab.add(INT_TBL_DAT_TRESL,"TRES L");
+            vecCab.add(INT_TBL_DAT_PRO,"PRO");
+            vecCab.add(INT_TBL_DAT_PP_MIN,"PPMIN");
+            vecCab.add(INT_TBL_DAT_PP_MAX,"PPMAX");
+            vecCab.add(INT_TBL_DAT_EXC,"EXC");
+            vecCab.add(INT_TBL_DAT_STO_BAS,"STOCK BASE");
+            vecCab.add(INT_TBL_DAT_FRE,"FRE");
+            vecCab.add(INT_TBL_DAT_TRA,"TRA");
+            vecCab.add(INT_TBL_DAT_MOQ,"MOQ");
+            
+////            vecCab.add(INT_TBL_DAT_ESTADO,"Estado");
+////            vecCab.add(INT_TBL_DAT_OB,"Observacion");
+            
+            //Configurar JTable: Establecer el modelo de la tabla.
+            objTblMod=new ZafTblMod();
+            objTblMod.setHeader(vecCab);
+            tblDatos.setModel(objTblMod);
+            //Configurar ZafTblMod: Establecer el tipo de dato de las columnas.
+            objTblMod.setColumnDataType(INT_TBL_DAT_LIN, ZafTblMod.INT_COL_DBL, new Integer(0), null);
+            
+
+            //Configurar JTable: Establecer tipo de selección.
+            tblDatos.setCellSelectionEnabled(true);
+            tblDatos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION); //Eddye: UNA VEZ CORREGIDO "PEGAR" CAMBIAR A MULTIPLE_INTERVAL_SELECTION.
+            //Configurar JTable: Establecer el menú de contexto.
+            objTblPopMnu=new ZafTblPopMnu(tblDatos);
+            objTblPopMnu.setPegarEnabled(true);
+            objTblPopMnu.setBorrarContenidoEnabled(true);
+
+            //Configurar JTable: Establecer el tipo de redimensionamiento de las columnas.
+            tblDatos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+            //Configurar JTable: Establecer el ancho de las columnas.
+            javax.swing.table.TableColumnModel tcmAux=tblDatos.getColumnModel();
+            tcmAux.getColumn(INT_TBL_DAT_LIN).setPreferredWidth(30);
+            tcmAux.getColumn(INT_TBL_DAT_TRESL).setPreferredWidth(50);            
+            tcmAux.getColumn(INT_TBL_DAT_PRO).setPreferredWidth(50);  
+            tcmAux.getColumn(INT_TBL_DAT_PP_MIN).setPreferredWidth(50);  
+            tcmAux.getColumn(INT_TBL_DAT_PP_MAX).setPreferredWidth(50);
+            
+            tcmAux.getColumn(INT_TBL_DAT_EXC).setPreferredWidth(50);
+            tcmAux.getColumn(INT_TBL_DAT_STO_BAS).setPreferredWidth(50);            
+            tcmAux.getColumn(INT_TBL_DAT_FRE).setPreferredWidth(50);  
+            tcmAux.getColumn(INT_TBL_DAT_TRA).setPreferredWidth(50);  
+            tcmAux.getColumn(INT_TBL_DAT_MOQ).setPreferredWidth(50);            
+            
+          
+            
+////            tcmAux.getColumn(INT_TBL_DAT_ESTADO).setPreferredWidth(50);
+////            tcmAux.getColumn(INT_TBL_DAT_OB).setPreferredWidth(50);
+            
+            //Configurar JTable: Mostrar ToolTipText en la cabecera de las columnas.
+            objMouMotAda = new ZafMouMotAda();
+            tblDatos.getTableHeader().addMouseMotionListener(objMouMotAda);            
+            
+////            tcmAux.getColumn(INT_TBL_DAT_MODIFICAR).setResizable(false);
+            //Configurar JTable: Establecer el tipo de reordenamiento de columnas.
+            tblDatos.getTableHeader().setReorderingAllowed(false);
+            //Configurar JTable: Editor de búsqueda.
+            objTblBus=new ZafTblBus(tblDatos);
+            //Configurar JTable: Establecer la fila de cabecera.
+            objTblFilCab=new ZafTblFilCab(tblDatos);
+            tcmAux.getColumn(INT_TBL_DAT_LIN).setCellRenderer(objTblFilCab);
+            //Configurar JTable: Establecer columnas editables.
+////            vecAux=new Vector();
+////            vecAux.add("" + INT_TBL_DAT_MODIFICAR);
+////            objTblMod.setColumnasEditables(vecAux);
+            vecAux=null;
+            objTblMod.setModoOperacion(objTblMod.INT_TBL_EDI);
+            //Configurar JTable: Establecer la clase que controla el ordenamiento.
+            objTblOrd=new ZafTblOrd(tblDatos);
+
+            //Configurar JTable: Establecer la clase que controla el ordenamiento.
+            objTblOrd=new ZafTblOrd(tblDatos);
+            //Configurar JTable: Establecer que el JTable sea editable.
+            objTblMod.setModoOperacion(ZafTblMod.INT_TBL_EDI);
+            //Libero los objetos auxiliares.
+            tcmAux=null;
+            
+////            //Configurar ZafTblMod: Establecer el tipo de dato de las columnas.
+////            objTblMod.setColumnDataType(INT_TBL_DAT_PESO, objTblMod.INT_COL_DBL, new Integer(0), null);
+////            objTblMod.setColumnDataType(INT_TBL_DAT_PRECIO, objTblMod.INT_COL_DBL, new Integer(0), null);
+        }
+        catch(Exception e)
+        {
+            blnRes=false;
+            objUti.mostrarMsgErr_F1(this, e);
+        }
+        return blnRes;
+    }  
+
+
+    
+ 
+    
+    
+
+       
+    
+       
+  
+           
+
+    
+    
+
+    
+    
+}

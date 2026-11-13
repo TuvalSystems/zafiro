@@ -1,0 +1,19 @@
+﻿Pendientes:
+1)
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Ingrid Lino - 14/Nov/2017)
+----
+Clase nueva almacena documentos en la tabla de "Seguimiento de inventario".
+
+
+v0.1.1: (Rosa Zambrano - 16/Nov/2017)
+-----
+Se agregan nuevos campos relacionados con las tablas: tbm_cabDia, tbm_carPagPedEmbImp.
+Se modifican los siguientes métodos: setSegMovInvCompra().
+
+
+

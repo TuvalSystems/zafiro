@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafRptCom23_01" pageWidth="595" pageHeight="608" columnWidth="581" leftMargin="0" rightMargin="14" topMargin="0" bottomMargin="0">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="co_emp" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="co_loc" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="co_tipdoc" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="co_doc" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="co_reg" class="java.lang.Integer" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[select * from (
+select  a5.tx_nom ,  abs( sum(a4.nd_can) ) as canegr , CASE WHEN a4.st_cliretemprel IN ('S') then 'Cliente Retira ' else '' end as cliret from tbm_detguirem as a
+inner join tbm_detmovinv as a1 on (a1.co_emp=a.co_emprel and a1.co_loc=a.co_locrel and a1.co_tipdoc=a.co_tipdocrel and a1.co_doc=a.co_docrel and a1.co_reg=a.co_regrel )
+inner join tbr_detmovinv as a2 on (a2.co_emp=a1.co_emp and a2.co_loc=a1.co_loc and a2.co_tipdoc=a1.co_tipdoc and a2.co_doc=a1.co_doc and a2.co_reg=a1.co_reg )
+inner join tbr_detmovinv as a3 on (a3.co_emprel=a2.co_emprel and a3.co_locrel=a2.co_locrel and a3.co_tipdocrel=a2.co_tipdocrel and a3.co_docrel=a2.co_docrel and a3.co_regrel=a2.co_regrel
+and a3.co_doc != a2.co_doc )
+inner join tbm_detmovinv as a4 on (a4.co_emp=a3.co_emp and a4.co_loc=a3.co_loc and a4.co_tipdoc=a3.co_tipdoc and a4.co_doc=a3.co_doc and a4.co_reg=a3.co_reg )
+inner join tbm_bod as a5 on (a5.co_emp=a4.co_emp and a5.co_bod=a4.co_bod )
+inner join tbm_bod as a6 on (a6.co_emp=a1.co_emp and a6.co_bod=a1.co_bod )
+ WHERE
+a.co_emp=$P{co_emp}
+and a.co_loc=$P{co_loc}
+and a.co_tipdoc=$P{co_tipdoc}
+and a.co_doc=$P{co_doc}
+and a.co_reg=$P{co_reg} and a.co_tipdocrel=1
+group by a6.tx_nom,  a1.nd_can,  a5.tx_nom, a4.st_cliretemprel
+) as x  where  canegr > 0]]>
+	</queryString>
+	<field name="tx_nom" class="java.lang.String"/>
+	<field name="canegr" class="java.math.BigDecimal"/>
+	<field name="cliret" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="textField-30" mode="Transparent" x="1" y="0" width="59" height="11" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_nom}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement key="textField-35" mode="Transparent" x="60" y="0" width="40" height="11" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{canegr}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="0" width="51" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cliret}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

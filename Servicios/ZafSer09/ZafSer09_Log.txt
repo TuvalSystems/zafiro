@@ -1,0 +1,253 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Flores - 31/Jul/2012)
+-----
+Servicio nuevo.
+
+
+v2.0: (David Albuja - 29/May/2014)
+-----
+Se agregó consulta para verificar las fechas de Inicio y Fin del Rol.
+Se corrigió el cálculo de la Semana Integral, si tiene permiso no se descuenta.
+Se agregó el método cerrarPerAntEmpNuevo, este método realiza la Validación de cerrar periodos pasados para empleados nuevos.
+Los empleados nuevos tenían descuentos de días anteriores a su fecha de inicio, se realizó la corrección
+Generar logs
+Dependiendo de la configuracion del archivo properties envia correos
+Al inicial el programa se inicia un ServerSocket y tambien un TimerTask para la tarea programada 
+
+
+v2.1: (David Albuja - 27/Jun/2014)
+-----
+En la parte de correccion de negativos para calcular el valor total no se usan los codigos 6,7,25,26 ya que estos rubros son de BM
+Tambien al realizar la actualizacion del valor del rubro se borra el valor previo calculado de egreso programado. set nd_valrub = coalesce(nd_valrub,0) + " + strValRub;
+
+
+v2.2: (Eddye Lino - 28/Ago/2014)
+-----
+Se corrigió el método: 
+   1) iniciar()
+El calculo de los ingresos estaba considerando el valor del documento en lugar de las cuotas.
+Se agregó el siguiente código:
+//Eddye: Se agregó subquery para que considere las cuotas y no el total del documento.
+strSql += "AND a.fe_cuo>=(SELECT fe_des FROM tbm_fecCorRolPag WHERE co_emp=b.co_emp AND ne_ani=" + intAno + " AND ne_mes=" + intMes + " AND ne_per=1)";
+strSql += "AND a.fe_cuo<=(SELECT fe_has FROM tbm_fecCorRolPag WHERE co_emp=b.co_emp AND ne_ani=" + intAno + " AND ne_mes=" + intMes + " AND ne_per=2)";
+
+
+v2.3: (Eddye Lino - 30/Sep/2014)
+-----
+Se corrigió el método: 
+   1) iniciar()
+Corrección 1:
+Sólo se debe considerar los "Ingresos programados" que fueron ingresados hasta la fecha de corte. El query tenía 
+el error de que sólo estaba considerando los "Ingresos programados" que fueron ingresados durante el mes a pagar.
+Antes:
+strSql += "AND date(b.fe_ing) between (select fe_des from tbm_feccorrolpag where co_emp=b.co_emp and ne_ani=" + intAno + " and ne_mes=" + intMes + " and ne_per=1) " + "\n";
+strSql += "AND (select fe_has from tbm_feccorrolpag where co_emp=b.co_emp and ne_ani=" + intAno + " and ne_mes=" + intMes + " and ne_per=2) " + "\n";
+Después:
+strSql += " AND date(b.fe_ing)<=(select fe_has from tbm_feccorrolpag where co_emp=b.co_emp and ne_ani=" + intAno + " and ne_mes=" + intMes + " and ne_per=2)";
+Corrección 2:
+Para calcular las "Horas extras 1" se utiliza la siguiente formula:
+"Horas extras 1"= "Horas extras 1"-("Horas extras 1"/4 sábados)*Faltas
+Se considera que cada mes tiene 4 sábados. Cuando el mes tiene 5 sàbados y el empleado ha faltado los 5 sábados el
+Sistema genera un negativo. Para evitar dicho problema se puso la siguiente validación:
+    if (rstRes.getString("co_rub").equals("2"))
+    {
+        if (dblValRubFDM<=0)
+        {
+            dblValRubFDM=0;
+        }
+    }
+
+
+v2.4: (Eddye Lino - 30/Oct/2014)
+-----
+Se corrigió el método: 
+   1) iniciar()
+Corrección 1:
+Sólo se debe considerar los "Egresos programados definidos" que fueron ingresados hasta la fecha de corte. El query tenía 
+el error de que sólo estaba considerando los "Ingresos programados" que fueron ingresados durante el mes a pagar.
+Antes:
+strSql += "AND date(b.fe_ing) between (select fe_des from tbm_feccorrolpag where co_emp=b.co_emp and ne_ani=" + intAno + " and ne_mes=" + intMes + " and ne_per=1) " + "\n";
+strSql += "AND (select fe_has from tbm_feccorrolpag where co_emp=b.co_emp and ne_ani=" + intAno + " and ne_mes=" + intMes + " and ne_per=2) " + "\n";
+Después:
+strSql += " AND date(b.fe_ing)<=(select fe_has from tbm_feccorrolpag where co_emp=b.co_emp and ne_ani=" + intAno + " and ne_mes=" + intMes + " and ne_per=2)";
+Corrección 2:
+El calculo de los "Egresos programados definidos" estaba considerando el valor del documento en lugar de las cuotas.
+Se agregó el siguiente código:
+//Eddye: Se agregó subquery para que considere las cuotas y no el total del documento.
+strSql += "AND a.fe_cuo>=(SELECT fe_des FROM tbm_fecCorRolPag WHERE co_emp=b.co_emp AND ne_ani=" + intAno + " AND ne_mes=" + intMes + " AND ne_per=1)";
+strSql += "AND a.fe_cuo<=(SELECT fe_has FROM tbm_fecCorRolPag WHERE co_emp=b.co_emp AND ne_ani=" + intAno + " AND ne_mes=" + intMes + " AND ne_per=2)";
+
+
+v2.5: (Eddye Lino - 27/Feb/2015)
+-----
+Se modificó el método: 
+   1) iniciar()
+Se modificó el código correspondiente a "Horas extras 1". Antes el Sistema estaba considerando 4 sábados. Ahora está
+considerando los sábados de forma dinámica. Para el calculo se considera la cantidad de sábados que tiene el periodo
+y la cantidad de sábados que ha laborado el empleado. Se asume que el empleado ha laborado el sábado si tiene
+marcación de entrada. Queda pendiente hacer que el calculo incorpore la cantidad de horas que ha laborado porque
+puede que el empleado marcó la entrada y pocos minutos después marcó la salida. Más adelante se agregará el código
+para que se pague el proporcional laborado.
+
+
+v2.6: (Eddye Lino - 30/Mar/2015)
+-----
+Se modificó el método: 
+   1) iniciar()
+Se modificó el código correspondiente a "Horas extras 1". Se hizo cambios en la forma de calcular las horas extras.
+Antes: ("Horas extras 1"/NumeroTotalSabados)*NumeroTotalSabadosLaborados
+Después: (Sueldo/30)*NumeroTotalSabadosLaborados
+
+
+v2.7: (Eddye Lino - 29/May/2015)
+-----
+Se modificó el método: 
+   1) iniciar()
+Se modificó el código correspondiente a "Horas extras 2". Se hizo lo siguiente:
+1) Estaba quemado que al empleado 243="MIGUEL ANGEL MONTEZUMA RUIZ" no se le pagué horas extras.
+Johanna solicitó que si se le pague.
+Antes: and  b.co_tra not in (90 , 65 , 253 , 243)
+Después: and  b.co_tra not in (90 , 65 , 253)
+2) En las horas suplementarias estaba configurado que de "00:00 hasta 06:00 se paga el 100%"
+y de "06:00 hasta 24:00 se paga el 50%". Cuando la solicitud era autorizada antes de las 06h00 el
+Sistema no calculaba las horas extras porque no sabía si aplicar el 100% o el 50%.
+
+
+v2.8: (Eddye Lino - 27/Ago/2015)
+-----
+Se modificó el método: 
+   1) iniciar()
+Se modificó el código para que los rubros "4, 22 y 23" trabajen con el 40%.
+Además se hizo que en quincena se pague el 0% en Bono y 100% en Movilización y en fin de mes a la inversa.
+
+
+v2.9: (Eddye Lino - 15/Sep/2015)
+-----
+Se modificó el método: 
+   1) iniciar()
+Se modificó el código para que en la quincena se pague el 0% y a fin de mes el 100% del rubro "22=Otros ingresos".
+
+
+v2.10: (Eddye Lino - 25/Sep/2015)
+-----
+Se modificó/corrigió el método: 
+   1) iniciar()
+Se modificó el código para que en las "Horas extras 1" se considere los días no marcados pero laborados (Caso Pedro Pin, Luis Quimis, etc).
+Sólo se aplica a los empleados que no tienen horario fijo. Se modificó el query aplicando "b2.st_jusFal IN ('S', 'L')".
+Se corrigió un error que existía en el calculo de "Horas extras 2".
+
+
+v2.11: (Tony Sanginez - 18/Nov/2015)
+-----
+Se modificó el cálculo de las horas extras 1, cambio de validación para registro total de horas asistidas.
+Se modificó en el cálculo de las horas extras 2 , para poder calcular las horas extras del domingo.
+
+
+v2.12: (Tony Sanginez - 22/Dic/2015)
+-----
+Validación horas extra 1 se descontaba como atraso.
+ 
+
+v2.13: (Tony Sanginez - 23/Dic/2015)
+-----
+VAlidaciones de horas extra 1 Horas con marcaciones incompletas agregado a las validaciones para que se contabilicen y validacion para las personas que no tienen horario fijo.
+
+
+v2.14: (Tony Sanginez - 14/Ene/2016)
+-----
+Cambio para modificacion de marcaciones en todo el Servicio.
+
+
+v3.0: (Tony Sanginez - 28/Ene/2016)
+-----
+Se agrega validaciones para contabilizar decimos(Decimo tercer y decimo cuarto) y Comisiones. Se modifica el calculo de fondo de reserva para que tome en cuenta las comisiones.
+
+
+v3.1: (Tony Sanginez - 29/Ene/2016)
+-----
+Modificacion para fondos de reserva que toma el valor de la comision en la quincena y por este mes debera tomar en fin de mes.
+
+
+v3.2: (Tony Sanginez - 14/Abr/2016)
+-----
+Se modifica b.fe_doc antes era a.fe_cuo ya que no incluia los dias antes del 1 de cada mes.
+strSql += " AND b.fe_doc>=(SELECT fe_des FROM tbm_fecCorRolPag WHERE co_emp=b.co_emp AND ne_ani=" + intAno + " AND ne_mes=" + intMes + " AND ne_per=1)";
+            strSql += " AND b.fe_doc<=(SELECT fe_has FROM tbm_fecCorRolPag WHERE co_emp=b.co_emp AND ne_ani=" + intAno + " AND ne_mes=" + intMes + " AND ne_per=2)"; Y no los incluia para el siguiente mes.
+Se agrega validación para que se pague un proporcional  del fondo de reserva aquellos que ya tienen mas de 12 meses.
+
+
+v3.3: (Tony Sanginez - 26/May/2016)
+-----
+Se modifica query para calcular las horas extras 2 en donde se utilizaba la fecha de ingreso para validar la fecha en donde se tenia que validar la fecha de la cuota. 
+
+
+v3.4: (Tony Sanginez - 30/May/2016)
+-----
+Se realizó un cambio en el query de calculo de fondo de reserva ya que al momento de no cumplir el anio pero tenia entre 360 y 365 dias le asignaba como si cumplia el anio. 
+
+
+v3.5: (Tony Sanginez - 27/Oct/2016)
+-----
+Se agrega nueva clase Tbm_ingegrmentra.java para almacenar temporalmente los porcentajes del periodo pasado.
+Se agrega validacion para que se copien los porcentajes del periodo pasado para que se mantengan en el mes actual en donde se ejecute el servicio. 
+Se agrega validacion de <= y >= para las horas extras. (Anterior < y >)
+
+
+v3.6: (Tony Sanginez - 31/Oct/2016)
+-----
+Se valida los minutos de gracia que actualmente estaban en nulos y afectaba los atrasos.
+
+
+v3.7: (Tony Sanginez - 28/Nov/2016)
+-----
+Correccion de calculos de fondos de reserva. Al cumplir el anio.
+
+
+v3.8: (Tony Sanginez - 14/Dic/2016)
+-----
+Se corrije funcionamiento del servicio, ya que cuando habia un empleado nuevo no se ingresaban los rubros.
+
+
+v4.0: (Tony Sanginez - 28/Mar/2017)
+-----
+Se modifica los fondos de reserva para el decimo tercer mes.
+
+
+v4.1: (Tony Sanginez - 29/Jun/2017)
+-----
+Se modifica query que estaba tomando sin filtrarse detalles de egresos anulados.
+
+
+v4.2: (Tony Sanginez - 27/Sep/2017)
+-----
+Se modifica query de ingresos programados. Ya que no tomaba en cuenta las cuotas.
+
+v4.3: (Tony Sanginez - 27/Nov/2017)
+-----
+Se corrige para que los empleados nuevos no se ingresen con 40% en algunos rubros que no debian pagarse en la primera quincena.
+
+v4.4: (Tony Sanginez - 29/Nov/2017)
+-----
+Se corrige metodo para ingreso de horas extras 1 para los empleados nuevos.
+
+v4.5: (Tony Sanginez - 04/Ene/2018)
+-----
+Se cambia el valor del SueldoBasico en la clase ZafSueBas.java.
+Se crea nuevo ZafParsisCosenco quemado para que se pueda ejecutar al momento de ejecutar el servicio en Grupo.
+Se crea nueva clase ZafSer09_01Cosenco.java para que funcione de la misma manera pero en Cosenco.
+Se modifica el Socket para que ejecute el ZafSer09_01Cosenco.
+
+v4.6: (Tony Sanginez - 29/Ene/2018)
+-----
+Se modifica el método en donde filtraba las horas extras sin los dias laborales
+
+v4.7: (Rosa Zambrano - 02/Ago/2019)
+-----
+Se cambia libreria de correo para que lea la direccion de correo en la base de datos.
+

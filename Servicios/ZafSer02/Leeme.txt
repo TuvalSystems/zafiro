@@ -1,0 +1,20 @@
+
+/****************** SERVICIO  ZafSer02 ***********************/
+Servicio que genera documentos relacionados entre companias del grupo LSC.
+
+
+CREA DOCUMENTO FINALES ENTRE COMPAÑIA
+
+Este servicio realiza el proceso de crear documentos finales como son: 
+Documentos Intermedios         Documentos Finales
+Facotu                    en        FacVen 
+Favetu                    en        FacCom
+Devetu                    en        DevVen
+Decotu                    en        DevCom
+
+
+y se eliminan del sistemas los intermedios prevaleciendo los finales para luegos
+poder ser impresos. 
+
+
+los documentos finales ya afectan en contabilidad.

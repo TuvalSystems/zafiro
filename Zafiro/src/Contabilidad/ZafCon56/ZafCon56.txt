@@ -1,0 +1,11 @@
+v0.1: (Ingrid Lino - 24/Mar/2011)
+----
+Programa que muestra el BG o ER(comparativo) de acuerdo al filtro de selección de fecha(Presenta todos los meses seleccionados de forma individual).
+
+v0.2: (Dennis Betancourt - 19/Dic/2018)
+----
+Se agregaron mas opciones de consulta en la pestaña "Filtro". El proposito es para que el usuario pueda consultar un mismo mes de años diferentes. Ejemplo: Ene/2016, Ene/2017, Ene/2018.
+
+v0.2.1: (Dennis Betancourt - 23/Jul/2019)
+----
+En la funcion obtenerDiferencias() se comento el codigo donde aparece "if(intCnt==intNumNivSum)" debido a que, al consultar varios meses, en el mes intermedio no se mostraba el valor correcto en "Utilidad/Perdida".

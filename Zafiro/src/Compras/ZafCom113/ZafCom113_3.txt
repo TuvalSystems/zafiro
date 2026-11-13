@@ -1,0 +1,18 @@
+﻿Pendientes:
+1) Hay que corregir el código que valida los datos luego de ser pegados en la columna de unidad de medida.
+
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez 12/Septiembre/2024)
+----
+Clase nueva, 
+    se modifica lo que es el guardado con respecto a peso y unidad
+    se modifica para que se pueda realizar la maodificacion de precios de forma automatica
+v1.0: (Cristhian Ramirez 11/Julio/2025)
+----
+Se actualiza el anulado
+
+
+

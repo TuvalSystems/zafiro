@@ -1,0 +1,26 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Javier Ayapata - 13/Feb/2006)
+----
+Servicio nuevo.
+
+
+v0.2: (Alex Moran - 13/Feb/2013)
+----
+
+
+v0.3: (José Marín M. - 11/Ago/2015)
+----
+Modificaciones para volver a funcionar a partir de Agosto 2015.
+
+
+v0.4: (Rosa Zambrano - 30/Ago/2019) 
+----
+A pesar de que este servicio está inactivo, se realizan cambios del correo.
+Se modifica el servicio para que lea la clave de correo de la BD.
+

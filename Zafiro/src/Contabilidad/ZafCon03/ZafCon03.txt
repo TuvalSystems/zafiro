@@ -1,0 +1,66 @@
+Pendientes:
+1) Agregar un JTable para mostrar los meses que est�n mayorizados/desmayorizados.
+2) 
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Eddye Lino - 13/Oct/2006)
+----
+Clase nueva.
+
+
+v0.1.1: (Ingrid Lino - XX/XXX/2006)
+----
+En la funci�n procesar() se adicion� filtros de meses que no tengan 31 d�as por problemas de Calendario en Server
+
+
+v0.3: (Ingrid Lino - 22/Mar/2007)
+----
+Se agreg� c�digo para desmayorizar/mayorizar la empresa grupo.
+
+v0.4: (Ingrid Lino - 02/Abr/2007)
+----
+Se corrigi� problema de mayorizaci�n por la cuenta de utilidad o perdida
+
+v0.5: (Ingrid Lino - 15/Jun/2007)
+----
+Se cambi� el esquema de mayorizaci�n:
+ - Antes: eliminaba(desmayorizaci�n) e insertaba8mayorizaci�n)
+ - Ahora: Se realizan solo UPDATES
+        desmayorizaci�n: update a las cuentas con saldos ceros(0.00)
+        mayorizaci�n: update a las cuentas con sus respectivos saldos
+
+
+v0.5.1: (Ingrid Lino - 22/Abr/2008)
+----
+Se adicion� el filtro para que no permita la desmayorizaci�n/mayorizaci�n en per�odos de meses cerrados.
+
+v0.6: (Dennis Betancourt - 15/Ene/2019)
+----
+Si el usuario es diferente de admin, las opciones de Mayorizar y Desmayorizar estaran deshabilitadas. Solo el usuario admin tendra habilitadas dichas opciones.
+
+v0.6.1: (Dennis Betancourt - 29/Ene/2019)
+----
+En el query, al momento de remayorizar, se modifico codigo en la funcion SUM por si se llegara a presentar algun valor NULL.
+Antes: SUM(a2.nd_monDeb - a2.nd_monHab) AS nd_salCta
+Ahora: SUM( (case when a2.nd_monDeb is null then 0 else a2.nd_monDeb end) - (case when a2.nd_monHab is null then 0 else a2.nd_monHab end) ) AS nd_salCta
+
+v0.6.2: (Dennis Betancourt - 07/May/2019)
+----
+En la funcion mayorizar_procesar(), dentro del "for (j=6; j>1; j--)", se traia los campos "ne_niv" y "ne_pad" de la tabla tbm_plaCta. Ahora se trae estos campos de la tabla tbm_salCta, debido al Plan de cuentas unificado.
+
+v0.6.3: (Dennis Betancourt - 04/Jun/2020)
+----
+En la funcion mayorizar_procesar(), se agrego un cambio debido a que el plan de cuentas ahora tiene 8 niveles.
+Antes: for (j=6; j>1; j--)
+Ahora: for (j=8; j>1; j--)
+
+
+v0.6.4: (José Mario Marín - 6/Jul/2020)
+----
+Se quita el bloqueo para que los usuarios puedan desmayorizar y mayorizar.
+
+
+

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafSubRptVeh09_01" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="792" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="170"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="strWhere" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[$P!{strWhere}]]>
+	</queryString>
+	<field name="co_loc" class="java.lang.Integer"/>
+	<field name="co_tipdoc" class="java.lang.Integer"/>
+	<field name="tx_descortipdoc" class="java.lang.String"/>
+	<field name="tx_deslartipdoc" class="java.lang.String"/>
+	<field name="co_doc" class="java.lang.Integer"/>
+	<field name="ne_numdoc" class="java.lang.Integer"/>
+	<field name="fe_doc" class="java.sql.Date"/>
+	<field name="tx_deslarveh" class="java.lang.String"/>
+	<field name="nd_valcal" class="java.math.BigDecimal"/>
+	<field name="nd_valman" class="java.math.BigDecimal"/>
+	<field name="nd_valefe" class="java.math.BigDecimal"/>
+	<field name="nd_valdoc" class="java.math.BigDecimal"/>
+	<field name="nd_valdocgas" class="java.math.BigDecimal"/>
+	<variable name="valDoc" class="java.math.BigDecimal" resetType="Group" resetGroup="co_tipDoc" incrementType="Group" incrementGroup="co_tipDoc" calculation="Sum">
+		<variableExpression><![CDATA[$F{nd_valdoc}]]></variableExpression>
+	</variable>
+	<variable name="valdocGas" class="java.math.BigDecimal" resetType="Group" resetGroup="co_tipDoc" incrementType="Group" incrementGroup="co_tipDoc" calculation="Sum">
+		<variableExpression><![CDATA[$F{nd_valdocgas}]]></variableExpression>
+	</variable>
+	<group name="co_tipDoc">
+		<groupExpression><![CDATA[$F{tx_descortipdoc}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<staticText>
+					<reportElement x="497" y="1" width="43" height="18"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Val.Doc.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="449" y="1" width="43" height="18"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Val.Efe.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="1" width="43" height="18"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Val.Cal.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="106" y="1" width="69" height="18"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fec.Doc.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="179" y="1" width="155" height="18"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Vehículo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="54" y="0" width="49" height="18"/>
+					<textElement textAlignment="Left">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Num.Doc.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="0" width="48" height="18"/>
+					<textElement textAlignment="Left">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tip.Doc.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="547" y="1" width="63" height="18"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Val.Doc.Gas.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="400" y="1" width="43" height="18"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Val.Man.]]></text>
+				</staticText>
+				<line>
+					<reportElement x="50" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="103" y="1" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="176" y="0" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="348" y="1" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="397" y="1" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="446" y="1" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="494" y="1" width="1" height="20"/>
+				</line>
+				<line>
+					<reportElement x="544" y="1" width="1" height="20"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="25">
+				<textField>
+					<reportElement x="497" y="0" width="43" height="18"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{valDoc}]]></textFieldExpression>
+				</textField>
+				<textField pattern="">
+					<reportElement x="547" y="0" width="52" height="18"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{valdocGas}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="392" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{co_tipDoc_COUNT}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="20" width="607" height="1"/>
+			</line>
+			<line>
+				<reportElement x="544" y="0" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement x="494" y="0" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement x="446" y="1" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement x="397" y="1" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement x="348" y="0" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement x="176" y="0" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement x="103" y="1" width="1" height="19"/>
+			</line>
+			<line>
+				<reportElement x="50" y="1" width="1" height="19"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="25" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement x="494" y="20" width="112" height="1"/>
+			</line>
+			<line>
+				<reportElement x="606" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="544" y="0" width="1" height="21"/>
+			</line>
+			<line>
+				<reportElement x="494" y="1" width="1" height="21"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="30" splitType="Stretch"/>
+	</summary>
+</jasperReport>

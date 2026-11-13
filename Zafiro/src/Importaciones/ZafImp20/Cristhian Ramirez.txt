@@ -1,0 +1,25 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez - 03/Diciembre/2024)
+----
+Clase nueva
+
+v0.2: (Cristhian Ramirez -16/Enero/2025)
+----
+Se modifica la forma la visualizacion en las columnas del reporte
+
+v0.3: (Cristhian Ramirez -04/Sept/2025)
+----
+Se añade los campos de categoria y se cambia el sp de sp_ReportePedSugeridoDetalladoEnLinea a   spImp07
+
+v0.4: (Cristhian Ramirez -04/Sept/2025)
+----
+Se añade los campos de penultima y ultima nota de pedido con respecto al precio
+
+
+

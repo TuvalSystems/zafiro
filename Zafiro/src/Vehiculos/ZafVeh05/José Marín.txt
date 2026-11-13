@@ -1,0 +1,19 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Marín - 19/Ago/2013)
+----
+Clase nueva.
+
+
+v0.02: (José Marín - 4/Nov/2021)
+----
+Se modifica para que muestre todos los trabajadores de la base de Zafiro.
+
+v0.11: (Sayda Villalta- 22/Enero/2025)
+----
+Se actualiza version porque en produccion no estaba compilada correctamente

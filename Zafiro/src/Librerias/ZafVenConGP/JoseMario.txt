@@ -1,0 +1,22 @@
+Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Jose Mario Marin - 03/Mar/2023)
+----
+Clase nueva. Copia de ZafVenCon para que trabaje con Dynamics GP. 
+
+v0.2: (Cristhian Ramirez - 25/Sept/2023)
+----
+Se descomento en el formulario ZafVenConItmGP01_01 ,la ocpion de consultar con respecto al  codigo de tres letras,desde la linea 1408 hasta 1411. 
+
+v0.3: (Cristhian Ramirez - 20/Marzo/2024)
+----
+Se añade lo que es la configuracion para que pueda obtener el campo de mostrarListaPrecio que hace referencia a los filtros que se realizan en el proceso de mostrar
+
+v0.: (Cristhian Ramirez - 20/Marzo/2024)
+----
+Se añade lo que es la configuracion para que pueda obtener el campo de mostrarListaPrecio que hace referencia a los filtros que se realizan en el proceso de mostrar

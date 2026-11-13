@@ -1,0 +1,15 @@
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Marín - 11/Sep/2018)
+----
+Programa nuevo "Usuarios por programa y usuario".
+
+v0.2: (Sayda Villalta - 12/Julio/2024)
+----
+Se add conexion a sql server para que cada vez que actualice o cree se cree en la base de sql server
+
+v0.3: (Sayda Villalta - 16/Julio/2024)
+----
+Se agrega propiedades para eliminar registro en la tabla 

@@ -1,0 +1,27 @@
+
+#Nombre del tema. Se recomienda asignar un nombre al tema para identificarlo de manera más sencilla.
+NombreTema=CASTEK S.A.
+
+#Color primario 1. Es utilizado en los siguientes casos: borde de la ventana, color de primer plano de la fuente, etc.
+ColorPrimario1=102,102,153
+
+#Color primario 2. Es utilizado en los siguientes casos: color de la barra de progreso, color de fondo de los menúes, color de la barra de desplazamiento, etc.
+ColorPrimario2=0,80,140
+
+#Color primario 3. Es utilizado en los siguientes casos: color de la barra de título, color de fondo del texto seleccionado, etc.
+ColorPrimario3=204,204,255
+
+#Color secundario 1. Se aplica a lo mismos objetos que la propiedad "ColorPrimario1" cuando el objeto pasa a un segundo plano.
+ColorSecundario1=102,102,102
+
+#Color secundario 2. Se aplica a lo mismos objetos que la propiedad "ColorPrimario2" cuando el objeto pasa a un segundo plano.
+ColorSecundario2=153,153,153
+
+#Color secundario 3. Se aplica a lo mismos objetos que la propiedad "ColorPrimario3" cuando el objeto pasa a un segundo plano.
+ColorSecundario3=204,204,204
+
+#Color blanco. Se utiliza para la visualización y resaltado del texto.
+ColorBlanco=255,255,255
+
+#Color negro. Se utiliza para la visualización y resaltado del texto.
+ColorNegro=0,0,0

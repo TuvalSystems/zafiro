@@ -1,0 +1,25 @@
+/****************** SERVICIO  ZafSer01 ***********************/
+Servicio de:
+     * Impresion de ordenes de despacho ( ordenes de despacho normal y que cliente retira )
+     * Impresion Guias de remision
+     * Impresion de facturas por motivo volver a facturar.
+
+Este servicio realiza el proceso de asignar numero a las ordenes de despacho e imprimir
+en algunos casos crea la orden de despacho y asigna numero e imprime.
+
+para el proceso de guias la crea a partir desde un documento de confirmacion de egreso y se reenlaza la confirmacion con
+la guia procesada, es asignado numero e impreso.
+
+para el caso de impresion de facturas esto solo es para casos cuando realizan solicitud de volver a facturar,
+una vez autorizado por alfredo y despues procesado por contabilidad de manera automatica es generado la factura y luego impreso
+
+
+
+
+
+
+
+ 
+ 
+
+ 

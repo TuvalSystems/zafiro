@@ -1,0 +1,59 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez - 24/Nov/2023)
+----
+Se realiza la creacion del formulario
+
+v0.2: (Cristhian Ramirez - 07/Febreo/2024)
+----
+Se realiza la generacion de ordenamiento en ls columnas
+
+v0.3: (Cristhian Ramirez - 08/Febreo/2024)
+----
+.Se ralza la corealaciond e atributos
+
+v0.4: (Cristhian Ramirez - 06/Marzo/2024)
+----
+.Se actualiza
+
+v0.5: (Cristhian Ramirez - 11/Abril/2024)
+----
+Se modifica la visualizacion de la consulta en cada uno de los atributos, ocultando la columan de id del atributo
+
+v0.6: (Cristhian Ramirez - 19/Junio/2024)
+----
+Se añade el proceso del nuevo atributo COMPRAS
+
+v0.7: (Cristhian Ramirez - 11/Febrero/2025)
+----
+Se añade el proceso para actualizar los atributos
+
+v0.8: (Cristhian Ramirez - 24/Febrero/2025)
+----
+Se añade nuevo atrbuto de CATEGORIA
+
+v0.9: (Cristhian Ramirez  - 09/Sept/2025)
+----
+Se añade lo que es el guardado del histroial en la tbm_inv y tbh_inv
+
+v1.0: (Cristhian Ramirez  - 21/Enero/2026)
+----
+Se añade los campos de ABC ademas se hace la vlaidacion obligatoria a esos campos para el ingreso/modificacion
+
+v1.1: (Cristhian Ramirez  - 20/Marzo/2026)
+----
+Se actualiza
+
+v1.2: (Cristhian Ramirez  - 24/Marzo/2026)
+----
+Se actualiza
+
+v1.3: (Cristhian Ramirez  - 05/Nov./2026)
+----
+Se actualiza
+

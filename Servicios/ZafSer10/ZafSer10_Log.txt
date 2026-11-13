@@ -1,0 +1,42 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Eddye Lino - 13/Feb/2006)
+----
+Servicio 10 nuevo.
+
+
+v1.2: (LuisParrales - 14/Jul/2014)
+-----
+se ingreso un metodo (actualizaDatos()) para la actualizacion de los documentos descuadrados, ubicado en la última línea de main.
+
+
+v1.3: (José Marín M - 12/Nov/2014)
+-----
+Se agrega Cuenca y Facturación Electronica 
+
+
+v2.0: (José Marín M - 25/Feb/2015)
+-----
+Se agrego Tuval - Inmaconsa, Dimulti - Inmaconsa
+
+
+v3.0: (José Marín M - 9/Mar/2015)
+-----
+Se modifico la funcion enviarCorreo(), se cambio el servidor de correo a mail.tuvalsa.com
+
+
+v3.1: Christian Mateo - 28/Abr/2015)
+-----
+Se modifico en el main() la función restarDias()  comentando la linea que restaba la fecha de corte,   para que sea el dia actual en vez del anterior.
+
+
+v3.2: (Rosa Zambrano - 30/Ago/2019) 
+----
+A pesar de que este servicio está inactivo, se realizan cambios del correo.
+Se modifica el servicio para que lea la clave de correo de la BD.
+ 

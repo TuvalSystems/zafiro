@@ -1,0 +1,37 @@
+﻿Pendientes:
+1)
+2)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Ingrid Lino - 15/Mar/2012)
+----
+Clase Nueva "Cargos a Pagar".
+
+
+v0.1.1: (Rosa Zambrano - 20/Nov/2017)
+-----
+Se agrega tipo de cargo: Valor de la factura, Pago al exterior.
+Se hace configurable el combo de tipo de cargo.
+Se Quita opción de poder modificar: Esto se hará para evitar que en el programa DxP se escoja un cargo y luego ese cargo sea modificado por otro.
+
+
+v0.1.2: (Rosa Zambrano - 26/Mar/2018)
+-----
+Se agrega tipo de cargo: Impuestos.
+
+
+v0.1.3: (Rosa Zambrano - 20/Jul/2018)
+-----
+Se agrega chk para indicar si el cargo es un impuesto o no.
+
+
+v0.1.4: (Rosa Zambrano - 16/Oct/2018)
+-----
+Solicitado por AP: Habilitar opción de modificar, solo para ubicación del cargo.
+
+
+v0.1.5: (Rosa Zambrano - 08/May/2019)
+-----
+Se corrige mensaje de error, cuando se consulta la ubicación.

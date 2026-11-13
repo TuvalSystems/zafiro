@@ -1,0 +1,109 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Dennis Betancourt - 07/Ene/2016)
+----
+Clase nueva.
+
+v0.1.1: (Dennis Betancourt - 04/Abr/2016)
+------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se agrego mas Direcciones MAC (00-0C-29-61-BA-77).
+
+v0.1.2: (Dennis Betancourt - 06/Abr/2016)
+------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se agrego mas Direcciones MAC (00-0C-29-E7-AF-E8, 00-0C-29-61-BA-6D, 00-0C-29-E7-AF-F2).
+
+v0.1.3: (Dennis Betancourt - 27/Abr/2016)
+------
+Al armar el XML de Guia de remision, se modifico la funcion 'getTipIdeTransportista' para que ponga el valor correcto de Tip.Ide.Transportista si la identificacion corresponde a un extranjero que tenga 13 caracteres de longitud en la Identificacion de Transportista, y que no corresponda a RUC ni a Consumidor final.
+
+v0.1.4: (Dennis Betancourt - 04/Ago/2016)
+-------
+En la clase ZafFirma_p12 se modifica el nombre del archivo de certificado digital (de fruiz a jrodas) junto con la nueva clave asignada por el Banco Central.
+
+v0.1.5: (Dennis Betancourt - 13/Sep/2016)
+-------
+Al armar el XML de Guia de remision, para los valores de las etiquetas <observacion1> y <observacion2> se puso la funcion reemplazarCaracter() para que se reemplace el caracter especial '&' (por '&amp;') y el caracter <enter> (por espacio en blanco) si es que se encuentra en el texto.
+
+v0.1.6: (Dennis Betancourt - 20/Oct/2016)
+-------
+Al armar el XML de Guia de remision, en las condiciones donde se menciona la tabla tbm_cabingegrmerbod se cambio la leyenda INNER JOIN por LEFT OUTER JOIN debido a que solo en Inmaconsa se van a hacer confirmaciones de egreso de terminales L y de servicio, mientras que en el resto de locales no va a haber confirmaciones de terminales L y de servicio.
+
+v0.1.7: (Dennis Betancourt - 15/Mar/2016)
+------
+En la funcion que envia los correos con los XML y PDF, para Castek se agregaron los locales de Inmaconsa.
+
+v0.1.8: (Dennis Betancourt - 17/Mar/2016)
+------
+Al revisar una factura, si es de Holcim Ecuador (RUC 0990293244001) y el campo tbm_cabmovinv.tx_NumPed = "", entonces no se debe enviar al SRI hasta que no se haya ingresado un valor en dicho campo.
+
+v0.1.9: (Dennis Betancourt - 04/Abr/2016)
+------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se agrego mas Direcciones MAC (00-0C-29-61-BA-77).
+
+v0.1.10: (Dennis Betancourt - 09/Ene/2017)
+-------
+En la funcion generarPDF(), al generar el PDF de la factura se agrego un nuevo parametro del reporte: DesForPagSri (Descripcion de Forma de Pago del SRI).
+
+v0.1.11: (Dennis Betancourt - 20/Ene/2017)
+-------
+En la funcion 'enviarCorreoServidorInterno' para Castek se consideró el Cod.Loc. 5 [Castek California (Ventas relacionadas)] para envio de correo automatico.
+
+v0.1.12: (Dennis Betancourt - 08/Dic/2017)
+-------
+Se agrega validacion para que solo tome en cuenta archivos XML de Tuval y Castek, debido al Esquema OffLine.
+
+v0.2: (Dennis Betancourt - 22/Dic/2017)
+----
+Este servicio es modificado para acoplarse al Esquema Off Line del SRI.
+
+v0.2.1: (Dennis Betancourt - 29/Ene/2018)
+------
+Al armar el XML de guia, en la etiqueta <descripcion> se puso la funcion reemplazarCaracter() para que se reemplace algun caracter especial que se encuentre en la descripcion del producto. Casos presentados: Si se encuentra '<' se colocara '&lt;'. Si se encuentra '>' se colocara '&gt;'.
+
+v0.2.2: (Dennis Betancourt - 22/Jun/2018)
+------
+Al armar el XML de guia, en la etiqueta <placa> se puso la funcion reemplazarCaracter() para que se reemplace algun caracter especial en caso de que sea encontrado. Caracteres especiales: \n, &, <, >.
+
+v0.2.3: (Dennis Betancourt - 31/Jul/2018)
+------
+En la clase ZafFirma_p12 se modifica la nueva clave asignada por el Banco Central de los archivos de certificado digital de Tuval, Castek y Dimulti.
+
+v0.3: (Dennis Betancourt - 17/Ene/2019)
+----
+1) Este servicio es modificado para anexar a Cosenco, Ecuatosa y Detopacio al esquema de facturacion electronica.
+2) Los nombres y las claves de los archivos de certificado digital en formato p12 ya no estan quemados. Ahora son leidos como parametros del archivo "ZafSer14.properties".
+
+v0.3.1: (Dennis Betancourt - 01/Ago/2019)
+------
+En la condicion si la MAC Address corresponde al servidor de Produccion, se depuro direcciones MAC debido al cambio a Suse Server en el Servidor de Produccion realizado el Sab. 27/07/2019.
+
+v0.3.2: (Dennis Betancourt - 21/Ago/2019)
+------
+Se agregaron nuevos parametros en el archivo de configuracion: "DireccionMACServidorProduccion", "EjecutarProcesoTipoAmbienteSRIPruebas", "EnviarCorreoTipoAmbienteSRIPruebas".
+
+v0.3.3: (Dennis Betancourt - 07/Oct/2019)
+------
+Al armar el XML de Guia de remision, en la etiqueta <codigoAuxiliar> se puso la funcion reemplazarCaracter() para que se reemplace algun caracter especial que se encuentre en dicho campo. Casos: Si se encuentra '&' se colocara '&amp;'. Si se encuentra '<' se colocara '&lt;'. Si se encuentra '>' se colocara '&gt;'.
+
+v0.3.4: (Dennis Betancourt - 17/Oct/2019)
+------
+Al armar el XML de Guia de remision, en la etiqueta <campoAdicional> se puso una validacion para que, en caso que el valor del campo sea mayor a 300 caracteres, se trunque y solo se tomara en cuenta 300 caracteres.
+
+v0.3.5: (Dennis Betancourt - 17/Ene/2020)
+------
+En la clase ZafFirma_p12, en el metodo getFirstCertificate() se cambio la manera de firmar los XML, debido a un cambio en el SRI que ellos lanzaron el 15/01/2020.
+Antes: X509Certificate certificate = certs.get(0); //Firma usando "cifrado de clave"
+Ahora: X509Certificate certificate = certs.get(1); //Firma usando "firma digital"
+
+v0.3.6: (Dennis Betancourt - 18/May/2020)
+------
+Se modifico para que el servicio genere un archivo de log.
+
+v0.3.7: (Dennis Betancourt - 22/May/2020)
+------
+Se comento la validacion de que, si entre la fecha actual y la fecha de emision de la O/D ha transcurrido mas de 30 dias, entonces se ejecuta un Update a tbm_cabguirem poniendo st_imp = 'S'. Esto fue aprobado por Eddye Lino y Alfredo Paulson para descongestionar trabajo al personal de Redes en la reimpresion de guias.

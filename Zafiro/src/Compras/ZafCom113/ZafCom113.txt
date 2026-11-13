@@ -1,0 +1,431 @@
+﻿Pendientes:
+1) Hay que corregir el código que valida los datos luego de ser pegados en la columna de unidad de medida.
+
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Ingrid Lino)
+----
+Clase nueva.
+
+
+v0.1.1: (Ingrid Lino)
+-----
+Al mostrar la informacion de las instancias de los pedidos, se ordenaban de manera ASC, se cambio a DESC
+
+
+v0.1.2: (Ingrid Lino - 02/Jun/2015)
+-----
+Se realizan cambios en cargar pedidos, se oculta columnas, se recalculan valores según datos ingresados en columnas de márgenes, peso unitario, precio venta
+
+
+v0.1.3: (Ingrid Lino - 03/Jun/2015)
+-----
+Se adicionan cambios para calcular bien margenes cuando esta seleccionada la opción de "kilos", se coloca tooltips para las columnas dinamicas
+
+
+v0.1.4: (Ingrid Lino - 03/Jun/2015)
+-----
+Se oculta columna de peso auxiliar y se cambia el fondo de color de la celda de la columna de peso.
+
+
+v0.1.5: (Ingrid Lino - 15/Jun/2015)
+-----
+Se agrega en el evento "Pegar" la opción de recalcular cuando se pegue información en las columnas "Factor de costo", "Margen con factor", "Factor precio kilos", "Margen precio kilos".
+
+
+v0.1.6: (Ingrid Lino - 16/Jun/2015)
+-----
+Se agrega el filtro de código alterno "Terminan con..". Solicitado por Claudia Sensi.
+
+
+v0.1.7: (Ingrid Lino - 07/Ago/2015)
+-----
+Se agrega el filtro de "Terminan con" para cuando se carga información de columnas Ingreso por Importación, Pedido Embarcado, Nota Pedido. Solicitado por Claudia Sensi
+
+
+v0.1.8: (Ingrid Lino - 18/Ene/2016)
+-----
+Se añade en el header de las columnas de Nota de Pedido, Pedido Embarcado, Ingreso por Importación las fechas de documento, fecha de arribo, mes de arribo respectivamente. Solicitado por Alfredo Paulson.
+
+
+v0.1.10: (Ingrid Lino - 23/Mar/2016)
+-----
+Se hace editable la columna del código alterno del item. solicitado por AP.
+
+
+v0.1.11: (Ingrid Lino - 29/Mar/2016)
+-----
+Se modificar para que al momento de validar si existe codigoAlternoItem en la DB no restringir(sólo para AP).
+
+
+v0.1.12: (Ingrid Lino - 18/May/2016)
+-----
+Se baja el tono de color rojo. Solicitado por LSC.
+
+
+v0.1.13: (Rosa Zambrano - 31/May/2016)
+-----
+Se agrega configuración del iva con la libreria ZafParSis.
+
+
+v0.1.14: (Ingrid Lino - 02/Jun/2016)
+-----
+Se cambia en el cálculo del Precio de Lista calculado el 112 al 114(calclulo para obtener el 25%)
+
+
+v0.1.15: (Ingrid Lino - 05/Sep/2016)
+-----
+Se comentan unos systems.out que mostraban un error por leer filas que no existen.
+
+
+v0.1.16: (Ingrid Lino - 12/May/2017)
+-----
+Se añaden columnas de margen para Pedido Embarcado(los 3) y Nota de Pedido(los 3). Solicitado por LSC.
+
+
+v0.1.17: (Rosa Zambrano - 01/Jun/2017)
+-----
+Se cambia en el cálculo del Precio de Lista calculado del 114(calclulo para obtener el 25%) a la configuracion del iva tbm_cfgImpLoc.
+Este cambio se realiza en las funciones calcularPreLisCal(), calcularPreLisCalConsulta().
+
+
+v0.1.18: (Ingrid Lino - 28/Jun/2017)
+-----
+Se adiciona panel fijo para mostrar información general del item. Solicitado por LSC y Werner Campoverde.
+
+
+v0.1.18.1: (Ingrid Lino - 03/Jul/2017)
+-----
+Se elimina la opción de poder ordenar la tabla, ya que sólo ordena una de las dos tablas(fija o no fija).
+
+
+v0.1.18.2: (Rosa Zambrano - 05/Sep/2017)
+-----
+Se Agrega histórico de ítems.
+
+
+v0.1.18.3: (Rosa Zambrano - 12/Sep/2017)
+-----
+Se modificaron los metodos cargarCabeceraIngresosImportacion() y cargarDetReg() para presentar la informacion consolidada del ingreso por importación y ajuste.
+
+
+v0.1.18.4: (Rosa Zambrano - 22/Sep/2017)
+-----
+Se realizan unas mejoras proyecto importaciones.
+
+
+v0.1.18.5: (Rosa Zambrano - 26/Ene/2018)
+-----
+Se agrega en las funciones cargarCabeceraIngresosImportacion() y cargarDetReg() para que excluya los ajustes con tbm_CabMovInv.st_Reg='O', 
+esto estaba generando que el reporte muestre 2 veces el mismo ítem, según reportado por Peter Graf.
+Las lineas de código modificadas son: 1985 y 4093, se agrego la siguiente codificación  "AND c1.st_reg IN ('A')".
+
+
+v0.1.18.6: (Ingrid Lino - 06/Jun/2018)
+-----
+Se cambia el limmit de columnas de Pedidos a 5 en lugar de 3. Solicitado por Werner Campoverde.
+
+
+v0.1.18.7: (Ingrid Lino - 13/Ago/2018)
+-----
+Se cambia el limit 5 a limit 10 en Nota de Pedido, Pedido Embarcado, Ingreso por Importación, según solicitud de Werner Campoverde.
+
+
+v0.1.18.8: (Ingrid Lino - 16/Ago/2018)
+-----
+Se cambia en query de i+11 a i+21 y de i+20 a i+30 porque se añadieron más columnas al programa, en cuanto a Notas de Pedido, Pedido Embarcado e Ingreso por Importación.
+
+
+v0.1.18.9: (Rosa Zambrano - 16/Ago/2018)
+-----
+Se vuelve a pasar la versión v0.1.18.7 del 25/Jun/2018, debido a que se habia solapado con los siguientes cambios.
+Se agrega constantes de código de menú de objImp para segmentación de compras locales.
+
+
+v0.1.18.10: (Ingrid Lino - 31/Ago/2018)
+-----
+Se cambia en query de i+21 a i+31 y de i+30 a i+40 porque se añadieron más columnas al programa, en cuanto a Notas de Pedido, Pedido Embarcado e Ingreso por Importación. En reunión con LSC, Alfredo y Werner, se solicita poner a 15 columnas.
+
+
+v0.1.18.11: (Ingrid Lino - 22/Feb/2019)
+-----
+Se cambiar de 6 decimales a 2. Solicitado por LSC el 22/Feb/2019 la línea "bgdPreVtaMarUtiPreVta=objUti.redondearBigDecimal(bgdCosUni.multiply(bgdFacCosUni), objParSis.getDecimalesMostrar())"
+También se cambia el label de Pre.Vta.Fac. a P.V.Fac. Solicitado por LSC
+
+
+v0.1.19: (Ingrid Lino - 20/Jun/2019)
+-----
+Se agrega validación de st_doc='A' para que muestre pedidos activos, y que muestre en NP y PE los nombres de pedido sin versión.
+
+
+v0.1.20: (Rosa Zambrano - 16/Jul/2019)
+-----
+Se cambia para que presente las fechas de embarque, puerto y arribo en formato dd/MM/YYYY en las NOTPED.
+Se cambia en la función cargarCabeceraNotasPedidos, el orden de las NOTPED, para que se presente por orden de fecha de arribo, en vez de fecha de documento.
+Se cambia en la función cargarCabeceraNotasPedidos, para que solo muestre los PEDEMB con st_doc='A'
+
+
+v0.1.21: (Ingrid Lino - 08/Nov/2019)
+-----
+En método "cargarCabeceraNotasPedidos" se agrega order by ASC en el campo fe_arrNotPed
+
+
+v0.1.22: (Ingrid Lino - 12/Nov/2019)
+-----
+Se agrega nuevo esquema de filtro de item. Solicitado por AP a través de Eddye
+
+
+v0.1.23: (Eddye Lino - 15/Sep/2022)
+-----
+Se modificaron los métodos: 
+   1) configurarTblDat()
+   2) configurarTblFix()
+   3) cargarDetReg()
+Se agregó la columna "Cód.Alt.3" que muestra el "Código GP Altiora".
+
+
+v0.1.24: (Eddye Lino - 26/Sep/2022)
+-----
+Se modificaron los métodos: 
+   1) butExpExcActionPerformed(java.awt.event.ActionEvent evt)
+Al dar click en el botón "Exportar" se generaba un error.
+El error se generaba por la columna "Cód.Alt.3" que se agregó en la actualización anterior.
+Se hizo la corrección para que al exportar se considere la nueva columna.
+
+
+v1.0: (Cristhian Ramirez - 27/Octubre/2023)
+-----
+Se modifica en la consulta de los items lo que es la visualizacion mediante gp , ademas se añade un campo nuevo a nivel de postgress para la generacion de codigo alterno, se esta haciendo la modificacion hacia GP.
+
+v1.1: (Cristhian Ramirez - 27/Octubre/2023)
+-----
+Se realiza pruebas en desarrollo y sale todo ok
+
+v1.2: (Cristhian Ramirez - 07/Noviembre/2023)
+-----
+Se añadio la columna de LSC , para la eleccion del valor que LSC ejecute sobre el precio 
+
+v1.3: (Cristhian Ramirez - 10/Noviembre/2023)
+-----
+Se añade los cambiso de LSC, columnas 
+
+v1.4: (Cristhian Ramirez - 13/Noviembre/2023)
+-----
+Se quita varios filtros y se añade lo que es el calculo automatico que se origina desde el cambio de margen y se calcula el factor costo y el precio sugerido
+
+v1.5: (Cristhian Ramirez - 15/Noviembre/2023)
+-----
+Se añadio un hilo para el guardado , se modifico las funciones de guardados 
+
+v1.6: (Cristhian Ramirez - 17/Noviembre/2023)
+-----
+Se añadio el cierre del hilo del guardado para la nueva actualziacion
+
+v1.7: (Cristhian Ramirez - 20/Noviembre/2023)
+-----
+Se modifico lo que es la visualizacion del precio sugerido del primero y el ultimo pedido , se realiza la formula FACTOR COSTO X EL COSTO EL UNITARIO DEL ITEM EN LOS PEDIDOS
+
+v1.8: (Cristhian Ramirez - 21/Noviembre/2023)
+-----
+Se modifico el mensaje de error
+
+v1.9: (Cristhian Ramirez - 21/Noviembre/2023)
+-----
+Se modifico para que guarde lo que es el precio de venta, solo modificando la columna sin seleccionar ningun check
+
+v1.10: (Cristhian Ramirez - 28/Noviembre/2023)
+-----
+Se añadelos procesos de visualizacion de los 2 ultimos ingresos que se realizaron 
+
+v1.11: (Cristhian Ramirez - 29/Noviembre/2023)
+-----
+Se añade la validacion para que si se ingresa en el campo de precio de venta se coloca vacio ,tome el valor como 0 a nivel de precio de venta
+
+v1.12: (Cristhian Ramirez - 30/Noviembre/2023)
+-----
+Se modifica lo que es el textod de la columna de costo del penultimo y del ultimo , ademas se hace el proceso para que se muestre el costo dependiendo si es visualizado por kilos o no
+
+v1.14: (Cristhian Ramirez - 12/Diciembre/2023)
+-----
+Se modifica a 2 decimales redondeado hacia arriba con respecto a la columa factor costo.
+
+v1.15: (Cristhian Ramirez - 19/Diciembre/2023)
+-----
+Se añade las columnas de check factor porcentual y la de check del factor porcentual, ademas se añade un formulario en donde se ingresa el factor.
+
+v1.16: (Cristhian Ramirez - 20/Diciembre/2023)
+-----
+Se modifico la visualizacion del nuevo formulario de ingreso de factor porcentual, se modifico lo que es el calculo para la generacion del primer y ultimo pedido
+
+v1.17: (Cristhian Ramirez - 21/Diciembre/2023)
+-----
+Revision de procesos.
+
+v1.18: (Cristhian Ramirez - 17/Enero/2024)
+-----
+Se añade lo que es el nuevo formulario de consulta de items 
+
+v1.19: (Cristhian Ramirez - 1/Enero/2024)
+-----
+Actualizacion de la consulta
+
+v1.20: (Cristhian Ramirez - 22/Enero/2024)
+-----
+Se modifica la consulta con respecto a las bodgas
+
+v1.21: (Cristhian Ramirez - 22/Enero/2024)
+-----
+Actualizacion de la consulta
+
+v1.22: (Cristhian Ramirez - 24/Enero/2024)
+-----
+Se modifica la descripcion del campo de precio.
+
+
+
+v1.24: (Cristhian Ramirez - 20/Febrero/2024)
+-----
+Se modifica la consulta para que pueda realizar el query con respecto al campo de codigo de zafiro en gp
+
+v1.25: (Cristhian Ramirez - 04/Marzo/2024)
+-----
+Se añade lo que es un color cuando el valor del precio sugerido es maor al precio de venta
+
+v1.26: (Cristhian Ramirez - 18/Marzo/2024)
+-----
+Se añade lo rerente a que se actualice el campo de DEX_ROW_TS, para poder generar la sincronizacion
+
+v1.27: (Cristhian Ramirez - 20/Marzo/2024)
+-----
+Se añade lo que es la configuracion para que pueda obtener el campo de mostrarListaPrecio que hace referencia a los filtros que se realizan en el proceso de mostrar
+
+v1.28: (Cristhian Ramirez - 17/Abril/2024)
+-----
+Se realiza la modificacion sobre el porcentaje de 12  a 15 del iva, se realiza la modificacion a la columna Pre.Vta.Rea.Kil.(IVA) 
+
+v1.29: (Cristhian Ramirez - 08/Mayo/2024)
+-----
+Se realiza el proceso de generacion de agrupacion 
+
+v1.30: (Cristhian Ramirez - 10/Mayo/2024)
+-----
+Se sube la version
+
+v1.31: (Cristhian Ramirez - 10/Mayo/2024)
+-----
+Se actualiza lo que es la conexion
+
+v1.32: (Cristhian Ramirez - 10/Mayo/2024)
+-----
+Se actualiza lo que es la conexion
+
+v1.33: (Cristhian Ramirez - 10/Junio/2024)
+-----
+Se modifica el calculo para el 15 % de iva con respecto a los campos de calculo manual a utomatcios LSC
+
+v1.34: (Cristhian Ramirez - 17/Mayo/2024)
+-----
+Se activo la funcionalidad de crear -modificar grupos con respecto a la seleccion
+
+v1.35: (Cristhian Ramirez - 17/Mayo/2024)
+-----
+Se realizo la modificacion de consulta con respecto a las columna de calculo manual ,ademas se puso color al momento de la comparacion de ultimo pedido
+
+v1.36: (Cristhian Ramirez - 25/Julio/2024)
+-----
+Se obtiene el costo de un item desde sql server y s elo pone en la columna de costo
+
+v1.37: (Cristhian Ramirez - 29/Julio/2024)
+-----
+Se añade el color a las columnas compartidas de precio , cuando hay stock pero no hay precio
+
+v1.38: (Cristhian Ramirez - 12/Septiembre/2024)
+-----
+Se añade el proceso que cuando se vaya a modificar un item que esta dentro de una agrupacion se pueda guardar el resto de campos excepto el de los precios
+
+v1.40: (Cristhian Ramirez - 02/Octubre/2024)
+-----
+Se añade la consulta del campo de precios desde sql server
+
+v1.41: (Cristhian Ramirez - 03/Octubre/2024)
+-----
+Se quita la validacion para que no se pueda modificar un precio con respecto a que se detalle de un grupo  que no tenga precio de forma original
+
+v1.42: (Cristhian Ramirez - 19/Noviembre/2024)
+-----
+Se añade la obtenerpedido para la generacion de numero de pedido con su margen
+
+v1.43: (Cristhian Ramirez - 27/Diciembre/2024)
+-----
+Se añade lo que es consultar despues de guardar
+
+v1.44: (Cristhian Ramirez - 22/Enero/2025)
+-----
+SE ACTUALIZA
+
+v1.45: (Cristhian Ramirez - 16/Abril/2025)
+-----
+SE ACTUALIZA lo del stock con respecto a sql server
+
+v1.46: (Cristhian Ramirez - 21/Abril/2025)
+-----
+SE ACTUALIZA 
+
+v1.47: (Cristhian Ramirez - 11/Julio/2025)
+-----
+Se actualiza el proceso de guardado y de coloreo en las columnas
+
+v1.48: (Cristhian Ramirez - 21/Julio/2025)
+-----
+Se actualiza el proceso de seleccion en la cabecera de la columna de los check
+
+v1.49: (Cristhian Ramirez - 29/Agosto/2025)
+-----
+Se actualiza lo que es la fluctuacion
+
+v1.50: (Cristhian Ramirez - 16/Sept/2025)
+-----
+Se actualiza lo que es la agrupacion que no tenga facto en 0 o negativo :lsensi
+
+v1.51: (Cristhian Ramirez - 18/Sept/2025)
+-----
+SE ACTUALIZA 
+
+v1.52: (Cristhian Ramirez - 02/Oct/2025)
+-----
+Se quita lo de RECALCULAR.
+
+v1.53: (Cristhian Ramirez - 06/Oct/2025)
+-----
+Se añade lo que es el ocultamiento de columnas.
+
+v2.0: (Cristhian Ramirez - 27/Oct./2025)
+-----
+Se añade lo que es el proceso de KOnfiable
+
+v3.0: (Cristhian Ramirez - 23/Dic./2025)
+-----
+Se cambia lo que es la limite de consulta con repecto a la nota de pedido
+
+v4.0: (Cristhian Ramirez - 26/Dic./2025)
+-----
+SE ACTUALIZA 
+
+v4.1: (Cristhian Ramirez - 09/Ene./2026)
+-----
+SE ACTUALIZA 
+
+v4.2: (Cristhian Ramirez - 08/Abril./2026)
+-----
+SE ACTUALIZA 
+
+v4.3 (Cristhian Ramirez - 05/Mayo/2026)
+-----
+Se añade la actualizacion de a 5 decimales lo que es el precio
+
+v4.4 (Cristhian Ramirez - 30/Junio/2026)
+-----
+Se añade la validacion que cuando hay items inactivos no de error
+

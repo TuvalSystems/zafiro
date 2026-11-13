@@ -1,0 +1,10 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian - 29/Agosto/2024)
+----
+Clase nueva. Autorización de comisión.

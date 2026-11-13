@@ -1,0 +1,25 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Eddye Lino - 11/Feb/2006)
+----
+Se corrigi� problema de columnas ocultas. Las columnas ocultas no se estaban ocultando en el JTable de totales.
+
+
+v0.2: (Eddye Lino - 19/Feb/2006)
+-----
+Se agregaron los m�todos getValueAt() y setValueAt()
+
+
+v0.3: (Eddye Lino - 16/Abr/2006)
+-----
+Se agreg� c�digo para que la clase redondeara los totales a "n" decimales.
+Se agregaron los m�todos getNumeroDecimales() y setNumeroDecimales().
+
+v0.3.1: (Eddye Lino - 23/May/2011)
+-----
+Se adicionó método insertMoreRows(int numeroFilas). Este método es usado por el programa ZafCon13, especificamente en el Estado Resultados.

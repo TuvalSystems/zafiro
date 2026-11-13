@@ -1,0 +1,31 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Mario Marín - 25/Mar/2024)
+----
+Clase nueva.  
+
+v0.2: (Sayda Villalta Andrade - 24/Jul/2024)
+----
+Se habilita la ventana y se cambia conexion a Sql server para la consulta de los datos
+
+v0.3: (Sayda Villalta Andrade - 20/Agosto/2024)
+----
+Se corrige error de espacio en el combo del mes
+
+
+v0.4: (Sayda Villalta Andrade - 09/Septiembre/2024)
+----
+Se agrega union para consultar las comisiones tecnicas
+
+v0.5: (Sayda Villalta Andrade - 20/diciembre/2024)
+----
+Se add columnas % de la comision y tipo comision 
+
+v0.6: (Sayda Villalta Andrade - 13/abril/2025)
+----
+Se add tipo vendedor 4 para el caso del jefe region norte Fernando Sandoval

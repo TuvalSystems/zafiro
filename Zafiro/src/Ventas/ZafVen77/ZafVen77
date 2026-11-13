@@ -1,0 +1,18 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Jean Paúl Morán - 22/May/2026)
+----
+Programa para actualizar segmentos a clientes.
+Se puede consultar por todos, por segmento-vendedor-canal y por un cliente especifico.
+
+v0.2: (Jean Paúl Morán - 05/Nov/2026)
+----
+Se quita llamado a metodo ejecucionActualizacionAtributo que no deberia estar alli
+
+
+

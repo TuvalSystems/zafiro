@@ -1,0 +1,12 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (José Marín - 11/Nov/2019)
+----
+Clase nueva, para los permisos especiales de los usuarios. 
+
+ 

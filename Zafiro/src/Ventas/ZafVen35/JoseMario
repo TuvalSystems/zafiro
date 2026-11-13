@@ -1,0 +1,25 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (José Marín - 25/Nov/2019)
+----
+Clase nueva (Asignación de vendedores a las tablas de comision…).
+
+
+v0.02: (José Marín - 24/Ene/2020)
+----
+Se agrega una tabla, donde aparece el detalle de cada tabla de comision al ser seleccionada.
+
+
+v0.03: (José Marín - 19/Feb/2020)
+----
+Se agrega una validacion al guardar.
+
+
+v0.04: (José Marín - 12/Nov/2020)
+----
+Se agrega al query de la consulta que solo mire el registro Insertado.

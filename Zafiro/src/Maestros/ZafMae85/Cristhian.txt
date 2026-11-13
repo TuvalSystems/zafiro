@@ -1,0 +1,47 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (Cristhian - 12/Dic/2023)
+----
+Clase nueva. .
+v0.02: (Cristhian - 14/Dic/2023)
+----
+Se añadio lo que es los historicos
+
+v0.0: (Cristhian - 3/Enero/2024)
+----
+Se añade lo referente a la zafconfgp 
+
+v0.1: (Cristhian - 23/Enero/2024)
+----
+Se modifica la consulta
+
+
+v0.2: (Cristhian - 24/Enero/2024)
+----
+Se Actualiza
+
+v0.3: (Cristhian - 08/Febrero/2024)
+----
+Se Actualiza la consulta con respecto al item
+
+v0.4: (Cristhian - 08/Febrero/2024)
+----
+Se modifica la generacion del detalle incluyendo los campos de creacion-modificacion de usuario y fecha
+
+
+v0.5: (Cristhian - 03/Julio/2024)
+----
+se añade lo de compras
+
+v0.6: (Cristhian - 12/Septi/2024)
+----
+se añade la configuracion de peso u unidad
+
+
+
+

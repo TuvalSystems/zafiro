@@ -1,0 +1,23 @@
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Ingrid Lino - 11/Jun/2007)
+----
+Programa nuevo, que permite realizar "Cierre/Reapertura mensual del Sistema", este programa permite realizar cierres y 
+reaperturas por meses de un determinado a�o
+
+v0.1b2: (Ingrid Lino - 22/Ago/2007)
+----
+Se adicion� validaci�n que no permite insertar a�os menores al a�o 2006
+
+v0.2: (Ingrid Lino - 31/Dic/2008)
+----
+Se cambió línea "objTblBus= new ZafTblBus(tblDat);" a líneas después de haber asignado el modelo a la tabla.
+
+v0.2.1: (Dennis Betancourt - 20/Nov/2018)
+----
+Al dar click en el boton "Modificar", se va a efectuar el proceso de remayorizacion antes de realizar cierre/reapertura mensual.
+
+v0.2.2: (Dennis Betancourt - 22/Ene/2020)
+----
+En la funcion actualizarReg(), se agrego la linea "con.setAutoCommit(false)", porque cada vez que se presionaba el boton "Modificar" aparecia la excepcion "Cannot commit when autoCommit is enabled".

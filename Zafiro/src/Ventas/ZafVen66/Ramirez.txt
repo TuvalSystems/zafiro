@@ -1,0 +1,18 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez - 17/Julio/2023)
+----
+Clase nueva. Autorización de comisión.
+
+v0.2: (Cristhian Ramirez - 02/Enero/2024)
+----
+Modificación de mensaje
+
+v0.3: (Cristhian Ramirez - 28/Agosto/2025)
+----
+Se añade la nueva lista de precio en la fluctuacion

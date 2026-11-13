@@ -1,0 +1,40 @@
+﻿Pendientes:
+1)
+2)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (Jose Mario Marin - 14/Nov/2023)
+----
+Modificacion del programa ZafCom68. 
+
+
+ v0.02: (Jose Mario Marin - 14/Nov/2023)
+----
+Columnas que estaban ocultas, por error ahora son visibles, se agrega la columna de sugerencia de pedido segun nueva formula entregada por LSC. 
+
+
+ v0.03: (Jose Mario Marin - 19/Dic/2023)
+----
+Se crean nuevas columnas para frecuencias (Frecuencia por item, por linea, frecuencia la mejor de las dos), se configura la columna de exceso modificable, se crea
+una columna promedio de ventes teoricas, con un nuevo campo en tbm_inv, se bloqueo la columna de promedio de venta, se cambio de nombre a dicha columna y ahora es 
+promedio de ventas presupuesto, se crearon funciones para calcular el total de las columnas que se adicionaron, la funcion de subir datos se modifico, para que valide los datos 
+de no haber ningun dato no sera considerado. 
+
+
+ v0.04: (Jose Mario Marin - 2/Ene/2024)
+----
+Se corrigen los permisos, se estaban usando los permisos del programa anterior.
+Se ocultan las columnas de Notas de pedido previas, Stock pedImp 
+Se Agrega que guarde historico de items 
+Se quita el guardado de notas de pedido previas.
+
+
+ v0.05: (Jose Mario Marin - 4/Ene/2024)
+----
+Se oculta las columna de frecuencia que son calculos, se agrega la columna de inventario total, se modifican los calculos de las columnas de PPMin y PPMax .
+ 
+ v0.08: (Cristhian Ramirez - 16/Octubre/2023¿4)
+----
+Se realiza el cambio a sql server , ademas se tiene todo en consultas

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafSubRptRecHum10" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1"/>
+	<subDataset name="dataset2"/>
+	<parameter name="sql" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha" class="java.util.Date"/>
+	<parameter name="strCamAudRpt" class="java.lang.String"/>
+	<parameter name="cantotreg" class="java.lang.Integer"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:/Users/sistemas2/Documents/NetBeansProjects/Zafiro_escritorio/Reportes/RecursosHumanos/ZafRecHum37/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="co_ofi" class="java.lang.Integer"/>
+	<parameter name="tx_tiptra" class="java.lang.String"/>
+	<parameter name="fechaconalm" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * , case (ho_sal is null)  when true then null else '<---- OJO'  end as observacion
+
+from (
+SELECT c.co_emp,b.co_ofi,c.tx_nom as empresa,e.fe_dia,b.co_tra, (a.tx_ape || ' ' || a.tx_nom) as empleado, false as blnAut, d.tx_forRecAlm,
+d.nd_valAlm, d.st_autAlm, d.tx_obsAutAlm, d.fe_autAlm, d.co_usrAutAlm, d.tx_comAutAlm, b.nd_valalm as ndValAlmCon, f.tx_nom as oficina, b.tx_tiptra, g.*
+from tbm_tra a
+INNER JOIN tbm_traemp b on (b.co_tra=a.co_tra and b.st_reg='A')
+INNER JOIN tbm_emp c on (c.co_emp=b.co_emp)
+INNER JOIN tbm_calciu e on (e.co_ciu=1)
+LEFT OUTER JOIN tbm_cabconasitra d on (d.co_tra=b.co_tra and d.fe_dia=e.fe_dia)
+LEFT OUTER JOIN tbm_ofi f on (f.co_ofi=b.co_ofi)
+LEFT OUTER JOIN tbm_detconasitra g on (g.co_tra = d.co_tra and g.fe_dia=$P{fechaconalm} and g.co_reg =  1)
+WHERE e.fe_dia=$P{fechaconalm}
+AND ((d.st_recAlm='S'
+AND d.tx_forRecAlm='C'
+AND d.ho_ent is not null)
+or d.st_autAlm='S')
+
+
+ UNION
+
+SELECT c.co_emp,b.co_ofi,c.tx_nom as empresa,e.fe_dia,b.co_tra, (a.tx_ape || ' ' || a.tx_nom) as empleado, false as blnAut, d.tx_forRecAlm,
+d.nd_valAlm, d.st_autAlm, d.tx_obsAutAlm, d.fe_autAlm, d.co_usrAutAlm, d.tx_comAutAlm, b.nd_valalm as ndValAlmCon, f.tx_nom as oficina, b.tx_tiptra, g.*
+from tbm_tra a
+INNER JOIN tbm_traemp b on (b.co_tra=a.co_tra and b.st_reg='A')
+INNER JOIN tbm_emp c on (c.co_emp=b.co_emp)
+INNER JOIN tbm_calciu e on (e.co_ciu=1)
+LEFT OUTER JOIN tbm_cabconasitra d on (d.co_tra=b.co_tra and d.fe_dia=e.fe_dia)
+LEFT OUTER JOIN tbm_ofi f on (f.co_ofi=b.co_ofi)
+LEFT OUTER JOIN tbm_detconasitra g on (g.co_tra = d.co_tra and g.fe_dia=$P{fechaconalm} and g.co_reg =  1)
+WHERE e.fe_dia=$P{fechaconalm}
+AND d.tx_forRecAlm='C'
+AND d.ho_ent is not null
+
+
+ORDER BY co_emp, empleado) as x
+
+WHERE x.co_ofi = $P{co_ofi}
+AND x.tx_tiptra = $P{tx_tiptra}]]>
+	</queryString>
+	<field name="empleado" class="java.lang.String"/>
+	<field name="observacion" class="java.lang.String"/>
+	<variable name="fechaact_1" class="java.lang.Integer" resetType="Page" calculation="DistinctCount">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="15">
+			<staticText>
+				<reportElement x="36" y="0" width="277" height="14"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="36" y="0" width="277" height="17"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="0" width="26" height="18"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="313" y="0" width="100" height="18"/>
+				<textElement>
+					<font fontName="Arial Black" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{observacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

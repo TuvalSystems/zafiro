@@ -1,0 +1,25 @@
+﻿Pendientes:
+1) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Rosa Zambrano - 12/Sep/2017)
+----
+Clase nueva "Seguimiento de movimientos de importaciones..."
+
+
+v0.1.1: (Rosa Zambrano - 06/Oct/2017)
+-----
+Se presenta en el grupo de pedido embarcado el numero de pedido.
+Se realizan otras mejoras.
+
+
+v0.1.2: (Rosa Zambrano - 08/Ene/2018)
+-----
+Se agrega grupo de asiento de diario de provisión.
+
+v0.1.3: (Rosa Zambrano - 18/Abr/2019)
+-----
+Se agrega validación de compras locales e importaciones, para que lean el programa correcto.
+Este cambio se realiza debido a la segmentación de compras locales.

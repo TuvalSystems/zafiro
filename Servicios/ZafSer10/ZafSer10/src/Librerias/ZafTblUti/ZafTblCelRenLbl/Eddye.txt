@@ -1,0 +1,26 @@
+Pendientes:
+1) 
+2) 
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Eddye Lino - 01/Jul/2006)
+----
+Se cambió el color del borde de la celda seleccionada para que sea más visible.
+
+
+v0.2: (Eddye Lino - 30/Oct/2008)
+----
+Se agregó listener a la clase para que se pudiera configurar el renderizador. Por ejemplo:
+se necesitaba ponerle color de fondo a las celdas de cietas filas, cambiarle el tipo de fuente, etc.
+Se agregaron los métodos: 
+   1) addTblCelRenListener(ZafTblCelRenListener listener)
+   2) removeTblCelRenListener(ZafTblCelRenListener listener)
+   3) fireTblCelRenListener(ZafTblCelRenEvent evt, int metodo)
+   4) getRowRender()
+   5) getColumnRender()
+Se corrigió el método: 
+   1) getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+

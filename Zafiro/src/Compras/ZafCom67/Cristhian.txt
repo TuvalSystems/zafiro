@@ -1,0 +1,10 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.10: (Cristhian Ramirez - 20/Oct/2026)
+-----
+Se quita la vista disponible y se usa el sp sp_Consulta_Disponible_Items_Bodegas_BIN_ZAFCOM67

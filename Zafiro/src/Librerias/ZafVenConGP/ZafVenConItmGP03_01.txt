@@ -1,0 +1,46 @@
+Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez - 17/Enero/2023¿4)
+----
+Clase nueva. 
+
+v0.2: (Cristhian Ramirez - 22/Enero/2024)
+----
+Se modifico lo que es la consulta
+
+v0.3: (Cristhian Ramirez - 22/Enero/2024)
+----
+Se modifico la consulta de lo que es el padra al hijo y que el hijo tambien pueda ser hijo
+
+v0.4: (Cristhian Ramirez - 20/Febrero/2024)
+----
+Se modific los parametros de la consulta de ITEMNMBR a ITMSHNAM
+
+v0.5: (Cristhian Ramirez - 04/Marzo/2024)
+----
+Se añade lo que es una funcion de ValidaAtributos que hace referencia si se uso o no los atributos en la consulta
+
+v0.6: (Cristhian Ramirez - 20/Marzo/2024)
+----
+Se añade lo que es la configuracion para que pueda obtener el campo de mostrarListaPrecio que hace referencia a los filtros que se realizan en el proceso de mostrar
+
+v0.7: (Cristhian Ramirez - 22/Octubre/2024)
+----
+Se actualiza
+
+v0.8: (Cristhian Ramirez - 26/Noviembre/2024)
+----
+Se pone la nueva funcionalidad de consultas de atributos
+
+v0.9: (Cristhian Ramirez - 09/Diciembre/2024)
+----
+Se pone la condicion de no visualizar los atributos padres: 'Clase','SubCompras','SubControl'
+
+v1.0: (Cristhian Ramirez - 10/Enero/2025)
+----
+Se añade lo referente a valvulas

@@ -1,0 +1,207 @@
+Pendientes:
+1)
+2)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Ingrid Lino - 07/Oct/2009)
+----
+Programa que permite configurar los parámetros de reposición(Grupo-2332 y Empresa-1662).
+
+
+v0.1.1: (Ingrid Lino - 22/Oct/2009)
+-----
+Se colocó LEFT OUTER JOIN en lugar de INNER JOIN cuando se toma en cuenta para el query la "clasificación"
+
+
+v0.1.2: (Ingrid Lino - 04/Feb/2010)
+-----
+Se corrigió que al seleccionar la opción de "Sólo mostrar items que tienen stock mínimo sugerido" estaba tomando el nd_stkMin y no nd_stkMinSug.
+
+
+v0.1.3: (Ingrid Lino - 21/Jun/2010)
+-----
+Se cambiaron los order by de los queries que presentan la información en la tabla de datos del reporte(estaban por co_itm, ahora tx_codAlt)
+
+
+v0.1.4: (Ingrid Lino - 08/Dic/2010)
+-----
+Se adicionó el permiso de botones, antes no estaba verificando si el usuario tenia o no permisos para opciones Consultar, Guardar, Cerrar.
+
+
+v0.1.5: (Ingrid Lino - 10/Dic/2010)
+-----
+Se quitó la edición de columnas si es q no se cuenta con el permiso para GUARDAR.
+
+
+v0.2: (Ingrid Lino - 10/Jun/2011)
+-----
+Se adicionaron criterios de calculo de valor a reponer, promedios mensuales, minimos y maximos.
+
+
+v0.2.1: (Ingrid Lino - 16/Jun/2011)
+-----
+Se adiciono restricciones faltantes, valores en blanco(pasa al siguiente campo - fijo,manual, calculado ), en cero(cuando es cero la reposicion es de valor "0")
+
+
+v0.2.2: (Ingrid Lino - 01/Jul/2011)
+-----
+Se adiciono calculo de minimo y maximo, valores a reponer para cuando se cambia el numero de meses a reponer de un determinado item.
+
+
+v0.2.3: (Ingrid Lino - 18/Jul/2011)
+-----
+Al valor fijo se le quito el cálculo de mínimo y máximo, debe ser valor fijo.
+
+
+v0.2.4: (Ingrid Lino - 30/Sep/2011)
+-----
+Se da la opción que se quite valor por completo en valor manual(antes si se lo borraba se guardaba como "0" y eso daba como problema q no generaba por calculado.
+
+
+v0.2.5: (Ingrid Lino - 30/Sep/2011)
+-----
+Se adiciona opción para ocultar columnas de históricos de ventas(Solicitado por Fernando Ruiz)
+
+
+v0.2.6: (José Marín - 19/Nov/2014)
+-----
+Se cambia la formula para el calculo del Promedio mensual calculado menusual, pasa a ser total de unidades / Numero de meses 
+
+
+v0.2.7: (José Marín - 19/Nov/2014)
+-----
+Se agrega al filtro no se muestre ningun item de servicio
+
+
+v0.2.8: (Ingrid Lino - 05/Dic/2014)
+-----
+Se agregan en "Configuración de inventario desde otras bodegas" los códigos "S". Solicitado por Alfredo Paulson y Werner Campoverde.
+
+
+v0.2.9: (Ingrid Lino - 28/Ene/2015)
+-----
+Se agrega la columna para presentar Stock Actual de la Bodega Centro de Distribución(Inmaconsa).
+
+
+v0.3: (Ingrid Lino - 22/Jun/2015)
+-----
+Se cambia el esquema de presentación de información en Histórico de Ventas para cuando la bodega es Inmaconsa(15) que es centro de distribución. Sólo cuando es Inmaconsa se debe presentar no sólo la información de 
+la Bodega Inmaconsa, sino que se debe presentar la información de (California, Vía a Daule, Quito, Manta, Santo Domingo, Cuenca e Inmaconsa).
+
+
+v0.3.1: (Ingrid Lino - 06/Ago/2015)
+-----
+Se cambia el tipo de dato aceptado por el elemento número de meses a reponer, antes sólo valor entero, ahora permite valores decimales.
+
+
+v0.3.2: (Ingrid Lino - 06/Ago/2015)
+-----
+Se añade objUti.codificar() para campo nd_numMesRep.
+
+
+v0.3.3: (Ingrid Lino - 20/Ago/2015)
+-----
+Se añade columna que muestra la cantidad disponible de la bodega centro de distribución
+
+
+v0.3.4: (Ingrid Lino - 20/Ago/2015)
+-----
+En la columna de disponible del centro de distribución no se presenta el valor de disponible directamente, sino que se presenta validado con la cantidad a reponer
+Ejm:
+    Cant.Rep.   Cant.Disp. 
+    5           200         Se debe presentar en lugar de 200 -> 5
+    5           4           Se debe presentar en lugar de 200 -> 4
+    5           5           Se debe presentar                 -> 5
+Se cambia la validación de cantidad disponible grupo del centro de distribución de MAXIMA a MINIMA.
+Solicitado por Werner Campoverde.
+
+
+v0.3.5: (Rosa Zambrano - 25/Ene/2016)
+-----
+Se habilita la opción de copiar y pegar en la columna Pro.Man., solicitado por el Ing.Werner Campoverde 02-Oct-2015.
+
+
+v0.3.6: (Ingrid Lino - 20/Oct/2016)
+-----
+Se quita el valor acumulado de histórico de ventas cuando la bodega es Inmaconsa(Se estaba colocando como valor la suma de ventas de California+Quito+Manta+SantoDomingo+Cuenca+Inmaconsa). Solicitado por Werner Campoverde.
+
+v0.3.7: (Ingrid Lino - 21/Nov/2016)
+-----
+Se adiciona columnas de disponible de stock.
+
+v0.3.8: (Ingrid Lino - 22/Nov/2016)
+-----
+Corrección de error al momento de consultar
+
+v0.3.9: (Ingrid Lino - 12/Nov/2019)
+-----
+Se agrega nuevo esquema de filtro de item. Solicitado por WC a través de Eddye
+
+
+v0.4: (Jose Mario Marin - 17/Ene/2023)
+-----
+Modificaciones para conectarse con GP 
+ 
+
+v0.41: (Jose Mario Marin - 17/Mar/2023)
+-----
+Modificaciones solicitadas por LSC, se agrego columnas para comparar los maximos y minimos antes de hacer cambios 
+
+
+v0.42: (Jose Mario Marin - 15/Abr/2023)
+-----
+Se cambia el codigo generico, por el codigo alterno, del GP cambio temporal hasta cambiarnos de proveedor, solicitado por el Ing Werner. 
+
+
+v0.43: (Jose Mario Marin - 27/Abr/2023)
+-----
+Se modifica, de donde toma las columnas para guardar los maximos y minimos. 
+
+
+v0.44: (Jose Mario Marin - 16/Jul/2023)
+-----
+Se modifica para que la consulta para que muestre el codigo de 3 Letras con el nuevo proveedor. 
+
+v0.45: (Cristhian Ramirez - 28/Dic/2023)
+-----
+Se realiza la insercion de la columa de saldo de inventario por cada uno de los filtros
+
+v0.46: (Cristhian Ramirez - 03/Enero/2024)
+-----
+Se realiza la insercion de la tabla fija en donde se puede visualizar lo que es los datos por defecto del item, ademas se añade dos filtros mas , meses y veces
+ 
+v0.47: (Cristhian Ramirez - 12/Enero/2024)
+-----
+Se añadio a la consulta final lo que es el (NO LOCK)
+
+v0.48: (Cristhian Ramirez - 24/Enero/2024)
+-----
+Se actualiza
+
+v0.49: (Cristhian Ramirez - 26/Enero/2024)
+-----
+Se actualiza lo que es la visualzicion de la columna
+
+v0.50: (Cristhian Ramirez - 21/Febrero/2024)
+-----
+Se añade lo que es la opcion de cargar archivo , en donde se puede ingresar los items a cargar, se divide en res columnas
+    *   Item= es el codigo GP
+    *   Min = es un valor minimo 
+    *   Max = es un valor maximo
+    *   Promedio = es el promedio manual del item
+Se añade lo que es la visualizacion del stock anterior 
+Se añade la visualizcion continua del stock si en el caso de que el mes siguiente no tiene stock se procede a usar el stock anterior
+
+v0.51: (Cristhian Ramirez - 14/Agosto/2025)
+-----
+Se actualiza las validaciones del archivo
+    *   Item= es el codigo 3L
+    *   Min = es un valor minimo 
+    *   Max = es un valor maximo
+
+v0.52: (Cristhian Ramirez - 14/Agosto/2025)
+-----
+Se modifica el mensaje en donde se visualiza lo referente a los items inactivos
+

@@ -1,0 +1,10 @@
+Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Denis Toledo - 23/Jul/2024)
+----
+Clase nueva. Copia de ZafVenConGP para que trabaje con MySQL. 

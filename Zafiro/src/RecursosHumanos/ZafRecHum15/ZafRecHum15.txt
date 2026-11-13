@@ -1,0 +1,22 @@
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Roberto Flores- 22/Nov/2012)
+----
+Clase nueva
+  - "Roles de pago (Pagado)(Por empleado)..."
+  - "BM (Pagado)(Por empleado)..."
+Roles de pago: Novedades (Quincena y fin de mes)...
+
+
+v1.1: (Rosa Zambrano - 11/Abr/2019)
+-----
+Se realizan cambios para JaspersoftStudio. 
+
+v1.2: (Jean Moran - 01/Oct/2025)
+-----
+Se realizan cambios en cargarDat():
+  - En ciertos rubros el valor se multiplicaba por 100 y se descuadraba el rol
+  - Se agregó query para que muestre comisiones, extension conyugal , semana integral y otros ingresos.
+  - A query existente de egresos se agregó rubro de Retención Judicial co_rub = 36

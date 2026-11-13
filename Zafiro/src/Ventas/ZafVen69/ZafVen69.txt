@@ -1,0 +1,30 @@
+
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.01: (Sayda Villalta - 04/Julio/2024)
+----
+Clase nueva (Asignación de clientes a vendedores GP …). Conexion a Sql server
+
+
+v0.03: (Sayda Villalta - 17/Julio/2024)
+----
+Se agrega el filtro de local en combo y se agrega el filtro de grupo economico, se carga los vendedores dependiendo del local que se seleccione y ya no por el local del usuario logueado.
+se puede quitar los permisos de la preconfiguracion.
+
+v0.04: (Sayda Villalta - 24/Julio/2024)
+----
+Mejora en la ventana el combo paso a ser filtro y ya no parte de la opcion del reporte.
+
+v0.05: (Sayda Villalta - 29/Julio/2024)
+----
+Agregar el check para filtrar clientes que hayan comprado alguna vez.
+
+v0.06: (Sayda Villalta - 25/Octubre/2024)
+----
+se corrije error al consultar local quito norte
+
+v0.07: (Sayda Villalta - 12/11/2024)
+----
+Se quita el check por defecto de Clientes que hayan comprado alguna vez y se add el vendedor oficina y se omite vendedores tecnicos

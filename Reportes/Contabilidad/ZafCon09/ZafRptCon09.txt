@@ -1,0 +1,4 @@
+v0.1: (Ingrid Lino - 28/Oct/2010)
+----
+
+Se cambia reporte de cheques a uno solo. Se cambia a clase ZafRpt

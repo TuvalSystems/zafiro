@@ -1,0 +1,13 @@
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Roberto Flores- 24/Ago/2012)
+----
+Clase nueva "Listado de almuerzos y meriendas por horas suplementarias/extraordinarias..."
+Para ingresar el Listado de Meriendas.
+
+
+v1.1: (Rosa Zambrano - 11/Abr/2019)
+-----
+Se realizan cambios para JaspersoftStudio. 

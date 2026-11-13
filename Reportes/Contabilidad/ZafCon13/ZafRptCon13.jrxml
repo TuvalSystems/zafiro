@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ZafRptCon13" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="39" bottomMargin="39">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="codEmp" class="java.lang.Integer"/>
+	<parameter name="fecCor" class="java.lang.Integer"/>
+	<parameter name="cboNiv" class="java.lang.Integer"/>
+	<parameter name="nivRep" class="java.lang.String"/>
+	<parameter name="nomEmp" class="java.lang.String"/>
+	<parameter name="nomRep" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="aniCor" class="java.lang.Integer"/>
+	<parameter name="chkSel" class="java.lang.Integer"/>
+	<parameter name="tipRep" class="java.lang.Integer"/>
+	<parameter name="salTotMen" class="java.math.BigDecimal" isForPrompting="false"/>
+	<parameter name="salTotAcu" class="java.math.BigDecimal" isForPrompting="false"/>
+	<parameter name="titTot" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="aniIniCor" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="nomMes" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="strCamAudRpt" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT a1.co_cta, a1.ne_niv, a1.ne_pad, a1.tx_codCta
+, LPAD(a1.tx_desLar, LENGTH(a1.tx_desLar) + (a1.ne_niv-1)*8, ' ') AS tx_desLar
+, a2.nd_salCta AS nd_salMen
+, a3.nd_salCta AS nd_salAcu
+--, to_char(a2.nd_salCta, 'FM999,999,999.90') AS nd_salMen
+--, to_char(a3.nd_salCta, 'FM999,999,999.90') AS nd_salAcu
+, a1.tx_niv1
+FROM
+(
+	SELECT b1.co_emp, b1.co_cta, b2.ne_niv, b2.ne_pad, b2.tx_codCta, b2.tx_desLar, SPLIT_PART(b2.tx_codCta, '.', 1) AS tx_niv1
+	FROM tbm_plaCta AS b1
+	INNER JOIN tbm_salCta AS b2 ON (b1.co_emp=b2.co_emp AND b1.co_cta=b2.co_cta)
+	--WHERE b1.co_emp=1 AND b2.co_per=201901
+	WHERE b1.co_emp=$P{codEmp} AND b2.co_per=$P{fecCor}
+	ORDER BY b2.tx_codCta
+) AS a1
+INNER JOIN tbm_salCta AS a2 ON (a1.co_emp=a2.co_emp AND a1.co_cta=a2.co_cta)
+LEFT OUTER JOIN
+(
+	SELECT b1.co_emp
+	, b1.tx_niv1
+	|| (CASE WHEN b1.tx_niv2 IS NULL THEN '' ELSE '.' || b1.tx_niv2 END)
+	|| (CASE WHEN b1.tx_niv3 IS NULL THEN '' ELSE '.' || b1.tx_niv3 END)
+	|| (CASE WHEN b1.tx_niv4 IS NULL THEN '' ELSE '.' || b1.tx_niv4 END)
+	|| (CASE WHEN b1.tx_niv5 IS NULL THEN '' ELSE '.' || b1.tx_niv5 END)
+	|| (CASE WHEN b1.tx_niv6 IS NULL THEN '' ELSE '.' || b1.tx_niv6 END)
+	|| (CASE WHEN b1.tx_niv7 IS NULL THEN '' ELSE '.' || b1.tx_niv7 END)
+	|| (CASE WHEN b1.tx_niv8 IS NULL THEN '' ELSE '.' || b1.tx_niv8 END)
+	AS tx_codCta
+	, b1.nd_salCta
+	FROM
+	(
+		SELECT DISTINCT c2.co_emp, c2.tx_niv1, c2.tx_niv2, c2.tx_niv3, c2.tx_niv4, c2.tx_niv5, c2.tx_niv6, c2.tx_niv7, c2.tx_niv8
+		, SUM(c1.nd_salCta) AS nd_salCta
+		FROM tbm_salCta AS c1
+		INNER JOIN
+		(
+			SELECT d1.co_emp, d1.co_cta, d1.tx_tipCta, d1.tx_codCta AS tx_codCtaPlaCta, d2.tx_codCta AS tx_codCtaSalCta
+			, SPLIT_PART(d2.tx_codCta, '.', 1) AS tx_niv1
+			, SPLIT_PART(d2.tx_codCta, '.', 2) AS tx_niv2
+			, SPLIT_PART(d2.tx_codCta, '.', 3) AS tx_niv3
+			, SPLIT_PART(d2.tx_codCta, '.', 4) AS tx_niv4
+			, SPLIT_PART(d2.tx_codCta, '.', 5) AS tx_niv5
+			, SPLIT_PART(d2.tx_codCta, '.', 6) AS tx_niv6
+			, SPLIT_PART(d2.tx_codCta, '.', 7) AS tx_niv7
+			, SPLIT_PART(d2.tx_codCta, '.', 8) AS tx_niv8
+			FROM tbm_plaCta AS d1
+			INNER JOIN tbm_salCta AS d2 ON (d1.co_emp=d2.co_emp AND d1.co_cta=d2.co_cta)
+			--WHERE d1.co_emp=1 AND d2.co_per=201901
+			WHERE d1.co_emp=$P{codEmp} AND d2.co_per=$P{fecCor}
+			ORDER BY d2.tx_codCta
+		) AS c2 ON (c1.co_emp=c2.co_emp AND c1.co_cta=c2.co_cta)
+		--WHERE c1.co_emp=1 AND c1.co_per<=201901 --Balance General
+		--WHERE c1.co_emp=1 AND c1.co_per>=201901 AND c1.co_per<=201901 --Estado de resultados
+		WHERE c1.co_emp=$P{codEmp} AND (CASE WHEN $P{tipRep}=1 THEN c1.co_per<=$P{fecCor} ELSE c1.co_per>=$P{aniIniCor} AND c1.co_per<=$P{fecCor} END)
+		--WHERE c1.co_emp=1          AND (CASE WHEN 0=1          THEN c1.co_per<=201901     ELSE c1.co_per>=201901 AND c1.co_per<=201901)           END)
+		AND c2.tx_tipCta='D'
+		--AND c2.tx_niv1 IN ('1', '2', '3') --Balance General
+		--AND c2.tx_niv1 NOT IN ('1', '2', '3') --Estado de resultados
+		AND (CASE WHEN $P{tipRep}=1 THEN c2.tx_niv1 IN ('1', '2', '3') ELSE c2.tx_niv1 NOT IN ('1', '2', '3') END)
+		GROUP BY ROLLUP(c2.co_emp, c2.tx_niv1, c2.tx_niv2, c2.tx_niv3, c2.tx_niv4, c2.tx_niv5, c2.tx_niv6, c2.tx_niv7, c2.tx_niv8)
+		HAVING SUM(c1.nd_salCta)<>0
+		ORDER BY c2.tx_niv1, c2.tx_niv2, c2.tx_niv3, c2.tx_niv4, c2.tx_niv5, c2.tx_niv6, c2.tx_niv7, c2.tx_niv8
+	) AS b1
+	ORDER BY tx_codCta
+) AS a3 ON (a1.co_emp=a3.co_emp AND a1.tx_codCta=a3.tx_codCta)
+--WHERE a1.co_emp=1 AND a2.co_per=201901
+WHERE a1.co_emp=$P{codEmp} AND a2.co_per=$P{fecCor}
+--AND a1.tx_niv1 IN ('1', '2', '3') --Balance General
+--AND a1.tx_niv1 NOT IN ('1', '2', '3') --Estado de resultados
+AND (CASE WHEN $P{tipRep}=1 THEN a1.tx_niv1 IN ('1', '2', '3') ELSE a1.tx_niv1 NOT IN ('1', '2', '3') END)
+--AND a1.ne_niv<=8
+AND a1.ne_niv<=$P{cboNiv}
+--AND (a2.nd_salCta<>0 OR a3.nd_salCta<>0)
+AND (CASE WHEN $P{chkSel}=1 THEN (a2.nd_salCta<>0 OR a3.nd_salCta<>0) ELSE true END)
+ORDER BY a1.tx_codCta]]>
+	</queryString>
+	<field name="co_cta" class="java.lang.Integer"/>
+	<field name="ne_niv" class="java.lang.Integer"/>
+	<field name="ne_pad" class="java.lang.Integer"/>
+	<field name="tx_codcta" class="java.lang.String"/>
+	<field name="tx_deslar" class="java.lang.String"/>
+	<field name="nd_salmen" class="java.math.BigDecimal"/>
+	<field name="nd_salacu" class="java.math.BigDecimal"/>
+	<field name="tx_niv1" class="java.lang.String"/>
+	<group name="totales">
+		<groupExpression><![CDATA[null]]></groupExpression>
+		<groupHeader>
+			<band splitType="Stretch"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="22" splitType="Stretch">
+				<rectangle radius="0">
+					<reportElement key="colBarDet-1" mode="Opaque" x="0" y="5" width="535" height="16" forecolor="#CCCCCC" backcolor="#00CCCC"/>
+					<graphicElement fill="Solid">
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+					</graphicElement>
+				</rectangle>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement key="txtSalMen-1" mode="Transparent" x="376" y="4" width="79" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{salTotMen}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement key="txtSalAcu-1" mode="Transparent" x="456" y="4" width="79" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+						<font fontName="SansSerif" size="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{salTotAcu}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="false">
+					<reportElement key="txtTitTot" x="0" y="4" width="374" height="16"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{titTot}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="1" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-1" x="0" y="0" width="533" height="18"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nomEmp}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-2" x="0" y="17" width="533" height="18"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nomRep}+ " A " + $P{nomMes} + " DEL AÑO " + $P{aniCor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<rectangle radius="5">
+				<reportElement key="fonBarCab" mode="Opaque" x="0" y="3" width="535" height="22" forecolor="#000000" backcolor="#FFFFFF"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement key="lblNumCta" mode="Transparent" x="2" y="5" width="96" height="18" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Numero Cuenta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblNomCta" mode="Transparent" x="99" y="5" width="276" height="18" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Nombre de Cuenta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblSalMen" mode="Transparent" x="376" y="5" width="76" height="18" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Valor Mensual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblSalAcu" mode="Transparent" x="454" y="5" width="79" height="18" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Valor Acumulado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<rectangle radius="0">
+				<reportElement key="colBarDet" mode="Opaque" x="0" y="2" width="535" height="14" forecolor="#CCCCCC" backcolor="#CCFFFF"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="txtNumCta" mode="Transparent" x="2" y="1" width="96" height="14" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_codcta}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement key="txtSalMen" mode="Transparent" x="376" y="1" width="79" height="14" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{nd_salmen}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<reportElement key="txtSalAcu" mode="Transparent" x="456" y="1" width="79" height="14" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" lineSpacing="Single">
+					<font fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{nd_salacu}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="txtNomCta" x="99" y="1" width="276" height="14"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tx_deslar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="5" width="532" height="14"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{strCamAudRpt} + " v0.3"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="2" width="533" height="1"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="1" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="1" splitType="Stretch"/>
+	</summary>
+</jasperReport>

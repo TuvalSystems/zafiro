@@ -1,0 +1,37 @@
+Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v 0.01: (Jose Mario Marin - 20/Mar/2018)
+----
+Clase nueva.
+ 
+
+v 0.02: (Jose Mario Marin - 23/Mar/2018)
+----
+Modificacion sobre la consulta.
+
+v 0.03: (Denis Toledo - 10/Oct/2023)
+----
+Modificacion sobre la consulta.
+
+
+v0.05: (Denis Toledo - 26/Ene/2024)
+----
+Se agrega metodos para migrar datos de OD.
+
+
+v0.06: (Denis Toledo - 22/May/2024)
+----
+Se agrega metodos para migrar datos de Traslados Ventas.
+
+v0.07: (Denis Toledo - 01/Jul/2024)
+----
+Se agrega metodos para migrar datos de Traslados Reposiciones y Reposiciones Cabecera.
+
+v0.08: (Denis Toledo - 02/Jul/2024)
+----
+Se agregaron columnas a las tablas de orden despacho y pedidos

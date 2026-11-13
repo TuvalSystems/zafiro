@@ -1,0 +1,68 @@
+﻿Pendientes:
+1)  
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian - 25/Mar/2019)
+----
+Clase nueva. Autorización de comisión.
+
+v0.02: (Cristhian - 05/Diciembre/2023)
+----
+Modificacion del formulario con respecto a arrastrar de una tabla a otra
+
+v0.3: (Cristhian - 25/Mar/2024)
+----
+Se modifica lo que es proceso con respecto a los siguientes puntos:
+    Añadir factores
+    Añadir mostrar lista de precio
+    Creacion de factores
+    , mostrar en lista de precio
+
+v0.4: (Cristhian - 11/Abril/2024)
+----
+Se modifica el formulario 83_3 en donde se procede a ingresar los procesos de anulacion  modificacion de factores
+
+v0.5: (Cristhian - 10/Mayo/2024)
+----
+Se modifica la conexion
+
+v0.6: (Cristhian - 20/Mayo/2024)
+----
+Se modifica la generacion del detalle incluyendo los campos de creacion-modificacion de usuario y fecha
+
+v0.7: (Cristhian - 04/Junio/2024)
+----
+Se modifica lo que es el diseño del formulario
+
+v0.8: (Cristhian - 04/Junio/2024)
+----
+Se modifica lo que es el diseño del formulario
+
+v0.9: (Cristhian - 04/Junio/2024)
+----
+Se modifica lo que es el diseño del formulario
+
+v0.10: (Cristhian - 04/Junio/2024)
+----
+Se modifica lo que es el diseño del formulario
+
+v0.10: (Cristhian - 03/Julio/2024)
+----
+se añade lo de compras
+
+v0.11: (Cristhian - 08/Sept/2024)
+----
+Se actualiza
+
+v0.12: (Cristhian - 12/Sept/2024)
+----
+Se actualiza para guardar el nuevo campo de configuracion para peso o unidad
+
+v0.14: (Cristhian - 02/Octubre/2024)
+----
+Se actualiza
+
+

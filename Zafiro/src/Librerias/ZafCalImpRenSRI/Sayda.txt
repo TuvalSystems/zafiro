@@ -1,0 +1,4 @@
+v0.1  (10-Enero2025
+  clase nueva para el calculo del impuesto a la renta ( devuelve el valor a retenerse al trabajador)
+
+  

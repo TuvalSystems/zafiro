@@ -1,0 +1,31 @@
+﻿Pendientes:
+1) 
+2) 
+3) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v1.0: (Cristhian Ramirez - 30/Mayo/2024)
+----
+Clase nueva
+
+v1.1: (Cristhian Ramirez - 13/Junio/2024)
+----
+Se añade las clases 
+    getPrecioGrupoDet
+    ActualizarPrecioGrupo
+    ActualizaRegistro
+    ValidaGrupo
+
+v1.2: (Cristhian Ramirez - 04/Octubre/2024)
+----
+Se actualiza
+
+v1.3: (Cristhian Ramirez - 22/Enero/2025)
+----
+Se actualiza
+
+v1.4: (Cristhian Ramirez - 05/Febrero/2025)
+----
+Se añade validaciones para lo que es la agrupacion de items y de atributos

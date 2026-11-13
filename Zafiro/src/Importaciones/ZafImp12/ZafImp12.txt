@@ -1,0 +1,14 @@
+Pendientes:
+1)
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Rosa Zambrano - 25/Jun/2018)
+----
+Nuevo programa "Reporte de importaciones con informacion de pedidos".
+
+
+v0.1.1: (Rosa Zambrano - 27/Jun/2018)
+-----
+Se cambia la consulta para que solo muestre los pedidos consolidados.

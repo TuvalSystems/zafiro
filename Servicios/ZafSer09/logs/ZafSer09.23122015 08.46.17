@@ -1,0 +1,50 @@
+************************************************
+class Proceso.ZafSer09 Version:v2.12
+Hora de ejecución del proceso: 23-dic-2015 08:46:17
+************************************************
+Conexion: jdbc:postgresql://172.16.8.7:5432/dbCosenco_21_Dic_2015     Correo:0
+2.7-update tbm_ingegrmentra set nd_valrub = NULL where co_tra = 4 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 36.5 where co_tra = 18 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 38.3 where co_tra = 28 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = NULL where co_tra = 41 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = NULL where co_tra = 42 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 37.17 where co_tra = 49 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 41.4 where co_tra = 58 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 43.3 where co_tra = 73 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 38.0 where co_tra = 96 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = NULL where co_tra = 135 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 31.19 where co_tra = 198 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 29.43 where co_tra = 241 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 64.74 where co_tra = 243 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 35.4 where co_tra = 290 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 55.99 where co_tra = 305 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 35.4 where co_tra = 326 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = NULL where co_tra = 330 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 23.69 where co_tra = 332 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 50.57 where co_tra = 341 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 41.37 where co_tra = 344 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 12.67 where co_tra = 359 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 34.83 where co_tra = 370 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 40.46 where co_tra = 376 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 12.07 where co_tra = 385 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 35.4 where co_tra = 391 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 35.4 where co_tra = 401 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 41.19 where co_tra = 404 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 56.19 where co_tra = 423 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 37.88 where co_tra = 428 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 40.0 where co_tra = 436 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 89.65 where co_tra = 444 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 35.4 where co_tra = 446 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 33.71 where co_tra = 449 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 23.6 where co_tra = 450 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 34.64 where co_tra = 469 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 31.95 where co_tra = 470 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 35.24 where co_tra = 473 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 33.67 where co_tra = 474 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 35.84 where co_tra = 486 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 35.4 where co_tra = 493 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 23.6 where co_tra = 495 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 35.4 where co_tra = 516 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 35.4 where co_tra = 518 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 37.65 where co_tra = 530 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null
+2.7-update tbm_ingegrmentra set nd_valrub = 47.43 where co_tra = 554 and ne_ani = 2015 and ne_mes = 12 and ne_per = 0 and co_rub = 2 and co_emp = 1 and st_rolPagGen is null

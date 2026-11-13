@@ -1,0 +1,289 @@
+private boolean cargarDetReg() {
+        boolean blnRes = true;
+        GregorianCalendar calRanIni = new GregorianCalendar();
+        GregorianCalendar calRanFin = new GregorianCalendar();
+        SimpleDateFormat sdfFecha = new SimpleDateFormat("EEE, dd/MM/yyyy");
+        try {
+            pgrSis.setIndeterminate(true);
+            butCon.setText("Detener");
+            lblMsgSis.setText("Obteniendo datos...");
+            con = DriverManager.getConnection(objParSis.getStringConexion(), objParSis.getUsuarioBaseDatos(), objParSis.getClaveBaseDatos());
+            if (con != null && txtCodTra.getText().compareTo("") != 0) {
+                calRanIni.set(Integer.valueOf(cboPerAAAA.getSelectedItem().toString()), cboPerMes.getSelectedIndex(), -2);
+                calRanFin.set(Integer.valueOf(cboPerAAAA.getSelectedItem().toString()), cboPerMes.getSelectedIndex() + 1, -3);
+                stm = con.createStatement();
+                
+                int mes = cboPerMes.getSelectedIndex() +1 ;
+                int anio = Integer.valueOf(cboPerAAAA.getSelectedItem().toString());
+
+                strConSQL = "AND DATE(a1.fe_sol) BETWEEN (SELECT fe_des FROM tbm_feccorrolpag WHERE co_emp=1 AND ne_ani = "+anio+"  AND ne_mes = "+mes+" AND ne_per = 1) AND\n"
+                         +  "                            (SELECT fe_has FROM tbm_feccorrolpag WHERE co_emp=1 AND ne_ani = "+anio+"  AND ne_mes = "+mes+" AND ne_per = 2)\n" ;
+                if (txtCodTra.getText().length() > 0) {
+                    strConSQL += " AND a2.co_tra=" + txtCodTra.getText();
+                }
+
+                //Armar la sentencia SQL.
+                strSQL = "";
+                strSQL += "SELECT a1.co_emp, a1.co_loc, a1.co_tipDoc, a1.co_doc,a1.ne_numDoc, a6.tx_desLar,\n"
+                        + "	to_char(a1.fe_sol, 'YYYY-MM-DD') as fe_sol,\n"
+                        + "	to_char(a4.ho_ent, 'HH12:MI:SS')as entrada,to_char(a4.ho_sal, 'HH24:MI:SS') as salida, a1.ho_solDes, a1.ho_solHas,\n"
+                        + "	a1.ho_autDes, a1.ho_autHas,a5.ho_ent,a5.ho_sal,\n"
+                        + "	(case when ((a1.ho_autdes)<(a5.ho_ent)) then a5.ho_ent else a1.ho_autdes end) as horaExEnt,\n"
+                        + "	(case when ((a1.ho_authas)<(a5.ho_sal)) then a1.ho_authas else a5.ho_sal end) as horaExSal,\n"
+                        + "	(case when EXTRACT(DOW FROM a1.fe_sol) in(6,0) then 'Extraordinaria' else 'Suplementaria' end) as tipoHora,\n"  //Se agregó el día domingo como extraordinaria anteriormente solo estaban los sabados. Tony
+                        + "     CASE WHEN  a1.st_aut = 'T' AND  a5.ho_ent IS NOT NULL AND  a5.ho_sal IS NOT NULL THEN\n"
+                        + "		(\n"
+                        + "		  EXTRACT(EPOCH FROM ( \n"
+                        + "		     CASE  \n"
+                        + "		       WHEN ( a1.ho_authas <=  a5.ho_sal) AND ( a1.ho_autdes <=  a5.ho_ent) THEN ( a1.ho_authas -  a5.ho_ent) \n"
+                        + "		       WHEN ( a1.ho_authas >=  a5.ho_sal) AND ( a1.ho_autdes >=  a5.ho_ent) THEN ( a5.ho_sal   -  a1.ho_autdes) \n"
+                        + "		       WHEN ( a1.ho_authas <=  a5.ho_sal) AND ( a1.ho_autdes >=  a5.ho_ent) THEN ( a1.ho_authas -  a1.ho_autdes) \n"
+                        + "		       WHEN ((ho_authas)>=( a5.ho_sal)) AND ((ho_autdes)<=( a5.ho_ent)) THEN ( a5.ho_sal- a5.ho_ent) \n"
+                        + "		       ELSE ( a5.ho_sal -  a1.ho_autdes) \n"
+                        + "		     END \n"
+                        + "		  )) / 60.0 \n"
+                        + "		) \n"
+                        + "	      ELSE NULL \n"
+                        + "	    END AS minutosTotales, \n"
+                        + "     CASE WHEN  a1.st_aut = 'T' AND  a5.ho_ent IS NOT NULL AND  a5.ho_sal IS NOT NULL THEN\n"
+                        + "		(\n"                       
+                        + "		  CASE  \n"
+                        + "		    WHEN ( a1.ho_authas <=  a5.ho_sal) AND ( a1.ho_autdes <=  a5.ho_ent) THEN ( a1.ho_authas -  a5.ho_ent) \n"
+                        + "		    WHEN ( a1.ho_authas >=  a5.ho_sal) AND ( a1.ho_autdes >=  a5.ho_ent) THEN ( a5.ho_sal   -  a1.ho_autdes) \n"
+                        + "		    WHEN ( a1.ho_authas <=  a5.ho_sal) AND ( a1.ho_autdes >=  a5.ho_ent) THEN ( a1.ho_authas -  a1.ho_autdes) \n"
+                        + "		    WHEN ((ho_authas)>=( a5.ho_sal)) AND ((ho_autdes)<=( a5.ho_ent)) THEN ( a5.ho_sal- a5.ho_ent) \n"
+                        + "		    ELSE ( a5.ho_sal -  a1.ho_autdes) \n"
+                        + "		  END \n"                        
+                        + "		) \n"
+                        + "	      ELSE NULL \n"
+                        + "	    END AS horas, \n"
+                        + "a8.nd_porpag as por_pagar\n"
+                        + "FROM ( \n"
+                        + "	    SELECT co_emp, co_loc, co_tipdoc, co_doc, ne_numdoc, fe_doc, co_dep, fe_sol, st_aut, ho_authas, st_reg, fe_aut, ho_autdes, ho_soldes, ho_solhas\n"
+                        + "	    FROM tbm_cabSolHorSupExt \n"
+                        + "	    WHERE ((ho_autDes > '00:00' AND ho_autHas < '06:00') OR (ho_autDes >= '06:00' AND ho_autHas <= '24:00')) \n"
+                        + "	    AND st_reg = 'A' \n"
+                        + "	    UNION ALL \n"
+                        + "	    SELECT co_emp, co_loc, co_tipdoc, co_doc, ne_numdoc,fe_doc, co_dep, fe_sol, st_aut, CAST('06:00' AS TIME) AS ho_authas, st_reg, fe_aut, ho_autdes, ho_soldes, ho_solhas \n"
+                        + "	    FROM tbm_cabSolHorSupExt \n"
+                        + "	    WHERE ho_autDes < '06:00' AND ho_autHas >= '06:00' AND st_reg = 'A' \n"
+                        + "	    UNION ALL \n"
+                        + "	    SELECT co_emp, co_loc, co_tipdoc, co_doc, ne_numdoc,fe_doc, co_dep, fe_sol, st_aut, ho_authas, st_reg, fe_aut, CAST('06:00' AS TIME) AS ho_autdes, ho_soldes, ho_solhas \n"
+                        + "	    FROM tbm_cabSolHorSupExt \n"
+                        + "	    WHERE ho_autDes < '06:00' AND ho_autHas >= '06:00' AND st_reg = 'A' \n"
+                        + "	) AS a1 \n"
+                        + "INNER JOIN tbm_detSolHorSupExt AS a2 ON (a1.co_emp=a2.co_emp AND a1.co_loc=a2.co_loc AND a1.co_tipDoc=a2.co_tipDoc AND a1.co_doc=a2.co_doc)\n"
+                        + "INNER JOIN TBM_TRAeMP as a3 on (a3.co_tra=a2.co_tra and a3.co_emp = 1)\n"
+                        + "LEFT JOIN tbm_detHorTra as a4 on(a4.co_hor=a3.co_hor AND a4.ne_dia = ((EXTRACT(DOW FROM a1.fe_sol)::int + 6) % 7) + 1)\n"
+                        + "INNER JOIN tbm_cabConAsiTra AS a5 ON (a2.co_tra=a5.co_tra AND a1.fe_sol=a5.fe_dia) \n"
+                        + "INNER JOIN tbm_cabTipDoc as a6 on (a1.co_tipDoc=a6.co_tipDoc and a1.co_emp=a6.co_emp and a1.co_loc=a6.co_loc) \n"
+                        + "LEFT JOIN tbm_callab a7 ON (a5.fe_dia=a7.fe_dia AND a7.co_hor=a3.co_hor)\n"
+                        + "INNER JOIN tbm_porPagHorSupExt a8             \n"
+                        + "	  ON a8.tx_tiphorpag IN \n"
+                        + "	  (CASE \n"
+                        + "		 WHEN (EXTRACT(DOW FROM a5.fe_dia) IN (1,2,3,4,5) AND a7.st_dialab='S' \n"
+                        + "		       AND a1.ho_autdes BETWEEN ho_des AND ho_has \n"
+                        + "		       AND a1.ho_authas BETWEEN ho_des AND ho_has) \n"
+                        + "		 THEN 'S' ELSE 'E' \n"
+                        + "	       END \n"
+                        + "        )\n"                        
+                        + "WHERE a1.st_reg='A' AND a5.ho_ent IS not null AND a5.ho_sal is not null\n ";
+                strSQL += strConSQL;
+                strSQL += " ORDER BY fe_sol;";
+                rst = stm.executeQuery(strSQL);
+                System.out.println("cargarDetReg: \n"+strSQL);
+
+                //Limpiar vector de datos.
+                vecDat.clear();
+                //Obtener los registros.
+                lblMsgSis.setText("Cargando datos...");
+                //Metodo para verificar si en la hora obtenida de lunes a viernes se trabajo en horario de 00:00 a 06:00 que eso equivale a horas extraordinarias
+                DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+                String horaExtDes = "00:00:00";
+                String horaExtHas = "06:00:00";
+                String horaNueva = "";
+
+                Date dateExtDes, dateExtHas, dateNueva;
+                dateExtDes = dateFormat.parse(horaExtDes);
+                dateExtHas = dateFormat.parse(horaExtHas);
+
+                while (rst.next()) {
+                    java.util.Vector vecReg = new java.util.Vector();
+                    vecReg.add(INT_TBLD_LIN, "");
+                    vecReg.add(INT_TBLD_CODEMP, rst.getString("co_emp"));
+                    vecReg.add(INT_TBLD_CODLOC, rst.getString("co_loc"));
+                    vecReg.add(INT_TBLD_CODTIPDOC, rst.getString("co_tipDoc"));
+                    vecReg.add(INT_TBLD_TIPDOC, rst.getString("tx_desLar"));
+                    vecReg.add(INT_TBLD_CODDOC, rst.getString("co_doc"));
+                    vecReg.add(INT_TBLD_NUMDOC, rst.getString("ne_numDoc"));
+                    vecReg.add(INT_TBLD_FECDOC, sdfFecha.format(rst.getDate("fe_sol")));
+                    vecReg.add(INT_TBLD_BUTSOL, "...");
+                    vecReg.add(INT_TBLD_HORENT, rst.getString("entrada"));
+                    vecReg.add(INT_TBLD_HORSAL, rst.getString("salida"));
+                    vecReg.add(INT_TBLD_SOLDES, rst.getString("ho_solDes"));
+                    vecReg.add(INT_TBLD_SOLHAS, rst.getString("ho_solHas"));
+                    vecReg.add(INT_TBLD_AUTDES, rst.getString("ho_autDes"));
+                    vecReg.add(INT_TBLD_AUTHAS, rst.getString("ho_autHas"));
+                    vecReg.add(INT_TBLD_MARENT, rst.getString("ho_ent"));
+                    vecReg.add(INT_TBLD_MARSAL, rst.getString("ho_sal"));
+                    if (rst.getString("ho_ent") != null) {
+                        vecReg.add(INT_TBLD_CALHORDES, rst.getString("horaExEnt"));
+                    } else {
+                        vecReg.add(INT_TBLD_CALHORDES, "");
+                    }
+                    if (rst.getString("ho_sal") != null) {
+                        vecReg.add(INT_TBLD_CALHORHAS, rst.getString("horaExSal"));
+                    } else {
+                        vecReg.add(INT_TBLD_CALHORHAS, "");
+                    }
+                    if (rst.getString("tipoHora").equals("Extraordinaria")) {
+                        vecReg.add(INT_TBLD_CALHORSUL, "00:00:00");
+                        vecReg.add(INT_TBLD_CALHOREXT, rst.getString("horas"));
+                    } else {
+
+                        horaNueva = rst.getString("horaExEnt");
+                        if (horaNueva != null) {
+                            dateNueva = dateFormat.parse(horaNueva);
+                            if ((dateExtDes.compareTo(dateNueva) <= 0) && (dateExtHas.compareTo(dateNueva) >= 0)) {
+                                String strHorasSobra = rst.getString("horas");
+                                String strHoras = restarHoras(horaNueva, horaExtHas);
+                                if (vecReg.get(INT_TBLD_CALHORDES) == "" || vecReg.get(INT_TBLD_CALHORHAS) == "") {
+                                    vecReg.add(INT_TBLD_CALHORSUL, "");
+                                    vecReg.add(INT_TBLD_CALHOREXT, "");
+                                } else {
+                                    vecReg.add(INT_TBLD_CALHORSUL, restarHoras(strHoras, strHorasSobra));
+                                    vecReg.add(INT_TBLD_CALHOREXT, restarHoras(horaNueva, horaExtHas));
+                                }
+                            } else {
+                                if (vecReg.get(INT_TBLD_CALHORDES) == "" || vecReg.get(INT_TBLD_CALHORHAS) == "") {
+                                    vecReg.add(INT_TBLD_CALHORSUL, "");
+                                    vecReg.add(INT_TBLD_CALHOREXT, "");
+                                } else {
+                                    vecReg.add(INT_TBLD_CALHORSUL, rst.getString("horas"));
+                                    vecReg.add(INT_TBLD_CALHOREXT, "00:00:00");
+                                }
+                            }
+                        } else {
+                            vecReg.add(INT_TBLD_CALHORSUL, "00:00:00");
+                            vecReg.add(INT_TBLD_CALHOREXT, "00:00:00");
+                        }
+
+                    }
+                    if (rst.getString("ho_ent") == null || rst.getString("ho_sal") == null) {
+                        vecReg.add(INT_TBLD_CALVAL, 0.00);
+                    } else {
+                        
+                        //System.out.println(txtSueEmp.getText().toString()+" - "+vecReg.get(INT_TBLD_CALHOREXT).toString()+" - "+vecReg.get(INT_TBLD_CALHORSUL).toString()+"\n");
+                        System.out.println(txtSueEmp.getText().toString()+" - "+ rst.getString("minutosTotales") +" - "+rst.getString("por_pagar"));
+                        vecReg.add(INT_TBLD_CALVAL, calculoHorasExtra2(txtSueEmp.getText().toString() , rst.getString("minutosTotales") , rst.getString("por_pagar") ) );                        
+                        //vecReg.add(INT_TBLD_CALVAL, calculoHorasExtra(txtSueEmp.getText().toString(), vecReg.get(INT_TBLD_CALHOREXT).toString(), vecReg.get(INT_TBLD_CALHORSUL).toString()));
+                    }
+                    vecDat.add(vecReg);
+                }
+                blnCon = true;
+                rst.close();
+                stm.close();
+                con.close();
+                rst = null;
+                stm = null;
+                con = null;
+                //Asignar vectores al modelo.
+                objTblMod.setData(vecDat);
+                tblDat.setModel(objTblMod);
+                vecDat.clear();
+                //Calcular totales.
+                objTblTot.calcularTotales();
+                if (blnCon) {
+                    lblMsgSis.setText("Se encontraron " + tblDat.getRowCount() + " registros.");
+                } else {
+                    lblMsgSis.setText("Interrupción del usuario. Sólo se procesaron " + tblDat.getRowCount() + " registros.");
+                }
+                butCon.setText("Consultar");
+                pgrSis.setIndeterminate(false);
+            }
+        } catch (java.sql.SQLException e) {
+            blnRes = false;
+            objUti.mostrarMsgErr_F1(this, e);
+        } catch (Exception e) {
+            blnRes = false;
+            objUti.mostrarMsgErr_F1(this, e);
+        }
+        return blnRes;
+    }
+
+
+
+QUERY 
+==================
+
+SELECT a1.co_emp, a1.co_loc, a1.co_tipDoc, a1.co_doc, a1.ne_numdoc, a6.tx_desLar,
+	to_char(a1.fe_sol, 'YYYY-MM-DD') as fe_sol,
+	to_char(a4.ho_ent, 'HH12:MI:SS')as entrada,to_char(a4.ho_sal, 'HH24:MI:SS') as salida, a1.ho_solDes, a1.ho_solHas,
+	a1.ho_autDes, a1.ho_autHas,a5.ho_ent,a5.ho_sal,
+	(case when ((a1.ho_autdes)<(a5.ho_ent)) then a5.ho_ent else a1.ho_autdes end) as horaExEnt,
+	(case when ((a1.ho_authas)<(a5.ho_sal)) then a1.ho_authas else a5.ho_sal end) as horaExSal,
+	(case when EXTRACT(DOW FROM a1.fe_sol) in(6,0) then 'Extraordinaria' else 'Suplementaria' end) as tipoHora,
+     CASE WHEN  a1.st_aut = 'T' AND  a5.ho_ent IS NOT NULL AND  a5.ho_sal IS NOT NULL THEN
+		(
+		  EXTRACT(EPOCH FROM ( 
+		     CASE  
+		       WHEN ( a1.ho_authas <=  a5.ho_sal) AND ( a1.ho_autdes <=  a5.ho_ent) THEN ( a1.ho_authas -  a5.ho_ent) 
+		       WHEN ( a1.ho_authas >=  a5.ho_sal) AND ( a1.ho_autdes >=  a5.ho_ent) THEN ( a5.ho_sal   -  a1.ho_autdes) 
+		       WHEN ( a1.ho_authas <=  a5.ho_sal) AND ( a1.ho_autdes >=  a5.ho_ent) THEN ( a1.ho_authas -  a1.ho_autdes) 
+		       WHEN ((ho_authas)>=( a5.ho_sal)) AND ((ho_autdes)<=( a5.ho_ent)) THEN ( a5.ho_sal- a5.ho_ent) 
+		       ELSE ( a5.ho_sal -  a1.ho_autdes) 
+		     END 
+		  )) / 60.0 
+		) 
+	      ELSE NULL 
+	    END AS minutosTotales, 
+     CASE WHEN  a1.st_aut = 'T' AND  a5.ho_ent IS NOT NULL AND  a5.ho_sal IS NOT NULL THEN
+		(
+		  CASE  
+		    WHEN ( a1.ho_authas <=  a5.ho_sal) AND ( a1.ho_autdes <=  a5.ho_ent) THEN ( a1.ho_authas -  a5.ho_ent) 
+		    WHEN ( a1.ho_authas >=  a5.ho_sal) AND ( a1.ho_autdes >=  a5.ho_ent) THEN ( a5.ho_sal   -  a1.ho_autdes) 
+		    WHEN ( a1.ho_authas <=  a5.ho_sal) AND ( a1.ho_autdes >=  a5.ho_ent) THEN ( a1.ho_authas -  a1.ho_autdes) 
+		    WHEN ((ho_authas)>=( a5.ho_sal)) AND ((ho_autdes)<=( a5.ho_ent)) THEN ( a5.ho_sal- a5.ho_ent) 
+		    ELSE ( a5.ho_sal -  a1.ho_autdes) 
+		  END 
+		) 
+	      ELSE NULL 
+	    END AS horas, 
+a8.nd_porpag as por_pagar
+FROM (
+	    SELECT co_emp, co_loc, co_tipdoc, co_doc, ne_numdoc, fe_doc, co_dep, fe_sol, st_aut, ho_authas, st_reg, fe_aut, ho_autdes, ho_soldes, ho_solhas
+	    FROM tbm_cabSolHorSupExt
+	    WHERE ((ho_autDes > '00:00' AND ho_autHas < '06:00') OR (ho_autDes >= '06:00' AND ho_autHas <= '24:00'))
+	    AND st_reg = 'A'
+	    UNION ALL
+	    SELECT co_emp, co_loc, co_tipdoc, co_doc, ne_numdoc,fe_doc, co_dep, fe_sol, st_aut, CAST('06:00' AS TIME) AS ho_authas, st_reg, fe_aut, ho_autdes, ho_soldes, ho_solhas
+	    FROM tbm_cabSolHorSupExt
+	    WHERE ho_autDes < '06:00' AND ho_autHas >= '06:00' AND st_reg = 'A'
+
+	    UNION ALL
+	    SELECT co_emp, co_loc, co_tipdoc, co_doc, ne_numdoc,fe_doc, co_dep, fe_sol, st_aut, ho_authas, st_reg, fe_aut, CAST('06:00' AS TIME) AS ho_autdes, ho_soldes, ho_solhas
+	    FROM tbm_cabSolHorSupExt
+	    WHERE ho_autDes < '06:00' AND ho_autHas >= '06:00' AND st_reg = 'A'
+
+	) AS a1
+INNER JOIN tbm_detSolHorSupExt AS a2 ON (a1.co_emp=a2.co_emp AND a1.co_loc=a2.co_loc AND a1.co_tipDoc=a2.co_tipDoc AND a1.co_doc=a2.co_doc)
+INNER JOIN TBM_TRAeMP as a3 on (a3.co_tra=a2.co_tra and a3.co_emp = 1)
+LEFT JOIN tbm_detHorTra as a4 on(a4.co_hor=a3.co_hor AND a4.ne_dia = ((EXTRACT(DOW FROM a1.fe_sol)::int + 6) % 7) + 1)
+INNER JOIN tbm_cabConAsiTra AS a5 ON (a2.co_tra=a5.co_tra AND a1.fe_sol=a5.fe_dia) 
+INNER JOIN tbm_cabTipDoc as a6 on (a1.co_tipDoc=a6.co_tipDoc and a1.co_emp=a6.co_emp and a1.co_loc=a6.co_loc) 
+LEFT JOIN tbm_callab a7 ON (a5.fe_dia=a7.fe_dia AND a7.co_hor=a3.co_hor)
+INNER JOIN tbm_porPagHorSupExt a8             
+	  ON a8.tx_tiphorpag IN 
+	  (CASE 
+		 WHEN (EXTRACT(DOW FROM a5.fe_dia) IN (1,2,3,4,5) AND a7.st_dialab='S' 
+		       AND a1.ho_autdes BETWEEN ho_des AND ho_has 
+		       AND a1.ho_authas BETWEEN ho_des AND ho_has) 
+		 THEN 'S' ELSE 'E' 
+	       END 
+        )
+WHERE a1.st_reg='A' AND a5.ho_ent IS not null AND a5.ho_sal is not null
+ AND DATE(a1.fe_sol) BETWEEN (SELECT fe_des FROM tbm_feccorrolpag WHERE co_emp=1 AND ne_ani = 2025  AND ne_mes = 9 AND ne_per = 1) AND
+                            (SELECT fe_has FROM tbm_feccorrolpag WHERE co_emp=1 AND ne_ani = 2025  AND ne_mes = 9 AND ne_per = 2)
+ AND a3.co_tra=994 ORDER BY fe_sol;
+
+

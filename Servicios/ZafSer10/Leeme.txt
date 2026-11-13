@@ -1,0 +1,12 @@
+/****************** SERVICIO  ZafSer10 ***********************/
+CREA DOCUMENTO FINALES ENTRE COMPAÑIAS
+
+Convierte documentos intermedios de compra y venta entre empresas relacionadas a documentos finales INBOPR y EGBOPR.
+Este servicio realiza el proceso de crear documentos finales como son: 
+        Documentos Intermedios                        Documentos Finales
+             Facotu                      en                  InBoPr 
+	     Favetu                      en                  EgBoPr
+
+y se eliminan del sistema los intermedios prevaleciendo los finales. 
+Los documentos finales ya afectan en contabilidad.
+ 

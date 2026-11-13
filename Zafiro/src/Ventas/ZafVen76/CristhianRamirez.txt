@@ -1,0 +1,19 @@
+Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (Cristhian Ramirez - 23/Oct./2025)
+----
+Se realiza la creacion del formulario
+
+v0.2: (Cristhian Ramirez - 28/Mayo/2026)
+----
+Se añade lo que es la actualizacion de la RM00102
+
+
+
+
+

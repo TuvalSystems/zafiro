@@ -1,0 +1,34 @@
+﻿Pendientes:
+1) 
+2) 
+
+CONTROL DE VERSIONES:
+=====================
+
+v0.1: (José Flores - 31/Jul/2012)
+----
+Servicio nuevo.
+
+
+v0.2: (Eddye Lino - 04/Nov/2014)
+-----
+Se modificó el método: 
+   1) main(String[] args)
+Se agregó el biométrico de Cuenca.
+
+
+v0.3: (Christian Mateo - 28/Abr/2015)
+-----
+Se realiza la validación de que si los archivos .csv no tienen la misma cantidad de registros envie un correo y no permita subir las marcaciones hasta que se solucionen las diferencias.
+Se modifico la clase ZafSer08CINew,  validando que cuando existan registros de marcaciones de empleados generados por Autorizaciones de Solicitudes de Horas Extras antes de que se hayan subido las marcaciones del mismo, entonces se actualicen los campos de ho_ent y ho_sal.
+
+
+v0.4: (Tony Sanginez - 27/Nov/2015)
+-----
+Se realiza la validación para que los días domingos no se agreguen marcaciones vacias.
+
+
+v0.5: (Tony Sanginez - 11/Feb/2016)
+-----
+Se modifica el servicio para que al ingresar nuevas marcaciones se ingrese el codigo de horario con el horario de entrada y salida y los minutos de gracia.
+Se agrega en libreria tbm_tra.java el campo co_hor.
