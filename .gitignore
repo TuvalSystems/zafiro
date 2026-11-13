@@ -37,3 +37,6 @@ nbproject/private/
 hs_err_pid*
 Thumbs.db
 Desktop.ini
+
+# Distribucion ZIP de POI: conservar solo en el equipo local.
+/lib/Librerías POI (22_Nov_2021)/Nuevas/Zips/poi-bin-5.1.0-20211024.zip
